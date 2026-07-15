@@ -9,28 +9,47 @@ from pathlib import Path
 from .core import Database
 
 
-def test_repair() -> None:
+def make_incomplete_db(folder: str) -> Path:
+    db_file = Path(folder) / "repair.db"
+    conn = sqlite3.connect(db_file)
+    conn.executescript(
+        """
+        CREATE TABLE legislative_notices(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT,
+            notice_status TEXT
+        );
+        INSERT INTO legislative_notices(title,notice_status)
+        VALUES('시험 공고','진행 중');
+        """
+    )
+    conn.commit()
+    conn.close()
+    return db_file
+
+
+def test_repair_initialize() -> None:
     with tempfile.TemporaryDirectory() as folder:
-        db_file = Path(folder) / "repair.db"
-        conn = sqlite3.connect(db_file)
-        conn.executescript(
-            """
-            CREATE TABLE legislative_notices(
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                title TEXT,
-                notice_status TEXT
-            );
-            INSERT INTO legislative_notices(title,notice_status)
-            VALUES('시험 공고','진행 중');
-            """
-        )
-        conn.commit()
-        conn.close()
+        db_file = make_incomplete_db(folder)
+        Database(db_file)
+
+
+def test_repair_columns() -> None:
+    with tempfile.TemporaryDirectory() as folder:
+        db_file = make_incomplete_db(folder)
         db = Database(db_file)
         with db.connect() as checked:
             columns = Database._columns(checked, "legislative_notices")
             assert "status" in columns
             assert "official_url" in columns
+            assert "notice_key" in columns
+
+
+def test_repair_values() -> None:
+    with tempfile.TemporaryDirectory() as folder:
+        db_file = make_incomplete_db(folder)
+        db = Database(db_file)
+        with db.connect() as checked:
             row = checked.execute(
                 "SELECT status,notice_key FROM legislative_notices WHERE title='시험 공고'"
             ).fetchone()
@@ -103,7 +122,9 @@ def test_ui() -> None:
 def main() -> int:
     stage = sys.argv[1] if len(sys.argv) > 1 else "all"
     stages = {
-        "repair": test_repair,
+        "repair-init": test_repair_initialize,
+        "repair-columns": test_repair_columns,
+        "repair-values": test_repair_values,
         "records": test_records,
         "ui": test_ui,
     }
