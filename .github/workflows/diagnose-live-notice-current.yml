@@ -1,0 +1,62 @@
+name: Diagnose Current Notice API
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect current notice API
+        shell: pwsh
+        run: |
+          @'
+          import urllib.parse, urllib.request
+          import xml.etree.ElementTree as ET
+
+          endpoints = [
+              'https://opinion.lawmaking.go.kr/rest/ogLmPp.xml',
+              'https://www.lawmaking.go.kr/rest/ogLmPp.xml',
+          ]
+          variants = [
+              {'OC':'jungwonenc','diff':'0'},
+              {'OC':'jungwonenc','diff':'0','pageIndex':'1','recordCountPerPage':'1000'},
+              {'OC':'jungwonenc','diff':'0','page':'1','display':'1000'},
+          ]
+          for endpoint in endpoints:
+              for params in variants:
+                  url = endpoint + '?' + urllib.parse.urlencode(params)
+                  try:
+                      with urllib.request.urlopen(url, timeout=30) as response:
+                          raw = response.read()
+                      text = raw.decode('utf-8', errors='replace')
+                      print('URL', url)
+                      print('BYTES', len(raw), 'BUILDING_MATCH', '건축법 시행령' in text)
+                      try:
+                          root = ET.fromstring(raw)
+                          titles=[]
+                          for node in root.iter():
+                              values={child.tag.split('}')[-1]: (child.text or '').strip() for child in list(node)}
+                              title=values.get('lsNm') or values.get('법령안명') or ''
+                              if title:
+                                  titles.append(title)
+                          print('TITLE_COUNT', len(titles))
+                          for title in titles:
+                              if '건축법' in title:
+                                  print('MATCH_TITLE', title)
+                      except Exception as exc:
+                          print('XML_ERROR', repr(exc), text[:500])
+                  except Exception as exc:
+                      print('REQUEST_ERROR', url, repr(exc))
+          '@ | Set-Content diagnose_notice.py -Encoding UTF8
+          python diagnose_notice.py
