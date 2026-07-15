@@ -1,0 +1,65 @@
+from __future__ import annotations
+
+import ctypes
+import multiprocessing
+import os
+import sys
+import traceback
+from pathlib import Path
+
+from .core import APP_TITLE, app_root, log_dir, run_self_test
+
+
+def write_startup_error(text: str) -> list[Path]:
+    targets: list[Path] = []
+    for folder in (log_dir(), Path.cwd()):
+        try:
+            folder.mkdir(parents=True, exist_ok=True)
+            path = folder / "startup_error.txt"
+            path.write_text(text, encoding="utf-8")
+            targets.append(path)
+        except Exception:
+            continue
+    return targets
+
+
+def native_error_message(message: str) -> None:
+    if os.name == "nt":
+        try:
+            ctypes.windll.user32.MessageBoxW(0, message, APP_TITLE, 0x10)
+            return
+        except Exception:
+            pass
+    try:
+        print(message, file=sys.stderr)
+    except Exception:
+        pass
+
+
+def main() -> int:
+    multiprocessing.freeze_support()
+    if "--self-test" in sys.argv:
+        run_self_test()
+        return 0
+
+    try:
+        from .ui import MainWindow, create_application
+
+        application = create_application(sys.argv)
+        window = MainWindow()
+        window.show()
+        return int(application.exec())
+    except Exception:
+        details = traceback.format_exc()
+        paths = write_startup_error(details)
+        location = str(paths[0]) if paths else str(app_root())
+        native_error_message(
+            "프로그램 시작 중 오류가 발생했습니다.\n\n"
+            f"오류 기록: {location}\n\n"
+            f"{details[-1200:]}"
+        )
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
