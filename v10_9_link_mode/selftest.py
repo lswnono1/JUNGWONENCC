@@ -6,8 +6,10 @@ import sys
 import tempfile
 from pathlib import Path
 
+from .connection_patch import install_connection_patch
 from .migration_patch import install_patch
 
+install_connection_patch()
 install_patch()
 
 from .core import Database
