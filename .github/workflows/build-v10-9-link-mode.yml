@@ -26,7 +26,7 @@ jobs:
 
       - name: Compile source
         run: |
-          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py v10_9_link_mode/api_search_patch.py v10_9_link_mode/api_search_selftest.py v10_9_link_mode/enhancement_patch.py v10_9_link_mode/enhancement_selftest.py
+          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py v10_9_link_mode/api_search_patch.py v10_9_link_mode/api_search_selftest.py v10_9_link_mode/enhancement_patch.py v10_9_link_mode/enhancement_selftest.py v10_9_link_mode/actual_change_cleanup_patch.py v10_9_link_mode/actual_change_cleanup_selftest.py
 
       - name: Initialize incomplete database
         run: |
@@ -53,6 +53,12 @@ jobs:
         run: |
           $env:QT_QPA_PLATFORM = "offscreen"
           python -m v10_9_link_mode.enhancement_selftest
+
+      - name: Test false-positive amendment cleanup
+        shell: pwsh
+        run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
+          python -m v10_9_link_mode.actual_change_cleanup_selftest
 
       - name: Test user interface construction
         shell: pwsh
@@ -102,7 +108,7 @@ jobs:
           @"
           @echo off
           chcp 65001 >nul
-          echo === Jungwon Law Monitor v10.9 Daily Dashboard Diagnose === > diagnostic.txt
+          echo === Jungwon Law Monitor v10.9 Daily Fix Diagnose === > diagnostic.txt
           echo Date: %date% %time% >> diagnostic.txt
           echo Folder: %cd% >> diagnostic.txt
           set QT_QPA_PLATFORM=offscreen
@@ -115,7 +121,13 @@ jobs:
           "@ | Set-Content package\DIAGNOSE.cmd -Encoding ascii
 
           @"
-          정원이앤씨 법령·입법예고 모니터 v10.9 Link Mode Daily
+          정원이앤씨 법령·입법예고 모니터 v10.9 Link Mode Daily Fix
+
+          [이번 수정]
+          - 과거 기준선이 신규 개정으로 잘못 표시되는 문제 자동 정리
+          - 기존 잘못 분류된 행은 삭제하지 않고 신규·실제 개정 표시만 해제
+          - 관리대상, 법령 ID, 마지막 기준선은 그대로 유지
+          - 정리 이후 API에서 기준선이 실제로 달라진 경우만 신규 개정으로 표시
 
           [주요 기능]
           - 프로그램 실행 자동점검은 하루 한 번만 수행
@@ -130,13 +142,13 @@ jobs:
           [실행]
           1. ZIP을 새 폴더에 완전히 압축 해제합니다.
           2. START.cmd를 실행합니다.
-          3. 설정에서 국가법령정보 API OC와 입법예고 API OC를 확인합니다.
-          4. 수동 재점검은 상단의 '지금 개정 확인'을 누릅니다.
+          3. 기존 DB가 있으면 첫 실행 시 잘못 분류된 신규 개정 표시를 자동 정리합니다.
+          4. 설정에서 국가법령정보 API OC와 입법예고 API OC를 확인합니다.
 
           [사용자 데이터]
           %LOCALAPPDATA%\JungwonLawMonitor\database\law_monitor_v10_9_link_mode.db
 
-          기존 v10.9 DB와 전체 조문 자료는 삭제하거나 변경하지 않습니다.
+          기존 관리대상과 기준선은 삭제하거나 변경하지 않습니다.
           "@ | Set-Content package\사용방법.txt -Encoding UTF8
 
           @"
@@ -144,17 +156,18 @@ jobs:
           Commit: $env:GITHUB_SHA
           Python: 3.12
           Packaging: PyInstaller onedir
+          Fix: legacy false-positive amendment flags reset once
           "@ | Set-Content package\BUILD_INFO.txt -Encoding UTF8
 
-          Compress-Archive -Path package\* -DestinationPath JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip -Force
-          $hash = (Get-FileHash JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip -Algorithm SHA256).Hash.ToLower()
-          $hash | Set-Content JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip.sha256 -Encoding ascii
+          Compress-Archive -Path package\* -DestinationPath JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip -Force
+          $hash = (Get-FileHash JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip -Algorithm SHA256).Hash.ToLower()
+          $hash | Set-Content JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip.sha256 -Encoding ascii
           Write-Host "SHA256=$hash"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: JungwonLawMonitor-v10.9-LinkMode-Daily
+          name: JungwonLawMonitor-v10.9-LinkMode-Daily-Fix
           path: |
-            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip
-            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip.sha256
+            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip
+            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip.sha256
           retention-days: 90
