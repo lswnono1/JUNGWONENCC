@@ -14,6 +14,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Run API search tests
+        id: diag
         shell: pwsh
         continue-on-error: true
         run: |
@@ -22,8 +23,13 @@ jobs:
           "ExitCode: $code" | Set-Content api-search-diagnostic.txt -Encoding UTF8
           $output | Add-Content api-search-diagnostic.txt -Encoding UTF8
           Get-Content api-search-diagnostic.txt
+          $summary = (($output | Select-Object -Last 3) -join '_')
+          $summary = $summary -replace '[^A-Za-z0-9가-힣_-]', '_'
+          if ($summary.Length -gt 120) { $summary = $summary.Substring(0,120) }
+          if ([string]::IsNullOrWhiteSpace($summary)) { $summary = "no_output" }
+          "summary=$code-$summary" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - uses: actions/upload-artifact@v4
         with:
-          name: api-search-diagnostic
+          name: api-${{ steps.diag.outputs.summary }}
           path: api-search-diagnostic.txt
           retention-days: 7
