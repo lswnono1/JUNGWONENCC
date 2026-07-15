@@ -26,7 +26,7 @@ jobs:
 
       - name: Compile source
         run: |
-          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py v10_9_link_mode/api_search_patch.py v10_9_link_mode/api_search_selftest.py
+          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py v10_9_link_mode/api_search_patch.py v10_9_link_mode/api_search_selftest.py v10_9_link_mode/enhancement_patch.py v10_9_link_mode/enhancement_selftest.py
 
       - name: Initialize incomplete database
         run: |
@@ -48,6 +48,12 @@ jobs:
         run: |
           python -m v10_9_link_mode.api_search_selftest
 
+      - name: Test daily dashboard notice and catalog enhancements
+        shell: pwsh
+        run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
+          python -m v10_9_link_mode.enhancement_selftest
+
       - name: Test user interface construction
         shell: pwsh
         run: |
@@ -57,6 +63,7 @@ jobs:
       - name: Test combined launcher self-test
         shell: pwsh
         run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
           $env:JLM_DATA_ROOT = "$PWD\source-self-test"
           python launch_v10_9_link_mode.py --self-test
 
@@ -75,6 +82,7 @@ jobs:
       - name: Test built executable
         shell: pwsh
         run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
           $env:JLM_DATA_ROOT = "$PWD\exe-self-test"
           & "$PWD\dist\JungwonLawMonitor_v10_9_Link_Mode\JungwonLawMonitor_v10_9_Link_Mode.exe" --self-test
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -94,9 +102,10 @@ jobs:
           @"
           @echo off
           chcp 65001 >nul
-          echo === Jungwon Law Monitor v10.9 Link Mode Diagnose === > diagnostic.txt
+          echo === Jungwon Law Monitor v10.9 Daily Dashboard Diagnose === > diagnostic.txt
           echo Date: %date% %time% >> diagnostic.txt
           echo Folder: %cd% >> diagnostic.txt
+          set QT_QPA_PLATFORM=offscreen
           set JLM_DATA_ROOT=%cd%\diagnostic-data
           "%~dp0JungwonLawMonitor_v10_9_Link_Mode\JungwonLawMonitor_v10_9_Link_Mode.exe" --self-test
           echo ExitCode: %errorlevel% >> diagnostic.txt
@@ -106,23 +115,23 @@ jobs:
           "@ | Set-Content package\DIAGNOSE.cmd -Encoding ascii
 
           @"
-          정원이앤씨 법령·입법예고 모니터 v10.9 Link Mode
+          정원이앤씨 법령·입법예고 모니터 v10.9 Link Mode Daily
 
-          [주요 방식]
-          - v10.9형 대시보드, 관리대상, 개정사항, 입법예고, 설정, 점검기록 틀 유지
-          - 현행 법령은 공식 target=eflaw, 행정규칙은 target=admrul로 검색
-          - 법령 ID 조회, 제목 변형 검색, 법령·행정규칙 자동판별 지원
-          - 법령·행정규칙의 개정 메타정보와 입법예고 목록만 API로 조회
-          - 법규 조문, 별표, 첨부파일, 입법예고 본문은 저장하지 않음
-          - 목록 더블클릭 또는 공식 사이트 열기 버튼을 누를 때만 브라우저 연결
-          - 기존 v10.9 DB는 수정하지 않고 관리대상만 읽어 별도 경량 DB에 가져옴
+          [주요 기능]
+          - 프로그램 실행 자동점검은 하루 한 번만 수행
+          - 대시보드 수치 클릭 시 관리대상·점검 사용·신규 개정·신규 입법예고 목록 팝업
+          - 최근 개정사항은 실행일 기준 전후 30일, 설정에서 1~365일 변경 가능
+          - 관리대상 추가 시 국가법령정보센터 현행법령·행정규칙 유사검색 후 선택
+          - 최초 기준선은 개정사항 메뉴에서 제외하고 실제 변경만 표시
+          - 국민참여입법센터 공식 ogLmPp XML 필드 기준 입법예고 연동
+          - 법규 조문·별표·첨부파일·입법예고 본문은 저장하지 않음
+          - 상세 내용은 공식 사이트 링크로 확인
 
           [실행]
           1. ZIP을 새 폴더에 완전히 압축 해제합니다.
           2. START.cmd를 실행합니다.
           3. 설정에서 국가법령정보 API OC와 입법예고 API OC를 확인합니다.
-          4. 관리대상에서 필요한 법령·행정규칙을 확인합니다.
-          5. 지금 개정 확인을 누릅니다.
+          4. 수동 재점검은 상단의 '지금 개정 확인'을 누릅니다.
 
           [사용자 데이터]
           %LOCALAPPDATA%\JungwonLawMonitor\database\law_monitor_v10_9_link_mode.db
@@ -137,15 +146,15 @@ jobs:
           Packaging: PyInstaller onedir
           "@ | Set-Content package\BUILD_INFO.txt -Encoding UTF8
 
-          Compress-Archive -Path package\* -DestinationPath JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip -Force
-          $hash = (Get-FileHash JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip -Algorithm SHA256).Hash.ToLower()
-          $hash | Set-Content JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip.sha256 -Encoding ascii
+          Compress-Archive -Path package\* -DestinationPath JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip -Force
+          $hash = (Get-FileHash JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip -Algorithm SHA256).Hash.ToLower()
+          $hash | Set-Content JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip.sha256 -Encoding ascii
           Write-Host "SHA256=$hash"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: JungwonLawMonitor-v10.9-LinkMode
+          name: JungwonLawMonitor-v10.9-LinkMode-Daily
           path: |
-            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip
-            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip.sha256
+            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip
+            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily.zip.sha256
           retention-days: 90
