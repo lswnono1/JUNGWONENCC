@@ -1,0 +1,118 @@
+name: Build v10.9 Link Mode
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install PySide6 pyinstaller
+
+      - name: Source and database tests
+        shell: pwsh
+        run: |
+          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py
+          $env:JLM_DATA_ROOT = "$PWD\source-self-test"
+          python launch_v10_9_link_mode.py --self-test
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Build portable Windows program
+        shell: pwsh
+        run: |
+          pyinstaller `
+            --noconfirm `
+            --clean `
+            --windowed `
+            --onedir `
+            --contents-directory runtime `
+            --name JungwonLawMonitor_v10_9_Link_Mode `
+            launch_v10_9_link_mode.py
+
+      - name: Test built executable
+        shell: pwsh
+        run: |
+          $env:JLM_DATA_ROOT = "$PWD\exe-self-test"
+          & "$PWD\dist\JungwonLawMonitor_v10_9_Link_Mode\JungwonLawMonitor_v10_9_Link_Mode.exe" --self-test
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force package | Out-Null
+          Copy-Item -Recurse dist\JungwonLawMonitor_v10_9_Link_Mode package\JungwonLawMonitor_v10_9_Link_Mode
+
+          @"
+          @echo off
+          chcp 65001 >nul
+          start "" "%~dp0JungwonLawMonitor_v10_9_Link_Mode\JungwonLawMonitor_v10_9_Link_Mode.exe"
+          "@ | Set-Content package\START.cmd -Encoding ascii
+
+          @"
+          @echo off
+          chcp 65001 >nul
+          echo === Jungwon Law Monitor v10.9 Link Mode Diagnose === > diagnostic.txt
+          echo Date: %date% %time% >> diagnostic.txt
+          echo Folder: %cd% >> diagnostic.txt
+          set JLM_DATA_ROOT=%cd%\diagnostic-data
+          "%~dp0JungwonLawMonitor_v10_9_Link_Mode\JungwonLawMonitor_v10_9_Link_Mode.exe" --self-test
+          echo ExitCode: %errorlevel% >> diagnostic.txt
+          echo. >> diagnostic.txt
+          echo 진단이 끝났습니다. diagnostic.txt 파일을 확인하세요.
+          pause
+          "@ | Set-Content package\DIAGNOSE.cmd -Encoding ascii
+
+          @"
+          정원이앤씨 법령·입법예고 모니터 v10.9 Link Mode
+
+          [주요 방식]
+          - v10.9형 대시보드, 관리대상, 개정사항, 입법예고, 설정, 점검기록 틀 유지
+          - 법령·행정규칙의 개정 메타정보와 입법예고 목록만 API로 조회
+          - 법규 조문, 별표, 첨부파일, 입법예고 본문은 저장하지 않음
+          - 목록 더블클릭 또는 공식 사이트 열기 버튼을 누를 때만 브라우저 연결
+          - 기존 v10.9 DB는 수정하지 않고 관리대상만 읽어 별도 경량 DB에 가져옴
+
+          [실행]
+          1. ZIP을 새 폴더에 완전히 압축 해제합니다.
+          2. START.cmd를 실행합니다.
+          3. 설정에서 국가법령정보 API OC와 입법예고 API OC를 확인합니다.
+          4. 관리대상에서 필요한 법령·행정규칙을 확인합니다.
+          5. 지금 개정 확인을 누릅니다.
+
+          [사용자 데이터]
+          %LOCALAPPDATA%\JungwonLawMonitor\database\law_monitor_v10_9_link_mode.db
+
+          기존 v10.9 DB와 전체 조문 자료는 삭제하거나 변경하지 않습니다.
+          "@ | Set-Content package\사용방법.txt -Encoding UTF8
+
+          @"
+          Build: $env:GITHUB_RUN_ID
+          Commit: $env:GITHUB_SHA
+          Python: 3.12
+          Packaging: PyInstaller onedir
+          "@ | Set-Content package\BUILD_INFO.txt -Encoding UTF8
+
+          Compress-Archive -Path package\* -DestinationPath JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip -Force
+          $hash = (Get-FileHash JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip -Algorithm SHA256).Hash.ToLower()
+          $hash | Set-Content JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip.sha256 -Encoding ascii
+          Write-Host "SHA256=$hash"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: JungwonLawMonitor-v10.9-LinkMode
+          path: |
+            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip
+            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode.zip.sha256
+          retention-days: 90
