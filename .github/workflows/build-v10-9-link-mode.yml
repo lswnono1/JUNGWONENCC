@@ -26,7 +26,7 @@ jobs:
 
       - name: Compile source
         run: |
-          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py
+          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py v10_9_link_mode/api_search_patch.py v10_9_link_mode/api_search_selftest.py
 
       - name: Initialize incomplete database
         run: |
@@ -43,6 +43,10 @@ jobs:
       - name: Test metadata-only records
         run: |
           python -m v10_9_link_mode.selftest records
+
+      - name: Test official API search routing and fallback
+        run: |
+          python -m v10_9_link_mode.api_search_selftest
 
       - name: Test user interface construction
         shell: pwsh
@@ -106,6 +110,8 @@ jobs:
 
           [주요 방식]
           - v10.9형 대시보드, 관리대상, 개정사항, 입법예고, 설정, 점검기록 틀 유지
+          - 현행 법령은 공식 target=eflaw, 행정규칙은 target=admrul로 검색
+          - 법령 ID 조회, 제목 변형 검색, 법령·행정규칙 자동판별 지원
           - 법령·행정규칙의 개정 메타정보와 입법예고 목록만 API로 조회
           - 법규 조문, 별표, 첨부파일, 입법예고 본문은 저장하지 않음
           - 목록 더블클릭 또는 공식 사이트 열기 버튼을 누를 때만 브라우저 연결
