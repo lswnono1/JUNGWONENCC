@@ -29,12 +29,8 @@ jobs:
           "ExitCode: $code" | Set-Content launcher-diagnostic.txt -Encoding UTF8
           $output | Add-Content launcher-diagnostic.txt -Encoding UTF8
           Get-Content launcher-diagnostic.txt
-          $tail = (($output | Select-Object -Last 6) -join ' ') -replace '[^A-Za-z0-9가-힣_.:-]', '_'
-          if ($tail.Length -gt 120) { $tail = $tail.Substring(0,120) }
-          "artifact_name=launcher-$code-$tail" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-        id: diag
       - uses: actions/upload-artifact@v4
         with:
-          name: ${{ steps.diag.outputs.artifact_name }}
+          name: enhancement-launcher-diagnostic
           path: launcher-diagnostic.txt
           retention-days: 7
