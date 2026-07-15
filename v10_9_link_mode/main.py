@@ -29,6 +29,10 @@ from .period_notice_patch import apply_core_patch as apply_period_notice_core_pa
 
 apply_period_notice_core_patch()
 
+from .final_behavior_patch import apply_core_patch as apply_final_behavior_core_patch
+
+apply_final_behavior_core_patch()
+
 from .core import APP_TITLE, app_root, load_settings, log_dir, save_settings
 
 
@@ -58,6 +62,16 @@ def native_error_message(message: str) -> None:
         pass
 
 
+def _apply_ui_patches() -> None:
+    from .enhancement_patch import apply_ui_enhancements
+    from .period_notice_patch import apply_ui_patch as apply_period_notice_ui_patch
+    from .final_behavior_patch import apply_ui_patch as apply_final_behavior_ui_patch
+
+    apply_ui_enhancements()
+    apply_period_notice_ui_patch()
+    apply_final_behavior_ui_patch()
+
+
 def run_startup_smoke_test() -> int:
     """Verify the packaged program can construct and close its real main window."""
     os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
@@ -71,11 +85,8 @@ def run_startup_smoke_test() -> int:
     QListWidget.sizeHint = lambda self: QSize(170, 44)  # type: ignore[method-assign]
 
     from .ui import MainWindow, create_application
-    from .enhancement_patch import apply_ui_enhancements
-    from .period_notice_patch import apply_ui_patch as apply_period_notice_ui_patch
 
-    apply_ui_enhancements()
-    apply_period_notice_ui_patch()
+    _apply_ui_patches()
     application = create_application(["JungwonLawMonitor-self-test"])
     window = MainWindow()
     assert window.stack.count() == 6
@@ -108,11 +119,8 @@ def main() -> int:
         QListWidget.sizeHint = lambda self: QSize(170, 44)  # type: ignore[method-assign]
 
         from .ui import MainWindow, create_application
-        from .enhancement_patch import apply_ui_enhancements
-        from .period_notice_patch import apply_ui_patch as apply_period_notice_ui_patch
 
-        apply_ui_enhancements()
-        apply_period_notice_ui_patch()
+        _apply_ui_patches()
         application = create_application(sys.argv)
         window = MainWindow()
         window.show()
