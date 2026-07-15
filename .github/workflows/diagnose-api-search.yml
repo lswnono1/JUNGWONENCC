@@ -14,4 +14,16 @@ jobs:
         with:
           python-version: '3.12'
       - name: Run API search tests
-        run: python -m v10_9_link_mode.api_search_selftest
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          $output = python -m v10_9_link_mode.api_search_selftest 2>&1
+          $code = $LASTEXITCODE
+          "ExitCode: $code" | Set-Content api-search-diagnostic.txt -Encoding UTF8
+          $output | Add-Content api-search-diagnostic.txt -Encoding UTF8
+          Get-Content api-search-diagnostic.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: api-search-diagnostic
+          path: api-search-diagnostic.txt
+          retention-days: 7
