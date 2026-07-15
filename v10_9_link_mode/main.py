@@ -21,6 +21,10 @@ from .enhancement_patch import apply_core_enhancements
 
 apply_core_enhancements()
 
+from .actual_change_cleanup_patch import apply_patch as apply_actual_change_cleanup_patch
+
+apply_actual_change_cleanup_patch()
+
 from .core import APP_TITLE, app_root, load_settings, log_dir, save_settings
 
 
