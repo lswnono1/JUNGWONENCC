@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
   build:
@@ -25,48 +24,29 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install PySide6 pyinstaller
 
-      - name: Source and database tests
-        id: source_tests
+      - name: Compile source
+        run: |
+          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py
+
+      - name: Test incomplete database repair
+        run: |
+          python -m v10_9_link_mode.selftest repair
+
+      - name: Test metadata-only records
+        run: |
+          python -m v10_9_link_mode.selftest records
+
+      - name: Test user interface construction
         shell: pwsh
         run: |
-          $ErrorActionPreference = "Continue"
-          $lines = New-Object System.Collections.Generic.List[string]
+          $env:QT_QPA_PLATFORM = "offscreen"
+          python -m v10_9_link_mode.selftest ui
 
-          $compileOutput = python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py 2>&1
-          $compileCode = $LASTEXITCODE
-          $lines.Add("## py_compile")
-          $lines.Add("ExitCode: $compileCode")
-          foreach ($line in $compileOutput) { $lines.Add([string]$line) }
-
-          if ($compileCode -eq 0) {
-            $env:JLM_DATA_ROOT = "$PWD\source-self-test"
-            $testOutput = python launch_v10_9_link_mode.py --self-test 2>&1
-            $testCode = $LASTEXITCODE
-            $lines.Add("")
-            $lines.Add("## database self-test")
-            $lines.Add("ExitCode: $testCode")
-            foreach ($line in $testOutput) { $lines.Add([string]$line) }
-          } else {
-            $testCode = 999
-          }
-
-          $lines | Set-Content test-diagnostics.txt -Encoding UTF8
-          Get-Content test-diagnostics.txt
-          if ($compileCode -ne 0) { exit $compileCode }
-          if ($testCode -ne 0) { exit $testCode }
-
-      - name: Comment diagnostics on PR
-        if: failure() && github.event_name == 'pull_request'
+      - name: Test combined launcher self-test
         shell: pwsh
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
-          if (!(Test-Path test-diagnostics.txt)) {
-            "진단 파일이 생성되지 않았습니다." | Set-Content test-diagnostics.txt -Encoding UTF8
-          }
-          $body = "### v10.9 Link Mode 빌드 진단`n```text`n" + (Get-Content test-diagnostics.txt -Raw) + "`n```"
-          $body | Set-Content pr-comment.md -Encoding UTF8
-          gh pr comment ${{ github.event.pull_request.number }} --body-file pr-comment.md
+          $env:JLM_DATA_ROOT = "$PWD\source-self-test"
+          python launch_v10_9_link_mode.py --self-test
 
       - name: Build portable Windows program
         shell: pwsh
