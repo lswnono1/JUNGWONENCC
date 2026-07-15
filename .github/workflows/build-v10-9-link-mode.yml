@@ -28,9 +28,17 @@ jobs:
         run: |
           python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py
 
-      - name: Test incomplete database repair
+      - name: Initialize incomplete database
         run: |
-          python -m v10_9_link_mode.selftest repair
+          python -m v10_9_link_mode.selftest repair-init
+
+      - name: Verify repaired database columns
+        run: |
+          python -m v10_9_link_mode.selftest repair-columns
+
+      - name: Verify repaired database values
+        run: |
+          python -m v10_9_link_mode.selftest repair-values
 
       - name: Test metadata-only records
         run: |
