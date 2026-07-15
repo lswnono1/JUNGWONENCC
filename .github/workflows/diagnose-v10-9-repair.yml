@@ -25,10 +25,15 @@ jobs:
           "ExitCode: $code" | Set-Content repair-diagnostic.txt -Encoding UTF8
           $output | Add-Content repair-diagnostic.txt -Encoding UTF8
           Get-Content repair-diagnostic.txt
+          $last = [string]($output | Select-Object -Last 1)
+          if ([string]::IsNullOrWhiteSpace($last)) { $last = "no_error_text" }
+          $summary = ($last -replace '[^A-Za-z0-9._-]', '_')
+          if ($summary.Length -gt 150) { $summary = $summary.Substring(0,150) }
+          "summary=$summary" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
           "exit_code=$code" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
         id: repair
       - uses: actions/upload-artifact@v4
         with:
-          name: v10.9-repair-diagnostic
+          name: repair-${{ steps.repair.outputs.exit_code }}-${{ steps.repair.outputs.summary }}
           path: repair-diagnostic.txt
           retention-days: 7
