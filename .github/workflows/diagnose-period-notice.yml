@@ -31,16 +31,18 @@ jobs:
           $output | Add-Content period-notice-diagnostic.txt -Encoding UTF8
           Get-Content period-notice-diagnostic.txt
       - name: Post diagnostic
-        if: github.event_name == 'pull_request'
+        if: always() && github.event_name == 'pull_request'
+        continue-on-error: true
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $text = Get-Content period-notice-diagnostic.txt -Raw
-          $body = "### Period notice diagnostic`n```text`n$text`n```"
-          $body | Set-Content period-notice-comment.md -Encoding UTF8
-          gh pr comment ${{ github.event.pull_request.number }} --body-file period-notice-comment.md
+          $lines = Get-Content period-notice-diagnostic.txt | Select-Object -Last 30
+          $text = ($lines -join "`n")
+          $body = "Period notice diagnostic:`n$text"
+          gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" -f body="$body"
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: period-notice-diagnostic
           path: period-notice-diagnostic.txt
