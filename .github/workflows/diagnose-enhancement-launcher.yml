@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
+  issues: write
 
 jobs:
   diagnose:
@@ -29,6 +31,16 @@ jobs:
           "ExitCode: $code" | Set-Content launcher-diagnostic.txt -Encoding UTF8
           $output | Add-Content launcher-diagnostic.txt -Encoding UTF8
           Get-Content launcher-diagnostic.txt
+      - name: Post diagnostic to pull request
+        if: github.event_name == 'pull_request'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $text = Get-Content launcher-diagnostic.txt -Raw
+          $body = "### Enhancement launcher diagnostic`n```text`n$text`n```"
+          $body | Set-Content launcher-comment.md -Encoding UTF8
+          gh pr comment ${{ github.event.pull_request.number }} --body-file launcher-comment.md
       - uses: actions/upload-artifact@v4
         with:
           name: enhancement-launcher-diagnostic
