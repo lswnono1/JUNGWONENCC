@@ -26,7 +26,7 @@ jobs:
 
       - name: Compile source
         run: |
-          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py v10_9_link_mode/api_search_patch.py v10_9_link_mode/api_search_selftest.py v10_9_link_mode/enhancement_patch.py v10_9_link_mode/enhancement_selftest.py v10_9_link_mode/actual_change_cleanup_patch.py v10_9_link_mode/actual_change_cleanup_selftest.py
+          python -m py_compile launch_v10_9_link_mode.py v10_9_link_mode/core.py v10_9_link_mode/ui.py v10_9_link_mode/main.py v10_9_link_mode/selftest.py v10_9_link_mode/api_search_patch.py v10_9_link_mode/api_search_selftest.py v10_9_link_mode/enhancement_patch.py v10_9_link_mode/enhancement_selftest.py v10_9_link_mode/actual_change_cleanup_patch.py v10_9_link_mode/actual_change_cleanup_selftest.py v10_9_link_mode/period_notice_patch.py v10_9_link_mode/period_notice_selftest.py
 
       - name: Initialize incomplete database
         run: |
@@ -59,6 +59,12 @@ jobs:
         run: |
           $env:QT_QPA_PLATFORM = "offscreen"
           python -m v10_9_link_mode.actual_change_cleanup_selftest
+
+      - name: Test period filters direct notices and keyboard controls
+        shell: pwsh
+        run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
+          python -m v10_9_link_mode.period_notice_selftest
 
       - name: Test user interface construction
         shell: pwsh
@@ -108,7 +114,7 @@ jobs:
           @"
           @echo off
           chcp 65001 >nul
-          echo === Jungwon Law Monitor v10.9 Daily Fix Diagnose === > diagnostic.txt
+          echo === Jungwon Law Monitor v10.9 Period Notice Fix Diagnose === > diagnostic.txt
           echo Date: %date% %time% >> diagnostic.txt
           echo Folder: %cd% >> diagnostic.txt
           set QT_QPA_PLATFORM=offscreen
@@ -121,34 +127,33 @@ jobs:
           "@ | Set-Content package\DIAGNOSE.cmd -Encoding ascii
 
           @"
-          정원이앤씨 법령·입법예고 모니터 v10.9 Link Mode Daily Fix
+          정원이앤씨 법령·입법예고 모니터 v10.9 Period Notice Fix
 
           [이번 수정]
-          - 과거 기준선이 신규 개정으로 잘못 표시되는 문제 자동 정리
-          - 기존 잘못 분류된 행은 삭제하지 않고 신규·실제 개정 표시만 해제
-          - 관리대상, 법령 ID, 마지막 기준선은 그대로 유지
-          - 정리 이후 API에서 기준선이 실제로 달라진 경우만 신규 개정으로 표시
+          - 관리대상 검색창에서 Enter를 누르면 법제처 검색 실행
+          - 관리대상 검색창에서 ESC를 누르면 추가창 취소
+          - 개정사항 메뉴에서 시작일·종료일을 지정해 기간별 실제 개정사항 조회
+          - 입법예고 메뉴에서 시작일·종료일을 지정해 기간별 항목 조회
+          - 종료되었거나 종료일이 지난 입법예고 제외
+          - 관리대상 법규명과 직접 연관된 입법예고만 표시
+          - 기존 DB의 간접·종료 입법예고는 삭제하지 않고 신규 표시와 화면 표시만 제외
 
-          [주요 기능]
+          [기존 주요 기능]
           - 프로그램 실행 자동점검은 하루 한 번만 수행
-          - 대시보드 수치 클릭 시 관리대상·점검 사용·신규 개정·신규 입법예고 목록 팝업
-          - 최근 개정사항은 실행일 기준 전후 30일, 설정에서 1~365일 변경 가능
-          - 관리대상 추가 시 국가법령정보센터 현행법령·행정규칙 유사검색 후 선택
-          - 최초 기준선은 개정사항 메뉴에서 제외하고 실제 변경만 표시
-          - 국민참여입법센터 공식 ogLmPp XML 필드 기준 입법예고 연동
-          - 법규 조문·별표·첨부파일·입법예고 본문은 저장하지 않음
-          - 상세 내용은 공식 사이트 링크로 확인
+          - 대시보드 수치 클릭 시 상세 항목 팝업
+          - 최초 법규 확인은 기준선으로만 저장하고 실제 변경만 개정사항에 표시
+          - 법규·입법예고 본문은 저장하지 않고 공식 사이트 링크로 확인
 
           [실행]
           1. ZIP을 새 폴더에 완전히 압축 해제합니다.
           2. START.cmd를 실행합니다.
-          3. 기존 DB가 있으면 첫 실행 시 잘못 분류된 신규 개정 표시를 자동 정리합니다.
+          3. 기존 DB가 있으면 첫 실행 시 종료·간접 입법예고 표시를 자동 정리합니다.
           4. 설정에서 국가법령정보 API OC와 입법예고 API OC를 확인합니다.
 
           [사용자 데이터]
           %LOCALAPPDATA%\JungwonLawMonitor\database\law_monitor_v10_9_link_mode.db
 
-          기존 관리대상과 기준선은 삭제하거나 변경하지 않습니다.
+          기존 관리대상, 법령 기준선과 과거 기록은 삭제하지 않습니다.
           "@ | Set-Content package\사용방법.txt -Encoding UTF8
 
           @"
@@ -156,18 +161,18 @@ jobs:
           Commit: $env:GITHUB_SHA
           Python: 3.12
           Packaging: PyInstaller onedir
-          Fix: legacy false-positive amendment flags reset once
+          Fix: period filters, direct active notices, Enter and ESC controls
           "@ | Set-Content package\BUILD_INFO.txt -Encoding UTF8
 
-          Compress-Archive -Path package\* -DestinationPath JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip -Force
-          $hash = (Get-FileHash JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip -Algorithm SHA256).Hash.ToLower()
-          $hash | Set-Content JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip.sha256 -Encoding ascii
+          Compress-Archive -Path package\* -DestinationPath JungwonLawMonitor_Windows_Portable_v10_9_Period_Notice_Fix.zip -Force
+          $hash = (Get-FileHash JungwonLawMonitor_Windows_Portable_v10_9_Period_Notice_Fix.zip -Algorithm SHA256).Hash.ToLower()
+          $hash | Set-Content JungwonLawMonitor_Windows_Portable_v10_9_Period_Notice_Fix.zip.sha256 -Encoding ascii
           Write-Host "SHA256=$hash"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: JungwonLawMonitor-v10.9-LinkMode-Daily-Fix
+          name: JungwonLawMonitor-v10.9-Period-Notice-Fix
           path: |
-            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip
-            JungwonLawMonitor_Windows_Portable_v10_9_Link_Mode_Daily_Fix.zip.sha256
+            JungwonLawMonitor_Windows_Portable_v10_9_Period_Notice_Fix.zip
+            JungwonLawMonitor_Windows_Portable_v10_9_Period_Notice_Fix.zip.sha256
           retention-days: 90
