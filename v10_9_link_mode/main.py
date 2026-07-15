@@ -21,7 +21,7 @@ from .enhancement_patch import apply_core_enhancements
 
 apply_core_enhancements()
 
-from .core import APP_TITLE, app_root, log_dir
+from .core import APP_TITLE, app_root, load_settings, log_dir, save_settings
 
 
 def write_startup_error(text: str) -> list[Path]:
@@ -50,13 +50,41 @@ def native_error_message(message: str) -> None:
         pass
 
 
+def run_startup_smoke_test() -> int:
+    """Verify the packaged program can construct and close its real main window."""
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    settings = load_settings()
+    settings["startup_check"] = False
+    save_settings(settings)
+
+    from PySide6.QtCore import QSize
+    from PySide6.QtWidgets import QListWidget
+
+    QListWidget.sizeHint = lambda self: QSize(170, 44)  # type: ignore[method-assign]
+
+    from .ui import MainWindow, create_application
+    from .enhancement_patch import apply_ui_enhancements
+
+    apply_ui_enhancements()
+    application = create_application(["JungwonLawMonitor-self-test"])
+    window = MainWindow()
+    assert window.stack.count() == 6
+    assert hasattr(window, "dashboard_range_label")
+    assert hasattr(window, "setting_recent_days")
+    window.show()
+    application.processEvents()
+    window.close()
+    application.processEvents()
+    application.quit()
+    del window
+    del application
+    return 0
+
+
 def main() -> int:
     multiprocessing.freeze_support()
     if "--self-test" in sys.argv:
-        from .enhancement_selftest import run_all
-
-        run_all()
-        return 0
+        return run_startup_smoke_test()
 
     try:
         from PySide6.QtCore import QSize
