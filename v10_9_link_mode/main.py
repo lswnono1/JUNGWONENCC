@@ -21,7 +21,7 @@ from .enhancement_patch import apply_core_enhancements
 
 apply_core_enhancements()
 
-from .core import APP_TITLE, app_root, log_dir, run_self_test
+from .core import APP_TITLE, app_root, log_dir
 
 
 def write_startup_error(text: str) -> list[Path]:
@@ -53,7 +53,9 @@ def native_error_message(message: str) -> None:
 def main() -> int:
     multiprocessing.freeze_support()
     if "--self-test" in sys.argv:
-        run_self_test()
+        from .enhancement_selftest import run_all
+
+        run_all()
         return 0
 
     try:
