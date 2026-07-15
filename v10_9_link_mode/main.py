@@ -7,6 +7,10 @@ import sys
 import traceback
 from pathlib import Path
 
+from .migration_patch import install_patch
+
+install_patch()
+
 from .core import APP_TITLE, app_root, log_dir, run_self_test
 
 
