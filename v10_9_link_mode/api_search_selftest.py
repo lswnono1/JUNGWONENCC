@@ -19,6 +19,20 @@ class FakeHttp:
         return json.dumps(payload, ensure_ascii=False).encode("utf-8")
 
 
+class TargetAwareFakeHttp:
+    def __init__(self, admin_payload):
+        self.admin_payload = admin_payload
+        self.calls = []
+
+    def get(self, url, params):
+        self.calls.append(dict(params))
+        if params.get("target") == "admrul":
+            payload = self.admin_payload
+        else:
+            payload = {"LawSearch": {"totalCnt": 0, "law": []}}
+        return json.dumps(payload, ensure_ascii=False).encode("utf-8")
+
+
 def test_eflaw_target() -> None:
     apply_patch()
     with tempfile.TemporaryDirectory() as folder:
@@ -58,7 +72,6 @@ def test_punctuation_and_kind_fallback() -> None:
         item_id = db.add_item("법령", "화재안전영향평가 운영절차 등에 관한 규정")
         item = db.item(item_id)
         monitor = Monitor(db, {"law_oc": "test", "law_search_url": "https://example.invalid"})
-        empty = {"LawSearch": {"totalCnt": 0, "law": []}}
         admin = {
             "AdmRulSearch": {
                 "totalCnt": 1,
@@ -75,7 +88,7 @@ def test_punctuation_and_kind_fallback() -> None:
                 ],
             }
         }
-        monitor.http = FakeHttp([empty, empty, empty, empty, admin])
+        monitor.http = TargetAwareFakeHttp(admin)
         monitor._sync_item(item)
         checked = db.item(item_id)
         assert "행정규칙 자동판별" in checked["check_status"]
