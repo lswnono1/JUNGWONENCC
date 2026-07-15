@@ -17,6 +17,10 @@ from .api_search_patch import apply_patch as apply_api_search_patch
 
 apply_api_search_patch()
 
+from .enhancement_patch import apply_core_enhancements
+
+apply_core_enhancements()
+
 from .core import APP_TITLE, app_root, log_dir, run_self_test
 
 
@@ -60,7 +64,9 @@ def main() -> int:
         QListWidget.sizeHint = lambda self: QSize(170, 44)  # type: ignore[method-assign]
 
         from .ui import MainWindow, create_application
+        from .enhancement_patch import apply_ui_enhancements
 
+        apply_ui_enhancements()
         application = create_application(sys.argv)
         window = MainWindow()
         window.show()
