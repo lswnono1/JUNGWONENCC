@@ -1,0 +1,40 @@
+name: Diagnose Enhancement Launcher
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install PySide6
+      - name: Run launcher self-test and capture traceback
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
+          $env:JLM_DATA_ROOT = "$PWD\launcher-diagnostic-data"
+          $output = python launch_v10_9_link_mode.py --self-test 2>&1
+          $code = $LASTEXITCODE
+          "ExitCode: $code" | Set-Content launcher-diagnostic.txt -Encoding UTF8
+          $output | Add-Content launcher-diagnostic.txt -Encoding UTF8
+          Get-Content launcher-diagnostic.txt
+          $tail = (($output | Select-Object -Last 6) -join ' ') -replace '[^A-Za-z0-9가-힣_.:-]', '_'
+          if ($tail.Length -gt 120) { $tail = $tail.Substring(0,120) }
+          "artifact_name=launcher-$code-$tail" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+        id: diag
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.diag.outputs.artifact_name }}
+          path: launcher-diagnostic.txt
+          retention-days: 7
