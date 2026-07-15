@@ -13,6 +13,10 @@ from .migration_patch import install_patch
 install_connection_patch()
 install_patch()
 
+from .api_search_patch import apply_patch as apply_api_search_patch
+
+apply_api_search_patch()
+
 from .core import APP_TITLE, app_root, log_dir, run_self_test
 
 
