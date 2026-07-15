@@ -1,0 +1,44 @@
+name: Build Link Lite v11.1
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install builder
+        run: python -m pip install --upgrade pip pyinstaller
+      - name: Build executable
+        shell: pwsh
+        run: |
+          pyinstaller --noconfirm --clean --windowed --onefile --name JungwonLawMonitor_Link_Lite_v11_1 link_lite_v11_1/main.py
+          New-Item -ItemType Directory -Force package | Out-Null
+          Copy-Item dist/JungwonLawMonitor_Link_Lite_v11_1.exe package/
+          @"
+          정원이앤씨 법령·입법예고 모니터 Link Lite v11.1
+
+          1. 실행파일을 더블클릭합니다.
+          2. 설정에서 국가법령정보 API OC와 입법예고 API OC를 확인합니다.
+          3. 관리대상 법령·행정규칙을 등록합니다.
+          4. 개정사항과 입법예고를 더블클릭하면 공식 사이트를 엽니다.
+
+          데이터 위치:
+          %LOCALAPPDATA%\JungwonLawMonitor\database\law_monitor_link_lite.db
+
+          본문·별표·첨부파일은 저장하지 않습니다.
+          "@ | Set-Content package/사용방법.txt -Encoding UTF8
+          Compress-Archive -Path package/* -DestinationPath JungwonLawMonitor_Windows_Portable_v11_1_Link_Lite.zip -Force
+          (Get-FileHash JungwonLawMonitor_Windows_Portable_v11_1_Link_Lite.zip -Algorithm SHA256).Hash.ToLower() | Set-Content JungwonLawMonitor_Windows_Portable_v11_1_Link_Lite.zip.sha256 -Encoding ascii
+      - uses: actions/upload-artifact@v4
+        with:
+          name: JungwonLawMonitor-v11.1-Link-Lite
+          path: |
+            JungwonLawMonitor_Windows_Portable_v11_1_Link_Lite.zip
+            JungwonLawMonitor_Windows_Portable_v11_1_Link_Lite.zip.sha256
