@@ -25,6 +25,10 @@ from .actual_change_cleanup_patch import apply_patch as apply_actual_change_clea
 
 apply_actual_change_cleanup_patch()
 
+from .period_notice_patch import apply_core_patch as apply_period_notice_core_patch
+
+apply_period_notice_core_patch()
+
 from .core import APP_TITLE, app_root, load_settings, log_dir, save_settings
 
 
@@ -68,13 +72,19 @@ def run_startup_smoke_test() -> int:
 
     from .ui import MainWindow, create_application
     from .enhancement_patch import apply_ui_enhancements
+    from .period_notice_patch import apply_ui_patch as apply_period_notice_ui_patch
 
     apply_ui_enhancements()
+    apply_period_notice_ui_patch()
     application = create_application(["JungwonLawMonitor-self-test"])
     window = MainWindow()
     assert window.stack.count() == 6
     assert hasattr(window, "dashboard_range_label")
     assert hasattr(window, "setting_recent_days")
+    assert hasattr(window, "change_start_date")
+    assert hasattr(window, "change_end_date")
+    assert hasattr(window, "notice_start_date")
+    assert hasattr(window, "notice_end_date")
     window.show()
     application.processEvents()
     window.close()
@@ -99,8 +109,10 @@ def main() -> int:
 
         from .ui import MainWindow, create_application
         from .enhancement_patch import apply_ui_enhancements
+        from .period_notice_patch import apply_ui_patch as apply_period_notice_ui_patch
 
         apply_ui_enhancements()
+        apply_period_notice_ui_patch()
         application = create_application(sys.argv)
         window = MainWindow()
         window.show()
