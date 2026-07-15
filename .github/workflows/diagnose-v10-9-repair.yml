@@ -1,0 +1,34 @@
+name: Diagnose v10.9 DB Repair
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run repair test and capture traceback
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          $output = python -m v10_9_link_mode.selftest repair-init 2>&1
+          $code = $LASTEXITCODE
+          "ExitCode: $code" | Set-Content repair-diagnostic.txt -Encoding UTF8
+          $output | Add-Content repair-diagnostic.txt -Encoding UTF8
+          Get-Content repair-diagnostic.txt
+          "exit_code=$code" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+        id: repair
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v10.9-repair-diagnostic
+          path: repair-diagnostic.txt
+          retention-days: 7
