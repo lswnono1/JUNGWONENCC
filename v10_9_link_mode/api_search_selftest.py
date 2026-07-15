@@ -5,7 +5,10 @@ import tempfile
 from pathlib import Path
 
 from .api_search_patch import apply_patch
+from .connection_patch import install_connection_patch
 from .core import Database, Monitor
+
+install_connection_patch()
 
 
 class FakeHttp:
