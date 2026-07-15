@@ -43,6 +43,12 @@ def main() -> int:
         return 0
 
     try:
+        from PySide6.QtCore import QSize
+        from PySide6.QtWidgets import QListWidget
+
+        # v10.9형 좌측 메뉴의 행 높이를 일정하게 유지한다.
+        QListWidget.sizeHint = lambda self: QSize(170, 44)  # type: ignore[method-assign]
+
         from .ui import MainWindow, create_application
 
         application = create_application(sys.argv)
