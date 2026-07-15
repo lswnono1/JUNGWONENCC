@@ -12,17 +12,25 @@ install_connection_patch()
 install_patch()
 
 from .api_search_patch import apply_patch as apply_api_search_patch
+
+apply_api_search_patch()
+
 from .enhancement_patch import apply_core_enhancements
+
+apply_core_enhancements()
+
+# 실제 main.py와 동일하게 enhancement 적용 뒤 cleanup 모듈을 가져와야
+# 이전 initialize 함수가 올바르게 연결된다.
 from .actual_change_cleanup_patch import apply_patch as apply_actual_change_cleanup_patch
+
+apply_actual_change_cleanup_patch()
+
 from .period_notice_patch import (
     apply_core_patch,
     apply_ui_patch,
     direct_notice_match,
 )
 
-apply_api_search_patch()
-apply_core_enhancements()
-apply_actual_change_cleanup_patch()
 apply_core_patch()
 
 from . import core
