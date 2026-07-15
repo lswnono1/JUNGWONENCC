@@ -7,8 +7,10 @@ import sys
 import traceback
 from pathlib import Path
 
+from .connection_patch import install_connection_patch
 from .migration_patch import install_patch
 
+install_connection_patch()
 install_patch()
 
 from .core import APP_TITLE, app_root, log_dir, run_self_test
