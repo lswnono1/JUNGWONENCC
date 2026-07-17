@@ -1,0 +1,239 @@
+  for (const [kind,name] of names) await addManaged({kind,name});
+}
+
+async function setupApp(event) {
+  event.preventDefault();
+  const password = $('#setup-password').value;
+  if (password !== $('#setup-password2').value) return toast('비밀번호 확인이 일치하지 않습니다.');
+  if (password.length < 8) return toast('비밀번호는 8자 이상으로 설정하세요.');
+  const lawOc = normalizeOc($('#setup-law-oc').value);
+  if (!lawOc) return toast('국가법령정보 API OC를 입력하세요.');
+  setBusy(event.submitter,true);
+  try {
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const keyBytes = await deriveKeyBytes(password,salt);
+    const setup = {
+      ownerName: cleanText($('#setup-owner').value) || '이상우',
+      salt: bytesToB64(salt),
+      verifier: await makeVerifier(keyBytes),
+      encryptedSecrets: await encryptJson({lawOc,noticeOc:normalizeOc($('#setup-notice-oc').value)},keyBytes),
+      autoSync:true,
+      syncIntervalHours:12,
+      createdAt:new Date().toISOString(),
+    };
+    await setMeta('setup',setup);
+    state.setup = setup; state.keyBytes = keyBytes; state.secrets = await decryptJson(setup.encryptedSecrets,keyBytes);
+    await seedManaged();
+    await addLog('설정','휴대폰 독립형 초기 설정 완료');
+    showApp();
+    await refreshAll();
+    toast('초기 설정이 완료되었습니다.');
+  } catch (error) { toast(error.message || '초기 설정에 실패했습니다.'); }
+  finally { setBusy(event.submitter,false); }
+}
+
+async function login(event) {
+  event.preventDefault();
+  setBusy(event.submitter,true);
+  try {
+    const keyBytes = await deriveKeyBytes($('#login-password').value,b64ToBytes(state.setup.salt));
+    if (await makeVerifier(keyBytes) !== state.setup.verifier) throw new Error('비밀번호가 올바르지 않습니다.');
+    const secrets = await decryptJson(state.setup.encryptedSecrets,keyBytes);
+    state.keyBytes = keyBytes; state.secrets = secrets; state.lastTouch = Date.now();
+    $('#login-password').value = '';
+    showApp();
+    await refreshAll();
+    maybeAutoSync();
+  } catch (error) { toast(error.message || '잠금을 해제하지 못했습니다.'); }
+  finally { setBusy(event.submitter,false); }
+}
+
+function showSetup() {
+  $('#setup-view').classList.remove('hidden');
+  $('#login-view').classList.add('hidden');
+  $('#app-view').classList.add('hidden');
+}
+
+function showLogin() {
+  state.secrets = null; state.keyBytes = null;
+  $('#setup-view').classList.add('hidden');
+  $('#login-view').classList.remove('hidden');
+  $('#app-view').classList.add('hidden');
+  setTimeout(() => $('#login-password').focus(),100);
+}
+
+function showApp() {
+  $('#setup-view').classList.add('hidden');
+  $('#login-view').classList.add('hidden');
+  $('#app-view').classList.remove('hidden');
+  $('#owner-name').textContent = state.setup.ownerName || '이상우';
+  go('dashboard');
+}
+
+function go(page) {
+  state.page = page;
+  $$('.page').forEach((p) => p.classList.toggle('active',p.id === `page-${page}`));
+  $$('.bottom-nav button').forEach((b) => b.classList.toggle('active',b.dataset.page === page));
+  window.scrollTo(0,0);
+  if (page === 'managed') loadManaged();
+  if (page === 'changes') loadChanges();
+  if (page === 'notices') loadNotices();
+  if (page === 'settings') loadSettings();
+}
+
+async function refreshDashboard() {
+  const managed = await managedRows();
+  const changes = await dbGetAll('changes');
+  const notices = await dbGetAll('notices');
+  $('#count-managed').textContent = managed.filter((r) => r.enabled).length;
+  $('#count-changes').textContent = changes.length;
+  $('#count-new-changes').textContent = changes.filter((r) => r.isNew).length;
+  $('#count-active-notices').textContent = notices.filter((r) => r.status === '진행 중').length;
+  const last = await getMeta('lastSync','');
+  $('#last-sync').textContent = last ? `최근 동기화 ${formatDateTime(last)}` : '아직 동기화하지 않았습니다.';
+}
+
+async function refreshAll() {
+  await refreshDashboard();
+  if (state.page === 'managed') await loadManaged();
+  if (state.page === 'changes') await loadChanges();
+  if (state.page === 'notices') await loadNotices();
+}
+
+function renderSync(running,message,progress) {
+  $('#sync-card').classList.toggle('hidden',!running);
+  $('#sync-message').textContent = message || '동기화 중';
+  $('#sync-progress').value = progress || 0;
+  $('#sync-progress-text').textContent = `${Math.round(progress || 0)}%`;
+  $('#sync-button').classList.toggle('loading',running);
+}
+
+async function syncNow() {
+  if (state.syncing) return toast('이미 동기화 중입니다.');
+  if (!navigator.onLine) return toast('인터넷 연결을 확인하세요.');
+  if (!state.secrets?.lawOc) return toast('설정에서 API OC를 입력하세요.');
+  state.syncing = true;
+  const items = (await managedRows()).filter((r) => r.enabled);
+  if (!items.length) { state.syncing = false; return toast('활성 관리대상이 없습니다.'); }
+  let failures = 0, newChanges = 0, newNotices = 0;
+  renderSync(true,'동기화 준비',1);
+  try {
+    for (let i = 0; i < items.length; i += 1) {
+      const item = items[i];
+      const baseProgress = i / items.length * 100;
+      renderSync(true,`${item.name} 개정 이력 확인`,baseProgress + 2);
+      try {
+        const revisions = await fetchRevisions(item);
+        const hadBaseline = !!item.lastEventKey;
+        for (const row of revisions) {
+          const existing = await dbGet('changes',row.eventKey);
+          if (!existing) {
+            row.isNew = hadBaseline;
+            row.detectedAt = new Date().toISOString();
+            row.lastSeenAt = row.detectedAt;
+            if (row.isNew) newChanges += 1;
+            await dbPut('changes',row);
+          } else await dbPut('changes',{...existing,...row,appendices:existing.appendices || [],lastSeenAt:new Date().toISOString()});
+        }
+        renderSync(true,`${item.name} 별표·서식 확인`,baseProgress + 5);
+        const appendices = await fetchAppendices(item);
+        if (appendices.length && revisions.length) {
+          const byDate = new Map();
+          revisions.forEach((r) => {
+            const key = r.promulgationDate || r.enforcementDate || '';
+            if (!byDate.has(key)) byDate.set(key,r.eventKey);
+          });
+          for (const appendix of appendices) {
+            let eventKey = byDate.get(appendix.revisionDate);
+            if (!eventKey) eventKey = revisions[0].eventKey;
+            const change = await dbGet('changes',eventKey);
+            if (change) {
+              const list = Array.isArray(change.appendices) ? change.appendices : [];
+              const map = new Map(list.map((x) => [x.appendixKey,x]));
+              map.set(appendix.appendixKey,appendix);
+              change.appendices = [...map.values()];
+              await dbPut('changes',change);
+            }
+          }
+        }
+        renderSync(true,`${item.name} 입법예고 확인`,baseProgress + 8);
+        const notices = await fetchNotices(item.name);
+        const hadNoticeBaseline = !!item.lastNoticeCheckedAt;
+        for (const notice of notices) {
+          const existing = await dbGet('notices',notice.noticeKey);
+          if (!existing) {
+            notice.isNew = hadNoticeBaseline;
+            notice.detectedAt = new Date().toISOString();
+            if (notice.isNew) newNotices += 1;
+            await dbPut('notices',notice);
+          } else await dbPut('notices',{...existing,...notice});
+        }
+        const latest = revisions[0] || {};
+        await dbPut('managed',{...item,sourceId:latest.sourceId || item.sourceId || '',officialUrl:latest.officialUrl || item.officialUrl || '',lastEventKey:latest.eventKey || item.lastEventKey || '',lastRevisionType:latest.revisionType || '',lastRevisionDate:latest.promulgationDate || '',lastEnforcementDate:latest.enforcementDate || '',lastCheckedAt:new Date().toISOString(),lastNoticeCheckedAt:new Date().toISOString(),checkStatus:'정상',updatedAt:new Date().toISOString()});
+      } catch (error) {
+        failures += 1;
+        await dbPut('managed',{...item,lastCheckedAt:new Date().toISOString(),checkStatus:`실패: ${cleanText(error.message).slice(0,100)}`,updatedAt:new Date().toISOString()});
+        await addLog('실패',`${item.name}: ${error.message}`);
+      }
+      renderSync(true,`${i+1}/${items.length} 완료`,(i+1)/items.length*100);
+    }
+    const now = new Date().toISOString();
+    await setMeta('lastSync',now);
+    await addLog(failures ? '부분완료':'완료',`관리대상 ${items.length}건, 신규 개정 ${newChanges}건, 신규 입법예고 ${newNotices}건, 실패 ${failures}건`);
+    toast(failures ? `동기화 완료 · 실패 ${failures}건` : `동기화 완료 · 신규 개정 ${newChanges}건`);
+  } finally {
+    state.syncing = false;
+    renderSync(false,'',0);
+    await refreshAll();
+  }
+}
+
+async function maybeAutoSync() {
+  if (!state.setup?.autoSync || state.syncing || !navigator.onLine) return;
+  const last = await getMeta('lastSync','');
+  const interval = Math.max(6,Number(state.setup.syncIntervalHours || 12)) * 3600000;
+  if (!last || Date.now() - new Date(last).getTime() >= interval) setTimeout(syncNow,700);
+}
+
+async function loadManaged() {
+  const q = normalizeName($('#managed-filter').value);
+  const rows = (await managedRows()).filter((r) => !q || normalizeName(`${r.kind} ${r.name}`).includes(q));
+  $('#managed-list').innerHTML = rows.length ? rows.map((r) => `
+    <article class="item">
+      <div class="item-head"><div><h3>${esc(r.name)}</h3><p>${esc(r.kind)} · ${esc(r.checkStatus || '미확인')}</p><p>최근 개정 ${esc(r.lastRevisionDate || '-')} · 시행 ${esc(r.lastEnforcementDate || '-')}</p></div>
+      <label class="switch"><input type="checkbox" data-toggle="${r.id}" ${r.enabled ? 'checked':''}><span></span></label></div>
+      <div class="item-actions">${r.officialUrl ? `<button data-open="${esc(r.officialUrl)}">공식 원문</button>`:''}<button class="delete" data-delete="${r.id}" data-name="${esc(r.name)}">삭제</button></div>
+    </article>`).join('') : '<div class="empty">관리대상이 없습니다.</div>';
+}
+
+async function openCatalog() {
+  $('#catalog-results').innerHTML = '<div class="empty">법규명을 검색하세요.</div>';
+  $('#search-dialog').showModal();
+  setTimeout(() => $('#catalog-q').focus(),100);
+}
+
+async function runCatalogSearch() {
+  const q = cleanText($('#catalog-q').value);
+  if (q.length < 2) return toast('두 글자 이상 입력하세요.');
+  const btn = $('#catalog-search'); setBusy(btn,true);
+  $('#catalog-results').innerHTML = '<div class="empty">공식 API 검색 중…</div>';
+  try {
+    const rows = await searchCatalog(q,$('#catalog-kind').value);
+    state.catalogRows = rows;
+    $('#catalog-results').innerHTML = rows.length ? rows.map((r,i) => `
+      <article class="item"><div class="item-head"><div><h3>${esc(r.name)}</h3><p>${esc(r.kind)} · ${esc(r.ministry || '')}</p><p>${esc(r.promulgationDate || '')} ${esc(r.revisionType || '')}</p></div><span class="tag">일치 ${r.score}</span></div><div class="item-actions"><button class="primary" data-add-index="${i}">관리대상 추가</button></div></article>`).join('') : '<div class="empty">검색 결과가 없습니다.</div>';
+  } catch (error) { $('#catalog-results').innerHTML = `<div class="empty">${esc(error.message)}</div>`; }
+  finally { setBusy(btn,false); }
+}
+
+async function addCatalog(index) {
+  const row = state.catalogRows[index];
+  await addManaged(row);
+  toast(`${row.name} 추가 완료`);
+  await loadManaged(); await refreshDashboard();
+}
+
+async function loadChanges() {
+  const q = normalizeName($('#changes-q').value);
+  const from = $('#changes-from').value, to = $('#changes-to').value;
+  const newOnly = $('#changes-new-only').checked;
