@@ -1,0 +1,35 @@
+{
+  "name": "정원이앤씨 법령모니터",
+  "short_name": "법령모니터",
+  "description": "정원이앤씨 대표자 개인용 소방·건축 법령 개정 및 입법예고 모니터",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "orientation": "portrait-primary",
+  "background_color": "#f4f7fa",
+  "theme_color": "#075a9c",
+  "lang": "ko-KR",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
