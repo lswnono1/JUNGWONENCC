@@ -1,0 +1,239 @@
+'use strict';
+
+const $ = (q) => document.querySelector(q);
+const $$ = (q) => [...document.querySelectorAll(q)];
+const LAW_URL = 'https://www.law.go.kr/DRF/lawSearch.do';
+const NOTICE_URL = 'https://www.lawmaking.go.kr/rest/ogLmPp.xml';
+const DB_NAME = 'JungwonLawMonitorPWA';
+const DB_VERSION = 1;
+const AUTO_LOCK_MS = 15 * 60 * 1000;
+const API_TIMEOUT_MS = 30000;
+
+const state = {
+  db: null,
+  setup: null,
+  secrets: null,
+  keyBytes: null,
+  syncing: false,
+  page: 'dashboard',
+  catalogRows: [],
+  lastTouch: Date.now(),
+  deferredInstallPrompt: null,
+};
+
+function esc(value) {
+  return String(value ?? '').replace(/[&<>'"]/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));
+}
+
+function cleanText(value) {
+  return String(value ?? '').replace(/\s+/g, ' ').trim();
+}
+
+function normalizeName(value) {
+  return cleanText(value).replace(/[\s·ㆍ,.'"()\[\]{}<>-]+/g, '').toLowerCase();
+}
+
+function normalizeDate(value) {
+  const raw = cleanText(value);
+  const parts = raw.match(/\d+/g) || [];
+  if (parts.length >= 3 && parts[0].length === 4) {
+    const y = Number(parts[0]), m = Number(parts[1]), d = Number(parts[2]);
+    const dt = new Date(Date.UTC(y, m - 1, d));
+    if (dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d) {
+      return `${String(y).padStart(4,'0')}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    }
+  }
+  const digits = raw.replace(/\D/g, '');
+  if (digits.length >= 8) {
+    const y = Number(digits.slice(0,4)), m = Number(digits.slice(4,6)), d = Number(digits.slice(6,8));
+    const dt = new Date(Date.UTC(y, m - 1, d));
+    if (dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d) {
+      return `${digits.slice(0,4)}-${digits.slice(4,6)}-${digits.slice(6,8)}`;
+    }
+  }
+  return '';
+}
+
+function first(record, ...keys) {
+  if (!record || typeof record !== 'object') return '';
+  const lower = new Map(Object.keys(record).map((k) => [k.toLowerCase(), record[k]]));
+  for (const key of keys) {
+    const value = Object.prototype.hasOwnProperty.call(record, key) ? record[key] : lower.get(key.toLowerCase());
+    if (value !== undefined && value !== null && cleanText(value) !== '') return cleanText(value);
+  }
+  return '';
+}
+
+function matchScore(target, candidate) {
+  const t = normalizeName(target), c = normalizeName(candidate);
+  if (!t || !c) return 0;
+  if (t === c) return 100;
+  if (c.startsWith(t) || t.startsWith(c)) return 90;
+  if (t.includes(c) || c.includes(t)) return 78;
+  const ts = new Set(t), cs = new Set(c);
+  let common = 0;
+  ts.forEach((ch) => { if (cs.has(ch)) common += 1; });
+  return Math.round(60 * common / Math.max(ts.size, 1));
+}
+
+function absoluteUrl(base, value) {
+  const v = cleanText(value);
+  if (!v) return '';
+  try { return new URL(v, base).href; } catch { return ''; }
+}
+
+function officialLawUrl(kind, name, supplied = '') {
+  if (supplied) return absoluteUrl('https://www.law.go.kr', supplied);
+  const segment = kind === '행정규칙' ? '행정규칙' : '법령';
+  return `https://www.law.go.kr/${encodeURIComponent(segment)}/${encodeURIComponent(name)}`;
+}
+
+function noticeUrl(sequence, supplied = '') {
+  if (supplied) return absoluteUrl('https://opinion.lawmaking.go.kr', supplied);
+  return sequence
+    ? `https://opinion.lawmaking.go.kr/gcom/ogLmPp/${encodeURIComponent(sequence)}`
+    : 'https://opinion.lawmaking.go.kr/gcom/ogLmPp';
+}
+
+function formatDateTime(value) {
+  if (!value) return '';
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return value;
+  return new Intl.DateTimeFormat('ko-KR', {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}).format(d);
+}
+
+function toast(message, ms = 2600) {
+  const el = $('#toast');
+  el.textContent = message;
+  el.classList.add('show');
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => el.classList.remove('show'), ms);
+}
+
+function setBusy(el, busy) {
+  if (!el) return;
+  el.disabled = !!busy;
+  el.classList.toggle('loading', !!busy);
+}
+
+function bytesToB64(bytes) {
+  let binary = '';
+  const arr = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+  for (let i = 0; i < arr.length; i += 1) binary += String.fromCharCode(arr[i]);
+  return btoa(binary);
+}
+
+function b64ToBytes(value) {
+  const binary = atob(value);
+  const arr = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i += 1) arr[i] = binary.charCodeAt(i);
+  return arr;
+}
+
+async function sha256(bytes) {
+  return new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+}
+
+async function deriveKeyBytes(password, salt) {
+  const material = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({name:'PBKDF2', salt, iterations:180000, hash:'SHA-256'}, material, 256);
+  return new Uint8Array(bits);
+}
+
+async function makeVerifier(keyBytes) {
+  const marker = new TextEncoder().encode('JUNGWON-LAW-MONITOR-VERIFY-v1');
+  const joined = new Uint8Array(keyBytes.length + marker.length);
+  joined.set(keyBytes, 0); joined.set(marker, keyBytes.length);
+  return bytesToB64(await sha256(joined));
+}
+
+async function encryptJson(value, keyBytes) {
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const key = await crypto.subtle.importKey('raw', keyBytes, {name:'AES-GCM'}, false, ['encrypt']);
+  const plain = new TextEncoder().encode(JSON.stringify(value));
+  const cipher = new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM', iv}, key, plain));
+  return {iv: bytesToB64(iv), data: bytesToB64(cipher)};
+}
+
+async function decryptJson(payload, keyBytes) {
+  const key = await crypto.subtle.importKey('raw', keyBytes, {name:'AES-GCM'}, false, ['decrypt']);
+  const plain = await crypto.subtle.decrypt({name:'AES-GCM', iv:b64ToBytes(payload.iv)}, key, b64ToBytes(payload.data));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+
+function openDb() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains('meta')) db.createObjectStore('meta', {keyPath:'key'});
+      if (!db.objectStoreNames.contains('managed')) {
+        const s = db.createObjectStore('managed', {keyPath:'id', autoIncrement:true});
+        s.createIndex('kindName', ['kind','name'], {unique:true});
+        s.createIndex('enabled', 'enabled', {unique:false});
+      }
+      if (!db.objectStoreNames.contains('changes')) {
+        const s = db.createObjectStore('changes', {keyPath:'eventKey'});
+        s.createIndex('name', 'name', {unique:false});
+        s.createIndex('date', 'promulgationDate', {unique:false});
+        s.createIndex('isNew', 'isNew', {unique:false});
+      }
+      if (!db.objectStoreNames.contains('notices')) {
+        const s = db.createObjectStore('notices', {keyPath:'noticeKey'});
+        s.createIndex('status', 'status', {unique:false});
+        s.createIndex('isNew', 'isNew', {unique:false});
+      }
+      if (!db.objectStoreNames.contains('logs')) db.createObjectStore('logs', {keyPath:'id', autoIncrement:true});
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+function idbRequest(req) {
+  return new Promise((resolve, reject) => {
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+function txStore(name, mode = 'readonly') {
+  return state.db.transaction(name, mode).objectStore(name);
+}
+
+async function dbGet(store, key) { return idbRequest(txStore(store).get(key)); }
+async function dbGetAll(store) { return idbRequest(txStore(store).getAll()); }
+async function dbPut(store, value) { return idbRequest(txStore(store, 'readwrite').put(value)); }
+async function dbAdd(store, value) { return idbRequest(txStore(store, 'readwrite').add(value)); }
+async function dbDelete(store, key) { return idbRequest(txStore(store, 'readwrite').delete(key)); }
+async function dbClear(store) { return idbRequest(txStore(store, 'readwrite').clear()); }
+
+async function getMeta(key, fallback = null) {
+  const row = await dbGet('meta', key);
+  return row ? row.value : fallback;
+}
+
+async function setMeta(key, value) {
+  await dbPut('meta', {key, value});
+}
+
+async function addLog(status, message) {
+  await dbAdd('logs', {status, message: cleanText(message).slice(0,1000), at:new Date().toISOString()});
+  const rows = await dbGetAll('logs');
+  if (rows.length > 120) {
+    rows.sort((a,b) => a.id - b.id);
+    for (const row of rows.slice(0, rows.length - 120)) await dbDelete('logs', row.id);
+  }
+}
+
+function xmlNodeToObject(node) {
+  const children = [...node.children];
+  if (!children.length) return cleanText(node.textContent);
+  const out = {};
+  for (const child of children) {
+    const key = child.localName || child.nodeName;
+    const value = xmlNodeToObject(child);
+    if (Object.prototype.hasOwnProperty.call(out, key)) {
+      if (!Array.isArray(out[key])) out[key] = [out[key]];
+      out[key].push(value);
+    } else out[key] = value;
