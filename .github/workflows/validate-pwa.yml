@@ -18,6 +18,8 @@ jobs:
           test -f lawmonitor/manifest.webmanifest
           test -f lawmonitor/sw.js
           node --check lawmonitor/app.js
+          cat lawmonitor/app-core-1.txt lawmonitor/app-core-2.txt lawmonitor/app-core-3.txt lawmonitor/app-core-4.txt > /tmp/app-core.js
+          node --check /tmp/app-core.js
           node --check lawmonitor/sw.js
           node -e "JSON.parse(require('fs').readFileSync('lawmonitor/manifest.webmanifest','utf8'))"
       - name: Test static serving
