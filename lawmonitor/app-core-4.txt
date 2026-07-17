@@ -1,0 +1,236 @@
+  const rows = (await dbGetAll('changes')).filter((r) => {
+    const date = r.promulgationDate || r.enforcementDate || '';
+    return (!q || normalizeName(`${r.name} ${r.revisionType} ${r.ministry}`).includes(q)) && (!from || date >= from) && (!to || date <= to) && (!newOnly || r.isNew);
+  }).sort((a,b) => (b.promulgationDate || '').localeCompare(a.promulgationDate || '') || (b.detectedAt || '').localeCompare(a.detectedAt || ''));
+  $('#changes-list').innerHTML = rows.length ? rows.slice(0,1500).map((r) => {
+    const count = Array.isArray(r.appendices) ? r.appendices.length : 0;
+    return `<article class="item ${r.isNew ? 'new':''}"><div class="item-head"><div><h3>${esc(r.name)}</h3><p>${esc(r.revisionType || '구분미상')} · 공포 ${esc(r.promulgationDate || '-')} · 시행 ${esc(r.enforcementDate || '-')}</p><p>${esc(r.ministry || '')}</p></div>${r.isNew ? '<span class="tag red">NEW</span>':''}</div><div class="tags">${count ? `<span class="tag red">별표·서식 ${count}건</span>`:''}<span class="tag">${esc(r.kind)}</span></div><div class="item-actions">${r.officialUrl ? `<button data-open="${esc(r.officialUrl)}">법령 원문</button>`:''}${count ? `<button data-appendix="${esc(r.eventKey)}" data-title="${esc(`${r.name} ${r.promulgationDate}`)}">별표 비교</button>`:''}</div></article>`;
+  }).join('') : '<div class="empty">조건에 맞는 개정사항이 없습니다.</div>';
+}
+
+async function openAppendices(eventKey,title) {
+  const row = await dbGet('changes',eventKey);
+  const items = row?.appendices || [];
+  $('#appendix-dialog-subtitle').textContent = title;
+  $('#appendix-list').innerHTML = items.length ? items.map((r) => `<article class="item"><h3>${esc(r.title)}</h3><p>${esc(r.appendixKind)} · ${esc(r.revisionDate || '-')} · ${esc(r.revisionType || '')}</p><div class="item-actions">${r.comparisonUrl ? `<button data-open="${esc(r.comparisonUrl)}">법제처 별표·서식 비교</button>` : r.officialUrl ? `<button data-open="${esc(r.officialUrl)}">공식 별표 보기</button>`:''}</div></article>`).join('') : '<div class="empty">연결된 별표·서식이 없습니다.</div>';
+  $('#appendix-dialog').showModal();
+}
+
+async function loadNotices() {
+  const q = normalizeName($('#notices-q').value);
+  const status = $('#notices-status').value;
+  const from = $('#notices-from').value, to = $('#notices-to').value;
+  const rows = (await dbGetAll('notices')).filter((r) => {
+    const date = r.startDate || r.endDate || '';
+    return (!q || normalizeName(`${r.title} ${r.matchedItem} ${r.ministry}`).includes(q)) && (status === '전체' || r.status === status) && (!from || date >= from) && (!to || date <= to);
+  }).sort((a,b) => (b.startDate || '').localeCompare(a.startDate || ''));
+  $('#notices-list').innerHTML = rows.length ? rows.slice(0,1500).map((r) => `<article class="item ${r.isNew ? 'new':''}"><div class="item-head"><div><h3>${esc(r.title)}</h3><p>${esc(r.ministry || '')} · ${esc(r.noticeNo || '')}</p><p>${esc(r.startDate || '-')} ~ ${esc(r.endDate || '-')} · ${esc(r.matchedItem || '')}</p></div><span class="tag ${r.status === '진행 중' ? 'green':''}">${esc(r.status)}</span></div><div class="item-actions">${r.officialUrl ? `<button data-open="${esc(r.officialUrl)}">입법예고 상세</button>`:''}</div></article>`).join('') : '<div class="empty">조건에 맞는 입법예고가 없습니다.</div>';
+}
+
+async function loadSettings() {
+  $('#setting-owner').value = state.setup.ownerName || '이상우';
+  $('#setting-law-oc').value = state.secrets?.lawOc || '';
+  $('#setting-notice-oc').value = state.secrets?.noticeOc || '';
+  $('#setting-auto-sync').checked = !!state.setup.autoSync;
+  $('#setting-sync-interval').value = String(state.setup.syncIntervalHours || 12);
+  const logs = (await dbGetAll('logs')).sort((a,b) => b.id - a.id).slice(0,30);
+  $('#logs-list').innerHTML = logs.length ? logs.map((x) => `<div><b>${esc(x.status)}</b><span>${esc(formatDateTime(x.at))} · ${esc(x.message)}</span></div>`).join('') : '<div>로그가 없습니다.</div>';
+}
+
+async function saveSettings(event) {
+  event.preventDefault();
+  setBusy(event.submitter,true);
+  try {
+    const ownerName = cleanText($('#setting-owner').value) || '이상우';
+    const secrets = {lawOc:normalizeOc($('#setting-law-oc').value),noticeOc:normalizeOc($('#setting-notice-oc').value)};
+    if (!secrets.lawOc) throw new Error('국가법령정보 API OC를 입력하세요.');
+    const setup = {...state.setup,ownerName,autoSync:$('#setting-auto-sync').checked,syncIntervalHours:Number($('#setting-sync-interval').value),encryptedSecrets:await encryptJson(secrets,state.keyBytes)};
+    await setMeta('setup',setup); state.setup = setup; state.secrets = secrets;
+    $('#owner-name').textContent = ownerName;
+    await addLog('설정','API 및 자동 동기화 설정 변경');
+    toast('설정을 저장했습니다.');
+  } catch (error) { toast(error.message); }
+  finally { setBusy(event.submitter,false); }
+}
+
+async function changePassword(event) {
+  event.preventDefault();
+  const current = $('#current-password').value, next = $('#new-password').value;
+  if (next.length < 8) return toast('새 비밀번호는 8자 이상이어야 합니다.');
+  setBusy(event.submitter,true);
+  try {
+    const oldKey = await deriveKeyBytes(current,b64ToBytes(state.setup.salt));
+    if (await makeVerifier(oldKey) !== state.setup.verifier) throw new Error('현재 비밀번호가 올바르지 않습니다.');
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const newKey = await deriveKeyBytes(next,salt);
+    const setup = {...state.setup,salt:bytesToB64(salt),verifier:await makeVerifier(newKey),encryptedSecrets:await encryptJson(state.secrets,newKey)};
+    await setMeta('setup',setup); state.setup = setup; state.keyBytes = newKey;
+    $('#current-password').value = ''; $('#new-password').value = '';
+    await addLog('보안','잠금 비밀번호 변경');
+    toast('비밀번호를 변경했습니다.');
+  } catch (error) { toast(error.message); }
+  finally { setBusy(event.submitter,false); }
+}
+
+async function exportBackup() {
+  const data = {format:'JungwonLawMonitorStandaloneBackup',version:1,exportedAt:new Date().toISOString(),managed:await dbGetAll('managed'),changes:await dbGetAll('changes'),notices:await dbGetAll('notices'),logs:(await dbGetAll('logs')).slice(-50),lastSync:await getMeta('lastSync','')};
+  const text = bytesToB64(new TextEncoder().encode(JSON.stringify(data)));
+  $('#backup-text').value = text;
+  $('#backup-text').focus(); $('#backup-text').select();
+  toast('백업 문자열을 생성했습니다. 전체 복사해 보관하세요.',3500);
+}
+
+async function importBackup() {
+  const raw = cleanText($('#backup-text').value);
+  if (!raw) return toast('복원할 백업 문자열을 붙여넣으세요.');
+  if (!confirm('현재 휴대폰 DB를 백업 내용으로 교체하시겠습니까?')) return;
+  try {
+    const data = JSON.parse(new TextDecoder().decode(b64ToBytes(raw)));
+    if (data.format !== 'JungwonLawMonitorStandaloneBackup' || data.version !== 1) throw new Error('지원하지 않는 백업 형식입니다.');
+    for (const store of ['managed','changes','notices','logs']) await dbClear(store);
+    for (const r of data.managed || []) await dbPut('managed',r);
+    for (const r of data.changes || []) await dbPut('changes',r);
+    for (const r of data.notices || []) await dbPut('notices',r);
+    for (const r of data.logs || []) { const copy = {...r}; delete copy.id; await dbAdd('logs',copy); }
+    await setMeta('lastSync',data.lastSync || '');
+    await addLog('복원','휴대폰 DB 백업 복원 완료');
+    $('#backup-text').value = '';
+    await refreshAll();
+    toast('백업 자료를 복원했습니다.');
+  } catch (error) { toast(`복원 실패: ${error.message}`); }
+}
+
+function openUrl(url) {
+  if (!/^https:\/\//i.test(url || '')) return toast('안전하지 않은 주소는 열 수 없습니다.');
+  window.location.href = url;
+}
+
+async function markChangesSeen() {
+  const rows = await dbGetAll('changes');
+  for (const row of rows) if (row.isNew) await dbPut('changes',{...row,isNew:false});
+  await loadChanges(); await refreshDashboard(); toast('신규 개정을 확인 처리했습니다.');
+}
+
+async function markNoticesSeen() {
+  const rows = await dbGetAll('notices');
+  for (const row of rows) if (row.isNew) await dbPut('notices',{...row,isNew:false});
+  await loadNotices(); await refreshDashboard(); toast('입법예고를 확인 처리했습니다.');
+}
+
+function setupPwaInstall() {
+  const button = $('#install-button');
+  const card = $('#install-card');
+  const standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  if (standalone && card) card.classList.add('hidden');
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    state.deferredInstallPrompt = event;
+    if (button) button.classList.remove('hidden');
+  });
+  window.addEventListener('appinstalled', () => {
+    state.deferredInstallPrompt = null;
+    if (button) button.classList.add('hidden');
+    if (card) card.classList.add('hidden');
+    toast('홈 화면에 설치되었습니다.');
+  });
+  if (button) button.addEventListener('click', async () => {
+    if (!state.deferredInstallPrompt) {
+      toast('Chrome 메뉴에서 “홈 화면에 추가”를 선택하세요.', 3500);
+      return;
+    }
+    state.deferredInstallPrompt.prompt();
+    await state.deferredInstallPrompt.userChoice;
+    state.deferredInstallPrompt = null;
+    button.classList.add('hidden');
+  });
+}
+
+async function testOfficialApis() {
+  const button = $('#api-test-button');
+  const box = $('#api-test-result');
+  if (!button || !box) return;
+  setBusy(button, true);
+  box.innerHTML = '<p class="muted">연결 확인 중…</p>';
+  const lawOc = state.secrets?.lawOc;
+  const noticeOc = state.secrets?.noticeOc || lawOc;
+  const tests = [
+    ['국가법령정보', lawOc ? apiUrl(LAW_URL,{OC:lawOc,target:'law',type:'JSON',query:'소방',display:1,page:1}) : ''],
+    ['입법예고', noticeOc ? apiUrl(NOTICE_URL,{OC:noticeOc,diff:0,lsNm:'소방',pageIndex:1,pageUnit:1}) : ''],
+  ];
+  const results = [];
+  for (const [name,url] of tests) {
+    if (!url) { results.push({name,ok:false,message:'API OC 미입력'}); continue; }
+    try {
+      const text = await fetchText(url, 15000);
+      const payload = parsePayload(text);
+      results.push({name,ok:!!payload,message:'정상 연결'});
+    } catch (error) {
+      results.push({name,ok:false,message:error.message});
+    }
+  }
+  box.innerHTML = results.map((r) => `<div class="api-test-row ${r.ok?'ok':'fail'}"><b>${esc(r.name)}</b><span>${esc(r.message)}</span></div>`).join('');
+  setBusy(button, false);
+}
+
+async function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  try {
+    await navigator.serviceWorker.register('./sw.js', {scope:'./'});
+  } catch (error) {
+    console.warn('service worker registration failed', error);
+  }
+}
+
+function bindEvents() {
+  $('#setup-form').addEventListener('submit',setupApp);
+  $('#login-form').addEventListener('submit',login);
+  $('#sync-button').addEventListener('click',syncNow);
+  $$('.bottom-nav button').forEach((b) => b.addEventListener('click',() => go(b.dataset.page)));
+  $$('[data-go]').forEach((b) => b.addEventListener('click',() => go(b.dataset.go)));
+  $('#open-search').addEventListener('click',openCatalog);
+  $('#catalog-search').addEventListener('click',(e) => { e.preventDefault(); runCatalogSearch(); });
+  $('#catalog-q').addEventListener('keydown',(e) => { if (e.key === 'Enter') { e.preventDefault(); runCatalogSearch(); } });
+  $('#catalog-results').addEventListener('click',(e) => { const b = e.target.closest('[data-add-index]'); if (b) addCatalog(Number(b.dataset.addIndex)); });
+  $('#managed-filter').addEventListener('input',loadManaged);
+  $('#managed-refresh').addEventListener('click',loadManaged);
+  $('#managed-list').addEventListener('change',async (e) => { const id = Number(e.target.dataset.toggle); if (!id) return; const row = await dbGet('managed',id); await dbPut('managed',{...row,enabled:e.target.checked,updatedAt:new Date().toISOString()}); await refreshDashboard(); });
+  $('#managed-list').addEventListener('click',async (e) => {
+    const open = e.target.closest('[data-open]'); if (open) return openUrl(open.dataset.open);
+    const del = e.target.closest('[data-delete]');
+    if (del && confirm(`${del.dataset.name}을(를) 관리대상에서 삭제하시겠습니까? 저장된 개정 이력은 유지됩니다.`)) { await dbDelete('managed',Number(del.dataset.delete)); await loadManaged(); await refreshDashboard(); }
+  });
+  let changeTimer;
+  ['changes-q','changes-from','changes-to','changes-new-only'].forEach((id) => $('#'+id).addEventListener(id === 'changes-q' ? 'input':'change',() => { clearTimeout(changeTimer); changeTimer=setTimeout(loadChanges,220); }));
+  $('#changes-list').addEventListener('click',(e) => { const open=e.target.closest('[data-open]'); if (open) return openUrl(open.dataset.open); const b=e.target.closest('[data-appendix]'); if (b) openAppendices(b.dataset.appendix,b.dataset.title); });
+  $('#appendix-list').addEventListener('click',(e) => { const open=e.target.closest('[data-open]'); if (open) openUrl(open.dataset.open); });
+  $('#changes-seen').addEventListener('click',markChangesSeen);
+  let noticeTimer;
+  ['notices-q','notices-status','notices-from','notices-to'].forEach((id) => $('#'+id).addEventListener(id === 'notices-q' ? 'input':'change',() => { clearTimeout(noticeTimer); noticeTimer=setTimeout(loadNotices,220); }));
+  $('#notices-list').addEventListener('click',(e) => { const open=e.target.closest('[data-open]'); if (open) openUrl(open.dataset.open); });
+  $('#notices-seen').addEventListener('click',markNoticesSeen);
+  $('#settings-form').addEventListener('submit',saveSettings);
+  $('#password-form').addEventListener('submit',changePassword);
+  $('#export-button').addEventListener('click',exportBackup);
+  $('#import-button').addEventListener('click',importBackup);
+  $('#api-test-button').addEventListener('click',testOfficialApis);
+  $('#lock-button').addEventListener('click',showLogin);
+  ['click','keydown','touchstart','scroll'].forEach((name) => document.addEventListener(name,() => { state.lastTouch=Date.now(); },{passive:true}));
+  setInterval(() => { if (state.keyBytes && !state.syncing && Date.now()-state.lastTouch>AUTO_LOCK_MS) { showLogin(); toast('보안을 위해 자동 잠금되었습니다.'); } },30000);
+  document.addEventListener('visibilitychange',() => { if (!document.hidden) { state.lastTouch=Date.now(); if (state.keyBytes) maybeAutoSync(); } });
+}
+
+async function boot() {
+  try {
+    if (!window.crypto?.subtle || !window.indexedDB) throw new Error('이 휴대폰의 Android System WebView가 너무 오래되었습니다. WebView를 업데이트하세요.');
+    await registerServiceWorker();
+    setupPwaInstall();
+    state.db = await openDb();
+    state.setup = await getMeta('setup',null);
+    bindEvents();
+    if (!state.setup) showSetup(); else showLogin();
+  } catch (error) {
+    document.body.innerHTML = `<div class="gate"><div class="gate-card"><h1>앱 시작 실패</h1><p>${esc(error.message)}</p></div></div>`;
+  }
+}
+
+boot();
