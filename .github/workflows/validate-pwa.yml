@@ -27,16 +27,16 @@ jobs:
           python3 -m http.server 8080 >/tmp/http.log 2>&1 &
           pid=$!
           sleep 2
-          curl --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/ >/dev/null
-          curl --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/manifest.webmanifest >/dev/null
+          curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/ >/dev/null
+          curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/manifest.webmanifest >/dev/null
           kill $pid
       - name: Inspect official API CORS headers
         continue-on-error: true
         run: |
           set -x
-          curl -sS -D /tmp/law.headers -o /tmp/law.body 'https://www.law.go.kr/DRF/lawSearch.do?OC=test&target=law&type=JSON&query=%EC%86%8C%EB%B0%A9&display=1&page=1'
-          cat /tmp/law.headers
-          grep -i '^access-control-allow-origin:' /tmp/law.headers || echo 'LAW_API_CORS_HEADER_NOT_FOUND'
-          curl -sS -D /tmp/notice.headers -o /tmp/notice.body 'https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=test&diff=0&lsNm=%EC%86%8C%EB%B0%A9&pageIndex=1&pageUnit=1'
-          cat /tmp/notice.headers
-          grep -i '^access-control-allow-origin:' /tmp/notice.headers || echo 'NOTICE_API_CORS_HEADER_NOT_FOUND'
+          curl --connect-timeout 8 --max-time 15 -sS -D /tmp/law.headers -o /tmp/law.body 'https://www.law.go.kr/DRF/lawSearch.do?OC=test&target=law&type=JSON&query=%EC%86%8C%EB%B0%A9&display=1&page=1' || true
+          cat /tmp/law.headers 2>/dev/null || true
+          grep -i '^access-control-allow-origin:' /tmp/law.headers 2>/dev/null || echo 'LAW_API_CORS_HEADER_NOT_FOUND'
+          curl --connect-timeout 8 --max-time 15 -sS -D /tmp/notice.headers -o /tmp/notice.body 'https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=test&diff=0&lsNm=%EC%86%8C%EB%B0%A9&pageIndex=1&pageUnit=1' || true
+          cat /tmp/notice.headers 2>/dev/null || true
+          grep -i '^access-control-allow-origin:' /tmp/notice.headers 2>/dev/null || echo 'NOTICE_API_CORS_HEADER_NOT_FOUND'
