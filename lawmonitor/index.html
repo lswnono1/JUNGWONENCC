@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#075a9c">
+  <meta name="description" content="정원이앤씨 대표자 개인용 소방·건축 법령 개정 및 입법예고 모니터">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="법령모니터">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <title>정원이앤씨 법령모니터</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+
+  <section id="setup-view" class="gate hidden">
+    <div class="gate-card">
+      <div class="brand-mark">법</div>
+      <div class="eyebrow blue">JUNGWON E&amp;C</div>
+      <h1>법령모니터 초기 설정</h1>
+      <p>PC나 별도 서버 없이 이 휴대폰에서 직접 실행합니다.</p>
+      <form id="setup-form" class="gate-form">
+        <label>사용자 이름<input id="setup-owner" value="이상우" required></label>
+        <label>잠금 비밀번호<input id="setup-password" type="password" minlength="8" autocomplete="new-password" placeholder="8자 이상" required></label>
+        <label>비밀번호 확인<input id="setup-password2" type="password" minlength="8" autocomplete="new-password" required></label>
+        <label>국가법령정보 API OC<input id="setup-law-oc" autocapitalize="none" spellcheck="false" value="jungwonenc" placeholder="OC 값 입력" required></label>
+        <label>입법예고 API OC<input id="setup-notice-oc" autocapitalize="none" spellcheck="false" value="jungwonenc" placeholder="비워두면 위 OC 사용"></label>
+        <button type="submit" class="primary full">독립형 앱 시작</button>
+      </form>
+      <small>API OC는 비밀번호로 암호화하여 앱 내부 저장소에 보관합니다.</small>
+    </div>
+  </section>
+
+  <section id="login-view" class="gate hidden">
+    <div class="gate-card">
+      <div class="brand-mark">법</div>
+      <div class="eyebrow blue">JUNGWON E&amp;C</div>
+      <h1>법령모니터</h1>
+      <p>대표님 개인용 · 휴대폰 독립 실행</p>
+      <form id="login-form" class="gate-form">
+        <label>잠금 비밀번호<input id="login-password" type="password" autocomplete="current-password" required></label>
+        <button type="submit" class="primary full">잠금 해제</button>
+      </form>
+      <small>동기화할 때만 인터넷이 필요하며, 저장된 이력은 오프라인에서도 확인할 수 있습니다.</small>
+    </div>
+  </section>
+
+  <div id="app-view" class="hidden">
+    <header class="app-header">
+      <div>
+        <div class="eyebrow">JUNGWON E&amp;C · MOBILE PWA</div>
+        <h1>법령모니터</h1>
+      </div>
+      <div class="header-actions">
+        <button id="install-button" class="install-button hidden" aria-label="홈 화면에 설치">설치</button>
+        <button id="sync-button" class="icon-button" aria-label="지금 동기화">↻</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="page-dashboard" class="page active">
+        <div class="welcome"><strong><span id="owner-name">대표님</span> 전용</strong><span id="last-sync">아직 동기화하지 않았습니다.</span></div>
+        <div class="standalone-note"><b>휴대폰 설치형 웹앱</b><span>홈 화면에서 앱처럼 실행하고 데이터는 이 휴대폰 내부에 저장</span></div>
+        <div class="metric-grid">
+          <button class="metric" data-go="managed"><span>관리대상</span><b id="count-managed">0</b></button>
+          <button class="metric" data-go="changes"><span>전체 개정</span><b id="count-changes">0</b></button>
+          <button class="metric accent" data-go="changes"><span>신규 개정</span><b id="count-new-changes">0</b></button>
+          <button class="metric accent" data-go="notices"><span>진행 입법예고</span><b id="count-active-notices">0</b></button>
+        </div>
+        <div id="sync-card" class="card sync-card hidden"><div><b id="sync-message">동기화 중</b><span id="sync-progress-text">0%</span></div><progress id="sync-progress" max="100" value="0"></progress></div>
+        <div class="card">
+          <h2>빠른 실행</h2>
+          <div class="quick-grid">
+            <button data-go="managed">법규 추가</button>
+            <button data-go="changes">개정 이력</button>
+            <button data-go="notices">입법예고</button>
+            <button data-go="settings">보안·API</button>
+          </div>
+        </div>
+        <div class="card compact"><b>동기화 방식</b><p>앱 실행 시 설정된 주기가 지나면 자동 동기화하며, 우측 상단 ↻ 버튼으로 즉시 확인할 수 있습니다.</p></div>
+        <div id="install-card" class="card compact"><b>홈 화면 설치</b><p>Chrome 메뉴의 ‘홈 화면에 추가’ 또는 상단 ‘설치’ 버튼을 사용하면 일반 앱처럼 실행됩니다.</p></div>
+      </section>
+
+      <section id="page-managed" class="page">
+        <div class="page-title"><div><h2>관리대상</h2><p>법령·행정규칙을 공식 API에서 검색해 추가합니다.</p></div><button id="open-search" class="primary">+ 추가</button></div>
+        <div class="search-row"><input id="managed-filter" placeholder="관리대상 검색"><button id="managed-refresh">새로고침</button></div>
+        <div id="managed-list" class="list"></div>
+      </section>
+
+      <section id="page-changes" class="page">
+        <div class="page-title"><div><h2>개정사항</h2><p>전체 이력과 별표·서식 개정을 확인합니다.</p></div><button id="changes-seen">확인 처리</button></div>
+        <div class="filters"><input id="changes-q" placeholder="법규명·개정구분 검색"><div class="date-row"><input id="changes-from" type="date"><span>~</span><input id="changes-to" type="date"></div><label class="check"><input id="changes-new-only" type="checkbox"> 신규만</label></div>
+        <div id="changes-list" class="list"></div>
+      </section>
+
+      <section id="page-notices" class="page">
+        <div class="page-title"><div><h2>입법예고</h2><p>진행 중과 종료 이력을 함께 확인합니다.</p></div><button id="notices-seen">확인 처리</button></div>
+        <div class="filters"><input id="notices-q" placeholder="입법예고명·관리대상 검색"><select id="notices-status"><option>전체</option><option>진행 중</option><option>종료</option></select><div class="date-row"><input id="notices-from" type="date"><span>~</span><input id="notices-to" type="date"></div></div>
+        <div id="notices-list" class="list"></div>
+      </section>
+
+      <section id="page-settings" class="page">
+        <div class="page-title"><div><h2>설정</h2><p>암호화된 API 정보와 휴대폰 저장 DB를 관리합니다.</p></div></div>
+        <form id="settings-form" class="card form-card">
+          <label>사용자 이름<input id="setting-owner"></label>
+          <label>국가법령정보 API OC<input id="setting-law-oc" autocapitalize="none" spellcheck="false"></label>
+          <label>입법예고 API OC<input id="setting-notice-oc" autocapitalize="none" spellcheck="false" placeholder="비워두면 위 OC 사용"></label>
+          <label>자동 동기화 주기<select id="setting-sync-interval"><option value="6">6시간</option><option value="12">12시간</option><option value="24">24시간</option><option value="48">48시간</option></select></label>
+          <label class="check"><input id="setting-auto-sync" type="checkbox"> 앱 실행 시 자동 동기화</label>
+          <button type="submit" class="primary full">설정 저장</button>
+        </form>
+        <form id="password-form" class="card form-card">
+          <h3>잠금 비밀번호 변경</h3>
+          <label>현재 비밀번호<input id="current-password" type="password" autocomplete="current-password"></label>
+          <label>새 비밀번호<input id="new-password" type="password" autocomplete="new-password" minlength="8"></label>
+          <button type="submit" class="secondary full">비밀번호 변경</button>
+        </form>
+        <div class="card">
+          <h3>휴대폰 DB 백업·복원</h3>
+          <p class="muted">백업 문자열을 복사해 안전한 곳에 보관하거나, 복원할 문자열을 붙여넣으세요. API OC는 백업에 포함하지 않습니다.</p>
+          <textarea id="backup-text" rows="7" placeholder="백업 또는 복원 문자열"></textarea>
+          <div class="two-buttons"><button id="export-button" class="secondary" type="button">백업 생성</button><button id="import-button" class="secondary" type="button">붙여넣은 자료 복원</button></div>
+        </div>
+        <div class="card">
+          <h3>공식 API 연결 확인</h3>
+          <p class="muted">국가법령정보센터와 국민참여입법센터 연결 상태를 확인합니다.</p>
+          <button id="api-test-button" class="secondary full" type="button">API 연결 테스트</button>
+          <div id="api-test-result" class="api-test-result"></div>
+        </div>
+        <div class="card"><h3>최근 동기화 로그</h3><div id="logs-list" class="mini-list"></div></div>
+        <button id="lock-button" class="danger full">앱 잠금</button>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="active" data-page="dashboard"><span>⌂</span>홈</button>
+      <button data-page="managed"><span>☷</span>관리</button>
+      <button data-page="changes"><span>↺</span>개정</button>
+      <button data-page="notices"><span>◎</span>예고</button>
+      <button data-page="settings"><span>⚙</span>설정</button>
+    </nav>
+  </div>
+
+  <dialog id="search-dialog">
+    <form method="dialog" class="dialog-head"><div><h2>관리대상 추가</h2><p>국가법령정보 공식 API 검색</p></div><button value="cancel" aria-label="닫기">×</button></form>
+    <div class="dialog-body"><div class="search-stack"><input id="catalog-q" placeholder="두 글자 이상 입력"><div class="search-row"><select id="catalog-kind"><option>전체</option><option>법령</option><option>행정규칙</option></select><button id="catalog-search" class="primary">검색</button></div></div><div id="catalog-results" class="list"></div></div>
+  </dialog>
+
+  <dialog id="appendix-dialog">
+    <form method="dialog" class="dialog-head"><div><h2>별표·서식 개정</h2><p id="appendix-dialog-subtitle"></p></div><button value="cancel" aria-label="닫기">×</button></form>
+    <div id="appendix-list" class="dialog-body list"></div>
+  </dialog>
+
+  <script src="./app.js?v=1.1.0" defer></script>
+</body>
+</html>
