@@ -2,6 +2,9 @@ name: Sync Legislation Notices
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/sync-legislation-notices.yml'
   schedule:
     - cron: '15 */6 * * *'
 
