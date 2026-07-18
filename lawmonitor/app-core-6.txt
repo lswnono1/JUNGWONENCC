@@ -1,0 +1,300 @@
+
+/* v1.4.0: official mobile full-text links and mobile appendix before/after viewing */
+
+function v14Digits(value) {
+  return cleanText(value).replace(/\D/g, '');
+}
+
+function v14AppendixTypeCode(value) {
+  const text = cleanText(value);
+  if (text.includes('서식')) return 2;
+  if (text.includes('별지')) return 3;
+  if (text.includes('별도')) return 4;
+  if (text.includes('부록')) return 5;
+  return 1;
+}
+
+function v14MobileLawUrl(item, options = {}) {
+  const kind = item?.kind === '행정규칙' ? '행정규칙' : '법령';
+  const oc = state.secrets?.lawOc || '';
+  const name = cleanText(item?.name || '');
+  const id = cleanText(item?.adminId || item?.lawId || item?.mobileId || item?.sourceId || '');
+  const mst = cleanText(item?.lawMst || item?.mobileMst || item?.mst || '');
+
+  if (kind === '행정규칙' && options.appendix) {
+    return apiUrl('https://www.law.go.kr/DRF/lawSearch.do', {
+      OC:oc,
+      target:'admbyl',
+      type:'HTML',
+      mobileYn:'Y',
+      search:2,
+      query:name,
+      display:100,
+      page:1,
+    });
+  }
+
+  const params = {
+    OC:oc,
+    target:kind === '행정규칙' ? 'admrul' : 'law',
+    type:'HTML',
+    mobileYn:'Y',
+  };
+
+  if (kind === '법령' && mst) params.MST = mst;
+  else if (id) params.ID = id;
+  else if (name) params.LM = name;
+
+  const date = v14Digits(options.date || '');
+  if (kind === '법령' && date.length >= 8) params.LD = date.slice(0,8);
+
+  if (kind === '법령' && (options.allAppendices || options.appendix)) {
+    params.BD = 'ON';
+    if (options.appendix) {
+      const appendix = options.appendix;
+      params.BT = v14AppendixTypeCode(appendix.appendixKind || appendix.title);
+      const number = v14Digits(appendix.appendixNo || '');
+      const branch = v14Digits(appendix.appendixBranch || '');
+      if (number) params.BN = Number(number);
+      if (branch) params.BG = Number(branch);
+    }
+  }
+
+  return apiUrl('https://www.law.go.kr/DRF/lawService.do', params);
+}
+
+function officialLawUrl(kind, name, supplied = '') {
+  return v14MobileLawUrl({kind,name,officialUrl:supplied});
+}
+
+function v13AdministrativeRuleUrl(name) {
+  return v14MobileLawUrl({kind:'행정규칙',name});
+}
+
+function v13ItemOfficialUrl(item) {
+  return v14MobileLawUrl(item || {});
+}
+
+function openUrl(url) {
+  if (!/^https:\/\//i.test(url || '')) return toast('안전하지 않은 주소는 열 수 없습니다.');
+  const popup = window.open(url, '_blank', 'noopener,noreferrer');
+  if (!popup) window.location.href = url;
+}
+
+async function searchCatalog(query, kind = '전체') {
+  const oc = state.secrets?.lawOc;
+  if (!oc) throw new Error('설정에서 국가법령정보 API OC를 입력하세요.');
+  const targets = [];
+  if (kind === '전체' || kind === '법령') targets.push(['law','법령']);
+  if (kind === '전체' || kind === '행정규칙') targets.push(['admrul','행정규칙']);
+  const results = [];
+
+  for (const [target, displayKind] of targets) {
+    const text = await fetchText(apiUrl(LAW_URL, {
+      OC:oc,target,type:'JSON',mobileYn:'Y',query,display:100,page:1,sort:'ddes'
+    }));
+    const payload = parsePayload(text);
+    for (const record of candidateRecords(payload, ['법령명','행정규칙명','법령명한글','법령ID','행정규칙일련번호'])) {
+      const name = recordName(record);
+      if (!name) continue;
+      const lawId = first(record,'법령ID','법령아이디');
+      const lawMst = first(record,'법령일련번호','MST');
+      const adminId = first(record,'행정규칙일련번호','행정규칙ID');
+      const row = {
+        kind:displayKind,
+        name,
+        lawId,
+        lawMst,
+        adminId,
+        sourceId:displayKind === '행정규칙' ? (adminId || lawId) : (lawId || lawMst),
+        revisionType:first(record,'제개정구분명','제개정구분','개정구분'),
+        promulgationDate:normalizeDate(first(record,'공포일자','발령일자','개정일자')),
+        enforcementDate:normalizeDate(first(record,'시행일자','효력일자')),
+        ministry:first(record,'소관부처명','소관부처','부처명'),
+        score:matchScore(query,name),
+      };
+      row.officialUrl = v14MobileLawUrl(row);
+      results.push(row);
+    }
+  }
+
+  const unique = new Map();
+  results.sort((a,b) => b.score - a.score || a.name.localeCompare(b.name,'ko'));
+  results.forEach((row) => {
+    const key = `${row.kind}|${row.name}`;
+    if (!unique.has(key)) unique.set(key,row);
+  });
+  return [...unique.values()].slice(0,100);
+}
+
+async function fetchRevisions(item) {
+  const oc = state.secrets?.lawOc;
+  if (!oc) throw new Error('국가법령정보 API OC가 없습니다.');
+  const target = item.kind === '행정규칙' ? 'admrul' : 'eflaw';
+  const rows = [];
+  const seen = new Set();
+
+  for (let page = 1; page <= 50; page += 1) {
+    const params = {OC:oc,target,type:'JSON',query:item.name,display:100,page,sort:'ddes'};
+    if (item.kind !== '행정규칙') { params.search = 1; params.nw = '1,2,3'; }
+    const payload = parsePayload(await fetchText(apiUrl(LAW_URL, params)));
+    const records = candidateRecords(payload, ['법령명','행정규칙명','법령ID','법령일련번호','공포일자','발령일자']);
+    let added = 0;
+
+    for (const record of records) {
+      const candidate = recordName(record);
+      if (matchScore(item.name,candidate) < 78) continue;
+      const lawId = first(record,'법령ID','법령아이디') || item.lawId || '';
+      const lawMst = first(record,'법령일련번호','MST') || item.lawMst || '';
+      const adminId = first(record,'행정규칙일련번호','행정규칙ID') || item.adminId || '';
+      const sourceId = item.kind === '행정규칙' ? (adminId || item.sourceId || '') : (lawId || lawMst || item.sourceId || '');
+      const promulgationDate = normalizeDate(first(record,'공포일자','발령일자','개정일자','promulgationDate'));
+      const enforcementDate = normalizeDate(first(record,'시행일자','효력일자','enforcementDate'));
+      const revisionType = first(record,'제개정구분명','제개정구분','개정구분','revisionType') || '구분미상';
+      const name = candidate || item.name;
+      const eventKey = [item.kind,lawMst || sourceId || name,promulgationDate || '날짜미상',revisionType].join(':');
+      if (seen.has(eventKey)) continue;
+      seen.add(eventKey); added += 1;
+      const row = {
+        eventKey,managedId:item.id,kind:item.kind,name,sourceId,lawId,lawMst,adminId,
+        revisionType,promulgationDate,enforcementDate,
+        ministry:first(record,'소관부처명','소관부처','부처명','ministry'),appendices:[]
+      };
+      row.officialUrl = v14MobileLawUrl(row,{date:promulgationDate});
+      rows.push(row);
+    }
+    if ((page > 1 && added === 0) || records.length < 100) break;
+  }
+
+  rows.sort((a,b) => (b.promulgationDate || '').localeCompare(a.promulgationDate || '') || (b.enforcementDate || '').localeCompare(a.enforcementDate || ''));
+  return rows;
+}
+
+async function fetchAppendices(item) {
+  const oc = state.secrets?.lawOc;
+  if (!oc) return [];
+  const target = item.kind === '행정규칙' ? 'admbyl' : 'licbyl';
+  const output = [];
+  const seen = new Set();
+
+  for (let page = 1; page <= 30; page += 1) {
+    const payload = parsePayload(await fetchText(apiUrl(LAW_URL, {
+      OC:oc,target,type:'JSON',mobileYn:'Y',search:2,query:item.name,display:100,page,sort:'lasc'
+    })));
+    const records = candidateRecords(payload,['별표명','별표서식명','별표일련번호','별표서식일련번호']);
+    let added = 0;
+
+    for (const record of records) {
+      const title = first(record,'별표명','별표서식명','별표서식제목','별표제목');
+      const seq = first(record,'별표일련번호','별표서식일련번호','별표명ID','id');
+      const revisionDate = normalizeDate(first(record,'공포일자','발령일자','개정일자','시행일자','효력일자'));
+      const appendixNo = first(record,'별표번호','별표서식번호');
+      const appendixBranch = first(record,'별표가지번호','별표서식가지번호');
+      const key = [seq,title,revisionDate,appendixNo,appendixBranch].join('|');
+      if (!title || seen.has(key)) continue;
+      seen.add(key); added += 1;
+      const rawKind = first(record,'별표종류','별표서식구분명');
+      const appendixKind = ['별표','서식','별지','별도','부록'].find((x) => rawKind.includes(x) || title.includes(x)) || '별표';
+      output.push({
+        appendixKey:key,
+        title,
+        appendixKind,
+        revisionDate,
+        revisionType:first(record,'제개정구분명','제개정구분','개정구분'),
+        appendixNo,
+        appendixBranch,
+        lawId:first(record,'관련법령ID','법령ID') || item.lawId || '',
+        lawMst:first(record,'관련법령일련번호','법령일련번호') || item.lawMst || '',
+        adminId:first(record,'관련행정규칙일련번호','행정규칙일련번호') || item.adminId || '',
+        comparisonUrl:'',
+      });
+    }
+    if ((page > 1 && added === 0) || records.length < 100) break;
+  }
+  return output;
+}
+
+function v14AppendixUrl(change, appendix, date) {
+  return v14MobileLawUrl({
+    ...change,
+    lawId:appendix?.lawId || change?.lawId,
+    lawMst:appendix?.lawMst || change?.lawMst,
+    adminId:appendix?.adminId || change?.adminId,
+  }, {
+    date:date || appendix?.revisionDate || change?.promulgationDate,
+    appendix,
+    allAppendices:true,
+  });
+}
+
+async function openAppendices(eventKey,title) {
+  const current = await dbGet('changes',eventKey);
+  if (!current) return toast('별표 개정 정보를 찾지 못했습니다.');
+  const allChanges = (await dbGetAll('changes'))
+    .filter((row) => row.name === current.name && row.kind === current.kind)
+    .sort((a,b) => (a.promulgationDate || '').localeCompare(b.promulgationDate || ''));
+  const currentDate = current.promulgationDate || current.enforcementDate || '';
+  const currentItems = Array.isArray(current.appendices) ? current.appendices : [];
+
+  $('#appendix-dialog-subtitle').textContent = `${title} · 모바일 전후 원문`;
+
+  if (!currentItems.length) {
+    const allUrl = v14MobileLawUrl(current,{date:currentDate,allAppendices:true});
+    $('#appendix-list').innerHTML = `<div class="card compact"><b>별표 개정 목록이 연결되지 않았습니다.</b><p>법제처 모바일 전문에서 해당 시점의 전체 별표·서식을 확인하세요.</p><div class="item-actions"><button data-open="${esc(allUrl)}">모바일 전체 별표 보기</button></div></div>`;
+    $('#appendix-dialog').showModal();
+    return;
+  }
+
+  const history = [];
+  for (const change of allChanges) {
+    for (const appendix of (change.appendices || [])) {
+      history.push({change,appendix,date:appendix.revisionDate || change.promulgationDate || change.enforcementDate || ''});
+    }
+  }
+
+  $('#appendix-list').innerHTML = `<div class="card compact"><b>모바일 별표 전후 보기</b><p>PC용 신구비교창 대신 법제처 모바일 원문을 개정 전·개정 후로 각각 엽니다.</p></div>` + currentItems.map((appendix) => {
+    const afterDate = appendix.revisionDate || currentDate;
+    const normalizedTitle = normalizeName(appendix.title);
+    const previous = history
+      .filter((entry) => normalizeName(entry.appendix.title) === normalizedTitle && entry.date && afterDate && entry.date < afterDate)
+      .sort((a,b) => b.date.localeCompare(a.date))[0];
+    const afterUrl = v14AppendixUrl(current,appendix,afterDate);
+    const beforeUrl = previous ? v14AppendixUrl(previous.change,previous.appendix,previous.date) : '';
+    const allUrl = v14MobileLawUrl(current,{date:afterDate,allAppendices:true});
+    return `<article class="item"><h3>${esc(appendix.title)}</h3><p>${esc(appendix.appendixKind)} · 개정 후 ${esc(afterDate || '-')}</p>${previous ? `<p>개정 전 ${esc(previous.date || '-')}</p>` : '<p>저장된 이전 별표 이력이 없습니다.</p>'}<div class="item-actions">${beforeUrl ? `<button data-open="${esc(beforeUrl)}">개정 전 별표</button>`:''}<button data-open="${esc(afterUrl)}">개정 후 별표</button></div><div class="item-actions"><button data-open="${esc(allUrl)}">해당 시점 전체 별표</button></div></article>`;
+  }).join('');
+  $('#appendix-dialog').showModal();
+}
+
+function v14InstallUi() {
+  const managedText = $('#page-managed .page-title p');
+  if (managedText) managedText.textContent = '법령·행정규칙 전문은 법제처 모바일 화면으로 엽니다.';
+  const changesText = $('#page-changes .page-title p');
+  if (changesText) changesText.textContent = '전문과 별표 개정 전·후를 법제처 모바일 화면으로 확인합니다.';
+}
+
+async function boot() {
+  try {
+    if (!window.crypto?.subtle || !window.indexedDB) throw new Error('이 휴대폰의 Android System WebView가 너무 오래되었습니다. WebView를 업데이트하세요.');
+    await registerServiceWorker();
+    setupPwaInstall();
+    v13InstallUi();
+    v14InstallUi();
+    state.db = await openDb();
+    state.setup = await getMeta('setup',null);
+    bindEvents();
+    v13BindEvents();
+    v13EnsureNoticeRange();
+    if (!state.setup) {
+      showSetup();
+    } else if (await v13TryRememberedLogin()) {
+      showApp();
+      await refreshAll();
+      maybeAutoSync();
+    } else {
+      showLogin();
+    }
+  } catch (error) {
+    document.body.innerHTML = `<div class="gate"><div class="gate-card"><h1>앱 시작 실패</h1><p>${esc(error.message)}</p></div></div>`;
+  }
+}
