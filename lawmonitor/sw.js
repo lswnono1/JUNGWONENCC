@@ -1,9 +1,10 @@
-const CACHE_NAME = 'jungwon-lawmonitor-pwa-v1.4.0';
+const CACHE_NAME = 'jungwon-lawmonitor-pwa-v1.5.0';
 const APP_SHELL = [
-  './', './index.html', './styles.css', './app.js?v=1.4.0',
+  './', './index.html', './styles.css', './app.js?v=1.5.0',
   './manifest.webmanifest', './icon.svg', './maskable.svg',
-  './app-core-1.txt?v=1.4.0', './app-core-2.txt?v=1.4.0', './app-core-3.txt?v=1.4.0',
-  './app-core-4.txt?v=1.4.0', './app-core-5.txt?v=1.4.0', './app-core-6.txt?v=1.4.0'
+  './app-core-1.txt?v=1.5.0', './app-core-2.txt?v=1.5.0', './app-core-3.txt?v=1.5.0',
+  './app-core-4.txt?v=1.5.0', './app-core-5.txt?v=1.5.0', './app-core-6.txt?v=1.5.0',
+  './app-core-7.txt?v=1.5.0', './data/notices.json?v=1.5.0'
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
@@ -17,7 +18,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  const networkFirst = request.mode === 'navigate' || /\.(?:js|txt|css|webmanifest)$/i.test(url.pathname);
+  const networkFirst = request.mode === 'navigate' || /\.(?:js|txt|css|webmanifest|json)$/i.test(url.pathname);
   if (networkFirst) {
     event.respondWith(fetch(request).then((response) => {
       if (response.ok) caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
