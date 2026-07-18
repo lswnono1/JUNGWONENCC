@@ -21,11 +21,14 @@ jobs:
           test -f lawmonitor/sw.js
           test -f lawmonitor/app-core-5.txt
           test -f lawmonitor/app-core-6.txt
+          test -f lawmonitor/app-core-7.txt
+          test -f lawmonitor/data/notices.json
           node --check lawmonitor/app.js
-          cat lawmonitor/app-core-1.txt lawmonitor/app-core-2.txt lawmonitor/app-core-3.txt lawmonitor/app-core-4.txt lawmonitor/app-core-5.txt lawmonitor/app-core-6.txt > /tmp/app-core.js
+          cat lawmonitor/app-core-1.txt lawmonitor/app-core-2.txt lawmonitor/app-core-3.txt lawmonitor/app-core-4.txt lawmonitor/app-core-5.txt lawmonitor/app-core-6.txt lawmonitor/app-core-7.txt > /tmp/app-core.js
           node --check /tmp/app-core.js
           node --check lawmonitor/sw.js
           node -e "JSON.parse(require('fs').readFileSync('lawmonitor/manifest.webmanifest','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('lawmonitor/data/notices.json','utf8'))"
       - name: Test static serving
         run: |
           python3 -m http.server 8080 >/tmp/http.log 2>&1 &
@@ -33,7 +36,8 @@ jobs:
           sleep 2
           curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/ >/dev/null
           curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/manifest.webmanifest >/dev/null
-          curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/app-core-6.txt >/dev/null
+          curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/app-core-7.txt >/dev/null
+          curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/data/notices.json >/dev/null
           kill $pid
       - name: Inspect official mobile API endpoints
         continue-on-error: true
@@ -43,5 +47,3 @@ jobs:
           cat /tmp/law.headers 2>/dev/null || true
           curl --connect-timeout 8 --max-time 15 -sS -D /tmp/admin.headers -o /tmp/admin.body 'https://www.law.go.kr/DRF/lawService.do?OC=test&target=admrul&ID=62505&type=HTML&mobileYn=Y' || true
           cat /tmp/admin.headers 2>/dev/null || true
-          curl --connect-timeout 8 --max-time 15 -sS -D /tmp/notice.headers -o /tmp/notice.body 'https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=test&diff=0&stYdFmt=2026.+1.+1.&edYdFmt=2027.+1.+1.&pageIndex=1&pageSize=1' || true
-          cat /tmp/notice.headers 2>/dev/null || true
