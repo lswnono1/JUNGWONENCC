@@ -1,0 +1,222 @@
+
+/* v1.5.0: mobile legislation-notice relay and isolated sync failures */
+const V15_NOTICE_FEED_URL = './data/notices.json?v=1.5.0';
+let v15NoticeFeedPromise = null;
+
+async function v15NoticeFeed(force = false) {
+  if (force) v15NoticeFeedPromise = null;
+  if (!v15NoticeFeedPromise) {
+    v15NoticeFeedPromise = fetch(V15_NOTICE_FEED_URL, {cache:'no-store'}).then(async (response) => {
+      if (!response.ok) throw new Error(`입법예고 중계 데이터 HTTP ${response.status}`);
+      const data = await response.json();
+      if (data.status !== 'ready') throw new Error(data.message || '입법예고 중계 데이터가 아직 준비되지 않았습니다.');
+      if (!Array.isArray(data.records)) throw new Error('입법예고 중계 데이터 형식이 올바르지 않습니다.');
+      return data;
+    }).catch((error) => {
+      v15NoticeFeedPromise = null;
+      throw error;
+    });
+  }
+  return v15NoticeFeedPromise;
+}
+
+async function fetchNotices(lawName) {
+  const feed = await v15NoticeFeed();
+  const range = v13NoticeRange();
+  return feed.records.filter((row) => {
+    const title = row.title || '';
+    const startDate = row.startDate || row.announcedDate || '';
+    const endDate = row.endDate || '';
+    if (matchScore(lawName,title) < 25) return false;
+    if (startDate && startDate > range.to) return false;
+    if (endDate && endDate < range.from) return false;
+    return true;
+  }).map((row) => ({
+    ...row,
+    matchedItem:lawName,
+    periodSide:v13PeriodSide(row.startDate || row.announcedDate || '',row.endDate || '',range.today),
+  }));
+}
+
+async function testOfficialApis() {
+  const button = $('#api-test-button');
+  const box = $('#api-test-result');
+  if (!button || !box) return;
+  setBusy(button,true);
+  box.innerHTML = '<p class="muted">연결 확인 중…</p>';
+  const results = [];
+  try {
+    const lawOc = state.secrets?.lawOc;
+    if (!lawOc) throw new Error('API OC 미입력');
+    const text = await fetchText(apiUrl(LAW_URL,{OC:lawOc,target:'law',type:'JSON',mobileYn:'Y',query:'소방',display:3,page:1}),15000);
+    const payload = parsePayload(text);
+    const count = candidateRecords(payload,['법령명','법령명한글','법령ID']).length;
+    results.push({name:'국가법령정보',ok:true,message:`정상 연결 · 확인 가능한 응답 ${count}건`});
+  } catch (error) {
+    results.push({name:'국가법령정보',ok:false,message:error.message});
+  }
+  try {
+    const feed = await v15NoticeFeed(true);
+    results.push({name:'입법예고',ok:true,message:`모바일 중계 정상 · ${feed.range?.from || '-'} ~ ${feed.range?.to || '-'} · ${feed.records.length}건 · ${formatDateTime(feed.generatedAt)}`});
+  } catch (error) {
+    results.push({name:'입법예고',ok:false,message:`모바일 중계 미설정 · ${error.message}`});
+  }
+  box.innerHTML = results.map((r) => `<div class="api-test-row ${r.ok?'ok':'fail'}"><b>${esc(r.name)}</b><span>${esc(r.message)}</span></div>`).join('');
+  setBusy(button,false);
+}
+
+async function syncNow() {
+  if (state.syncing) return toast('이미 동기화 중입니다.');
+  if (!navigator.onLine) return toast('인터넷 연결을 확인하세요.');
+  if (!state.secrets?.lawOc) return toast('설정에서 API OC를 입력하세요.');
+  state.syncing = true;
+  const items = (await managedRows()).filter((row) => row.enabled);
+  if (!items.length) { state.syncing = false; return toast('활성 관리대상이 없습니다.'); }
+
+  let lawFailures = 0;
+  let noticeFailures = 0;
+  let newChanges = 0;
+  let newNotices = 0;
+  let relayError = '';
+  try { await v15NoticeFeed(true); }
+  catch (error) { relayError = error.message; }
+
+  renderSync(true,'동기화 준비',1);
+  try {
+    for (let index = 0; index < items.length; index += 1) {
+      const item = items[index];
+      const base = index / items.length * 100;
+      let lawStatus = '정상';
+      let noticeStatus = relayError ? '입법예고 중계 미설정' : '정상';
+      let revisions = [];
+
+      renderSync(true,`${item.name} 법령·별표 확인`,base + 2);
+      try {
+        revisions = await fetchRevisions(item);
+        const hadBaseline = !!item.lastEventKey;
+        for (const row of revisions) {
+          const existing = await dbGet('changes',row.eventKey);
+          if (!existing) {
+            row.isNew = hadBaseline;
+            row.detectedAt = new Date().toISOString();
+            row.lastSeenAt = row.detectedAt;
+            if (row.isNew) newChanges += 1;
+            await dbPut('changes',row);
+          } else {
+            await dbPut('changes',{...existing,...row,appendices:existing.appendices || [],lastSeenAt:new Date().toISOString()});
+          }
+        }
+
+        const appendices = await fetchAppendices(item);
+        if (appendices.length && revisions.length) {
+          const byDate = new Map();
+          revisions.forEach((row) => {
+            const key = row.promulgationDate || row.enforcementDate || '';
+            if (!byDate.has(key)) byDate.set(key,row.eventKey);
+          });
+          for (const appendix of appendices) {
+            const eventKey = byDate.get(appendix.revisionDate) || revisions[0].eventKey;
+            const change = await dbGet('changes',eventKey);
+            if (!change) continue;
+            const map = new Map((change.appendices || []).map((entry) => [entry.appendixKey,entry]));
+            map.set(appendix.appendixKey,appendix);
+            await dbPut('changes',{...change,appendices:[...map.values()]});
+          }
+        }
+      } catch (error) {
+        lawFailures += 1;
+        lawStatus = `법령 실패: ${cleanText(error.message).slice(0,80)}`;
+        await addLog('법령 실패',`${item.name}: ${error.message}`);
+      }
+
+      renderSync(true,`${item.name} 입법예고 확인`,base + 8);
+      if (!relayError) {
+        try {
+          const notices = await fetchNotices(item.name);
+          const hadBaseline = !!item.lastNoticeCheckedAt;
+          for (const notice of notices) {
+            const existing = await dbGet('notices',notice.noticeKey);
+            if (!existing) {
+              notice.isNew = hadBaseline;
+              notice.detectedAt = new Date().toISOString();
+              if (notice.isNew) newNotices += 1;
+              await dbPut('notices',notice);
+            } else await dbPut('notices',{...existing,...notice});
+          }
+        } catch (error) {
+          noticeFailures += 1;
+          noticeStatus = `입법예고 실패: ${cleanText(error.message).slice(0,80)}`;
+          await addLog('입법예고 실패',`${item.name}: ${error.message}`);
+        }
+      }
+
+      const latest = revisions[0] || {};
+      const checkStatus = lawStatus === '정상'
+        ? (noticeStatus === '정상' ? '정상' : `법령 정상 · ${noticeStatus}`)
+        : lawStatus;
+      await dbPut('managed',{
+        ...item,
+        lawId:latest.lawId || item.lawId || '',
+        lawMst:latest.lawMst || item.lawMst || '',
+        adminId:latest.adminId || item.adminId || '',
+        sourceId:latest.sourceId || item.sourceId || '',
+        officialUrl:v14MobileLawUrl({...item,...latest}),
+        lastEventKey:latest.eventKey || item.lastEventKey || '',
+        lastRevisionType:latest.revisionType || item.lastRevisionType || '',
+        lastRevisionDate:latest.promulgationDate || item.lastRevisionDate || '',
+        lastEnforcementDate:latest.enforcementDate || item.lastEnforcementDate || '',
+        lastCheckedAt:new Date().toISOString(),
+        lastNoticeCheckedAt:relayError ? item.lastNoticeCheckedAt || '' : new Date().toISOString(),
+        checkStatus,
+        updatedAt:new Date().toISOString(),
+      });
+      renderSync(true,`${index + 1}/${items.length} 완료`,(index + 1) / items.length * 100);
+    }
+
+    const now = new Date().toISOString();
+    await setMeta('lastSync',now);
+    if (relayError) await addLog('입법예고 중계',relayError);
+    await addLog(lawFailures || noticeFailures || relayError ? '부분완료':'완료',`관리대상 ${items.length}건 · 신규 개정 ${newChanges}건 · 신규 입법예고 ${newNotices}건 · 법령 실패 ${lawFailures}건 · 입법예고 실패 ${noticeFailures}건`);
+    toast(relayError ? '법령 동기화 완료 · 입법예고 중계 설정 필요' : `동기화 완료 · 신규 개정 ${newChanges}건 · 신규 입법예고 ${newNotices}건`,4200);
+  } finally {
+    state.syncing = false;
+    renderSync(false,'',0);
+    await refreshAll();
+  }
+}
+
+function v15InstallUi() {
+  const cards = [...document.querySelectorAll('#page-settings .card')];
+  const apiCard = cards.find((card) => card.querySelector('#api-test-button'));
+  const apiText = apiCard?.querySelector('.muted');
+  if (apiText) apiText.textContent = '국가법령정보는 휴대폰에서 직접 연결하고, 입법예고는 브라우저 차단을 피하기 위해 GitHub Actions 중계 데이터로 확인합니다.';
+  const noticeTitle = $('#page-notices .page-title p');
+  if (noticeTitle) {
+    const range = v13NoticeRange();
+    noticeTitle.textContent = `오늘 기준 전후 6개월(${range.from} ~ ${range.to}) 중계 데이터를 비교합니다.`;
+  }
+}
+
+async function boot() {
+  try {
+    if (!window.crypto?.subtle || !window.indexedDB) throw new Error('이 휴대폰의 Android System WebView가 너무 오래되었습니다. WebView를 업데이트하세요.');
+    await registerServiceWorker();
+    setupPwaInstall();
+    v13InstallUi();
+    v14InstallUi();
+    v15InstallUi();
+    state.db = await openDb();
+    state.setup = await getMeta('setup',null);
+    bindEvents();
+    v13BindEvents();
+    v13EnsureNoticeRange();
+    if (!state.setup) showSetup();
+    else if (await v13TryRememberedLogin()) {
+      showApp();
+      await refreshAll();
+      maybeAutoSync();
+    } else showLogin();
+  } catch (error) {
+    document.body.innerHTML = `<div class="gate"><div class="gate-card"><h1>앱 시작 실패</h1><p>${esc(error.message)}</p></div></div>`;
+  }
+}
