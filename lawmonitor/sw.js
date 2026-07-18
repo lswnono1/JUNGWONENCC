@@ -1,8 +1,8 @@
-const CACHE_NAME = 'jungwon-lawmonitor-pwa-v1.2.0';
+const CACHE_NAME = 'jungwon-lawmonitor-pwa-v1.3.0';
 const APP_SHELL = [
-  './', './index.html', './styles.css', './app.js?v=1.2.0',
+  './', './index.html', './styles.css', './app.js?v=1.1.0', './app.js?v=1.3.0',
   './manifest.webmanifest', './icon.svg', './maskable.svg',
-  './app-core-1.txt', './app-core-2.txt', './app-core-3.txt', './app-core-4.txt'
+  './app-core-1.txt', './app-core-2.txt', './app-core-3.txt', './app-core-4.txt', './app-core-5.txt'
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
