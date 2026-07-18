@@ -6,10 +6,11 @@
     'app-core-3.txt',
     'app-core-4.txt',
     'app-core-5.txt',
-    'app-core-6.txt'
+    'app-core-6.txt',
+    'app-core-7.txt'
   ];
   try {
-    const responses = await Promise.all(parts.map((name) => fetch(`./${name}?v=1.4.0`, {cache:'no-store'})));
+    const responses = await Promise.all(parts.map((name) => fetch(`./${name}?v=1.5.0`, {cache:'no-store'})));
     for (const response of responses) {
       if (!response.ok) throw new Error(`앱 구성 파일 오류 HTTP ${response.status}`);
     }
