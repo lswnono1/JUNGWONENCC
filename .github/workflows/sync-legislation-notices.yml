@@ -1,0 +1,150 @@
+name: Sync Legislation Notices
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 */6 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: legislation-notice-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Fetch official legislation notices
+        env:
+          LAWMAKING_OC: ${{ secrets.LAWMAKING_OC }}
+        run: |
+          python3 - <<'PY'
+          import calendar
+          import datetime as dt
+          import json
+          import os
+          import pathlib
+          import time
+          import urllib.parse
+          import urllib.request
+          import xml.etree.ElementTree as ET
+
+          oc = (os.environ.get('LAWMAKING_OC') or '').split('@')[0].strip()
+          if not oc:
+              raise SystemExit('Repository secret LAWMAKING_OC is required.')
+
+          def add_months(value, months):
+              index = value.year * 12 + value.month - 1 + months
+              year, month0 = divmod(index, 12)
+              month = month0 + 1
+              day = min(value.day, calendar.monthrange(year, month)[1])
+              return value.replace(year=year, month=month, day=day)
+
+          def api_date(value):
+              return f'{value.year}. {value.month}. {value.day}.'
+
+          def text(node, *names):
+              wanted = {name.lower() for name in names}
+              for child in list(node):
+                  tag = child.tag.rsplit('}', 1)[-1].lower()
+                  if tag in wanted and child.text:
+                      return ' '.join(child.text.split())
+              return ''
+
+          def normalize_date(value):
+              digits = ''.join(ch for ch in (value or '') if ch.isdigit())
+              if len(digits) >= 8:
+                  return f'{digits[:4]}-{digits[4:6]}-{digits[6:8]}'
+              return ''
+
+          today = dt.date.today()
+          start = add_months(today, -6)
+          end = add_months(today, 6)
+          records = {}
+          endpoint = 'https://www.lawmaking.go.kr/rest/ogLmPp.xml'
+
+          for diff in ('0', '1'):
+              for page in range(1, 101):
+                  params = {
+                      'OC': oc,
+                      'diff': diff,
+                      'stYdFmt': api_date(start),
+                      'edYdFmt': api_date(end),
+                      'pageIndex': str(page),
+                      'pageSize': '100',
+                  }
+                  url = endpoint + '?' + urllib.parse.urlencode(params)
+                  request = urllib.request.Request(url, headers={
+                      'User-Agent': 'JungwonLawMonitor/1.5 (+GitHub Actions)',
+                      'Accept': 'application/xml,text/xml,*/*',
+                  })
+                  with urllib.request.urlopen(request, timeout=45) as response:
+                      body = response.read()
+                  root = ET.fromstring(body)
+                  page_rows = []
+                  for node in root.iter():
+                      child_tags = {child.tag.rsplit('}', 1)[-1] for child in list(node)}
+                      if 'ogLmPpSeq' not in child_tags:
+                          continue
+                      seq = text(node, 'ogLmPpSeq')
+                      title = text(node, 'lsNm')
+                      if not seq or not title:
+                          continue
+                      mapping = text(node, 'mappingLbicId') or '0'
+                      announce_type = text(node, 'announceType') or 'TYPE1'
+                      start_date = normalize_date(text(node, 'stYd', 'pntcDt'))
+                      end_date = normalize_date(text(node, 'edYd'))
+                      status = '종료' if end_date and end_date < today.isoformat() else '진행 중'
+                      row = {
+                          'noticeKey': f'notice:{seq}:{start_date or "날짜미상"}',
+                          'sequence': seq,
+                          'title': title,
+                          'lawClass': text(node, 'lsClsNm'),
+                          'ministry': text(node, 'asndOfiNm', 'cptOfiOrgNm'),
+                          'noticeNo': text(node, 'pntcNo'),
+                          'announcedDate': normalize_date(text(node, 'pntcDt')),
+                          'startDate': start_date,
+                          'endDate': end_date,
+                          'status': status,
+                          'mappingLbicId': mapping,
+                          'announceType': announce_type,
+                          'fileName': text(node, 'FileName'),
+                          'fileUrl': urllib.parse.urljoin('https://www.lawmaking.go.kr', text(node, 'FileDownLink')),
+                          'officialUrl': f'https://opinion.lawmaking.go.kr/gcom/ogLmPp/{urllib.parse.quote(seq)}',
+                      }
+                      records[row['noticeKey']] = row
+                      page_rows.append(row)
+                  if len(page_rows) < 100:
+                      break
+                  time.sleep(0.15)
+
+          output = {
+              'status': 'ready',
+              'source': '국민참여입법센터 공식 API',
+              'generatedAt': dt.datetime.now(dt.timezone.utc).isoformat(),
+              'range': {'from': start.isoformat(), 'to': end.isoformat()},
+              'records': sorted(records.values(), key=lambda row: (row.get('startDate') or '', row.get('title') or ''), reverse=True),
+          }
+          path = pathlib.Path('lawmonitor/data/notices.json')
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(f"Saved {len(output['records'])} notice records for {start} through {end}.")
+          PY
+
+      - name: Commit refreshed feed
+        run: |
+          if git diff --quiet -- lawmonitor/data/notices.json; then
+            echo 'No notice changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add lawmonitor/data/notices.json
+          git commit -m '입법예고 전후 6개월 데이터 자동 갱신'
+          git push origin main
