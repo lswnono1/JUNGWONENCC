@@ -190,7 +190,12 @@ function bindEvents() {
   $('#open-search').addEventListener('click',openCatalog);
   $('#catalog-search').addEventListener('click',(e) => { e.preventDefault(); runCatalogSearch(); });
   $('#catalog-q').addEventListener('keydown',(e) => { if (e.key === 'Enter') { e.preventDefault(); runCatalogSearch(); } });
-  $('#catalog-results').addEventListener('click',(e) => { const b = e.target.closest('[data-add-index]'); if (b) addCatalog(Number(b.dataset.addIndex)); });
+  $('#catalog-results').addEventListener('click',(e) => {
+    const resultButton = e.target.closest('[data-add-index]');
+    if (resultButton) return addCatalog(Number(resultButton.dataset.addIndex));
+    const manualButton = e.target.closest('[data-manual-add]');
+    if (manualButton) return addManualCatalog();
+  });
   $('#managed-filter').addEventListener('input',loadManaged);
   $('#managed-refresh').addEventListener('click',loadManaged);
   $('#managed-list').addEventListener('change',async (e) => { const id = Number(e.target.dataset.toggle); if (!id) return; const row = await dbGet('managed',id); await dbPut('managed',{...row,enabled:e.target.checked,updatedAt:new Date().toISOString()}); await refreshDashboard(); });
