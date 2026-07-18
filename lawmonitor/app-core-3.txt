@@ -206,8 +206,13 @@ async function loadManaged() {
     </article>`).join('') : '<div class="empty">관리대상이 없습니다.</div>';
 }
 
+function manualAddCard(query, message = '') {
+  const kind = $('#catalog-kind').value === '행정규칙' ? '행정규칙' : '법령';
+  return `<article class="item"><div><h3>입력한 이름으로 직접 추가</h3>${message ? `<p>${esc(message)}</p>` : ''}<p><b>${esc(kind)}</b> · ${esc(query)}</p></div><div class="item-actions"><button class="primary" data-manual-add="1">직접 추가</button></div></article>`;
+}
+
 async function openCatalog() {
-  $('#catalog-results').innerHTML = '<div class="empty">법규명을 검색하세요.</div>';
+  $('#catalog-results').innerHTML = '<div class="empty">법규명을 검색하세요. API 검색이 안 되면 입력한 이름으로 직접 추가할 수 있습니다.</div>';
   $('#search-dialog').showModal();
   setTimeout(() => $('#catalog-q').focus(),100);
 }
@@ -220,16 +225,33 @@ async function runCatalogSearch() {
   try {
     const rows = await searchCatalog(q,$('#catalog-kind').value);
     state.catalogRows = rows;
-    $('#catalog-results').innerHTML = rows.length ? rows.map((r,i) => `
-      <article class="item"><div class="item-head"><div><h3>${esc(r.name)}</h3><p>${esc(r.kind)} · ${esc(r.ministry || '')}</p><p>${esc(r.promulgationDate || '')} ${esc(r.revisionType || '')}</p></div><span class="tag">일치 ${r.score}</span></div><div class="item-actions"><button class="primary" data-add-index="${i}">관리대상 추가</button></div></article>`).join('') : '<div class="empty">검색 결과가 없습니다.</div>';
-  } catch (error) { $('#catalog-results').innerHTML = `<div class="empty">${esc(error.message)}</div>`; }
+    const searchResults = rows.map((r,i) => `
+      <article class="item"><div class="item-head"><div><h3>${esc(r.name)}</h3><p>${esc(r.kind)} · ${esc(r.ministry || '')}</p><p>${esc(r.promulgationDate || '')} ${esc(r.revisionType || '')}</p></div><span class="tag">일치 ${r.score}</span></div><div class="item-actions"><button class="primary" data-add-index="${i}">관리대상 추가</button></div></article>`).join('');
+    $('#catalog-results').innerHTML = `${searchResults}${manualAddCard(q, rows.length ? '찾는 항목이 검색 결과와 다를 때 사용하세요.' : '검색 결과가 없어도 직접 등록할 수 있습니다.')}`;
+  } catch (error) {
+    state.catalogRows = [];
+    $('#catalog-results').innerHTML = manualAddCard(q, `공식 API 검색 실패: ${error.message}`);
+  }
   finally { setBusy(btn,false); }
 }
 
 async function addCatalog(index) {
   const row = state.catalogRows[index];
+  if (!row) return toast('추가할 항목을 다시 선택하세요.');
   await addManaged(row);
+  $('#search-dialog').close();
   toast(`${row.name} 추가 완료`);
+  await loadManaged(); await refreshDashboard();
+}
+
+async function addManualCatalog() {
+  const name = cleanText($('#catalog-q').value);
+  if (name.length < 2) return toast('법규명을 두 글자 이상 입력하세요.');
+  const selected = $('#catalog-kind').value;
+  const kind = selected === '행정규칙' ? '행정규칙' : '법령';
+  await addManaged({kind,name,officialUrl:officialLawUrl(kind,name)});
+  $('#search-dialog').close();
+  toast(`${name} 직접 추가 완료`);
   await loadManaged(); await refreshDashboard();
 }
 
