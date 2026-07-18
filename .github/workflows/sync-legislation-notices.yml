@@ -15,10 +15,12 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v6
         with:
           ref: main
+          fetch-depth: 0
 
       - name: Fetch official legislation notices
         env:
@@ -30,9 +32,9 @@ jobs:
           import json
           import os
           import pathlib
+          import subprocess
           import time
           import urllib.parse
-          import urllib.request
           import xml.etree.ElementTree as ET
 
           oc = (os.environ.get('LAWMAKING_OC') or '').split('@')[0].strip()
@@ -49,6 +51,13 @@ jobs:
           def api_date(value):
               return f'{value.year}. {value.month}. {value.day}.'
 
+          def date_windows(start, end, days=31):
+              cursor = start
+              while cursor <= end:
+                  window_end = min(cursor + dt.timedelta(days=days - 1), end)
+                  yield cursor, window_end
+                  cursor = window_end + dt.timedelta(days=1)
+
           def text(node, *names):
               wanted = {name.lower() for name in names}
               for child in list(node):
@@ -63,78 +72,106 @@ jobs:
                   return f'{digits[:4]}-{digits[4:6]}-{digits[6:8]}'
               return ''
 
+          def fetch_xml(params):
+              query = urllib.parse.urlencode(params)
+              hosts = (
+                  'https://opinion.lawmaking.go.kr/rest/ogLmPp.xml',
+                  'https://www.lawmaking.go.kr/rest/ogLmPp.xml',
+              )
+              errors = []
+              for endpoint in hosts:
+                  url = endpoint + '?' + query
+                  command = [
+                      'curl', '-L', '--fail-with-body', '--silent', '--show-error',
+                      '--retry', '4', '--retry-delay', '3', '--retry-all-errors',
+                      '--connect-timeout', '20', '--max-time', '120',
+                      '-H', 'Accept: application/xml,text/xml,*/*',
+                      '-H', 'User-Agent: JungwonLawMonitor/1.6 (+GitHub Actions)',
+                      url,
+                  ]
+                  result = subprocess.run(command, capture_output=True, check=False)
+                  if result.returncode == 0 and result.stdout.strip():
+                      return result.stdout
+                  error = result.stderr.decode('utf-8', errors='replace').strip()
+                  errors.append(f'{endpoint}: {error or "empty response"}')
+              raise RuntimeError(' | '.join(errors))
+
           today = dt.date.today()
           start = add_months(today, -6)
           end = add_months(today, 6)
           records = {}
-          endpoint = 'https://www.lawmaking.go.kr/rest/ogLmPp.xml'
+          request_count = 0
 
-          for diff in ('0', '1'):
-              for page in range(1, 101):
-                  params = {
-                      'OC': oc,
-                      'diff': diff,
-                      'stYdFmt': api_date(start),
-                      'edYdFmt': api_date(end),
-                      'pageIndex': str(page),
-                      'pageSize': '100',
-                  }
-                  url = endpoint + '?' + urllib.parse.urlencode(params)
-                  request = urllib.request.Request(url, headers={
-                      'User-Agent': 'JungwonLawMonitor/1.5 (+GitHub Actions)',
-                      'Accept': 'application/xml,text/xml,*/*',
-                  })
-                  with urllib.request.urlopen(request, timeout=45) as response:
-                      body = response.read()
-                  root = ET.fromstring(body)
-                  page_rows = []
-                  for node in root.iter():
-                      child_tags = {child.tag.rsplit('}', 1)[-1] for child in list(node)}
-                      if 'ogLmPpSeq' not in child_tags:
-                          continue
-                      seq = text(node, 'ogLmPpSeq')
-                      title = text(node, 'lsNm')
-                      if not seq or not title:
-                          continue
-                      mapping = text(node, 'mappingLbicId') or '0'
-                      announce_type = text(node, 'announceType') or 'TYPE1'
-                      start_date = normalize_date(text(node, 'stYd', 'pntcDt'))
-                      end_date = normalize_date(text(node, 'edYd'))
-                      status = '종료' if end_date and end_date < today.isoformat() else '진행 중'
-                      row = {
-                          'noticeKey': f'notice:{seq}:{start_date or "날짜미상"}',
-                          'sequence': seq,
-                          'title': title,
-                          'lawClass': text(node, 'lsClsNm'),
-                          'ministry': text(node, 'asndOfiNm', 'cptOfiOrgNm'),
-                          'noticeNo': text(node, 'pntcNo'),
-                          'announcedDate': normalize_date(text(node, 'pntcDt')),
-                          'startDate': start_date,
-                          'endDate': end_date,
-                          'status': status,
-                          'mappingLbicId': mapping,
-                          'announceType': announce_type,
-                          'fileName': text(node, 'FileName'),
-                          'fileUrl': urllib.parse.urljoin('https://www.lawmaking.go.kr', text(node, 'FileDownLink')),
-                          'officialUrl': f'https://opinion.lawmaking.go.kr/gcom/ogLmPp/{urllib.parse.quote(seq)}',
+          for window_start, window_end in date_windows(start, end):
+              for diff in ('0', '1'):
+                  for page in range(1, 31):
+                      params = {
+                          'OC': oc,
+                          'diff': diff,
+                          'stYdFmt': api_date(window_start),
+                          'edYdFmt': api_date(window_end),
+                          'pageIndex': str(page),
+                          'pageSize': '100',
                       }
-                      records[row['noticeKey']] = row
-                      page_rows.append(row)
-                  if len(page_rows) < 100:
-                      break
-                  time.sleep(0.15)
+                      body = fetch_xml(params)
+                      request_count += 1
+                      try:
+                          root = ET.fromstring(body)
+                      except ET.ParseError as exc:
+                          preview = body[:500].decode('utf-8', errors='replace')
+                          raise RuntimeError(f'XML parse error: {exc}; response={preview}') from exc
+
+                      page_rows = []
+                      for node in root.iter():
+                          child_tags = {child.tag.rsplit('}', 1)[-1] for child in list(node)}
+                          if 'ogLmPpSeq' not in child_tags:
+                              continue
+                          seq = text(node, 'ogLmPpSeq')
+                          title = text(node, 'lsNm')
+                          if not seq or not title:
+                              continue
+                          mapping = text(node, 'mappingLbicId') or '0'
+                          announce_type = text(node, 'announceType') or 'TYPE1'
+                          start_date = normalize_date(text(node, 'stYd', 'pntcDt'))
+                          end_date = normalize_date(text(node, 'edYd'))
+                          status = '종료' if end_date and end_date < today.isoformat() else '진행 중'
+                          row = {
+                              'noticeKey': f'notice:{seq}:{start_date or "날짜미상"}',
+                              'sequence': seq,
+                              'title': title,
+                              'lawClass': text(node, 'lsClsNm'),
+                              'ministry': text(node, 'asndOfiNm', 'cptOfiOrgNm'),
+                              'noticeNo': text(node, 'pntcNo'),
+                              'announcedDate': normalize_date(text(node, 'pntcDt')),
+                              'startDate': start_date,
+                              'endDate': end_date,
+                              'status': status,
+                              'mappingLbicId': mapping,
+                              'announceType': announce_type,
+                              'fileName': text(node, 'FileName'),
+                              'fileUrl': urllib.parse.urljoin('https://www.lawmaking.go.kr', text(node, 'FileDownLink')),
+                              'officialUrl': f'https://opinion.lawmaking.go.kr/gcom/ogLmPp/{urllib.parse.quote(seq)}',
+                          }
+                          records[row['noticeKey']] = row
+                          page_rows.append(row)
+
+                      print(f'{window_start}~{window_end} diff={diff} page={page}: {len(page_rows)} records')
+                      if len(page_rows) < 100:
+                          break
+                      time.sleep(0.25)
 
           output = {
               'status': 'ready',
               'source': '국민참여입법센터 공식 API',
               'generatedAt': dt.datetime.now(dt.timezone.utc).isoformat(),
               'range': {'from': start.isoformat(), 'to': end.isoformat()},
+              'requestCount': request_count,
               'records': sorted(records.values(), key=lambda row: (row.get('startDate') or '', row.get('title') or ''), reverse=True),
           }
           path = pathlib.Path('lawmonitor/data/notices.json')
           path.parent.mkdir(parents=True, exist_ok=True)
           path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          print(f"Saved {len(output['records'])} notice records for {start} through {end}.")
+          print(f"Saved {len(output['records'])} notice records using {request_count} requests for {start} through {end}.")
           PY
 
       - name: Commit refreshed feed
@@ -147,4 +184,13 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add lawmonitor/data/notices.json
           git commit -m '입법예고 전후 6개월 데이터 자동 갱신'
-          git push origin main
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin main; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; retrying..."
+            sleep $((attempt * 3))
+          done
+          echo 'Failed to push refreshed notice feed after 3 attempts.'
+          exit 1
