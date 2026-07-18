@@ -1,5 +1,7 @@
 name: Validate PWA
 on:
+  push:
+    branches: [main]
   pull_request:
   workflow_dispatch:
 permissions:
@@ -17,8 +19,9 @@ jobs:
           test -f lawmonitor/index.html
           test -f lawmonitor/manifest.webmanifest
           test -f lawmonitor/sw.js
+          test -f lawmonitor/app-core-5.txt
           node --check lawmonitor/app.js
-          cat lawmonitor/app-core-1.txt lawmonitor/app-core-2.txt lawmonitor/app-core-3.txt lawmonitor/app-core-4.txt > /tmp/app-core.js
+          cat lawmonitor/app-core-1.txt lawmonitor/app-core-2.txt lawmonitor/app-core-3.txt lawmonitor/app-core-4.txt lawmonitor/app-core-5.txt > /tmp/app-core.js
           node --check /tmp/app-core.js
           node --check lawmonitor/sw.js
           node -e "JSON.parse(require('fs').readFileSync('lawmonitor/manifest.webmanifest','utf8'))"
@@ -29,6 +32,7 @@ jobs:
           sleep 2
           curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/ >/dev/null
           curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/manifest.webmanifest >/dev/null
+          curl --max-time 10 --fail --silent --show-error http://127.0.0.1:8080/lawmonitor/app-core-5.txt >/dev/null
           kill $pid
       - name: Inspect official API CORS headers
         continue-on-error: true
@@ -37,6 +41,6 @@ jobs:
           curl --connect-timeout 8 --max-time 15 -sS -D /tmp/law.headers -o /tmp/law.body 'https://www.law.go.kr/DRF/lawSearch.do?OC=test&target=law&type=JSON&query=%EC%86%8C%EB%B0%A9&display=1&page=1' || true
           cat /tmp/law.headers 2>/dev/null || true
           grep -i '^access-control-allow-origin:' /tmp/law.headers 2>/dev/null || echo 'LAW_API_CORS_HEADER_NOT_FOUND'
-          curl --connect-timeout 8 --max-time 15 -sS -D /tmp/notice.headers -o /tmp/notice.body 'https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=test&diff=0&lsNm=%EC%86%8C%EB%B0%A9&pageIndex=1&pageUnit=1' || true
+          curl --connect-timeout 8 --max-time 15 -sS -D /tmp/notice.headers -o /tmp/notice.body 'https://www.lawmaking.go.kr/rest/ogLmPp.xml?OC=test&diff=0&stYdFmt=2026.+1.+1.&edYdFmt=2027.+1.+1.&pageIndex=1&pageSize=1' || true
           cat /tmp/notice.headers 2>/dev/null || true
           grep -i '^access-control-allow-origin:' /tmp/notice.headers 2>/dev/null || echo 'NOTICE_API_CORS_HEADER_NOT_FOUND'
