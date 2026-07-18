@@ -1,0 +1,619 @@
+
+/* v1.3.0 mobile fixes: remembered login, notice API, admin-rule links, multi-select */
+const V13_REMEMBER_KEY = 'JungwonLawMonitorRememberedKeyV1';
+const V13_MANUAL_LOCK_KEY = 'JungwonLawMonitorManualLockV1';
+
+function v13DateShiftMonths(base, months) {
+  const d = new Date(base);
+  const day = d.getDate();
+  d.setDate(1);
+  d.setMonth(d.getMonth() + months);
+  const last = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+  d.setDate(Math.min(day, last));
+  return d;
+}
+
+function v13Ymd(date) {
+  const d = new Date(date);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function v13NoticeApiDate(value) {
+  const d = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(d.getTime())) return '';
+  return `${d.getFullYear()}.+${d.getMonth() + 1}.+${d.getDate()}.`;
+}
+
+function v13NoticeRange() {
+  const now = new Date();
+  return {from:v13Ymd(v13DateShiftMonths(now,-6)), to:v13Ymd(v13DateShiftMonths(now,6)), today:v13Ymd(now)};
+}
+
+function v13EnsureNoticeRange() {
+  const range = v13NoticeRange();
+  if ($('#notices-from') && !$('#notices-from').value) $('#notices-from').value = range.from;
+  if ($('#notices-to') && !$('#notices-to').value) $('#notices-to').value = range.to;
+  const subtitle = $('#page-notices .page-title p');
+  if (subtitle) subtitle.textContent = `오늘 기준 전후 6개월(${range.from} ~ ${range.to}) 입법예고를 비교합니다.`;
+}
+
+function v13AdministrativeRuleUrl(name) {
+  const oc = state.secrets?.lawOc || '';
+  return apiUrl('https://www.law.go.kr/DRF/lawService.do', {
+    OC:oc,
+    target:'admrul',
+    type:'HTML',
+    LM:name,
+    mobileYn:'Y',
+  });
+}
+
+function officialLawUrl(kind, name, supplied = '') {
+  if (kind === '행정규칙') return v13AdministrativeRuleUrl(name);
+  if (supplied) {
+    const absolute = absoluteUrl('https://www.law.go.kr', supplied);
+    if (absolute) return absolute.replace(/^http:/i,'https:');
+  }
+  return `https://www.law.go.kr/${encodeURIComponent('법령')}/${encodeURIComponent(name)}`;
+}
+
+function v13ItemOfficialUrl(item) {
+  if (item.kind === '행정규칙') return v13AdministrativeRuleUrl(item.name);
+  return item.officialUrl || officialLawUrl(item.kind || '법령', item.name || '');
+}
+
+function v13NoticeDetailUrl(record) {
+  const seq = first(record,'ogLmPpSeq','입법예고일련번호','sequence','seq','id');
+  const mapping = first(record,'mappingLbicId','법안매핑번호') || '0';
+  const type = first(record,'announceType','공고종류') || 'TYPE1';
+  const oc = state.secrets?.noticeOc || state.secrets?.lawOc || '';
+  if (!seq) return 'https://opinion.lawmaking.go.kr/gcom/ogLmPp';
+  return apiUrl(`https://www.lawmaking.go.kr/rest/ogLmPp/${encodeURIComponent(seq)}/${encodeURIComponent(mapping)}/${encodeURIComponent(type)}.html`, {OC:oc});
+}
+
+function v13PeriodSide(startDate, endDate, today) {
+  if (startDate && startDate > today) return '향후 6개월';
+  if (endDate && endDate < today) return '지난 6개월';
+  return '진행 구간';
+}
+
+async function searchCatalog(query, kind = '전체') {
+  const oc = state.secrets?.lawOc;
+  if (!oc) throw new Error('설정에서 국가법령정보 API OC를 입력하세요.');
+  const targets = [];
+  if (kind === '전체' || kind === '법령') targets.push(['law','법령']);
+  if (kind === '전체' || kind === '행정규칙') targets.push(['admrul','행정규칙']);
+  const results = [];
+  for (const [target, displayKind] of targets) {
+    const text = await fetchText(apiUrl(LAW_URL, {OC:oc,target,type:'JSON',query,display:100,page:1,sort:'ddes'}));
+    const payload = parsePayload(text);
+    for (const record of candidateRecords(payload, ['법령명','행정규칙명','법령명한글','법령ID','행정규칙일련번호'])) {
+      const name = recordName(record);
+      if (!name) continue;
+      const sourceId = displayKind === '행정규칙'
+        ? first(record,'행정규칙일련번호','행정규칙ID','id')
+        : first(record,'법령ID','법령일련번호','MST','id');
+      const link = first(record,'법령상세링크','행정규칙상세링크','상세링크','link','url');
+      results.push({
+        kind:displayKind,
+        name,
+        sourceId,
+        officialUrl:officialLawUrl(displayKind,name,link),
+        revisionType:first(record,'제개정구분명','제개정구분','개정구분'),
+        promulgationDate:normalizeDate(first(record,'공포일자','발령일자','개정일자')),
+        enforcementDate:normalizeDate(first(record,'시행일자','효력일자')),
+        ministry:first(record,'소관부처명','소관부처','부처명'),
+        score:matchScore(query,name),
+      });
+    }
+  }
+  const unique = new Map();
+  results.sort((a,b) => b.score - a.score || a.name.localeCompare(b.name,'ko'));
+  results.forEach((r) => { const key = `${r.kind}|${r.name}`; if (!unique.has(key)) unique.set(key,r); });
+  return [...unique.values()].slice(0,100);
+}
+
+async function fetchNotices(lawName) {
+  const oc = state.secrets?.noticeOc || state.secrets?.lawOc;
+  if (!oc) throw new Error('입법예고 API OC가 없습니다.');
+  const range = v13NoticeRange();
+  const output = [], seen = new Set();
+  for (const diff of [0,1]) {
+    for (let page = 1; page <= 30; page += 1) {
+      const url = apiUrl(NOTICE_URL, {
+        OC:oc,
+        diff,
+        lsNm:lawName,
+        stYdFmt:v13NoticeApiDate(range.from),
+        edYdFmt:v13NoticeApiDate(range.to),
+        pageIndex:page,
+        pageSize:100,
+      });
+      const payload = parsePayload(await fetchText(url));
+      const records = candidateRecords(payload,['ogLmPpSeq','lsNm','stYd','edYd','pntcDt']);
+      let added = 0;
+      for (const record of records) {
+        const title = first(record,'lsNm','법령안명','입법예고명','title','법령명');
+        if (!title || matchScore(lawName,title) < 25) continue;
+        const sequence = first(record,'ogLmPpSeq','입법예고ID','sequence','seq','id');
+        const noticeNo = first(record,'pntcNo','공고번호','입법예고번호','noticeNo','notice_no');
+        const announcedDate = normalizeDate(first(record,'pntcDt','공고일자'));
+        const startDate = normalizeDate(first(record,'stYd','시작일자','입법예고시작일자','startDate','start_date')) || announcedDate;
+        const endDate = normalizeDate(first(record,'edYd','종료일자','입법예고종료일자','endDate','end_date'));
+        if (startDate && startDate > range.to) continue;
+        if (endDate && endDate < range.from) continue;
+        const noticeKey = `notice:${sequence || noticeNo || title}:${startDate || '날짜미상'}`;
+        if (seen.has(noticeKey)) continue;
+        seen.add(noticeKey); added += 1;
+        const status = endDate && endDate < range.today ? '종료' : '진행 중';
+        output.push({
+          noticeKey,
+          title,
+          ministry:first(record,'asndOfiNm','cptOfiOrgNm','소관부처명','소관부처','부처명','ministry'),
+          noticeNo,
+          announcedDate,
+          startDate,
+          endDate,
+          status,
+          periodSide:v13PeriodSide(startDate,endDate,range.today),
+          officialUrl:v13NoticeDetailUrl(record),
+          fileName:first(record,'FileName','fileName'),
+          fileUrl:absoluteUrl('https://www.lawmaking.go.kr',first(record,'FileDownLink','fileDownLink')),
+          matchedItem:lawName,
+        });
+      }
+      if ((page > 1 && added === 0) || records.length < 100) break;
+    }
+  }
+  const unique = new Map();
+  output.forEach((row) => { if (!unique.has(row.noticeKey)) unique.set(row.noticeKey,row); });
+  return [...unique.values()];
+}
+
+function v13RememberKey(keyBytes) {
+  try { localStorage.setItem(V13_REMEMBER_KEY, bytesToB64(keyBytes)); } catch {}
+}
+
+function v13ForgetKey() {
+  try { localStorage.removeItem(V13_REMEMBER_KEY); } catch {}
+}
+
+async function v13TryRememberedLogin() {
+  if (!state.setup?.keepLogin || sessionStorage.getItem(V13_MANUAL_LOCK_KEY) === '1') return false;
+  let encoded = '';
+  try { encoded = localStorage.getItem(V13_REMEMBER_KEY) || ''; } catch { return false; }
+  if (!encoded) return false;
+  try {
+    const keyBytes = b64ToBytes(encoded);
+    if (await makeVerifier(keyBytes) !== state.setup.verifier) throw new Error('저장된 로그인 정보 불일치');
+    const secrets = await decryptJson(state.setup.encryptedSecrets,keyBytes);
+    state.keyBytes = keyBytes;
+    state.secrets = secrets;
+    state.lastTouch = Date.now();
+    return true;
+  } catch {
+    v13ForgetKey();
+    return false;
+  }
+}
+
+async function setupApp(event) {
+  event.preventDefault();
+  const password = $('#setup-password').value;
+  if (password !== $('#setup-password2').value) return toast('비밀번호 확인이 일치하지 않습니다.');
+  if (password.length < 8) return toast('비밀번호는 8자 이상으로 설정하세요.');
+  const lawOc = normalizeOc($('#setup-law-oc').value);
+  if (!lawOc) return toast('국가법령정보 API OC를 입력하세요.');
+  setBusy(event.submitter,true);
+  try {
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const keyBytes = await deriveKeyBytes(password,salt);
+    const keepLogin = !!$('#setup-keep-login')?.checked;
+    const setup = {
+      ownerName:cleanText($('#setup-owner').value) || '이상우',
+      salt:bytesToB64(salt),
+      verifier:await makeVerifier(keyBytes),
+      encryptedSecrets:await encryptJson({lawOc,noticeOc:normalizeOc($('#setup-notice-oc').value)},keyBytes),
+      autoSync:true,
+      syncIntervalHours:12,
+      keepLogin,
+      createdAt:new Date().toISOString(),
+    };
+    await setMeta('setup',setup);
+    state.setup = setup;
+    state.keyBytes = keyBytes;
+    state.secrets = await decryptJson(setup.encryptedSecrets,keyBytes);
+    if (keepLogin) v13RememberKey(keyBytes); else v13ForgetKey();
+    sessionStorage.removeItem(V13_MANUAL_LOCK_KEY);
+    await seedManaged();
+    await addLog('설정','휴대폰 독립형 초기 설정 완료');
+    showApp();
+    await refreshAll();
+    toast('초기 설정이 완료되었습니다.');
+  } catch (error) { toast(error.message || '초기 설정에 실패했습니다.'); }
+  finally { setBusy(event.submitter,false); }
+}
+
+async function login(event) {
+  event.preventDefault();
+  setBusy(event.submitter,true);
+  try {
+    const keyBytes = await deriveKeyBytes($('#login-password').value,b64ToBytes(state.setup.salt));
+    if (await makeVerifier(keyBytes) !== state.setup.verifier) throw new Error('비밀번호가 올바르지 않습니다.');
+    const secrets = await decryptJson(state.setup.encryptedSecrets,keyBytes);
+    const keepLogin = !!$('#login-keep')?.checked;
+    state.setup = {...state.setup,keepLogin};
+    await setMeta('setup',state.setup);
+    state.keyBytes = keyBytes;
+    state.secrets = secrets;
+    state.lastTouch = Date.now();
+    if (keepLogin) v13RememberKey(keyBytes); else v13ForgetKey();
+    sessionStorage.removeItem(V13_MANUAL_LOCK_KEY);
+    $('#login-password').value = '';
+    showApp();
+    await refreshAll();
+    maybeAutoSync();
+  } catch (error) { toast(error.message || '잠금을 해제하지 못했습니다.'); }
+  finally { setBusy(event.submitter,false); }
+}
+
+function showLogin() {
+  state.secrets = null;
+  state.keyBytes = null;
+  sessionStorage.setItem(V13_MANUAL_LOCK_KEY,'1');
+  $('#setup-view').classList.add('hidden');
+  $('#login-view').classList.remove('hidden');
+  $('#app-view').classList.add('hidden');
+  if ($('#login-keep')) $('#login-keep').checked = !!state.setup?.keepLogin;
+  setTimeout(() => $('#login-password').focus(),100);
+}
+
+async function loadSettings() {
+  $('#setting-owner').value = state.setup.ownerName || '이상우';
+  $('#setting-law-oc').value = state.secrets?.lawOc || '';
+  $('#setting-notice-oc').value = state.secrets?.noticeOc || '';
+  $('#setting-auto-sync').checked = !!state.setup.autoSync;
+  $('#setting-sync-interval').value = String(state.setup.syncIntervalHours || 12);
+  if ($('#setting-keep-login')) $('#setting-keep-login').checked = !!state.setup.keepLogin;
+  const logs = (await dbGetAll('logs')).sort((a,b) => b.id - a.id).slice(0,30);
+  $('#logs-list').innerHTML = logs.length ? logs.map((x) => `<div><b>${esc(x.status)}</b><span>${esc(formatDateTime(x.at))} · ${esc(x.message)}</span></div>`).join('') : '<div>로그가 없습니다.</div>';
+}
+
+async function saveSettings(event) {
+  event.preventDefault();
+  setBusy(event.submitter,true);
+  try {
+    const ownerName = cleanText($('#setting-owner').value) || '이상우';
+    const secrets = {lawOc:normalizeOc($('#setting-law-oc').value),noticeOc:normalizeOc($('#setting-notice-oc').value)};
+    if (!secrets.lawOc) throw new Error('국가법령정보 API OC를 입력하세요.');
+    const keepLogin = !!$('#setting-keep-login')?.checked;
+    const setup = {
+      ...state.setup,
+      ownerName,
+      autoSync:$('#setting-auto-sync').checked,
+      syncIntervalHours:Number($('#setting-sync-interval').value),
+      keepLogin,
+      encryptedSecrets:await encryptJson(secrets,state.keyBytes),
+    };
+    await setMeta('setup',setup);
+    state.setup = setup;
+    state.secrets = secrets;
+    if (keepLogin) v13RememberKey(state.keyBytes); else v13ForgetKey();
+    $('#owner-name').textContent = ownerName;
+    await addLog('설정',`API·자동 동기화·로그인 유지 설정 변경(로그인 유지 ${keepLogin ? '사용':'해제'})`);
+    toast('설정을 저장했습니다.');
+  } catch (error) { toast(error.message); }
+  finally { setBusy(event.submitter,false); }
+}
+
+async function changePassword(event) {
+  event.preventDefault();
+  const current = $('#current-password').value, next = $('#new-password').value;
+  if (next.length < 8) return toast('새 비밀번호는 8자 이상이어야 합니다.');
+  setBusy(event.submitter,true);
+  try {
+    const oldKey = await deriveKeyBytes(current,b64ToBytes(state.setup.salt));
+    if (await makeVerifier(oldKey) !== state.setup.verifier) throw new Error('현재 비밀번호가 올바르지 않습니다.');
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const newKey = await deriveKeyBytes(next,salt);
+    const setup = {...state.setup,salt:bytesToB64(salt),verifier:await makeVerifier(newKey),encryptedSecrets:await encryptJson(state.secrets,newKey)};
+    await setMeta('setup',setup);
+    state.setup = setup;
+    state.keyBytes = newKey;
+    if (setup.keepLogin) v13RememberKey(newKey); else v13ForgetKey();
+    $('#current-password').value = '';
+    $('#new-password').value = '';
+    await addLog('보안','잠금 비밀번호 변경');
+    toast('비밀번호를 변경했습니다.');
+  } catch (error) { toast(error.message); }
+  finally { setBusy(event.submitter,false); }
+}
+
+function v13SelectionBox(group, key) {
+  return `<label class="v13-select-box" aria-label="항목 선택"><input type="checkbox" data-select-group="${group}" data-key="${esc(key)}"><span></span></label>`;
+}
+
+function v13SelectionBar(group, actions) {
+  return `<div class="v13-selection-bar" id="${group}-selection-bar"><label class="check"><input type="checkbox" id="${group}-select-all"> 전체 선택</label><b id="${group}-selected-count">0개 선택</b><div class="v13-bulk-actions">${actions}</div></div>`;
+}
+
+function v13InstallUi() {
+  if ($('#v13-style')) return;
+  const style = document.createElement('style');
+  style.id = 'v13-style';
+  style.textContent = `
+    .v13-selection-bar{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin:0 0 12px}.v13-selection-bar>b{text-align:right;font-size:12px;color:var(--muted)}.v13-bulk-actions{grid-column:1/-1;display:flex;gap:7px;flex-wrap:wrap}.v13-bulk-actions button{flex:1;min-width:80px;padding:9px;border-radius:10px;background:#eef5fa;color:var(--blue);font-weight:700;font-size:12px}.v13-bulk-actions .danger{background:#fff1f0;color:var(--red);border:1px solid #ffd2cf}.v13-select-box{display:flex;align-items:center;justify-content:center;flex:0 0 30px;width:30px;height:30px}.v13-select-box input{width:20px;height:20px;accent-color:var(--blue)}.item-head.v13-with-select{align-items:flex-start}.v13-remember-note{font-size:11px;color:var(--muted);line-height:1.45;margin-top:-4px}.v13-period{background:#f2f4f7;color:#475467}.v13-period.future{background:#e8f5ff;color:#075a9c}.v13-period.past{background:#fff4ed;color:#b54708}`;
+  document.head.appendChild(style);
+
+  const setupButton = $('#setup-form button[type="submit"]');
+  if (setupButton && !$('#setup-keep-login')) setupButton.insertAdjacentHTML('beforebegin','<label class="check"><input id="setup-keep-login" type="checkbox" checked> 이 휴대폰에서 로그인 유지</label><div class="v13-remember-note">사용 시 앱을 다시 열 때 비밀번호 입력을 생략합니다.</div>');
+  const loginButton = $('#login-form button[type="submit"]');
+  if (loginButton && !$('#login-keep')) loginButton.insertAdjacentHTML('beforebegin','<label class="check"><input id="login-keep" type="checkbox"> 이 휴대폰에서 로그인 유지</label>');
+  const autoSyncLabel = $('#setting-auto-sync')?.closest('label');
+  if (autoSyncLabel && !$('#setting-keep-login')) autoSyncLabel.insertAdjacentHTML('afterend','<label class="check"><input id="setting-keep-login" type="checkbox"> 이 휴대폰에서 로그인 유지</label><div class="v13-remember-note">휴대폰을 분실하면 앱을 바로 열 수 있으므로 개인 휴대폰에서만 사용하세요.</div>');
+
+  const managedList = $('#managed-list');
+  if (managedList && !$('#managed-selection-bar')) managedList.insertAdjacentHTML('beforebegin',v13SelectionBar('managed','<button id="managed-enable-selected">선택 활성</button><button id="managed-disable-selected">선택 중지</button><button id="managed-delete-selected" class="danger">선택 삭제</button>'));
+  const changesList = $('#changes-list');
+  if (changesList && !$('#changes-selection-bar')) changesList.insertAdjacentHTML('beforebegin',v13SelectionBar('changes','<button id="changes-seen-selected">선택 확인 처리</button>'));
+  const noticesList = $('#notices-list');
+  if (noticesList && !$('#notices-selection-bar')) noticesList.insertAdjacentHTML('beforebegin',v13SelectionBar('notices','<button id="notices-seen-selected">선택 확인 처리</button>'));
+  const catalogList = $('#catalog-results');
+  if (catalogList && !$('#catalog-selection-bar')) catalogList.insertAdjacentHTML('beforebegin',v13SelectionBar('catalog','<button id="catalog-add-selected">선택 항목 추가</button>'));
+  v13EnsureNoticeRange();
+}
+
+function v13Selected(group) {
+  return [...document.querySelectorAll(`input[data-select-group="${group}"]:checked`)].map((el) => el.dataset.key);
+}
+
+function v13RefreshSelection(group) {
+  const all = [...document.querySelectorAll(`input[data-select-group="${group}"]`)];
+  const selected = all.filter((el) => el.checked);
+  const count = $(`#${group}-selected-count`);
+  if (count) count.textContent = `${selected.length}개 선택`;
+  const selectAll = $(`#${group}-select-all`);
+  if (selectAll) {
+    selectAll.checked = all.length > 0 && selected.length === all.length;
+    selectAll.indeterminate = selected.length > 0 && selected.length < all.length;
+  }
+}
+
+function v13SetAll(group, checked) {
+  document.querySelectorAll(`input[data-select-group="${group}"]`).forEach((el) => { el.checked = checked; });
+  v13RefreshSelection(group);
+}
+
+async function loadManaged() {
+  const q = normalizeName($('#managed-filter').value);
+  const rows = (await managedRows()).filter((r) => !q || normalizeName(`${r.kind} ${r.name}`).includes(q));
+  $('#managed-list').innerHTML = rows.length ? rows.map((r) => `
+    <article class="item">
+      <div class="item-head v13-with-select">${v13SelectionBox('managed',r.id)}<div><h3>${esc(r.name)}</h3><p>${esc(r.kind)} · ${esc(r.checkStatus || '미확인')}</p><p>최근 개정 ${esc(r.lastRevisionDate || '-')} · 시행 ${esc(r.lastEnforcementDate || '-')}</p></div>
+      <label class="switch"><input type="checkbox" data-toggle="${r.id}" ${r.enabled ? 'checked':''}><span></span></label></div>
+      <div class="item-actions"><button data-open="${esc(v13ItemOfficialUrl(r))}">${r.kind === '행정규칙' ? '행정규칙 원문':'공식 원문'}</button><button class="delete" data-delete="${r.id}" data-name="${esc(r.name)}">삭제</button></div>
+    </article>`).join('') : '<div class="empty">관리대상이 없습니다.</div>';
+  v13RefreshSelection('managed');
+}
+
+async function loadChanges() {
+  const q = normalizeName($('#changes-q').value);
+  const from = $('#changes-from').value, to = $('#changes-to').value;
+  const newOnly = $('#changes-new-only').checked;
+  const rows = (await dbGetAll('changes')).filter((r) => {
+    const date = r.promulgationDate || r.enforcementDate || '';
+    return (!q || normalizeName(`${r.name} ${r.revisionType} ${r.ministry}`).includes(q)) && (!from || date >= from) && (!to || date <= to) && (!newOnly || r.isNew);
+  }).sort((a,b) => (b.promulgationDate || '').localeCompare(a.promulgationDate || '') || (b.detectedAt || '').localeCompare(a.detectedAt || ''));
+  $('#changes-list').innerHTML = rows.length ? rows.slice(0,1500).map((r) => {
+    const count = Array.isArray(r.appendices) ? r.appendices.length : 0;
+    return `<article class="item ${r.isNew ? 'new':''}"><div class="item-head v13-with-select">${v13SelectionBox('changes',r.eventKey)}<div><h3>${esc(r.name)}</h3><p>${esc(r.revisionType || '구분미상')} · 공포 ${esc(r.promulgationDate || '-')} · 시행 ${esc(r.enforcementDate || '-')}</p><p>${esc(r.ministry || '')}</p></div>${r.isNew ? '<span class="tag red">NEW</span>':''}</div><div class="tags">${count ? `<span class="tag red">별표·서식 ${count}건</span>`:''}<span class="tag">${esc(r.kind)}</span></div><div class="item-actions"><button data-open="${esc(v13ItemOfficialUrl(r))}">${r.kind === '행정규칙' ? '행정규칙 원문':'법령 원문'}</button>${count ? `<button data-appendix="${esc(r.eventKey)}" data-title="${esc(`${r.name} ${r.promulgationDate}`)}">별표·서식</button>`:''}</div></article>`;
+  }).join('') : '<div class="empty">조건에 맞는 개정사항이 없습니다.</div>';
+  v13RefreshSelection('changes');
+}
+
+async function loadNotices() {
+  v13EnsureNoticeRange();
+  const q = normalizeName($('#notices-q').value);
+  const status = $('#notices-status').value;
+  const from = $('#notices-from').value, to = $('#notices-to').value;
+  const range = v13NoticeRange();
+  const rows = (await dbGetAll('notices')).filter((r) => {
+    const start = r.startDate || r.announcedDate || '';
+    const end = r.endDate || start;
+    return (!q || normalizeName(`${r.title} ${r.matchedItem} ${r.ministry}`).includes(q)) && (status === '전체' || r.status === status) && (!from || end >= from) && (!to || start <= to);
+  }).sort((a,b) => (b.startDate || b.announcedDate || '').localeCompare(a.startDate || a.announcedDate || ''));
+  $('#notices-list').innerHTML = rows.length ? rows.slice(0,1500).map((r) => {
+    const period = r.periodSide || v13PeriodSide(r.startDate,r.endDate,range.today);
+    const periodClass = period.startsWith('향후') ? 'future' : period.startsWith('지난') ? 'past' : '';
+    return `<article class="item ${r.isNew ? 'new':''}"><div class="item-head v13-with-select">${v13SelectionBox('notices',r.noticeKey)}<div><h3>${esc(r.title)}</h3><p>${esc(r.ministry || '')} · ${esc(r.noticeNo || '')}</p><p>${esc(r.startDate || r.announcedDate || '-')} ~ ${esc(r.endDate || '-')} · ${esc(r.matchedItem || '')}</p></div><span class="tag ${r.status === '진행 중' ? 'green':''}">${esc(r.status)}</span></div><div class="tags"><span class="tag v13-period ${periodClass}">${esc(period)}</span></div><div class="item-actions">${r.officialUrl ? `<button data-open="${esc(r.officialUrl)}">입법예고 상세</button>`:''}${r.fileUrl ? `<button data-open="${esc(r.fileUrl)}">첨부파일</button>`:''}</div></article>`;
+  }).join('') : `<div class="empty">오늘 기준 전후 6개월(${esc(range.from)} ~ ${esc(range.to)})에 해당하는 입법예고가 없습니다.</div>`;
+  v13RefreshSelection('notices');
+}
+
+async function runCatalogSearch() {
+  const q = cleanText($('#catalog-q').value);
+  if (q.length < 2) return toast('두 글자 이상 입력하세요.');
+  const btn = $('#catalog-search');
+  setBusy(btn,true);
+  $('#catalog-results').innerHTML = '<div class="empty">공식 API 검색 중…</div>';
+  try {
+    const rows = await searchCatalog(q,$('#catalog-kind').value);
+    state.catalogRows = rows;
+    const searchResults = rows.map((r,i) => `
+      <article class="item"><div class="item-head v13-with-select">${v13SelectionBox('catalog',i)}<div><h3>${esc(r.name)}</h3><p>${esc(r.kind)} · ${esc(r.ministry || '')}</p><p>${esc(r.promulgationDate || '')} ${esc(r.revisionType || '')}</p></div><span class="tag">일치 ${r.score}</span></div><div class="item-actions"><button class="primary" data-add-index="${i}">관리대상 추가</button></div></article>`).join('');
+    $('#catalog-results').innerHTML = `${searchResults}${manualAddCard(q, rows.length ? '찾는 항목이 검색 결과와 다를 때 사용하세요.' : '검색 결과가 없어도 직접 등록할 수 있습니다.')}`;
+  } catch (error) {
+    state.catalogRows = [];
+    $('#catalog-results').innerHTML = manualAddCard(q, `공식 API 검색 실패: ${error.message}`);
+  } finally {
+    setBusy(btn,false);
+    v13RefreshSelection('catalog');
+  }
+}
+
+async function addCatalog(index) {
+  const row = state.catalogRows[index];
+  if (!row) return toast('추가할 항목을 다시 선택하세요.');
+  await addManaged({...row,officialUrl:v13ItemOfficialUrl(row)});
+  $('#search-dialog').close();
+  toast(`${row.name} 추가 완료`);
+  await loadManaged();
+  await refreshDashboard();
+}
+
+async function addManualCatalog() {
+  const name = cleanText($('#catalog-q').value);
+  if (name.length < 2) return toast('법규명을 두 글자 이상 입력하세요.');
+  const selected = $('#catalog-kind').value;
+  const kind = selected === '행정규칙' ? '행정규칙' : '법령';
+  const row = {kind,name};
+  await addManaged({...row,officialUrl:v13ItemOfficialUrl(row)});
+  $('#search-dialog').close();
+  toast(`${name} 직접 추가 완료`);
+  await loadManaged();
+  await refreshDashboard();
+}
+
+function v13ValidComparisonUrl(url) {
+  if (!url || !/lsBylDiffHwpP\.do/i.test(url)) return false;
+  try {
+    const parsed = new URL(url);
+    return ['lsiSeq','lsId','bylSeq','bylNo','bylEfYd'].every((key) => parsed.searchParams.get(key));
+  } catch { return false; }
+}
+
+async function openAppendices(eventKey,title) {
+  const row = await dbGet('changes',eventKey);
+  const items = row?.appendices || [];
+  $('#appendix-dialog-subtitle').textContent = title;
+  $('#appendix-list').innerHTML = items.length ? items.map((r) => {
+    const compare = v13ValidComparisonUrl(r.comparisonUrl) ? r.comparisonUrl : '';
+    return `<article class="item"><h3>${esc(r.title)}</h3><p>${esc(r.appendixKind)} · ${esc(r.revisionDate || '-')} · ${esc(r.revisionType || '')}</p><div class="item-actions">${r.officialUrl ? `<button data-open="${esc(r.officialUrl)}">별표·서식 원문</button>`:''}${compare ? `<button data-open="${esc(compare)}">법제처 전후 비교</button>`:''}</div>${!r.officialUrl && !compare ? '<p>공식 연결정보가 없어 법령 원문에서 확인해야 합니다.</p>':''}</article>`;
+  }).join('') : '<div class="empty">연결된 별표·서식이 없습니다.</div>';
+  $('#appendix-dialog').showModal();
+}
+
+function openUrl(url) {
+  if (!/^https:\/\//i.test(url || '')) return toast('안전하지 않은 주소는 열 수 없습니다.');
+  const opened = window.open(url,'_blank','noopener,noreferrer');
+  if (!opened) window.location.href = url;
+}
+
+async function testOfficialApis() {
+  const button = $('#api-test-button');
+  const box = $('#api-test-result');
+  if (!button || !box) return;
+  setBusy(button,true);
+  box.innerHTML = '<p class="muted">연결 확인 중…</p>';
+  const lawOc = state.secrets?.lawOc;
+  const noticeOc = state.secrets?.noticeOc || lawOc;
+  const range = v13NoticeRange();
+  const results = [];
+  try {
+    if (!lawOc) throw new Error('API OC 미입력');
+    const text = await fetchText(apiUrl(LAW_URL,{OC:lawOc,target:'law',type:'JSON',query:'소방',display:3,page:1}),15000);
+    const payload = parsePayload(text);
+    const count = candidateRecords(payload,['법령명','법령명한글','법령ID']).length;
+    results.push({name:'국가법령정보',ok:true,message:`정상 연결 · 확인 가능한 응답 ${count}건`});
+  } catch (error) { results.push({name:'국가법령정보',ok:false,message:error.message}); }
+  try {
+    if (!noticeOc) throw new Error('API OC 미입력');
+    const text = await fetchText(apiUrl(NOTICE_URL,{OC:noticeOc,diff:0,stYdFmt:v13NoticeApiDate(range.from),edYdFmt:v13NoticeApiDate(range.to),pageIndex:1,pageSize:5}),15000);
+    const payload = parsePayload(text);
+    const count = candidateRecords(payload,['ogLmPpSeq','lsNm','stYd','edYd','pntcDt']).length;
+    results.push({name:'입법예고',ok:true,message:`정상 연결 · 전후 6개월 응답 ${count}건`});
+  } catch (error) { results.push({name:'입법예고',ok:false,message:error.message}); }
+  box.innerHTML = results.map((r) => `<div class="api-test-row ${r.ok?'ok':'fail'}"><b>${esc(r.name)}</b><span>${esc(r.message)}</span></div>`).join('');
+  setBusy(button,false);
+}
+
+async function v13BulkManaged(enabled) {
+  const ids = v13Selected('managed').map(Number).filter(Boolean);
+  if (!ids.length) return toast('관리대상을 선택하세요.');
+  for (const id of ids) {
+    const row = await dbGet('managed',id);
+    if (row) await dbPut('managed',{...row,enabled,updatedAt:new Date().toISOString()});
+  }
+  await loadManaged();
+  await refreshDashboard();
+  toast(`${ids.length}개 항목을 ${enabled ? '활성':'중지'}했습니다.`);
+}
+
+async function v13DeleteManaged() {
+  const ids = v13Selected('managed').map(Number).filter(Boolean);
+  if (!ids.length) return toast('삭제할 관리대상을 선택하세요.');
+  if (!confirm(`선택한 ${ids.length}개 관리대상을 삭제하시겠습니까? 저장된 개정 이력은 유지됩니다.`)) return;
+  for (const id of ids) await dbDelete('managed',id);
+  await loadManaged();
+  await refreshDashboard();
+  toast(`${ids.length}개 관리대상을 삭제했습니다.`);
+}
+
+async function v13MarkSelected(store, group, keyName, loader) {
+  const keys = v13Selected(group);
+  if (!keys.length) return toast('항목을 선택하세요.');
+  for (const key of keys) {
+    const row = await dbGet(store,key);
+    if (row) await dbPut(store,{...row,isNew:false});
+  }
+  await loader();
+  await refreshDashboard();
+  toast(`${keys.length}개 항목을 확인 처리했습니다.`);
+}
+
+async function v13AddSelectedCatalog() {
+  const indexes = v13Selected('catalog').map(Number).filter((v) => Number.isInteger(v));
+  if (!indexes.length) return toast('추가할 검색 결과를 선택하세요.');
+  let added = 0;
+  for (const index of indexes) {
+    const row = state.catalogRows[index];
+    if (!row) continue;
+    await addManaged({...row,officialUrl:v13ItemOfficialUrl(row)});
+    added += 1;
+  }
+  $('#search-dialog').close();
+  await loadManaged();
+  await refreshDashboard();
+  toast(`${added}개 관리대상을 추가했습니다.`);
+}
+
+function v13BindEvents() {
+  document.addEventListener('change',(event) => {
+    const target = event.target;
+    if (target.matches('input[data-select-group]')) v13RefreshSelection(target.dataset.selectGroup);
+    for (const group of ['managed','changes','notices','catalog']) {
+      if (target.id === `${group}-select-all`) v13SetAll(group,target.checked);
+    }
+  });
+  $('#managed-enable-selected')?.addEventListener('click',() => v13BulkManaged(true));
+  $('#managed-disable-selected')?.addEventListener('click',() => v13BulkManaged(false));
+  $('#managed-delete-selected')?.addEventListener('click',v13DeleteManaged);
+  $('#changes-seen-selected')?.addEventListener('click',() => v13MarkSelected('changes','changes','eventKey',loadChanges));
+  $('#notices-seen-selected')?.addEventListener('click',() => v13MarkSelected('notices','notices','noticeKey',loadNotices));
+  $('#catalog-add-selected')?.addEventListener('click',v13AddSelectedCatalog);
+}
+
+async function boot() {
+  try {
+    if (!window.crypto?.subtle || !window.indexedDB) throw new Error('이 휴대폰의 Android System WebView가 너무 오래되었습니다. WebView를 업데이트하세요.');
+    await registerServiceWorker();
+    setupPwaInstall();
+    v13InstallUi();
+    state.db = await openDb();
+    state.setup = await getMeta('setup',null);
+    bindEvents();
+    v13BindEvents();
+    v13EnsureNoticeRange();
+    if (!state.setup) {
+      showSetup();
+    } else if (await v13TryRememberedLogin()) {
+      showApp();
+      await refreshAll();
+      maybeAutoSync();
+    } else {
+      showLogin();
+    }
+  } catch (error) {
+    document.body.innerHTML = `<div class="gate"><div class="gate-card"><h1>앱 시작 실패</h1><p>${esc(error.message)}</p></div></div>`;
+  }
+}
