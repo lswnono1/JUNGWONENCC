@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-21T14:26:47.605660+00:00",
+  "generatedAt": "2026-07-21T19:52:56.856039+00:00",
   "range": {
     "from": "2026-01-21",
     "to": "2027-01-21"
@@ -8509,6 +8509,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86432"
     },
     {
+      "noticeKey": "notice:87594:날짜미상",
+      "sequence": "87594",
+      "title": "사립대학의 구조개선 지원에 관한 법률 시행령 제정안 재입법예고",
+      "lawClass": "대통령령",
+      "ministry": "교육부",
+      "noticeNo": "2026-276",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000325936",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 사립대학의 구조개선 지원에 관한 법률 시행령 제정(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10905158/LWX8ZK2TRO0N6EN313SL",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87594"
+    },
+    {
       "noticeKey": "notice:86280:날짜미상",
       "sequence": "86280",
       "title": "사립대학의 구조개선 지원에 관한 법률 시행령 제정안 입법예고",
@@ -10581,6 +10598,23 @@
       "fileName": "(법령안) 데이터기반행정 활성화에 관한 법률 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10837326/LUPSXZ2R2DG9Q5ZJE10Q",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87126"
+    },
+    {
+      "noticeKey": "notice:87030:날짜미상",
+      "sequence": "87030",
+      "title": "댐건설·관리 및 주변지역지원 등에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "기후에너지환경부",
+      "noticeNo": "2026-541",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 댐건설·관리 및 주변지역지원 등에 관한 법률 시행령 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10837156/GJV1OZSHLH54UDYNJ2CK",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87030"
     },
     {
       "noticeKey": "notice:86614:날짜미상",
@@ -14833,6 +14867,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86754"
     },
     {
+      "noticeKey": "notice:87136:날짜미상",
+      "sequence": "87136",
+      "title": "공공주택 특별법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-785",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000327308",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 공공주택 특별법 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10839536/B8U76JPC3NLPIO6LDSXH",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87136"
+    },
+    {
       "noticeKey": "notice:86036:날짜미상",
       "sequence": "86036",
       "title": "공공재정 부정청구 금지 및 부정이익 환수 등에 관한 법률 일부개정법률안 입법예고",
@@ -18097,23 +18148,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87488"
     },
     {
-      "noticeKey": "notice:87594:날짜미상",
-      "sequence": "87594",
-      "title": "[진행]사립대학의 구조개선 지원에 관한 법률 시행령 제정안 재입법예고",
-      "lawClass": "대통령령",
-      "ministry": "교육부",
-      "noticeNo": "2026-276",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325936",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 사립대학의 구조개선 지원에 관한 법률 시행령 제정(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10905158/LWX8ZK2TRO0N6EN313SL",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87594"
-    },
-    {
       "noticeKey": "notice:87688:날짜미상",
       "sequence": "87688",
       "title": "[진행]사건기록 열람·등사의 방법 및 수수료 등에 관한 규칙 일부개정안 입법예고",
@@ -18639,23 +18673,6 @@
       "fileName": "(법령안) 도로교통법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10860684/53ZD3Q7SXEAOL425509B",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87228"
-    },
-    {
-      "noticeKey": "notice:87030:날짜미상",
-      "sequence": "87030",
-      "title": "[진행]댐건설·관리 및 주변지역지원 등에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-541",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 댐건설·관리 및 주변지역지원 등에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10837156/GJV1OZSHLH54UDYNJ2CK",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87030"
     },
     {
       "noticeKey": "notice:87422:날짜미상",
@@ -19557,23 +19574,6 @@
       "fileName": "(법령안) 공무원수당 등에 관한 규정 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10927992/130QBVLRBCA5ESV49Y1I",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87742"
-    },
-    {
-      "noticeKey": "notice:87136:날짜미상",
-      "sequence": "87136",
-      "title": "[진행]공공주택 특별법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-785",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000327308",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 공공주택 특별법 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10839536/B8U76JPC3NLPIO6LDSXH",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87136"
     },
     {
       "noticeKey": "notice:87342:날짜미상",
