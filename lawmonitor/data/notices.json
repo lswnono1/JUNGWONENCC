@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-22T03:48:27.518350+00:00",
+  "generatedAt": "2026-07-22T08:46:02.202367+00:00",
   "range": {
     "from": "2026-01-22",
     "to": "2027-01-22"
@@ -6105,7 +6105,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000327300",
       "announceType": "TYPE5",
       "fileName": "(법령안) 여객자동차 운수사업법 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10804120/LLOOQW175Y1M6D8I77FE",
@@ -7210,7 +7210,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000326512",
       "announceType": "TYPE5",
       "fileName": "(법령안) 소비자기본법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10754298/LVBMJNA9E66AF53JWP4I",
@@ -9913,7 +9913,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329224",
       "announceType": "TYPE5",
       "fileName": "(법령안) 문화체육관광부와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10883018/PPZE8XE3R7QMA7SH9TCH",
