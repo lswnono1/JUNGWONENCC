@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-23T03:46:09.017960+00:00",
+  "generatedAt": "2026-07-23T08:45:44.630955+00:00",
   "range": {
     "from": "2026-01-23",
     "to": "2027-01-23"
@@ -18379,7 +18379,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000328628",
       "announceType": "TYPE5",
       "fileName": "(법령안) 병역법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10885926/E9PRDWWE3W4R2C6SQ962",
