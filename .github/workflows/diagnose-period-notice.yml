@@ -1,0 +1,49 @@
+name: Diagnose Period Notice
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  diagnose:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install PySide6
+      - name: Run period notice test
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          $env:QT_QPA_PLATFORM = "offscreen"
+          $output = python -m v10_9_link_mode.period_notice_selftest 2>&1
+          $code = $LASTEXITCODE
+          "ExitCode: $code" | Set-Content period-notice-diagnostic.txt -Encoding UTF8
+          $output | Add-Content period-notice-diagnostic.txt -Encoding UTF8
+          Get-Content period-notice-diagnostic.txt
+      - name: Post diagnostic
+        if: always() && github.event_name == 'pull_request'
+        continue-on-error: true
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $lines = Get-Content period-notice-diagnostic.txt | Select-Object -Last 30
+          $text = ($lines -join "`n")
+          $body = "Period notice diagnostic:`n$text"
+          gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" -f body="$body"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: period-notice-diagnostic
+          path: period-notice-diagnostic.txt
+          retention-days: 7
