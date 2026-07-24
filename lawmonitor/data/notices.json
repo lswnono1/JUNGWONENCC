@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-24T14:14:08.048825+00:00",
+  "generatedAt": "2026-07-24T19:48:02.599530+00:00",
   "range": {
     "from": "2026-01-24",
     "to": "2027-01-24"
@@ -9529,6 +9529,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86414"
     },
     {
+      "noticeKey": "notice:87268:날짜미상",
+      "sequence": "87268",
+      "title": "반도체산업 경쟁력 강화 및 지원에 관한 특별법 시행령 제정법률안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "산업통상부",
+      "noticeNo": "2026-398",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000327056",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 반도체산업 경쟁력 강화 및 지원에 관한 특별법 시행령 제정법률(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10871716/C291GTPUHDB42KORAZYJ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87268"
+    },
+    {
       "noticeKey": "notice:85614:날짜미상",
       "sequence": "85614",
       "title": "민원 처리에 관한 법률 시행령 일부개정령안 입법예고",
@@ -14663,6 +14680,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85996"
     },
     {
+      "noticeKey": "notice:87352:날짜미상",
+      "sequence": "87352",
+      "title": "공공기관의 소방안전관리에 관한 규정 전부개정령안 재입법예고",
+      "lawClass": "대통령령",
+      "ministry": "소방청",
+      "noticeNo": "2026-129",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 공공기관의 소방안전관리에 관한 규정 전부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10885828/I69E4EYP3N9GHUOJUGSX",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87352"
+    },
+    {
       "noticeKey": "notice:85776:날짜미상",
       "sequence": "85776",
       "title": "공공기관의 소방안전관리에 관한 규정 전부개정령안 입법예고",
@@ -14678,6 +14712,23 @@
       "fileName": "(법령안) 공공기관의 소방안전관리에 관한 규정 전부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10642646/G3PZUQOHC76MJ03SB1PK",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85776"
+    },
+    {
+      "noticeKey": "notice:87142:날짜미상",
+      "sequence": "87142",
+      "title": "공간정보의 구축 및 관리 등에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-802",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 공간정보의 구축 및 관리 등에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10842678/B35PUFS004UDW43DN26W",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87142"
     },
     {
       "noticeKey": "notice:86868:날짜미상",
@@ -18352,23 +18403,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87156"
     },
     {
-      "noticeKey": "notice:87268:날짜미상",
-      "sequence": "87268",
-      "title": "[진행]반도체산업 경쟁력 강화 및 지원에 관한 특별법 시행령 제정법률안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "산업통상부",
-      "noticeNo": "2026-398",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000327056",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 반도체산업 경쟁력 강화 및 지원에 관한 특별법 시행령 제정법률(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10871716/C291GTPUHDB42KORAZYJ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87268"
-    },
-    {
       "noticeKey": "notice:87266:날짜미상",
       "sequence": "87266",
       "title": "[진행]반도체산업 경쟁력 강화 및 지원에 관한 특별법 시행규칙 제정법률안 입법예고",
@@ -19727,40 +19761,6 @@
       "fileName": "(법령안) 공공재정 부정청구 금지 및 부정이익 환수 등에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10910688/366YLEL9A18JAZA6FK8V",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87674"
-    },
-    {
-      "noticeKey": "notice:87352:날짜미상",
-      "sequence": "87352",
-      "title": "[진행]공공기관의 소방안전관리에 관한 규정 전부개정령안 재입법예고",
-      "lawClass": "대통령령",
-      "ministry": "소방청",
-      "noticeNo": "2026-129",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 공공기관의 소방안전관리에 관한 규정 전부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10885828/I69E4EYP3N9GHUOJUGSX",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87352"
-    },
-    {
-      "noticeKey": "notice:87142:날짜미상",
-      "sequence": "87142",
-      "title": "[진행]공간정보의 구축 및 관리 등에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-802",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 공간정보의 구축 및 관리 등에 관한 법률 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10842678/B35PUFS004UDW43DN26W",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87142"
     },
     {
       "noticeKey": "notice:87202:날짜미상",
