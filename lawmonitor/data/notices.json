@@ -1,12 +1,12 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-24T19:48:02.599530+00:00",
+  "generatedAt": "2026-07-25T08:25:21.236197+00:00",
   "range": {
-    "from": "2026-01-24",
-    "to": "2027-01-24"
+    "from": "2026-01-25",
+    "to": "2027-01-25"
   },
-  "requestCount": 32,
+  "requestCount": 31,
   "records": [
     {
       "noticeKey": "notice:85618:날짜미상",
@@ -10566,23 +10566,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86596"
     },
     {
-      "noticeKey": "notice:86078:날짜미상",
-      "sequence": "86078",
-      "title": "대기환경보전법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-287",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 대기환경보전법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10688340/XICCGN7UD0P3PGYB8BLR",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86078"
-    },
-    {
       "noticeKey": "notice:85678:날짜미상",
       "sequence": "85678",
       "title": "대기환경보전법 시행규칙 일부개정령안 입법예고",
@@ -10598,6 +10581,23 @@
       "fileName": "대기환경보전법 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10631790/RLFU6WDAEP0U4MKJWOMW",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85678"
+    },
+    {
+      "noticeKey": "notice:86078:날짜미상",
+      "sequence": "86078",
+      "title": "대기환경보전법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "기후에너지환경부",
+      "noticeNo": "2026-287",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 대기환경보전법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10688340/XICCGN7UD0P3PGYB8BLR",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86078"
     },
     {
       "noticeKey": "notice:86884:날짜미상",
