@@ -1,12 +1,12 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-25T19:35:37.641088+00:00",
+  "generatedAt": "2026-07-26T03:59:25.729324+00:00",
   "range": {
-    "from": "2026-01-25",
-    "to": "2027-01-25"
+    "from": "2026-01-26",
+    "to": "2027-01-26"
   },
-  "requestCount": 31,
+  "requestCount": 32,
   "records": [
     {
       "noticeKey": "notice:85618:날짜미상",
@@ -7948,23 +7948,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87054"
     },
     {
-      "noticeKey": "notice:86360:날짜미상",
-      "sequence": "86360",
-      "title": "산업재해보상보험법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "고용노동부",
-      "noticeNo": "2026-213",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326214",
-      "announceType": "TYPE5",
-      "fileName": "산업재해보상보험법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10725336/YNB46F3DT3Z6ASUU3JJO",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86360"
-    },
-    {
       "noticeKey": "notice:86570:날짜미상",
       "sequence": "86570",
       "title": "산업재해보상보험법 시행령 일부개정령안 입법예고",
@@ -7980,6 +7963,23 @@
       "fileName": "(법령안) 산업재해보상보험법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10751182/0AYCWSH2GLTMXPTL3CMC",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86570"
+    },
+    {
+      "noticeKey": "notice:86360:날짜미상",
+      "sequence": "86360",
+      "title": "산업재해보상보험법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "고용노동부",
+      "noticeNo": "2026-213",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000326214",
+      "announceType": "TYPE5",
+      "fileName": "산업재해보상보험법 시행령 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10725336/YNB46F3DT3Z6ASUU3JJO",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86360"
     },
     {
       "noticeKey": "notice:86568:날짜미상",
@@ -16686,23 +16686,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87102"
     },
     {
-      "noticeKey": "notice:87794:날짜미상",
-      "sequence": "87794",
-      "title": "[진행]주택법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-971",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329058",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 주택법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935196/63EDN76QNUY6IW69BBE2",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87794"
-    },
-    {
       "noticeKey": "notice:87318:날짜미상",
       "sequence": "87318",
       "title": "[진행]주택법 시행령 일부개정령안 입법예고",
@@ -16718,6 +16701,23 @@
       "fileName": "(법령안) 주택법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10877006/034WIB5KXQ7OK1TQ3REZ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87318"
+    },
+    {
+      "noticeKey": "notice:87794:날짜미상",
+      "sequence": "87794",
+      "title": "[진행]주택법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-971",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329058",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 주택법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935196/63EDN76QNUY6IW69BBE2",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87794"
     },
     {
       "noticeKey": "notice:87316:날짜미상",
@@ -19202,23 +19202,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87764"
     },
     {
-      "noticeKey": "notice:87496:날짜미상",
-      "sequence": "87496",
-      "title": "[진행]국토의 계획 및 이용에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-910",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국토의 계획 및 이용에 관한 법률 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10899364/V5FXWOM8LHB32J2NK5YA",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87496"
-    },
-    {
       "noticeKey": "notice:87320:날짜미상",
       "sequence": "87320",
       "title": "[진행]국토의 계획 및 이용에 관한 법률 시행령 일부개정령안 입법예고",
@@ -19234,6 +19217,23 @@
       "fileName": "(법령안) 국토의 계획 및 이용에 관한 법률 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10876408/TD0G9ZGYXKAGOA4SOLQE",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87320"
+    },
+    {
+      "noticeKey": "notice:87496:날짜미상",
+      "sequence": "87496",
+      "title": "[진행]국토의 계획 및 이용에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-910",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국토의 계획 및 이용에 관한 법률 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10899364/V5FXWOM8LHB32J2NK5YA",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87496"
     },
     {
       "noticeKey": "notice:87472:날짜미상",
