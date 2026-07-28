@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-28T03:37:16.341321+00:00",
+  "generatedAt": "2026-07-28T09:05:54.778385+00:00",
   "range": {
     "from": "2026-01-28",
     "to": "2027-01-28"
@@ -19705,7 +19705,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000328768",
       "announceType": "TYPE5",
       "fileName": "(법령안) 공공재정 부정청구 금지 및 부정이익 환수 등에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10939418/QY6OLFPGCSPTUPWP87OB",
