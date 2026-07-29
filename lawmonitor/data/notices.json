@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-29T03:44:39.733229+00:00",
+  "generatedAt": "2026-07-29T09:09:44.137165+00:00",
   "range": {
     "from": "2026-01-29",
     "to": "2027-01-29"
@@ -7482,7 +7482,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000324952",
       "announceType": "TYPE5",
       "fileName": "(법령안) 선박안전법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10677008/I3E5GJ39VZ7JJXIXPLR6",
@@ -14605,7 +14605,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000327530",
       "announceType": "TYPE5",
       "fileName": "(법령안) 고용상 연령차별금지 및 고령자고용촉진에 관한 법률 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10812576/8TARJS4ZYSH78V4WBG04",
