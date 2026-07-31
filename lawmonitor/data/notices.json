@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-31T03:51:58.691039+00:00",
+  "generatedAt": "2026-07-31T09:18:28.843194+00:00",
   "range": {
     "from": "2026-01-31",
     "to": "2027-01-31"
@@ -16203,7 +16203,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000328582",
       "announceType": "TYPE5",
       "fileName": "(법령안) 주택법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10877006/034WIB5KXQ7OK1TQ3REZ",
@@ -16237,7 +16237,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329450",
       "announceType": "TYPE5",
       "fileName": "(법령안) 주택건설기준 등에 관한 규정 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10877108/QW0J38AVFLJAZVR1AVYQ",
@@ -16465,6 +16465,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87848"
     },
     {
+      "noticeKey": "notice:87868:날짜미상",
+      "sequence": "87868",
+      "title": "[진행]저출산ㆍ고령사회기본법(시행령) 전부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "보건복지부",
+      "noticeNo": "2026-607",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 저출산ㆍ고령사회기본법 시행령 전부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10961098/ZKUX0092ASBXKJXJ9LIY",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87868"
+    },
+    {
       "noticeKey": "notice:87864:날짜미상",
       "sequence": "87864",
       "title": "[진행]저출산 고령사회 기본법 시행규칙 폐지령안 입법예고",
@@ -16611,7 +16628,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329408",
       "announceType": "TYPE5",
       "fileName": "(법령안) 자본시장과 금융투자업에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10954956/B485F59PQMESL2P9LL1B",
@@ -18702,7 +18719,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329384",
       "announceType": "TYPE5",
       "fileName": "(법령안) 기상법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10957250/X6K128IAR940VA9HNW03",
