@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-31T09:18:28.843194+00:00",
+  "generatedAt": "2026-07-31T19:54:03.837571+00:00",
   "range": {
     "from": "2026-01-31",
     "to": "2027-01-31"
@@ -6603,6 +6603,23 @@
       "fileName": "(법령안) 시체 해부 및 보존 등에 관한 법률 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10807474/IFG17I1ANO3WL5WQTUTA",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86890"
+    },
+    {
+      "noticeKey": "notice:87596:날짜미상",
+      "sequence": "87596",
+      "title": "시장접근물량 증량에 관한 규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-197",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328624",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 시장접근물량 증량에 관한 규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10905034/NFA1F54UZIN0FDBQ4BU8",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87596"
     },
     {
       "noticeKey": "notice:86948:날짜미상",
@@ -17194,23 +17211,6 @@
       "fileName": "(법령안) 식품위생법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10903806/6UQP77MAXHUAY4N0A6AF",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87540"
-    },
-    {
-      "noticeKey": "notice:87596:날짜미상",
-      "sequence": "87596",
-      "title": "[진행]시장접근물량 증량에 관한 규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-197",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328624",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 시장접근물량 증량에 관한 규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10905034/NFA1F54UZIN0FDBQ4BU8",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87596"
     },
     {
       "noticeKey": "notice:87288:날짜미상",
