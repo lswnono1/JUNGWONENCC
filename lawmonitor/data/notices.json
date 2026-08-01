@@ -1,10 +1,10 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-07-31T19:54:03.837571+00:00",
+  "generatedAt": "2026-08-01T03:51:56.183353+00:00",
   "range": {
-    "from": "2026-01-31",
-    "to": "2027-01-31"
+    "from": "2026-02-01",
+    "to": "2027-02-01"
   },
   "requestCount": 31,
   "records": [
@@ -1658,23 +1658,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87000"
     },
     {
-      "noticeKey": "notice:87224:날짜미상",
-      "sequence": "87224",
-      "title": "출입국관리법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "법무부",
-      "noticeNo": "2026-242",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328512",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 출입국관리법 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10860386/A8ML1ULKV470E9L1DDD3",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87224"
-    },
-    {
       "noticeKey": "notice:86998:날짜미상",
       "sequence": "86998",
       "title": "출입국관리법 시행규칙 일부개정령안 입법예고",
@@ -1690,6 +1673,23 @@
       "fileName": "출입국관리법 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10832290/1AWZG9DJET8FYK9M3Q2I",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86998"
+    },
+    {
+      "noticeKey": "notice:87224:날짜미상",
+      "sequence": "87224",
+      "title": "출입국관리법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "법무부",
+      "noticeNo": "2026-242",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328512",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 출입국관리법 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10860386/A8ML1ULKV470E9L1DDD3",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87224"
     },
     {
       "noticeKey": "notice:85974:날짜미상",
@@ -4140,23 +4140,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86986"
     },
     {
-      "noticeKey": "notice:85946:날짜미상",
-      "sequence": "85946",
-      "title": "전기안전관리법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-248",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325262",
-      "announceType": "TYPE5",
-      "fileName": "전기안전관리법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10702752/WU49YTSQV5FBWLWPPZVI",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85946"
-    },
-    {
       "noticeKey": "notice:86248:날짜미상",
       "sequence": "86248",
       "title": "전기안전관리법 시행규칙 일부개정령안 입법예고",
@@ -4172,6 +4155,23 @@
       "fileName": "전기안전관리법 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10695938/NEH9UPYLAGDXFRAQP3MZ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86248"
+    },
+    {
+      "noticeKey": "notice:85946:날짜미상",
+      "sequence": "85946",
+      "title": "전기안전관리법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "기후에너지환경부",
+      "noticeNo": "2026-248",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000325262",
+      "announceType": "TYPE5",
+      "fileName": "전기안전관리법 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10702752/WU49YTSQV5FBWLWPPZVI",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85946"
     },
     {
       "noticeKey": "notice:86194:날짜미상",
@@ -6979,23 +6979,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85736"
     },
     {
-      "noticeKey": "notice:87412:날짜미상",
-      "sequence": "87412",
-      "title": "소방청과 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "소방청",
-      "noticeNo": "2026-126",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328814",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 소방청과 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10883650/APE1E5HWGT9G4QX0R0PD",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87412"
-    },
-    {
       "noticeKey": "notice:86944:날짜미상",
       "sequence": "86944",
       "title": "소방청과 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -7011,6 +6994,23 @@
       "fileName": "(법령안) 소방청과 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10824282/Z2BOLP2PWBZIJ1V259JC",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86944"
+    },
+    {
+      "noticeKey": "notice:87412:날짜미상",
+      "sequence": "87412",
+      "title": "소방청과 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "소방청",
+      "noticeNo": "2026-126",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328814",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 소방청과 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10883650/APE1E5HWGT9G4QX0R0PD",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87412"
     },
     {
       "noticeKey": "notice:87204:날짜미상",
@@ -13405,23 +13405,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85500"
     },
     {
-      "noticeKey": "notice:87430:날짜미상",
-      "sequence": "87430",
-      "title": "교육부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "교육부",
-      "noticeNo": "2026-268",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000327952",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 교육부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10886002/8N4OYP2V3H274AIW6DYI",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87430"
-    },
-    {
       "noticeKey": "notice:86996:날짜미상",
       "sequence": "86996",
       "title": "교육부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -13437,6 +13420,23 @@
       "fileName": "교육부와 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10815690/SATFJ3P5LOYL0CZ9ZFP7",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86996"
+    },
+    {
+      "noticeKey": "notice:87430:날짜미상",
+      "sequence": "87430",
+      "title": "교육부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "교육부",
+      "noticeNo": "2026-268",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000327952",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 교육부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10886002/8N4OYP2V3H274AIW6DYI",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87430"
     },
     {
       "noticeKey": "notice:85426:날짜미상",
