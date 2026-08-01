@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-01T03:51:56.183353+00:00",
+  "generatedAt": "2026-08-01T13:56:29.722483+00:00",
   "range": {
     "from": "2026-02-01",
     "to": "2027-02-01"
@@ -10542,7 +10542,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "2000000328676",
+      "mappingLbicId": "2000000326610",
       "announceType": "TYPE5",
       "fileName": "(법령안) 농지법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10797900/84L8JFWOQ17JK5OUF0CY",
