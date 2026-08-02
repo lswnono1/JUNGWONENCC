@@ -1,12 +1,12 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-01T13:56:29.722483+00:00",
+  "generatedAt": "2026-08-02T03:54:38.586277+00:00",
   "range": {
-    "from": "2026-02-01",
-    "to": "2027-02-01"
+    "from": "2026-02-02",
+    "to": "2027-02-02"
   },
-  "requestCount": 31,
+  "requestCount": 32,
   "records": [
     {
       "noticeKey": "notice:85618:날짜미상",
@@ -13762,23 +13762,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86442"
     },
     {
-      "noticeKey": "notice:87206:날짜미상",
-      "sequence": "87206",
-      "title": "과학기술정보통신부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "과학기술정보통신부",
-      "noticeNo": "2026-686",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328012",
-      "announceType": "TYPE5",
-      "fileName": "과학기술정보통신부와 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10847742/DWE4NUJ5GRRN6G7OWOVS",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87206"
-    },
-    {
       "noticeKey": "notice:87478:날짜미상",
       "sequence": "87478",
       "title": "과학기술정보통신부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -13794,6 +13777,23 @@
       "fileName": "(법령안) 과학기술정보통신부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10888676/Z6QQ8UNIDBZ87VPYRXAC",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87478"
+    },
+    {
+      "noticeKey": "notice:87206:날짜미상",
+      "sequence": "87206",
+      "title": "과학기술정보통신부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "과학기술정보통신부",
+      "noticeNo": "2026-686",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328012",
+      "announceType": "TYPE5",
+      "fileName": "과학기술정보통신부와 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10847742/DWE4NUJ5GRRN6G7OWOVS",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87206"
     },
     {
       "noticeKey": "notice:86724:날짜미상",
@@ -17587,23 +17587,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87508"
     },
     {
-      "noticeKey": "notice:87686:날짜미상",
-      "sequence": "87686",
-      "title": "[진행]산업안전보건법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "고용노동부",
-      "noticeNo": "2026-362",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000324886",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 산업안전보건법 시행령 일부개정령안(수정).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10922782/XYZM4VTCYXZUXOUW203N",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87686"
-    },
-    {
       "noticeKey": "notice:87458:날짜미상",
       "sequence": "87458",
       "title": "[진행]산업안전보건법 시행령 일부개정령안 입법예고",
@@ -17621,21 +17604,21 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87458"
     },
     {
-      "noticeKey": "notice:87684:날짜미상",
-      "sequence": "87684",
-      "title": "[진행]산업안전보건법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
+      "noticeKey": "notice:87686:날짜미상",
+      "sequence": "87686",
+      "title": "[진행]산업안전보건법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
       "ministry": "고용노동부",
-      "noticeNo": "2026-363",
+      "noticeNo": "2026-362",
       "announcedDate": "",
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "2000000324996",
+      "mappingLbicId": "2000000324886",
       "announceType": "TYPE5",
-      "fileName": "(법령안) 산업안전보건법 시행규칙 일부개정령안(수정).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10922798/Z0JH5Z905QFX1YSDIII0",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87684"
+      "fileName": "(법령안) 산업안전보건법 시행령 일부개정령안(수정).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10922782/XYZM4VTCYXZUXOUW203N",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87686"
     },
     {
       "noticeKey": "notice:87456:날짜미상",
@@ -17655,21 +17638,21 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87456"
     },
     {
-      "noticeKey": "notice:87682:날짜미상",
-      "sequence": "87682",
-      "title": "[진행]산업안전보건기준에 관한 규칙 일부개정령안 입법예고",
+      "noticeKey": "notice:87684:날짜미상",
+      "sequence": "87684",
+      "title": "[진행]산업안전보건법 시행규칙 일부개정령안 입법예고",
       "lawClass": "부령",
       "ministry": "고용노동부",
-      "noticeNo": "2026-364",
+      "noticeNo": "2026-363",
       "announcedDate": "",
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "2000000323260",
+      "mappingLbicId": "2000000324996",
       "announceType": "TYPE5",
-      "fileName": "(법령안) 산업안전보건기준에 관한 규칙 일부개정령안(수정).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10922850/OA4WL5JHPBM6GVVE3I05",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87682"
+      "fileName": "(법령안) 산업안전보건법 시행규칙 일부개정령안(수정).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10922798/Z0JH5Z905QFX1YSDIII0",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87684"
     },
     {
       "noticeKey": "notice:87454:날짜미상",
@@ -17687,6 +17670,23 @@
       "fileName": "(법령안) 산업안전보건기준에 관한 규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10893288/WA7REELY8CTVNFIB6FWI",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87454"
+    },
+    {
+      "noticeKey": "notice:87682:날짜미상",
+      "sequence": "87682",
+      "title": "[진행]산업안전보건기준에 관한 규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "고용노동부",
+      "noticeNo": "2026-364",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000323260",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 산업안전보건기준에 관한 규칙 일부개정령안(수정).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10922850/OA4WL5JHPBM6GVVE3I05",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87682"
     },
     {
       "noticeKey": "notice:87824:날짜미상",
