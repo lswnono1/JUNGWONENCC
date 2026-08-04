@@ -1,10 +1,10 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-03T15:17:56.155970+00:00",
+  "generatedAt": "2026-08-04T03:38:58.036972+00:00",
   "range": {
-    "from": "2026-02-03",
-    "to": "2027-02-03"
+    "from": "2026-02-04",
+    "to": "2027-02-04"
   },
   "requestCount": 31,
   "records": [
@@ -5568,23 +5568,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87312"
     },
     {
-      "noticeKey": "notice:85508:날짜미상",
-      "sequence": "85508",
-      "title": "온실가스 배출권의 할당 및 거래에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-81",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000323932",
-      "announceType": "TYPE5",
-      "fileName": "온실가스 배출권의 할당 및 거래에 관한 법률 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10600144/MHJZNOPDANWOCZ2UTAKY",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85508"
-    },
-    {
       "noticeKey": "notice:85566:날짜미상",
       "sequence": "85566",
       "title": "예술인의 지위와 권리의 보장에 관한 법률 시행령 일부개정령안 입법예고",
@@ -10651,23 +10634,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85574"
     },
     {
-      "noticeKey": "notice:85512:날짜미상",
-      "sequence": "85512",
-      "title": "농촌진흥청과 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "농촌진흥청",
-      "noticeNo": "2026-25",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000323946",
-      "announceType": "TYPE5",
-      "fileName": "농촌진흥청과 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10597628/4FB1KIRBY0940OHJ2YV2",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85512"
-    },
-    {
       "noticeKey": "notice:86654:날짜미상",
       "sequence": "86654",
       "title": "농촌진흥청과 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -11535,23 +11501,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87328"
     },
     {
-      "noticeKey": "notice:86500:날짜미상",
-      "sequence": "86500",
-      "title": "기상법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "기상청",
-      "noticeNo": "2026-57",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326554",
-      "announceType": "TYPE5",
-      "fileName": "기상법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10749536/S1Z0V0GIMUL1A7DDIRSP",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86500"
-    },
-    {
       "noticeKey": "notice:86274:날짜미상",
       "sequence": "86274",
       "title": "기상법 시행령 일부개정령안 입법예고",
@@ -11567,6 +11516,23 @@
       "fileName": "기상법 시행령 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10712128/8BLQDKSNMUHNLHA9NN2P",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86274"
+    },
+    {
+      "noticeKey": "notice:86500:날짜미상",
+      "sequence": "86500",
+      "title": "기상법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "기상청",
+      "noticeNo": "2026-57",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000326554",
+      "announceType": "TYPE5",
+      "fileName": "기상법 시행령 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10749536/S1Z0V0GIMUL1A7DDIRSP",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86500"
     },
     {
       "noticeKey": "notice:85702:날짜미상",
@@ -13881,23 +13847,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86464"
     },
     {
-      "noticeKey": "notice:85510:날짜미상",
-      "sequence": "85510",
-      "title": "관광진흥법 시행령 일부개정령(안) 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "문화체육관광부",
-      "noticeNo": "2026-31",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 관광진흥법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10600640/X7Q416TJ1O5PT4HZC82M",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85510"
-    },
-    {
       "noticeKey": "notice:86726:날짜미상",
       "sequence": "86726",
       "title": "관광진흥법 시행규칙 일부개정령안 입법예고",
@@ -14612,23 +14561,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86868"
     },
     {
-      "noticeKey": "notice:86134:날짜미상",
-      "sequence": "86134",
-      "title": "고용보험법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "고용노동부",
-      "noticeNo": "2026-183",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325690",
-      "announceType": "TYPE5",
-      "fileName": "고용보험법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10688614/I9KNK1VWWW6ML2Z96Y70",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86134"
-    },
-    {
       "noticeKey": "notice:85750:날짜미상",
       "sequence": "85750",
       "title": "고용보험법 시행령 일부개정령안 입법예고",
@@ -14644,6 +14576,23 @@
       "fileName": "고용보험법 시행령 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10647104/H66S8WYT1HEYO5VRQHUE",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85750"
+    },
+    {
+      "noticeKey": "notice:86134:날짜미상",
+      "sequence": "86134",
+      "title": "고용보험법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "고용노동부",
+      "noticeNo": "2026-183",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000325690",
+      "announceType": "TYPE5",
+      "fileName": "고용보험법 시행령 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10688614/I9KNK1VWWW6ML2Z96Y70",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86134"
     },
     {
       "noticeKey": "notice:87202:날짜미상",
@@ -16465,6 +16414,40 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87444"
     },
     {
+      "noticeKey": "notice:87936:날짜미상",
+      "sequence": "87936",
+      "title": "[진행]종합부동산세법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-216",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 종합부동산세법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10965190/R5CC3NEX2EJ5EY48EAH5",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87936"
+    },
+    {
+      "noticeKey": "notice:87946:날짜미상",
+      "sequence": "87946",
+      "title": "[진행]조세특례제한법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-211",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328238",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 조세특례제한법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10966064/6XNQU03UGG3OM8SGT4DW",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87946"
+    },
+    {
       "noticeKey": "notice:87828:날짜미상",
       "sequence": "87828",
       "title": "[진행]제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법 시행령 일부개정령안 입법예고",
@@ -16873,6 +16856,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87642"
     },
     {
+      "noticeKey": "notice:87928:날짜미상",
+      "sequence": "87928",
+      "title": "[진행]의료기기법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "식품의약품안전처",
+      "noticeNo": "2026-376",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 의료기기법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10963904/GW9YGNETW1RTWCFVXTTF",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87928"
+    },
+    {
       "noticeKey": "notice:87640:날짜미상",
       "sequence": "87640",
       "title": "[진행]응급의료에 관한 법률 시행령 일부개정령안 입법예고",
@@ -16924,23 +16924,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87852"
     },
     {
-      "noticeKey": "notice:87872:날짜미상",
-      "sequence": "87872",
-      "title": "[진행]유아교육법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "교육부",
-      "noticeNo": "2026-309",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 유아교육법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10957554/VY749W94LLR6MQUH1ZJ5",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87872"
-    },
-    {
       "noticeKey": "notice:87530:날짜미상",
       "sequence": "87530",
       "title": "[진행]유아교육법 시행령 일부개정령안 입법예고",
@@ -16956,6 +16939,23 @@
       "fileName": "(법령안) 유아교육법 시행령 일부개정령(안)#2.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10896576/220ZP3JVYGUU3ILTJTFS",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87530"
+    },
+    {
+      "noticeKey": "notice:87872:날짜미상",
+      "sequence": "87872",
+      "title": "[진행]유아교육법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "교육부",
+      "noticeNo": "2026-309",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 유아교육법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10957554/VY749W94LLR6MQUH1ZJ5",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87872"
     },
     {
       "noticeKey": "notice:87464:날짜미상",
@@ -17468,6 +17468,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87322"
     },
     {
+      "noticeKey": "notice:87942:날짜미상",
+      "sequence": "87942",
+      "title": "[진행]소득세법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-213",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 소득세법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10964858/XL9ZRTKRJVTYUYWQY0XH",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87942"
+    },
+    {
       "noticeKey": "notice:87834:날짜미상",
       "sequence": "87834",
       "title": "[진행]세종특별자치시지원위원회 등의 설치·운영 등에 관한 규정 일부개정령안 입법예고",
@@ -17602,6 +17619,23 @@
       "fileName": "(법령안) 상수원관리규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10943212/OKF2JPVUGNGX548VMMK3",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87820"
+    },
+    {
+      "noticeKey": "notice:87938:날짜미상",
+      "sequence": "87938",
+      "title": "[진행]상속세 및 증여세법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-215",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 상속세 및 증여세법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10964986/YQYMRWSZW1UAAQI7Y014",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87938"
     },
     {
       "noticeKey": "notice:87570:날짜미상",
@@ -17961,6 +17995,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87340"
     },
     {
+      "noticeKey": "notice:87934:날짜미상",
+      "sequence": "87934",
+      "title": "[진행]부가가치세법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-217",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 부가가치세법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10964104/OI40E9W0G4PBE9IFB087",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87934"
+    },
+    {
       "noticeKey": "notice:87424:날짜미상",
       "sequence": "87424",
       "title": "[진행]병역법 시행령 일부개정령안 입법예고",
@@ -17993,6 +18044,23 @@
       "fileName": "(법령안) 병역법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10883682/0D4XD2VOXV5NI2MOMY0F",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87400"
+    },
+    {
+      "noticeKey": "notice:87940:날짜미상",
+      "sequence": "87940",
+      "title": "[진행]법인세법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-214",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 법인세법 일부개정법률(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10963718/7W7QVONCBGK51E69TWV2",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87940"
     },
     {
       "noticeKey": "notice:87880:날짜미상",
@@ -18112,6 +18180,23 @@
       "fileName": "(법령안) 방위사업법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10896140/IQWKM2C3EM431NMM68LB",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87528"
+    },
+    {
+      "noticeKey": "notice:87952:날짜미상",
+      "sequence": "87952",
+      "title": "[진행]방문판매 등에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "공정거래위원회",
+      "noticeNo": "2026-173",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 방문판매 등에 관한 법률 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10968090/IYBMKS9SDRI97FP9XQT2",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87952"
     },
     {
       "noticeKey": "notice:87266:날짜미상",
@@ -18573,6 +18658,40 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87308"
     },
     {
+      "noticeKey": "notice:87898:날짜미상",
+      "sequence": "87898",
+      "title": "[진행]농지법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-425",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 농지법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10964096/8OQPIB9ATAEFP0ABQE1H",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87898"
+    },
+    {
+      "noticeKey": "notice:87896:날짜미상",
+      "sequence": "87896",
+      "title": "[진행]농지법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-426",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 농지법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10964118/2NDKWT6L1M2BTJE8ATNK",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87896"
+    },
+    {
       "noticeKey": "notice:87870:날짜미상",
       "sequence": "87870",
       "title": "[진행]농업ㆍ농촌 공익기능 증진 직접지불제도 운영에 관한 법률 시행령 일부개정령안 입법예고",
@@ -18588,6 +18707,23 @@
       "fileName": "(법령안) 농업ㆍ농촌 공익기능 증진 직접지불제도 운영에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10957358/SC3FGIYC1191A86ILA9B",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87870"
+    },
+    {
+      "noticeKey": "notice:87932:날짜미상",
+      "sequence": "87932",
+      "title": "[진행]농어촌특별세법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-218",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 농어촌특별세법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10963956/J9S6NMDQIHPIVDC1N5P5",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87932"
     },
     {
       "noticeKey": "notice:87712:날짜미상",
@@ -18862,6 +18998,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87496"
     },
     {
+      "noticeKey": "notice:87944:날짜미상",
+      "sequence": "87944",
+      "title": "[진행]국제조세조정에 관한 법률 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-212",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국제조세조정에 관한 법률 일부개정법률(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10963660/GPRNHR57VI5YTHBVL06X",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87944"
+    },
+    {
       "noticeKey": "notice:87472:날짜미상",
       "sequence": "87472",
       "title": "[진행]국제문화행사지원에 관한 법 시행령 제정안 입법예고",
@@ -18945,6 +19098,40 @@
       "fileName": "(법령안) 국어기본법 시행령 일부개정령안입법예고(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10919882/D9F5EIGW9N3IIHZE560N",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87646"
+    },
+    {
+      "noticeKey": "notice:87948:날짜미상",
+      "sequence": "87948",
+      "title": "[진행]국세징수법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-210",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국세징수법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10963822/QCRO0Z7VAH1J3805VZEI",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87948"
+    },
+    {
+      "noticeKey": "notice:87950:날짜미상",
+      "sequence": "87950",
+      "title": "[진행]국세기본법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-209",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국세기본법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10963780/RU9M5WG53PUXPIB7MPH5",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87950"
     },
     {
       "noticeKey": "notice:87920:날짜미상",
@@ -19166,6 +19353,23 @@
       "fileName": "(법령안) 교과용 도서에 관한 규정 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10943354/SCZT3MCR88MVMZMV81PT",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87826"
+    },
+    {
+      "noticeKey": "notice:87930:날짜미상",
+      "sequence": "87930",
+      "title": "[진행]관세법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-219",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 관세법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10963658/X2HNFV634U1SWF56VJLR",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87930"
     },
     {
       "noticeKey": "notice:87690:날짜미상",
