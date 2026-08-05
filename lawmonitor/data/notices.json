@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-05T03:34:10.920097+00:00",
+  "generatedAt": "2026-08-05T09:07:00.612544+00:00",
   "range": {
     "from": "2026-02-05",
     "to": "2027-02-05"
@@ -16424,7 +16424,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000328220",
       "announceType": "TYPE5",
       "fileName": "(법령안) 중대범죄수사청 조직 및 운영에 관한 법률 시행령 제정(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10970126/CJOYYULH5BYW9SFLARSO",
@@ -16560,7 +16560,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329216",
       "announceType": "TYPE5",
       "fileName": "(법령안) 제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10951974/H1Y14GRLHUQW37S7MLOI",
@@ -16594,7 +16594,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000327690",
       "announceType": "TYPE5",
       "fileName": "(법령안) 정보통신망 이용촉진 및 정보보호 등에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10960170/H05LX2YBWN1HDXQ9HI74",
@@ -16739,7 +16739,7 @@
     {
       "noticeKey": "notice:87868:날짜미상",
       "sequence": "87868",
-      "title": "[진행]저출산ㆍ고령사회기본법(시행령) 전부개정령안 입법예고",
+      "title": "[진행]저출산ㆍ고령사회기본법 시행령 전부개정령안 입법예고",
       "lawClass": "대통령령",
       "ministry": "보건복지부",
       "noticeNo": "2026-607",
@@ -16747,7 +16747,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000328744",
       "announceType": "TYPE5",
       "fileName": "(법령안) 저출산ㆍ고령사회기본법 시행령 전부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10961098/ZKUX0092ASBXKJXJ9LIY",
