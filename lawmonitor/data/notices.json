@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-05T09:07:00.612544+00:00",
+  "generatedAt": "2026-08-05T19:56:20.613413+00:00",
   "range": {
     "from": "2026-02-05",
     "to": "2027-02-05"
@@ -7489,6 +7489,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86160"
     },
     {
+      "noticeKey": "notice:87356:날짜미상",
+      "sequence": "87356",
+      "title": "선박직원법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "해양수산부",
+      "noticeNo": "2026-1094",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328368",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 선박직원법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10871380/T2ZFC65F08R5496LF8KF",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87356"
+    },
+    {
       "noticeKey": "notice:86106:날짜미상",
       "sequence": "86106",
       "title": "선박에서의 오염방지에 관한 규칙 일부개정령안 입법예고",
@@ -8203,6 +8220,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87332"
     },
     {
+      "noticeKey": "notice:87306:날짜미상",
+      "sequence": "87306",
+      "title": "산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "산림청",
+      "noticeNo": "2026-286",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10871092/U2V4SMCTLG1G5ECF70WO",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87306"
+    },
+    {
       "noticeKey": "notice:85934:날짜미상",
       "sequence": "85934",
       "title": "사회복지사업법 시행규칙 일부개정령안 입법예고",
@@ -8473,6 +8507,23 @@
       "fileName": "부패방지 및 국민권익위원회의 설치와 운영에 관한 법률 일부개정법률안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10608814/RA8PXRFWPMLWVN3DZWS9",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85430"
+    },
+    {
+      "noticeKey": "notice:87698:날짜미상",
+      "sequence": "87698",
+      "title": "부정청탁 및 금품등 수수의 금지에 관한 법률 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "국민권익위원회",
+      "noticeNo": "2026-76",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000323542",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 부정청탁 및 금품등 수수의 금지에 관한 법률 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10915850/22QY6BAN2M8F96WXUE2W",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87698"
     },
     {
       "noticeKey": "notice:86408:날짜미상",
@@ -9187,6 +9238,23 @@
       "fileName": "(법령안) 법무부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10846448/YRT4DB6MXF1ZG660MMZJ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87110"
+    },
+    {
+      "noticeKey": "notice:87880:날짜미상",
+      "sequence": "87880",
+      "title": "법무부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "법무부",
+      "noticeNo": "2026-292",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329340",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 법무부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10951740/QDWJXAH4HZSIOV0OYR1O",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87880"
     },
     {
       "noticeKey": "notice:86256:날짜미상",
@@ -16713,7 +16781,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329596",
       "announceType": "TYPE5",
       "fileName": "(법령안) 전기통신금융사기 피해 방지 및 피해금 환급에 관한 특별법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10918522/9Q1DMNU6WMOUMWKNPUQ8",
@@ -17638,23 +17706,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87834"
     },
     {
-      "noticeKey": "notice:87356:날짜미상",
-      "sequence": "87356",
-      "title": "[진행]선박직원법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "해양수산부",
-      "noticeNo": "2026-1094",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328368",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 선박직원법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10871380/T2ZFC65F08R5496LF8KF",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87356"
-    },
-    {
       "noticeKey": "notice:87436:날짜미상",
       "sequence": "87436",
       "title": "[진행]선박의 입항 및 출항 등에 관한 법률 일부개정법률안 재입법예고",
@@ -17767,7 +17818,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329416",
       "announceType": "TYPE5",
       "fileName": "(법령안) 상속세 및 증여세법 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10964986/YQYMRWSZW1UAAQI7Y014",
@@ -17961,23 +18012,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87824"
     },
     {
-      "noticeKey": "notice:87306:날짜미상",
-      "sequence": "87306",
-      "title": "[진행]산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "산림청",
-      "noticeNo": "2026-286",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10871092/U2V4SMCTLG1G5ECF70WO",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87306"
-    },
-    {
       "noticeKey": "notice:87792:날짜미상",
       "sequence": "87792",
       "title": "[진행]산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
@@ -18080,23 +18114,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87678"
     },
     {
-      "noticeKey": "notice:87698:날짜미상",
-      "sequence": "87698",
-      "title": "[진행]부정청탁 및 금품등 수수의 금지에 관한 법률 일부개정법률안 입법예고",
-      "lawClass": "법률",
-      "ministry": "국민권익위원회",
-      "noticeNo": "2026-76",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000323542",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 부정청탁 및 금품등 수수의 금지에 관한 법률 일부개정법률(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10915850/22QY6BAN2M8F96WXUE2W",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87698"
-    },
-    {
       "noticeKey": "notice:87338:날짜미상",
       "sequence": "87338",
       "title": "[진행]부동산투자회사법 시행령 일부개정령안 입법예고",
@@ -18197,23 +18214,6 @@
       "fileName": "(법령안) 법인세법 일부개정법률(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10963718/7W7QVONCBGK51E69TWV2",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87940"
-    },
-    {
-      "noticeKey": "notice:87880:날짜미상",
-      "sequence": "87880",
-      "title": "[진행]법무부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "법무부",
-      "noticeNo": "2026-292",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329340",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 법무부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10951740/QDWJXAH4HZSIOV0OYR1O",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87880"
     },
     {
       "noticeKey": "notice:87638:날짜미상",
