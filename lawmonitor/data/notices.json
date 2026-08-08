@@ -1,10 +1,10 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-07T19:16:23.600380+00:00",
+  "generatedAt": "2026-08-08T02:22:39.267837+00:00",
   "range": {
-    "from": "2026-02-07",
-    "to": "2027-02-07"
+    "from": "2026-02-08",
+    "to": "2027-02-08"
   },
   "requestCount": 32,
   "records": [
@@ -519,23 +519,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86108"
     },
     {
-      "noticeKey": "notice:87414:날짜미상",
-      "sequence": "87414",
-      "title": "해양수산부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "해양수산부",
-      "noticeNo": "2026-1114",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328842",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 해양수산부와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10885602/42YVOCY951P3C8PJRIO9",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87414"
-    },
-    {
       "noticeKey": "notice:87140:날짜미상",
       "sequence": "87140",
       "title": "해양수산부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -551,6 +534,23 @@
       "fileName": "해양수산부와 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10814352/4ICHQ77513Q00NWLHVQ8",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87140"
+    },
+    {
+      "noticeKey": "notice:87414:날짜미상",
+      "sequence": "87414",
+      "title": "해양수산부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "해양수산부",
+      "noticeNo": "2026-1114",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328842",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 해양수산부와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10885602/42YVOCY951P3C8PJRIO9",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87414"
     },
     {
       "noticeKey": "notice:85810:날짜미상",
@@ -7183,23 +7183,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85572"
     },
     {
-      "noticeKey": "notice:86534:날짜미상",
-      "sequence": "86534",
-      "title": "소득세법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-141",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326486",
-      "announceType": "TYPE5",
-      "fileName": "소득세법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10745018/02KAG676RTP9VDU4YJNT",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86534"
-    },
-    {
       "noticeKey": "notice:86300:날짜미상",
       "sequence": "86300",
       "title": "소득세법 시행령 일부개정령안 입법예고",
@@ -7215,6 +7198,23 @@
       "fileName": "소득세법 시행령 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10706204/NS0SVGDB0FZJDNATSUW4",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86300"
+    },
+    {
+      "noticeKey": "notice:86534:날짜미상",
+      "sequence": "86534",
+      "title": "소득세법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-141",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000326486",
+      "announceType": "TYPE5",
+      "fileName": "소득세법 시행령 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10745018/02KAG676RTP9VDU4YJNT",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86534"
     },
     {
       "noticeKey": "notice:85924:날짜미상",
@@ -12385,23 +12385,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87840"
     },
     {
-      "noticeKey": "notice:85570:날짜미상",
-      "sequence": "85570",
-      "title": "국방부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국방부",
-      "noticeNo": "2026-52",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000324424",
-      "announceType": "TYPE5",
-      "fileName": "국방부와 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10629486/DPCU0KPS6Q54AVXK7V5Q",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85570"
-    },
-    {
       "noticeKey": "notice:85906:날짜미상",
       "sequence": "85906",
       "title": "국방부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -12417,6 +12400,23 @@
       "fileName": "국방부와 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10672176/8FFNBFTC7BGYVCD761RN",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85906"
+    },
+    {
+      "noticeKey": "notice:85570:날짜미상",
+      "sequence": "85570",
+      "title": "국방부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국방부",
+      "noticeNo": "2026-52",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000324424",
+      "announceType": "TYPE5",
+      "fileName": "국방부와 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10629486/DPCU0KPS6Q54AVXK7V5Q",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85570"
     },
     {
       "noticeKey": "notice:87300:날짜미상",
@@ -14374,23 +14374,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87060"
     },
     {
-      "noticeKey": "notice:86754:날짜미상",
-      "sequence": "86754",
-      "title": "공공주택 특별법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-671",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000327106",
-      "announceType": "TYPE5",
-      "fileName": "공공주택 특별법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10781838/WUDAUR7MT476WH872MDH",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86754"
-    },
-    {
       "noticeKey": "notice:87136:날짜미상",
       "sequence": "87136",
       "title": "공공주택 특별법 시행규칙 일부개정령안 입법예고",
@@ -14406,6 +14389,23 @@
       "fileName": "(법령안) 공공주택 특별법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10839536/B8U76JPC3NLPIO6LDSXH",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87136"
+    },
+    {
+      "noticeKey": "notice:86754:날짜미상",
+      "sequence": "86754",
+      "title": "공공주택 특별법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-671",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000327106",
+      "announceType": "TYPE5",
+      "fileName": "공공주택 특별법 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10781838/WUDAUR7MT476WH872MDH",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86754"
     },
     {
       "noticeKey": "notice:86036:날짜미상",
