@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-11T07:38:18.219235+00:00",
+  "generatedAt": "2026-08-11T19:23:53.123412+00:00",
   "range": {
     "from": "2026-02-11",
     "to": "2027-02-11"
@@ -3016,6 +3016,23 @@
       "fileName": "중소기업창업 지원법 시행령 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10717824/TGIP577VK4WO25BXYIE7",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86396"
+    },
+    {
+      "noticeKey": "notice:87402:날짜미상",
+      "sequence": "87402",
+      "title": "중소기업제품 구매촉진 및 판로지원에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "중소벤처기업부",
+      "noticeNo": "2026-423",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 중소기업제품 구매촉진 및 판로지원에 관한 법률 시행령 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10883856/MYL7P2KPR73UJSWWG8V2",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87402"
     },
     {
       "noticeKey": "notice:86126:날짜미상",
@@ -8220,6 +8237,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87306"
     },
     {
+      "noticeKey": "notice:87408:날짜미상",
+      "sequence": "87408",
+      "title": "산림문화·휴양에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "산림청",
+      "noticeNo": "2026-295",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 산림문화·휴양에 관한 법률 시행령 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10885226/IVQNJYNBEKDEWISHCXG0",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87408"
+    },
+    {
       "noticeKey": "notice:85934:날짜미상",
       "sequence": "85934",
       "title": "사회복지사업법 시행규칙 일부개정령안 입법예고",
@@ -8830,6 +8864,23 @@
       "fileName": "(법령안) 병역법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10885926/E9PRDWWE3W4R2C6SQ962",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87424"
+    },
+    {
+      "noticeKey": "notice:87400:날짜미상",
+      "sequence": "87400",
+      "title": "병역법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "병무청",
+      "noticeNo": "2026-71",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 병역법 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10883682/0D4XD2VOXV5NI2MOMY0F",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87400"
     },
     {
       "noticeKey": "notice:87144:날짜미상",
@@ -13847,6 +13898,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86048"
     },
     {
+      "noticeKey": "notice:87930:날짜미상",
+      "sequence": "87930",
+      "title": "관세법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-219",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 관세법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10963658/X2HNFV634U1SWF56VJLR",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87930"
+    },
+    {
       "noticeKey": "notice:86350:날짜미상",
       "sequence": "86350",
       "title": "관세법 시행령 일부개정령안 입법예고",
@@ -16482,23 +16550,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87732"
     },
     {
-      "noticeKey": "notice:87402:날짜미상",
-      "sequence": "87402",
-      "title": "[진행]중소기업제품 구매촉진 및 판로지원에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "중소벤처기업부",
-      "noticeNo": "2026-423",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 중소기업제품 구매촉진 및 판로지원에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10883856/MYL7P2KPR73UJSWWG8V2",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87402"
-    },
-    {
       "noticeKey": "notice:87968:날짜미상",
       "sequence": "87968",
       "title": "[진행]중대범죄수사청과 그 소속기관 직제 시행규칙 제정안 입법예고",
@@ -18216,23 +18267,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87792"
     },
     {
-      "noticeKey": "notice:87408:날짜미상",
-      "sequence": "87408",
-      "title": "[진행]산림문화·휴양에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "산림청",
-      "noticeNo": "2026-295",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 산림문화·휴양에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10885226/IVQNJYNBEKDEWISHCXG0",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87408"
-    },
-    {
       "noticeKey": "notice:88020:날짜미상",
       "sequence": "88020",
       "title": "[진행]산림기술 진흥 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
@@ -18384,23 +18418,6 @@
       "fileName": "(법령안) 부가가치세법 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10964104/OI40E9W0G4PBE9IFB087",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87934"
-    },
-    {
-      "noticeKey": "notice:87400:날짜미상",
-      "sequence": "87400",
-      "title": "[진행]병역법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "병무청",
-      "noticeNo": "2026-71",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 병역법 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10883682/0D4XD2VOXV5NI2MOMY0F",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87400"
     },
     {
       "noticeKey": "notice:87986:날짜미상",
@@ -19880,23 +19897,6 @@
       "fileName": "(법령안) 관세청과 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10973434/2DQJRRRSUOQR5BA2UV8H",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87988"
-    },
-    {
-      "noticeKey": "notice:87930:날짜미상",
-      "sequence": "87930",
-      "title": "[진행]관세법 일부개정법률안 입법예고",
-      "lawClass": "법률",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-219",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 관세법 일부개정법률(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10963658/X2HNFV634U1SWF56VJLR",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87930"
     },
     {
       "noticeKey": "notice:88024:날짜미상",
