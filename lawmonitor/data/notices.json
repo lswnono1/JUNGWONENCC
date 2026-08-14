@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-14T02:47:04.840031+00:00",
+  "generatedAt": "2026-08-14T07:51:43.903663+00:00",
   "range": {
     "from": "2026-02-14",
     "to": "2027-02-14"
@@ -11035,7 +11035,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000326862",
       "announceType": "TYPE5",
       "fileName": "(법령안) 농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10871066/FZG3DTAL4VVDOCEMZ46V",
@@ -16380,6 +16380,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87746"
     },
     {
+      "noticeKey": "notice:88116:날짜미상",
+      "sequence": "88116",
+      "title": "[진행]체육시설의 설치·이용에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "문화체육관광부",
+      "noticeNo": "2026-319",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 체육시설의 설치·이용에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10992800/6KXIG6QSH0R95ZWS5GYL",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88116"
+    },
+    {
       "noticeKey": "notice:88006:날짜미상",
       "sequence": "88006",
       "title": "[진행]청소년지도자의 처우 및 지위 향상에 관한 법률 시행령 제정안 입법예고",
@@ -16526,7 +16543,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329670",
       "announceType": "TYPE5",
       "fileName": "(법령안) 지방자치분권 및 지역균형발전에 관한 특별법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10991262/SOT91TX0NCRTB6G9LUHV",
@@ -17920,7 +17937,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329764",
       "announceType": "TYPE5",
       "fileName": "(법령안) 성평등가족부 직제 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10973458/2XMO8ADUYM06NOG8540R",
