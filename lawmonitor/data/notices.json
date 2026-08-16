@@ -1,12 +1,12 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-15T18:50:45.568811+00:00",
+  "generatedAt": "2026-08-16T01:58:31.030597+00:00",
   "range": {
-    "from": "2026-02-15",
-    "to": "2027-02-15"
+    "from": "2026-02-16",
+    "to": "2027-02-16"
   },
-  "requestCount": 32,
+  "requestCount": 33,
   "records": [
     {
       "noticeKey": "notice:85618:날짜미상",
@@ -1777,23 +1777,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87000"
     },
     {
-      "noticeKey": "notice:86998:날짜미상",
-      "sequence": "86998",
-      "title": "출입국관리법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "법무부",
-      "noticeNo": "2026-226",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000327926",
-      "announceType": "TYPE5",
-      "fileName": "출입국관리법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10832290/1AWZG9DJET8FYK9M3Q2I",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86998"
-    },
-    {
       "noticeKey": "notice:87224:날짜미상",
       "sequence": "87224",
       "title": "출입국관리법 시행규칙 일부개정령안 입법예고",
@@ -1809,6 +1792,23 @@
       "fileName": "(법령안) 출입국관리법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10860386/A8ML1ULKV470E9L1DDD3",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87224"
+    },
+    {
+      "noticeKey": "notice:86998:날짜미상",
+      "sequence": "86998",
+      "title": "출입국관리법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "법무부",
+      "noticeNo": "2026-226",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000327926",
+      "announceType": "TYPE5",
+      "fileName": "출입국관리법 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10832290/1AWZG9DJET8FYK9M3Q2I",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86998"
     },
     {
       "noticeKey": "notice:85974:날짜미상",
@@ -14017,23 +14017,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87930"
     },
     {
-      "noticeKey": "notice:86350:날짜미상",
-      "sequence": "86350",
-      "title": "관세법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-130",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326080",
-      "announceType": "TYPE5",
-      "fileName": "관세법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10713958/VFCB4SP8E40Y2BMGMJLS",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86350"
-    },
-    {
       "noticeKey": "notice:86050:날짜미상",
       "sequence": "86050",
       "title": "관세법 시행령 일부개정령안 입법예고",
@@ -14049,6 +14032,23 @@
       "fileName": "(법령안) 관세법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10673968/I3XR006DYVAT3DDVN8KP",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86050"
+    },
+    {
+      "noticeKey": "notice:86350:날짜미상",
+      "sequence": "86350",
+      "title": "관세법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-130",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000326080",
+      "announceType": "TYPE5",
+      "fileName": "관세법 시행령 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10713958/VFCB4SP8E40Y2BMGMJLS",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86350"
     },
     {
       "noticeKey": "notice:85660:날짜미상",
@@ -17434,6 +17434,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88132"
     },
     {
+      "noticeKey": "notice:87648:날짜미상",
+      "sequence": "87648",
+      "title": "[진행]원자력안전법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "원자력안전위원회",
+      "noticeNo": "2026-62",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328456",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 원자력안전법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10928166/NFAWTAO99EJHCFADI8EL",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87648"
+    },
+    {
       "noticeKey": "notice:88002:날짜미상",
       "sequence": "88002",
       "title": "[진행]원자력안전법 시행령 일부개정령안 입법예고",
@@ -17468,21 +17485,21 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87800"
     },
     {
-      "noticeKey": "notice:87648:날짜미상",
-      "sequence": "87648",
-      "title": "[진행]원자력안전법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
+      "noticeKey": "notice:87726:날짜미상",
+      "sequence": "87726",
+      "title": "[진행]원자력안전법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
       "ministry": "원자력안전위원회",
-      "noticeNo": "2026-62",
+      "noticeNo": "2026-63",
       "announcedDate": "",
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "2000000328456",
+      "mappingLbicId": "2000000328458",
       "announceType": "TYPE5",
-      "fileName": "(법령안) 원자력안전법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10928166/NFAWTAO99EJHCFADI8EL",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87648"
+      "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10928232/OLWZHCPEHJ4SJ395YVVA",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87726"
     },
     {
       "noticeKey": "notice:88000:날짜미상",
@@ -17517,23 +17534,6 @@
       "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10935166/EH7E74J1M4ZJLOAXC69W",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87798"
-    },
-    {
-      "noticeKey": "notice:87726:날짜미상",
-      "sequence": "87726",
-      "title": "[진행]원자력안전법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "원자력안전위원회",
-      "noticeNo": "2026-63",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328458",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10928232/OLWZHCPEHJ4SJ395YVVA",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87726"
     },
     {
       "noticeKey": "notice:87902:날짜미상",
