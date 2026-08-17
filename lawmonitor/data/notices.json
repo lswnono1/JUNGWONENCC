@@ -1,12 +1,12 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-16T18:48:01.841284+00:00",
+  "generatedAt": "2026-08-17T01:56:04.870007+00:00",
   "range": {
-    "from": "2026-02-16",
-    "to": "2027-02-16"
+    "from": "2026-02-17",
+    "to": "2027-02-17"
   },
-  "requestCount": 33,
+  "requestCount": 34,
   "records": [
     {
       "noticeKey": "notice:85618:날짜미상",
@@ -10889,23 +10889,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86834"
     },
     {
-      "noticeKey": "notice:86742:날짜미상",
-      "sequence": "86742",
-      "title": "농지법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-313",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326610",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 농지법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10797900/84L8JFWOQ17JK5OUF0CY",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86742"
-    },
-    {
       "noticeKey": "notice:86808:날짜미상",
       "sequence": "86808",
       "title": "농지법 시행령 일부개정령안 입법예고",
@@ -10921,6 +10904,23 @@
       "fileName": "(법령안) 농지법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10796348/K2K82YVSCGFOB21XLD7P",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86808"
+    },
+    {
+      "noticeKey": "notice:86742:날짜미상",
+      "sequence": "86742",
+      "title": "농지법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-313",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000326610",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 농지법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10797900/84L8JFWOQ17JK5OUF0CY",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86742"
     },
     {
       "noticeKey": "notice:87898:날짜미상",
@@ -13354,23 +13354,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86438"
     },
     {
-      "noticeKey": "notice:86820:날짜미상",
-      "sequence": "86820",
-      "title": "국가연구개발혁신법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "과학기술정보통신부",
-      "noticeNo": "2026-619",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국가연구개발혁신법 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10797840/G132SGPFTZV8GQDYVBQT",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86820"
-    },
-    {
       "noticeKey": "notice:86800:날짜미상",
       "sequence": "86800",
       "title": "국가연구개발혁신법 시행령 일부개정령안 입법예고",
@@ -13388,21 +13371,21 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86800"
     },
     {
-      "noticeKey": "notice:86766:날짜미상",
-      "sequence": "86766",
-      "title": "국가연구개발혁신법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
+      "noticeKey": "notice:86820:날짜미상",
+      "sequence": "86820",
+      "title": "국가연구개발혁신법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
       "ministry": "과학기술정보통신부",
-      "noticeNo": "2026-594",
+      "noticeNo": "2026-619",
       "announcedDate": "",
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "2000000327020",
+      "mappingLbicId": "0",
       "announceType": "TYPE5",
-      "fileName": "국가연구개발혁신법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10777256/J9EPPI54LRSCSL7DSPMD",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86766"
+      "fileName": "(법령안) 국가연구개발혁신법 시행령 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10797840/G132SGPFTZV8GQDYVBQT",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86820"
     },
     {
       "noticeKey": "notice:86802:날짜미상",
@@ -13420,6 +13403,23 @@
       "fileName": "(법령안) 국가연구개발혁신법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10796244/04DKYYAIQIURHLG2H7ER",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86802"
+    },
+    {
+      "noticeKey": "notice:86766:날짜미상",
+      "sequence": "86766",
+      "title": "국가연구개발혁신법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "과학기술정보통신부",
+      "noticeNo": "2026-594",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000327020",
+      "announceType": "TYPE5",
+      "fileName": "국가연구개발혁신법 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10777256/J9EPPI54LRSCSL7DSPMD",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86766"
     },
     {
       "noticeKey": "notice:86064:날짜미상",
