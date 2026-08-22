@@ -1,10 +1,10 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-21T18:57:17.434405+00:00",
+  "generatedAt": "2026-08-22T01:51:25.322292+00:00",
   "range": {
-    "from": "2026-02-21",
-    "to": "2027-02-21"
+    "from": "2026-02-22",
+    "to": "2027-02-22"
   },
   "requestCount": 33,
   "records": [
@@ -7846,23 +7846,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87942"
     },
     {
-      "noticeKey": "notice:86300:날짜미상",
-      "sequence": "86300",
-      "title": "소득세법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-126",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325958",
-      "announceType": "TYPE5",
-      "fileName": "소득세법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10706204/NS0SVGDB0FZJDNATSUW4",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86300"
-    },
-    {
       "noticeKey": "notice:86534:날짜미상",
       "sequence": "86534",
       "title": "소득세법 시행령 일부개정령안 입법예고",
@@ -7878,6 +7861,23 @@
       "fileName": "소득세법 시행령 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10745018/02KAG676RTP9VDU4YJNT",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86534"
+    },
+    {
+      "noticeKey": "notice:86300:날짜미상",
+      "sequence": "86300",
+      "title": "소득세법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-126",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000325958",
+      "announceType": "TYPE5",
+      "fileName": "소득세법 시행령 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10706204/NS0SVGDB0FZJDNATSUW4",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86300"
     },
     {
       "noticeKey": "notice:85924:날짜미상",
@@ -11892,40 +11892,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85638"
     },
     {
-      "noticeKey": "notice:86824:날짜미상",
-      "sequence": "86824",
-      "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-308",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000324748",
-      "announceType": "TYPE5",
-      "fileName": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10728814/EIHFU22U2YPSKJUGNM4O",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86824"
-    },
-    {
-      "noticeKey": "notice:86846:날짜미상",
-      "sequence": "86846",
-      "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "해양수산부",
-      "noticeNo": "2026-966",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329846",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10804066/ZCDZR16Z3BU9A52CMPFZ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86846"
-    },
-    {
       "noticeKey": "notice:87296:날짜미상",
       "sequence": "87296",
       "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
@@ -11958,6 +11924,40 @@
       "fileName": "(법령안) 농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10872316/CCBXFB7W8LKKN9SAP2I2",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87354"
+    },
+    {
+      "noticeKey": "notice:86824:날짜미상",
+      "sequence": "86824",
+      "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-308",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000324748",
+      "announceType": "TYPE5",
+      "fileName": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10728814/EIHFU22U2YPSKJUGNM4O",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86824"
+    },
+    {
+      "noticeKey": "notice:86846:날짜미상",
+      "sequence": "86846",
+      "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "해양수산부",
+      "noticeNo": "2026-966",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329846",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10804066/ZCDZR16Z3BU9A52CMPFZ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86846"
     },
     {
       "noticeKey": "notice:85830:날짜미상",
