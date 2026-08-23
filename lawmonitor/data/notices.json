@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-23T07:02:04.437913+00:00",
+  "generatedAt": "2026-08-23T13:05:40.174446+00:00",
   "range": {
     "from": "2026-02-23",
     "to": "2027-02-23"
@@ -11528,7 +11528,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329724",
       "announceType": "TYPE5",
       "fileName": "(법령안) 농촌진흥청과 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10987374/ZGAHBLCXOVR40KSIF0LS",
