@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-26T01:59:26.061220+00:00",
+  "generatedAt": "2026-08-26T20:03:56.618346+00:00",
   "range": {
     "from": "2026-02-26",
     "to": "2027-02-26"
@@ -6836,7 +6836,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329726",
       "announceType": "TYPE5",
       "fileName": "(법령안) 아동수당법 시행령 일부개정령(안)#2.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10976596/NNYRSO8WNTJPWACJE2T8",
@@ -17621,6 +17621,40 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88174"
     },
     {
+      "noticeKey": "notice:88276:날짜미상",
+      "sequence": "88276",
+      "title": "[진행]환경오염시설의 통합관리에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "기후에너지환경부",
+      "noticeNo": "2026-821",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 환경오염시설의 통합관리에 관한 법률 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11017694/VA0SZ7I3NIKG02QY83NP",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88276"
+    },
+    {
+      "noticeKey": "notice:88274:날짜미상",
+      "sequence": "88274",
+      "title": "[진행]환경오염시설의 통합관리에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "기후에너지환경부",
+      "noticeNo": "2026-822",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 환경오염시설의 통합관리에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11017684/EEJGQYUX58JSP03F4ADJ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88274"
+    },
+    {
       "noticeKey": "notice:87656:날짜미상",
       "sequence": "87656",
       "title": "[진행]환경기술 및 환경산업 지원법 시행규칙 일부개정령안 입법예고",
@@ -18243,7 +18277,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329790",
       "announceType": "TYPE5",
       "fileName": "(법령안) 지방교육재정교부금법 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11010802/AIXKBN8RO6OVWHT3Z8KD",
@@ -18658,6 +18692,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88284"
     },
     {
+      "noticeKey": "notice:88282:날짜미상",
+      "sequence": "88282",
+      "title": "[진행]재외공관 무관주재령 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국방부",
+      "noticeNo": "2026-387",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 재외공관 무관주재령 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11015022/76QGJ7KME6KAY1NCZQ62",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88282"
+    },
+    {
       "noticeKey": "notice:88134:날짜미상",
       "sequence": "88134",
       "title": "[진행]자전거 이용 활성화에 관한 법률 시행령 일부개정법률안 입법예고",
@@ -18673,6 +18724,23 @@
       "fileName": "(법령안) 자전거 이용 활성화에 관한 법률 시행령 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10994322/D1PE91J9CD4463ZUJ91X",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88134"
+    },
+    {
+      "noticeKey": "notice:88278:날짜미상",
+      "sequence": "88278",
+      "title": "[진행]자살예방 및 생명존중 문화조성에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "보건복지부",
+      "noticeNo": "2026-673",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 자살예방 및 생명존중 문화조성에 관한 법률 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11015644/U0N5KCEMJMI2E9QP8CZ7",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88278"
     },
     {
       "noticeKey": "notice:87882:날짜미상",
@@ -20283,7 +20351,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "2000000329384",
+      "mappingLbicId": "2000000326042",
       "announceType": "TYPE5",
       "fileName": "(법령안) 기상법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10957250/X6K128IAR940VA9HNW03",
@@ -20815,6 +20883,23 @@
       "fileName": "(법령안) 고등ㆍ평생교육지원특별회계법 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11011254/OSHJQA3O0JPFUQV2V3X4",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88244"
+    },
+    {
+      "noticeKey": "notice:88286:날짜미상",
+      "sequence": "88286",
+      "title": "[진행]검역법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "질병관리청",
+      "noticeNo": "2026-334",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329922",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 검역법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11017992/8WY191HVJAGKE2BHGYFF",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88286"
     },
     {
       "noticeKey": "notice:87892:날짜미상",
