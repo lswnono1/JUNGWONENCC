@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-28T11:25:30.680217+00:00",
+  "generatedAt": "2026-08-28T22:22:13.393369+00:00",
   "range": {
     "from": "2026-02-28",
     "to": "2027-02-28"
@@ -2474,6 +2474,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87164"
     },
     {
+      "noticeKey": "notice:88310:날짜미상",
+      "sequence": "88310",
+      "title": "지역의사의 양성 및 지원 등에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "보건복지부",
+      "noticeNo": "2026-680",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330106",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 지역의사의 양성 및 지원 등에 관한 법률 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11021276/9G73180VS0GDSCEWPE19",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88310"
+    },
+    {
       "noticeKey": "notice:86492:날짜미상",
       "sequence": "86492",
       "title": "지역상권 상생 및 활성화에 관한 법률 시행규칙 일부개정령안 입법예고",
@@ -2931,6 +2948,40 @@
       "fileName": "(법령안) 지방교육행정기관 및 공립의 각급 학교에 두는 국가공무원의 정원에 관한 규정 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10812674/LZBY8Q9WVZ5JCKZ8AXRG",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86920"
+    },
+    {
+      "noticeKey": "notice:88240:날짜미상",
+      "sequence": "88240",
+      "title": "지방교육재정교부금법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "교육부",
+      "noticeNo": "2026-335",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329790",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 지방교육재정교부금법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11010802/AIXKBN8RO6OVWHT3Z8KD",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88240"
+    },
+    {
+      "noticeKey": "notice:88190:날짜미상",
+      "sequence": "88190",
+      "title": "지방교부세법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-1069",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330002",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 지방교부세법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11010714/BPL8ZLLST58HUT0HCUXU",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88190"
     },
     {
       "noticeKey": "notice:86660:날짜미상",
@@ -6025,6 +6076,23 @@
       "fileName": "(법령안) 영재교육진흥법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10816542/XNRQQUIWII7B1LAFHQF3",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86968"
+    },
+    {
+      "noticeKey": "notice:88192:날짜미상",
+      "sequence": "88192",
+      "title": "영유아특별회계법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "교육부",
+      "noticeNo": "2026-334",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330030",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 영유아특별회계법 일부개정법률(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11010760/KHMP09IRRCWXHEDIDL5O",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88192"
     },
     {
       "noticeKey": "notice:85728:날짜미상",
@@ -10430,6 +10498,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86618"
     },
     {
+      "noticeKey": "notice:88238:날짜미상",
+      "sequence": "88238",
+      "title": "미래대응기금 설치 및 운용에 관한 법률 제정안 입법예고",
+      "lawClass": "법률",
+      "ministry": "기획예산처",
+      "noticeNo": "2026-141",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329972",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 미래대응기금 설치 및 운용에 관한 법률 제정(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11011602/CYNPLF5MZPRYVNIXN8HZ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88238"
+    },
+    {
       "noticeKey": "notice:86788:날짜미상",
       "sequence": "86788",
       "title": "물류정책기본법 시행령 일부개정령안 입법예고",
@@ -10615,6 +10700,23 @@
       "fileName": "(법령안) 문화유산의 보존 및 활용에 관한 법률 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10663592/S366KK703GCUSZNVIZSI",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85958"
+    },
+    {
+      "noticeKey": "notice:87644:날짜미상",
+      "sequence": "87644",
+      "title": "문화유산의 보존 및 활용에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국가유산청",
+      "noticeNo": "2026-435",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 문화유산의 보존 및 활용에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10919982/VHAES23ELBRQ55229R38",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87644"
     },
     {
       "noticeKey": "notice:86918:날짜미상",
@@ -14068,6 +14170,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86576"
     },
     {
+      "noticeKey": "notice:88242:날짜미상",
+      "sequence": "88242",
+      "title": "국가재정법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "기획예산처",
+      "noticeNo": "2026-140",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330016",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국가재정법 일부개정법률(안)#4.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11011654/K8LLK4D2GRYZZ0KD50KD",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88242"
+    },
+    {
       "noticeKey": "notice:87310:날짜미상",
       "sequence": "87310",
       "title": "국가재정법 시행령 일부개정안 입법예고",
@@ -16278,6 +16397,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86282"
     },
     {
+      "noticeKey": "notice:88244:날짜미상",
+      "sequence": "88244",
+      "title": "고등ㆍ평생교육지원특별회계법 일부개정법률안 입법예고",
+      "lawClass": "법률",
+      "ministry": "교육부",
+      "noticeNo": "2026-336",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 고등ㆍ평생교육지원특별회계법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11011254/OSHJQA3O0JPFUQV2V3X4",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88244"
+    },
+    {
       "noticeKey": "notice:87298:날짜미상",
       "sequence": "87298",
       "title": "계엄사령부직제 개정령안 입법예고",
@@ -17995,23 +18131,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87754"
     },
     {
-      "noticeKey": "notice:88310:날짜미상",
-      "sequence": "88310",
-      "title": "[진행]지역의사의 양성 및 지원 등에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "보건복지부",
-      "noticeNo": "2026-680",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330106",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 지역의사의 양성 및 지원 등에 관한 법률 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11021276/9G73180VS0GDSCEWPE19",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88310"
-    },
-    {
       "noticeKey": "notice:88128:날짜미상",
       "sequence": "88128",
       "title": "[진행]지방자치분권 및 지역균형발전에 관한 특별법 시행령 일부개정령안 입법예고",
@@ -18112,40 +18231,6 @@
       "fileName": "(법령안) 지방세기본법 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11019834/DPGB1JYZ72KWODJ78T3N",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88294"
-    },
-    {
-      "noticeKey": "notice:88240:날짜미상",
-      "sequence": "88240",
-      "title": "[진행]지방교육재정교부금법 일부개정법률안 입법예고",
-      "lawClass": "법률",
-      "ministry": "교육부",
-      "noticeNo": "2026-335",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329790",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 지방교육재정교부금법 일부개정법률(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11010802/AIXKBN8RO6OVWHT3Z8KD",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88240"
-    },
-    {
-      "noticeKey": "notice:88190:날짜미상",
-      "sequence": "88190",
-      "title": "[진행]지방교부세법 일부개정법률안 입법예고",
-      "lawClass": "법률",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-1069",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330002",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 지방교부세법 일부개정법률(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11010714/BPL8ZLLST58HUT0HCUXU",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88190"
     },
     {
       "noticeKey": "notice:88148:날짜미상",
@@ -18911,23 +18996,6 @@
       "fileName": "(법령안) 원자력 진흥법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10960302/TJIAA4P4848BBMW1SYIS",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87918"
-    },
-    {
-      "noticeKey": "notice:88192:날짜미상",
-      "sequence": "88192",
-      "title": "[진행]영유아특별회계법 일부개정법률안 입법예고",
-      "lawClass": "법률",
-      "ministry": "교육부",
-      "noticeNo": "2026-334",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330030",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 영유아특별회계법 일부개정법률(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11010760/KHMP09IRRCWXHEDIDL5O",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88192"
     },
     {
       "noticeKey": "notice:87856:날짜미상",
@@ -19763,23 +19831,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87818"
     },
     {
-      "noticeKey": "notice:88238:날짜미상",
-      "sequence": "88238",
-      "title": "[진행]미래대응기금 설치 및 운용에 관한 법률 제정안 입법예고",
-      "lawClass": "법률",
-      "ministry": "기획예산처",
-      "noticeNo": "2026-141",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329972",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 미래대응기금 설치 및 운용에 관한 법률 제정(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11011602/CYNPLF5MZPRYVNIXN8HZ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88238"
-    },
-    {
       "noticeKey": "notice:88054:날짜미상",
       "sequence": "88054",
       "title": "[진행]물환경보전법 시행령 일부개정령안 입법예고",
@@ -19880,23 +19931,6 @@
       "fileName": "(법령안) 물류시설의 개발 및 운영에 관한 법률 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11022258/4R5UWUNX39AQ7G9T3IXL",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88304"
-    },
-    {
-      "noticeKey": "notice:87644:날짜미상",
-      "sequence": "87644",
-      "title": "[진행]문화유산의 보존 및 활용에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국가유산청",
-      "noticeNo": "2026-435",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 문화유산의 보존 및 활용에 관한 법률 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10919982/VHAES23ELBRQ55229R38",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87644"
     },
     {
       "noticeKey": "notice:87786:날짜미상",
@@ -20562,23 +20596,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87658"
     },
     {
-      "noticeKey": "notice:88242:날짜미상",
-      "sequence": "88242",
-      "title": "[진행]국가재정법 일부개정법률안 입법예고",
-      "lawClass": "법률",
-      "ministry": "기획예산처",
-      "noticeNo": "2026-140",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330016",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국가재정법 일부개정법률(안)#4.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11011654/K8LLK4D2GRYZZ0KD50KD",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88242"
-    },
-    {
       "noticeKey": "notice:88302:날짜미상",
       "sequence": "88302",
       "title": "[진행]국가유산수리 등에 관한 법률 시행규칙 일부개정령안 입법예고",
@@ -20934,23 +20951,6 @@
       "fileName": "(법령안) 고등교육법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11001132/0ZPP8OF5NNFE3VXIY5PI",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88208"
-    },
-    {
-      "noticeKey": "notice:88244:날짜미상",
-      "sequence": "88244",
-      "title": "[진행]고등ㆍ평생교육지원특별회계법 일부개정법률안 입법예고",
-      "lawClass": "법률",
-      "ministry": "교육부",
-      "noticeNo": "2026-336",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 고등ㆍ평생교육지원특별회계법 일부개정법률(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11011254/OSHJQA3O0JPFUQV2V3X4",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88244"
     },
     {
       "noticeKey": "notice:88252:날짜미상",
