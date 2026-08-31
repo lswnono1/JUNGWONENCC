@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-08-31T05:38:02.567659+00:00",
+  "generatedAt": "2026-08-31T13:53:44.080487+00:00",
   "range": {
     "from": "2026-02-28",
     "to": "2027-02-28"
@@ -1209,7 +1209,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "2000000328612",
+      "mappingLbicId": "2000000327324",
       "announceType": "TYPE5",
       "fileName": "(법령안) 하천법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10890394/0LPZZU91JAB40GAEY44A",
@@ -18736,7 +18736,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329836",
       "announceType": "TYPE5",
       "fileName": "(법령안) 자본시장과 금융투자업에 관한 법률 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10957540/FXQVGUN7SRGE7CDBVIEP",
@@ -19093,7 +19093,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329280",
       "announceType": "TYPE5",
       "fileName": "(법령안) 영유아보육법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10931430/AQFIVMGZTXZFM6CD5B65",
