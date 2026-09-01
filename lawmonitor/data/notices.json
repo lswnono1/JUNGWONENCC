@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-01T11:40:56.182505+00:00",
+  "generatedAt": "2026-09-01T21:03:30.097506+00:00",
   "range": {
     "from": "2026-03-01",
     "to": "2027-03-01"
@@ -1435,6 +1435,40 @@
       "fileName": "(법령안) 평화경제특별구역의 지정 및 운영에 관한 법률 일부개정법률(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10813166/3NZJUX4EPBA7OL89RLR3",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86924"
+    },
+    {
+      "noticeKey": "notice:87768:날짜미상",
+      "sequence": "87768",
+      "title": "평생교육법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "교육부",
+      "noticeNo": "2026-293",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 평생교육법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10931670/S7QED8WW0JIPSSZ5SCDJ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87768"
+    },
+    {
+      "noticeKey": "notice:87766:날짜미상",
+      "sequence": "87766",
+      "title": "평생교육법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "교육부",
+      "noticeNo": "2026-294",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 평생교육법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10931750/QK23K4N61I54FWSYNBX0",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87766"
     },
     {
       "noticeKey": "notice:86818:날짜미상",
@@ -3594,6 +3628,23 @@
       "fileName": "(법령안) 주택법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10877006/034WIB5KXQ7OK1TQ3REZ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87318"
+    },
+    {
+      "noticeKey": "notice:87794:날짜미상",
+      "sequence": "87794",
+      "title": "주택법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-971",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329058",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 주택법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935196/63EDN76QNUY6IW69BBE2",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87794"
     },
     {
       "noticeKey": "notice:86018:날짜미상",
@@ -6027,6 +6078,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88132"
     },
     {
+      "noticeKey": "notice:87800:날짜미상",
+      "sequence": "87800",
+      "title": "원자력안전법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "원자력안전위원회",
+      "noticeNo": "2026-64",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 원자력안전법 시행령 일부개정령(안)#2.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935064/0OAVMAEPB6CB8ZQV62B9",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87800"
+    },
+    {
       "noticeKey": "notice:87648:날짜미상",
       "sequence": "87648",
       "title": "원자력안전법 시행령 일부개정령안 입법예고",
@@ -6059,6 +6127,23 @@
       "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10696958/SSVPS57R62TPOV4F3WFU",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86208"
+    },
+    {
+      "noticeKey": "notice:87798:날짜미상",
+      "sequence": "87798",
+      "title": "원자력안전법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
+      "ministry": "원자력안전위원회",
+      "noticeNo": "2026-65",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935166/EH7E74J1M4ZJLOAXC69W",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87798"
     },
     {
       "noticeKey": "notice:87726:날짜미상",
@@ -8541,6 +8626,40 @@
       "fileName": "생활물류서비스산업발전법 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10715048/0PENJRQF2I4LXJOYKL1H",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86340"
+    },
+    {
+      "noticeKey": "notice:87772:날짜미상",
+      "sequence": "87772",
+      "title": "생물다양성 보전 및 이용에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "기후에너지환경부",
+      "noticeNo": "2026-714",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 생물다양성 보전 및 이용에 관한 법률 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935700/3YA3RHYIY56UID6GM2Y7",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87772"
+    },
+    {
+      "noticeKey": "notice:87796:날짜미상",
+      "sequence": "87796",
+      "title": "생물다양성 보전 및 이용에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "기후에너지환경부",
+      "noticeNo": "2026-715",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 생물다양성 보전 및 이용에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935686/DOWYXYF0Z9Q5GIY8S5IO",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87796"
     },
     {
       "noticeKey": "notice:87092:날짜미상",
@@ -11314,6 +11433,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86016"
     },
     {
+      "noticeKey": "notice:87806:날짜미상",
+      "sequence": "87806",
+      "title": "독점규제 및 공정거래에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "공정거래위원회",
+      "noticeNo": "2026-163",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 독점규제 및 공정거래에 관한 법률 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10936494/NAST9Q51S00TNZTOW0J8",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87806"
+    },
+    {
       "noticeKey": "notice:87546:날짜미상",
       "sequence": "87546",
       "title": "독일, 프랑스, 노르웨이 및 스웨덴산 폴리염화비닐 페이스트 수지에 대한 덤핑방지관세 부과에 관한 규칙 제정안 입법예고",
@@ -13830,6 +13966,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87180"
     },
     {
+      "noticeKey": "notice:87776:날짜미상",
+      "sequence": "87776",
+      "title": "국유림의 경영 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "산림청",
+      "noticeNo": "2026-334",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국유림의 경영 및 관리에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935744/OY64J140E1KII407WD8H",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87776"
+    },
+    {
       "noticeKey": "notice:87646:날짜미상",
       "sequence": "87646",
       "title": "국어기본법 시행령 일부개정령안입법예고",
@@ -16244,6 +16397,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86372"
     },
     {
+      "noticeKey": "notice:87774:날짜미상",
+      "sequence": "87774",
+      "title": "공무원 징계령 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
+      "ministry": "인사혁신처",
+      "noticeNo": "2026-411",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328316",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 공무원 징계령 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935372/6Q5Q47W97ZL3KODF2W3Z",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87774"
+    },
+    {
       "noticeKey": "notice:86046:날짜미상",
       "sequence": "86046",
       "title": "공무원 재해보상법 시행령 일부개정령안 입법예고",
@@ -17910,6 +18080,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86794"
     },
     {
+      "noticeKey": "notice:87804:날짜미상",
+      "sequence": "87804",
+      "title": "가축전염병 예방법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-407",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 가축전염병 예방법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10936834/AMPLF6W4H51Z4QTOFP7S",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87804"
+    },
+    {
       "noticeKey": "notice:85782:날짜미상",
       "sequence": "85782",
       "title": "가축전염병 예방법 시행규칙 일부개정령안 입법예고",
@@ -17925,6 +18112,23 @@
       "fileName": "가축전염병 예방법 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10456588/I7AUVMD8RG738P10WPRH",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85782"
+    },
+    {
+      "noticeKey": "notice:87802:날짜미상",
+      "sequence": "87802",
+      "title": "가축전염병 예방법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-408",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 가축전염병 예방법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10936848/QD5S5OR6RNBHNOHZUTDG",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87802"
     },
     {
       "noticeKey": "notice:85984:날짜미상",
@@ -18301,23 +18505,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88200"
     },
     {
-      "noticeKey": "notice:87768:날짜미상",
-      "sequence": "87768",
-      "title": "[진행]평생교육법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "교육부",
-      "noticeNo": "2026-293",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 평생교육법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10931670/S7QED8WW0JIPSSZ5SCDJ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87768"
-    },
-    {
       "noticeKey": "notice:88316:날짜미상",
       "sequence": "88316",
       "title": "[진행]평생교육법 시행령 일부개정령안 입법예고",
@@ -18333,23 +18520,6 @@
       "fileName": "(법령안) 평생교육법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11028478/9AME4X0UGW1KR0N36UO4",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88316"
-    },
-    {
-      "noticeKey": "notice:87766:날짜미상",
-      "sequence": "87766",
-      "title": "[진행]평생교육법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "교육부",
-      "noticeNo": "2026-294",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 평생교육법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10931750/QK23K4N61I54FWSYNBX0",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87766"
     },
     {
       "noticeKey": "notice:88314:날짜미상",
@@ -18792,23 +18962,6 @@
       "fileName": "(법령안) 중국산 아크릴산 부틸에 대한 덤핑방지관세 부과에 관한 규칙 제정(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11029626/AOL8CC5YPJG7G5859J6V",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88270"
-    },
-    {
-      "noticeKey": "notice:87794:날짜미상",
-      "sequence": "87794",
-      "title": "[진행]주택법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-971",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329058",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 주택법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935196/63EDN76QNUY6IW69BBE2",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87794"
     },
     {
       "noticeKey": "notice:88158:날짜미상",
@@ -19270,23 +19423,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87872"
     },
     {
-      "noticeKey": "notice:87800:날짜미상",
-      "sequence": "87800",
-      "title": "[진행]원자력안전법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "원자력안전위원회",
-      "noticeNo": "2026-64",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 원자력안전법 시행령 일부개정령(안)#2.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935064/0OAVMAEPB6CB8ZQV62B9",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87800"
-    },
-    {
       "noticeKey": "notice:88266:날짜미상",
       "sequence": "88266",
       "title": "[진행]원자력안전법 시행령 일부개정령안 입법예고",
@@ -19319,23 +19455,6 @@
       "fileName": "(법령안) 원자력안전법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10974606/8BLA704A1P1AVQ6S5BN7",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88002"
-    },
-    {
-      "noticeKey": "notice:87798:날짜미상",
-      "sequence": "87798",
-      "title": "[진행]원자력안전법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "원자력안전위원회",
-      "noticeNo": "2026-65",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935166/EH7E74J1M4ZJLOAXC69W",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87798"
     },
     {
       "noticeKey": "notice:88264:날짜미상",
@@ -19795,40 +19914,6 @@
       "fileName": "(법령안) 선박의 입항 및 출항 등에 관한 법률 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10928918/LS9QROCVN57UYHNTLRLI",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87664"
-    },
-    {
-      "noticeKey": "notice:87772:날짜미상",
-      "sequence": "87772",
-      "title": "[진행]생물다양성 보전 및 이용에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-714",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 생물다양성 보전 및 이용에 관한 법률 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935700/3YA3RHYIY56UID6GM2Y7",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87772"
-    },
-    {
-      "noticeKey": "notice:87796:날짜미상",
-      "sequence": "87796",
-      "title": "[진행]생물다양성 보전 및 이용에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-715",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 생물다양성 보전 및 이용에 관한 법률 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935686/DOWYXYF0Z9Q5GIY8S5IO",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87796"
     },
     {
       "noticeKey": "notice:87820:날짜미상",
@@ -20341,23 +20426,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87816"
     },
     {
-      "noticeKey": "notice:87806:날짜미상",
-      "sequence": "87806",
-      "title": "[진행]독점규제 및 공정거래에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "공정거래위원회",
-      "noticeNo": "2026-163",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 독점규제 및 공정거래에 관한 법률 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10936494/NAST9Q51S00TNZTOW0J8",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87806"
-    },
-    {
       "noticeKey": "notice:88166:날짜미상",
       "sequence": "88166",
       "title": "[진행]독립유공자예우에 관한 법률 시행령 일부개정령안 입법예고",
@@ -20851,23 +20919,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87912"
     },
     {
-      "noticeKey": "notice:87776:날짜미상",
-      "sequence": "87776",
-      "title": "[진행]국유림의 경영 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "산림청",
-      "noticeNo": "2026-334",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국유림의 경영 및 관리에 관한 법률 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935744/OY64J140E1KII407WD8H",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87776"
-    },
-    {
       "noticeKey": "notice:88272:날짜미상",
       "sequence": "88272",
       "title": "[진행]국민체육진흥법 시행령 일부개정령안 입법예고",
@@ -21089,23 +21140,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88212"
     },
     {
-      "noticeKey": "notice:87774:날짜미상",
-      "sequence": "87774",
-      "title": "[진행]공무원 징계령 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "인사혁신처",
-      "noticeNo": "2026-411",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328316",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 공무원 징계령 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10935372/6Q5Q47W97ZL3KODF2W3Z",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87774"
-    },
-    {
       "noticeKey": "notice:87778:날짜미상",
       "sequence": "87778",
       "title": "[진행]공공주택 특별법 시행령 일부개정령안 입법예고",
@@ -21325,40 +21359,6 @@
       "fileName": "(법령안) 각종 기념일 등에 관한 규정 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10957340/JTU05VWWHF9LZY2HDJGQ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87886"
-    },
-    {
-      "noticeKey": "notice:87804:날짜미상",
-      "sequence": "87804",
-      "title": "[진행]가축전염병 예방법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-407",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 가축전염병 예방법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10936834/AMPLF6W4H51Z4QTOFP7S",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87804"
-    },
-    {
-      "noticeKey": "notice:87802:날짜미상",
-      "sequence": "87802",
-      "title": "[진행]가축전염병 예방법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-408",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 가축전염병 예방법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10936848/QD5S5OR6RNBHNOHZUTDG",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87802"
     },
     {
       "noticeKey": "notice:87926:날짜미상",
