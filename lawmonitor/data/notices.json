@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-02T04:36:42.923045+00:00",
+  "generatedAt": "2026-09-02T11:20:31.770207+00:00",
   "range": {
     "from": "2026-03-02",
     "to": "2027-03-02"
@@ -20062,7 +20062,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000329618",
       "announceType": "TYPE5",
       "fileName": "(법령안) 북한이탈주민의 보호 및 정착지원에 관한 법률 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11005728/7H5L93IPIRILW77USZE7",
@@ -21354,7 +21354,7 @@
       "startDate": "",
       "endDate": "2026-10-12",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330330",
       "announceType": "TYPE5",
       "fileName": "(법령안) 개발제한구역의 지정 및 관리에 관한 특별조치법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11032178/3H20L5LGIAXBSP0R0T47",
