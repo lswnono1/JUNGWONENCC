@@ -1,10 +1,10 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-02T21:04:52.315880+00:00",
+  "generatedAt": "2026-09-03T11:19:11.712211+00:00",
   "range": {
-    "from": "2026-03-02",
-    "to": "2027-03-02"
+    "from": "2026-03-03",
+    "to": "2027-03-03"
   },
   "requestCount": 32,
   "records": [
@@ -18505,6 +18505,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88274"
     },
     {
+      "noticeKey": "notice:88330:날짜미상",
+      "sequence": "88330",
+      "title": "[진행]행정안전부와 그 소속기관 직제 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-1068",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 행정안전부와 그 소속기관 직제 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11035330/O3PYOZ6L6UQOMPESFMZE",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88330"
+    },
+    {
       "noticeKey": "notice:88098:날짜미상",
       "sequence": "88098",
       "title": "[진행]행정규제기본법 시행령 일부개정령안 입법예고",
@@ -18605,6 +18622,23 @@
       "fileName": "(법령안) 해양심층수의 개발 및 관리에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11006426/L1CXOMKLRU5I3TBJ4N13",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88220"
+    },
+    {
+      "noticeKey": "notice:88360:날짜미상",
+      "sequence": "88360",
+      "title": "[진행]해양수산부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "해양수산부",
+      "noticeNo": "2026-1292",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 해양수산부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11034590/W7TCRA7UWES1N8WFY739",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88360"
     },
     {
       "noticeKey": "notice:88144:날짜미상",
@@ -19236,6 +19270,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87828"
     },
     {
+      "noticeKey": "notice:88364:날짜미상",
+      "sequence": "88364",
+      "title": "[진행]정부 표창 규정 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-1101",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 정부 표창 규정 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11035756/B443XXZD9S4L7ORJE30I",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88364"
+    },
+    {
       "noticeKey": "notice:87836:날짜미상",
       "sequence": "87836",
       "title": "[진행]전북특별자치도 설치 및 글로벌생명경제도시 조성을 위한 특별법 시행령 일부개정령안 입법예고",
@@ -19263,7 +19314,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330078",
       "announceType": "TYPE5",
       "fileName": "(법령안) 전기통신사업법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11021924/59LWYVWLUYETLUCCK7S9",
@@ -19984,6 +20035,40 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87890"
     },
     {
+      "noticeKey": "notice:88328:날짜미상",
+      "sequence": "88328",
+      "title": "[진행]소비자생활협동조합법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "공정거래위원회",
+      "noticeNo": "2026-202",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "2026-10-13",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 소비자생활협동조합법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11034518/X38H03HJXMP8U52HI4QX",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88328"
+    },
+    {
+      "noticeKey": "notice:88326:날짜미상",
+      "sequence": "88326",
+      "title": "[진행]소비자생활협동조합법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
+      "ministry": "공정거래위원회",
+      "noticeNo": "2026-203",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "2026-10-13",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 소비자생활협동조합법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11034340/LF6ONEMRT17T2GPKPK27",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88326"
+    },
+    {
       "noticeKey": "notice:88010:날짜미상",
       "sequence": "88010",
       "title": "[진행]소득세법 시행령 일부개정령안 입법예고",
@@ -20016,6 +20101,23 @@
       "fileName": "(법령안) 세종특별자치시지원위원회 등의 설치·운영 등에 관한 규정 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10952022/O7NP7D4PASD97IK72C6Z",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87834"
+    },
+    {
+      "noticeKey": "notice:88362:날짜미상",
+      "sequence": "88362",
+      "title": "[진행]상훈법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-1103",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 상훈법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11035806/4JLKQFF88215HNREK0VZ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88362"
     },
     {
       "noticeKey": "notice:87820:날짜미상",
