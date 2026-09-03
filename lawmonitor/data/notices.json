@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-03T11:19:11.712211+00:00",
+  "generatedAt": "2026-09-03T16:27:15.639222+00:00",
   "range": {
     "from": "2026-03-03",
     "to": "2027-03-03"
@@ -1792,6 +1792,23 @@
       "fileName": "택시운송사업의 발전에 관한 법률 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10758548/0L8TTIRWEOAO30M4WM97",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86640"
+    },
+    {
+      "noticeKey": "notice:88210:날짜미상",
+      "sequence": "88210",
+      "title": "태국산 이음매 없는 동관에 대한 덤핑방지관세 부과에 관한 규칙 제정안 입법예고",
+      "lawClass": "부령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-235",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329932",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 태국산 이음매 없는 동관에 대한 덤핑방지관세 부과에 관한 규칙 제정(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11001256/UL3OVUDCSIT3B6AX09HQ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88210"
     },
     {
       "noticeKey": "notice:86354:날짜미상",
@@ -6503,6 +6520,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86166"
     },
     {
+      "noticeKey": "notice:88254:날짜미상",
+      "sequence": "88254",
+      "title": "연근해어업구조개선법 시행규칙 일부개정령안 재입법예고",
+      "lawClass": "부령",
+      "ministry": "해양수산부",
+      "noticeNo": "2026-1278",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329218",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 연근해어업구조개선법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11018834/E1Y9N0PS3IJTLY3RPUMX",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88254"
+    },
+    {
       "noticeKey": "notice:87728:날짜미상",
       "sequence": "87728",
       "title": "연근해어업구조개선법 시행규칙 일부개정령안 입법예고",
@@ -10581,6 +10615,23 @@
       "fileName": "(법령안) 방위산업기술 보호법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10896168/07KQ1442O7N31ARDB4N3",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87526"
+    },
+    {
+      "noticeKey": "notice:88214:날짜미상",
+      "sequence": "88214",
+      "title": "방위산업기술 보호법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국방부",
+      "noticeNo": "2026-363",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329594",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 방위산업기술 보호법 시행규칙 일부개정령(안)#2.pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11005992/QAZPD66TAG3FBGW1S1MK",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88214"
     },
     {
       "noticeKey": "notice:86256:날짜미상",
@@ -18777,23 +18828,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87862"
     },
     {
-      "noticeKey": "notice:88210:날짜미상",
-      "sequence": "88210",
-      "title": "[진행]태국산 이음매 없는 동관에 대한 덤핑방지관세 부과에 관한 규칙 제정안 입법예고",
-      "lawClass": "부령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-235",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329932",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 태국산 이음매 없는 동관에 대한 덤핑방지관세 부과에 관한 규칙 제정(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11001256/UL3OVUDCSIT3B6AX09HQ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88210"
-    },
-    {
       "noticeKey": "notice:88182:날짜미상",
       "sequence": "88182",
       "title": "[진행]출입국관리법 시행규칙 일부개정령안 입법예고",
@@ -19780,23 +19814,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87854"
     },
     {
-      "noticeKey": "notice:88254:날짜미상",
-      "sequence": "88254",
-      "title": "[진행]연근해어업구조개선법 시행규칙 일부개정령안 재입법예고",
-      "lawClass": "부령",
-      "ministry": "해양수산부",
-      "noticeNo": "2026-1278",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329218",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 연근해어업구조개선법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11018834/E1Y9N0PS3IJTLY3RPUMX",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88254"
-    },
-    {
       "noticeKey": "notice:88180:날짜미상",
       "sequence": "88180",
       "title": "[진행]역사문화권 정비 등에 관한 특별법 시행령 일부개정령안 입법예고",
@@ -20373,23 +20390,6 @@
       "fileName": "(법령안) 범죄피해자 보호법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11005772/ODEWFL2LN6U34ZP7GYZB",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88184"
-    },
-    {
-      "noticeKey": "notice:88214:날짜미상",
-      "sequence": "88214",
-      "title": "[진행]방위산업기술 보호법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국방부",
-      "noticeNo": "2026-363",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329594",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 방위산업기술 보호법 시행규칙 일부개정령(안)#2.pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11005992/QAZPD66TAG3FBGW1S1MK",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88214"
     },
     {
       "noticeKey": "notice:87952:날짜미상",
