@@ -119,7 +119,7 @@ function v152DecodeDocument(payload, spec) {
   const name = first(meta,'법령명_한글','법령명한글','행정규칙명');
   if (!name) throw new Error('응답에 법령명이 없어 원문으로 표시하지 않았습니다.');
   const pd = v152Date(first(meta,'공포일자','발령일자'));
-  if (spec.promulgationDate && pd !== spec.promulgationDate) throw new Error('선택한 공포일과 API 응답의 공포일이 다릅니다. 다른 이력을 원문으로 표시하지 않았습니다.');
+  if (spec.promulgationDate && pd !== v152Date(spec.promulgationDate)) throw new Error('선택한 공포일과 API 응답의 공포일이 다릅니다. 다른 이력을 원문으로 표시하지 않았습니다.');
   if (spec.lawId && !v152EqualId(spec.lawId,first(meta,'법령ID'))) throw new Error('법령 ID가 일치하지 않아 표시를 중단했습니다.');
   if (spec.adminId && !v152EqualId(spec.adminId,first(meta,'행정규칙일련번호'))) throw new Error('행정규칙 이력 번호가 일치하지 않아 표시를 중단했습니다.');
   const body = root.조문?.조문단위 ?? root.조문내용;
@@ -137,6 +137,7 @@ function v152Clause(value, level = 0) {
   if (!value || typeof value !== 'object') return '';
   let html = '';
   for (const key of ['조문내용','항내용','호내용','목내용','세목내용']) if (value[key] != null) html += v152Paragraphs(value[key],level);
+  for (const key of ['조문단위','조문','항단위','호단위','목단위']) if (value[key] != null) html += v152Clause(value[key],level);
   for (const key of ['항','호','목','세목']) if (value[key] != null) html += v152Clause(value[key],level+1);
   if (value.조문참고자료) html += v152Paragraphs(value.조문참고자료,level);
   return html;
@@ -155,7 +156,7 @@ function v152AppendixMatches(row, spec) {
     (!spec.appendixType || v14AppendixTypeCode(row.별표구분 || '') === Number(spec.appendixType));
 }
 function v152RenderBody(doc) {
-  let body = v152List(doc.body).map((row) => `<article class="jlm-article">${v152Clause(row)}</article>`).join('');
+  let body = v152List(doc.body).map((row) => v152Clause(row)).filter((html) => html.trim()).map((html) => `<article class="jlm-article">${html}</article>`).join('');
   if (!body.trim()) body = '<p>이 원문의 본문은 첨부파일로 제공될 수 있습니다. 아래 공식 첨부파일을 확인해 주세요.</p>';
   for (const [label,value] of [['제정·개정이유',doc.root.제개정이유?.제개정이유내용],['개정문',doc.root.개정문?.개정문내용]]) {
     if (v152Text(value)) body += `<details><summary>${label}</summary>${v152Paragraphs(value)}</details>`;
@@ -186,7 +187,7 @@ function v152EnsureReader() {
   dialog = document.createElement('dialog'); dialog.id = 'jlm-reader'; dialog.setAttribute('aria-labelledby','jlm-reader-title');
   dialog.innerHTML = '<header><div><h2 id="jlm-reader-title">모바일 원문</h2><p class="jlm-note">국가법령정보센터 API 원문 · 정원이앤씨 모바일 열람창</p><p id="jlm-reader-meta" class="jlm-note"></p></div><button type="button" data-jlm-close autofocus aria-label="원문 열람창 닫기">닫기</button></header><nav aria-label="원문 보기"><button data-jlm-tab="body">본문</button><button data-jlm-tab="supplements">부칙</button><button data-jlm-tab="appendices">별표·서식</button><button data-jlm-font="-1" aria-label="원문 글자 축소">가−</button><button data-jlm-font="1" aria-label="원문 글자 확대">가＋</button></nav><div id="jlm-reader-main"><div id="jlm-reader-status" role="status"></div><div id="jlm-reader-content"></div></div>';
   document.body.appendChild(dialog);
-  dialog.addEventListener('close',() => { v152Generation += 1; v152Document = null; });
+  dialog.addEventListener('close',() => { if (!dialog.open) { v152Generation += 1; v152Document = null; } });
   dialog.addEventListener('click',(e) => {
     if (e.target.closest('[data-jlm-close]')) return dialog.close();
     const tab = e.target.closest('[data-jlm-tab]');
