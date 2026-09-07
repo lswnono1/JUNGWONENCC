@@ -1,0 +1,280 @@
+
+/* v1.5.2: mobile reader for official JSON text; never execute remote HTML.
+ * The legacy mobile HTML samples return a blank body or redirect appendices to desktop.
+ * This reader uses the user's existing OC and the documented law/admrul body API.
+ * No database migration, credential copy, API proxy, or persistent response cache.
+ */
+const V152_VERSION = '1.5.2';
+let v152Generation = 0;
+let v152Document = null;
+let v152SelectedSpec = null;
+let v152FontSize = 17;
+
+function v152Base() { return new URL('./', window.location.href); }
+function v152Date(value) { return normalizeDate(value || '').replace(/-/g, ''); }
+function v152List(value) { return value == null || value === '' ? [] : Array.isArray(value) ? value : [value]; }
+function v152Strings(value) {
+  if (value == null) return [];
+  if (typeof value === 'string' || typeof value === 'number') return [String(value)];
+  if (Array.isArray(value)) return value.flatMap(v152Strings);
+  if (typeof value === 'object') return v152Strings(value.content ?? value['#text'] ?? '');
+  return [];
+}
+function v152Text(value) { return v152Strings(value).join('\n'); }
+function v152EqualId(a,b) { return !!a && !!b && String(a).replace(/^0+/, '') === String(b).replace(/^0+/, ''); }
+
+function v152SpecFromUrl(value) {
+  const normalized = v151NormalizeUrl(value);
+  if (!normalized) return null;
+  const u = new URL(normalized), base = v152Base();
+  const local = u.origin === base.origin && u.pathname === base.pathname && u.searchParams.get('jlmReader') === '1';
+  const official = /^(?:www\.)?law\.go\.kr$/i.test(u.hostname);
+  if (!local && !official) return null;
+  const path = decodeURIComponent(u.pathname), target = v151Param(u,'target').toLowerCase();
+  const admin = local ? u.searchParams.get('kind') === 'admrul' : target === 'admrul' || /admRul/i.test(path) || path.startsWith('/행정규칙/');
+  const named = path.match(/^\/(법령|행정규칙)\/([^/]+)\/?$/);
+  const recognized = local || !!named || /\/(?:lsInfo[PR]|lsBylInfoR|admRulInfo[PR])\.do$/i.test(path) || /\/DRF\/lawService\.do$/i.test(path) && ['law','eflaw','admrul'].includes(target);
+  if (!recognized) return null;
+  return {
+    kind:admin ? '행정규칙' : '법령',
+    name:v151Param(u,'LM') || named?.[2] || '',
+    lawMst:admin ? '' : v151Number(v151Param(u,'MST','lsiSeq')),
+    lawId:admin ? '' : v151Number(v151Param(u,'ID','lsId')),
+    adminId:admin ? v151Number(v151Param(u,'ID','admRulSeq')) : '',
+    promulgationDate:v152Date(v151Param(u,'PD','LD')),
+    enforcementDate:v152Date(v151Param(u,'EF','efYd')),
+    history:local && u.searchParams.get('history') === '1',
+    view:v151Param(u,'view') === 'appendices' || v151Param(u,'BD') === 'ON' || /lsBylInfoR/i.test(path) ? 'appendices' : 'body',
+    appendixNo:v151Number(v151Param(u,'BN')),
+    appendixBranch:v151Number(v151Param(u,'BG')),
+    appendixType:v151Number(v151Param(u,'BT')),
+  };
+}
+
+function v14MobileLawUrl(item = {}, options = {}) {
+  const stored = v152SpecFromUrl(item.officialUrl || '') || {};
+  const ids = v151LawIdentity(item);
+  const kind = item.kind || stored.kind || '법령';
+  const u = v152Base();
+  u.search = ''; u.hash = '';
+  const numbers = options.appendix ? v151AppendixNumbers(options.appendix) : {};
+  const params = {
+    jlmReader:'1', kind:kind === '행정규칙' ? 'admrul' : 'law',
+    LM:item.name || stored.name || ids.name,
+    MST:kind === '법령' ? ids.lawMst || stored.lawMst : '',
+    ID:kind === '행정규칙' ? ids.adminId || stored.adminId : ids.lawId || stored.lawId,
+    PD:v152Date(item.promulgationDate || stored.promulgationDate || options.date),
+    EF:v152Date(item.enforcementDate || stored.enforcementDate),
+    history:item.eventKey || stored.history ? '1' : '',
+    view:options.appendix || options.allAppendices ? 'appendices' : 'body',
+    BN:numbers.number, BG:numbers.branch,
+    BT:options.appendix ? v14AppendixTypeCode(options.appendix.appendixKind || options.appendix.title) : '',
+  };
+  for (const [k,v] of Object.entries(params)) if (v !== '' && v != null) u.searchParams.set(k,String(v));
+  return u.href;
+}
+
+function v152BodyUrl(spec) {
+  const oc = cleanText(state.secrets?.lawOc || '');
+  if (!oc) throw new Error('설정에서 국가법령정보 API OC를 입력한 뒤 다시 열어 주세요.');
+  const p = {OC:oc, target:spec.kind === '행정규칙' ? 'admrul' : 'law', type:'JSON'};
+  if (spec.kind === '행정규칙' && spec.adminId) p.ID = spec.adminId;
+  else if (spec.kind !== '행정규칙' && spec.lawMst) p.MST = spec.lawMst;
+  else if (spec.kind !== '행정규칙' && spec.lawId) p.ID = spec.lawId;
+  else throw new Error('원문 식별번호를 확인하지 못했습니다. 관리대상을 동기화한 뒤 다시 열어 주세요.');
+  if (spec.kind !== '행정규칙' && spec.promulgationDate) p.LD = spec.promulgationDate;
+  return apiUrl('https://www.law.go.kr/DRF/lawService.do',p);
+}
+
+async function v152ResolveSpec(spec) {
+  if (spec.kind === '행정규칙' ? spec.adminId : spec.lawMst || spec.lawId) return spec;
+  if (!spec.name) throw new Error('법령명과 원문 식별번호가 없습니다. 관리대상을 다시 동기화해 주세요.');
+  const oc = cleanText(state.secrets?.lawOc || '');
+  if (!oc) throw new Error('설정에서 국가법령정보 API OC를 입력해 주세요.');
+  const target = spec.kind === '행정규칙' ? 'admrul' : 'law';
+  for (let page = 1; page <= 3; page += 1) {
+    const p = {OC:oc,target,type:'JSON',query:spec.name,search:1,display:100,page};
+    if (spec.promulgationDate || spec.history) p.nw = '1,2,3';
+    const payload = parsePayload(await fetchText(apiUrl(LAW_URL,p),20000));
+    const records = candidateRecords(payload,['법령명한글','법령명','행정규칙명']);
+    const match = records.find((r) => cleanText(recordName(r)).replace(/\s/g,'') === cleanText(spec.name).replace(/\s/g,'') &&
+      (!spec.promulgationDate || v152Date(first(r,'공포일자','발령일자')) === spec.promulgationDate));
+    if (match) {
+      if (spec.history && !spec.promulgationDate) throw new Error('과거 이력을 특정할 공포일이 없습니다. 최신 법령으로 임의 연결하지 않았습니다.');
+      return {...spec,
+        lawMst:target === 'law' ? first(match,'법령일련번호','MST') : '',
+        lawId:target === 'law' ? first(match,'법령ID') : '',
+        adminId:target === 'admrul' ? first(match,'행정규칙일련번호') : '',
+      };
+    }
+    if (records.length < 100) break;
+  }
+  throw new Error('해당 이름·공포일과 일치하는 원문을 찾지 못했습니다. 다른 버전으로 대체하지 않았습니다.');
+}
+
+function v152DecodeDocument(payload, spec) {
+  const root = spec.kind === '행정규칙' ? payload?.AdmRulService || payload?.행정규칙 : payload?.법령;
+  const meta = root && (root.기본정보 || root.행정규칙기본정보);
+  if (!meta || typeof meta !== 'object') throw new Error('공식 API가 원문 데이터를 반환하지 않았습니다. 설정의 OC 및 법령·행정규칙 본문 이용권한을 확인해 주세요.');
+  const name = first(meta,'법령명_한글','법령명한글','행정규칙명');
+  if (!name) throw new Error('응답에 법령명이 없어 원문으로 표시하지 않았습니다.');
+  const pd = v152Date(first(meta,'공포일자','발령일자'));
+  if (spec.promulgationDate && pd !== spec.promulgationDate) throw new Error('선택한 공포일과 API 응답의 공포일이 다릅니다. 다른 이력을 원문으로 표시하지 않았습니다.');
+  if (spec.lawId && !v152EqualId(spec.lawId,first(meta,'법령ID'))) throw new Error('법령 ID가 일치하지 않아 표시를 중단했습니다.');
+  if (spec.adminId && !v152EqualId(spec.adminId,first(meta,'행정규칙일련번호'))) throw new Error('행정규칙 이력 번호가 일치하지 않아 표시를 중단했습니다.');
+  const body = root.조문?.조문단위 ?? root.조문내용;
+  const appendices = v152List(root.별표?.별표단위);
+  if (!body && !appendices.length && !root.첨부파일) throw new Error('본문과 첨부파일을 확인할 수 없습니다. 빈 응답을 정상으로 처리하지 않았습니다.');
+  return {root,meta,name,promulgationDate:pd,enforcementDate:v152Date(first(meta,'시행일자')),body,appendices,spec};
+}
+
+function v152Paragraphs(value, level = 0) {
+  return v152Strings(value).filter((s) => s.trim()).map((s) => `<p class="jlm-text jlm-level-${Math.min(level,3)}">${esc(s)}</p>`).join('');
+}
+function v152Clause(value, level = 0) {
+  if (typeof value === 'string' || typeof value === 'number') return v152Paragraphs(value,level);
+  if (Array.isArray(value)) return value.map((r) => v152Clause(r,level)).join('');
+  if (!value || typeof value !== 'object') return '';
+  let html = '';
+  for (const key of ['조문내용','항내용','호내용','목내용','세목내용']) if (value[key] != null) html += v152Paragraphs(value[key],level);
+  for (const key of ['항','호','목','세목']) if (value[key] != null) html += v152Clause(value[key],level+1);
+  if (value.조문참고자료) html += v152Paragraphs(value.조문참고자료,level);
+  return html;
+}
+function v152FileLink(value, label) {
+  const url = v151NormalizeUrl(v152Text(value));
+  if (!url || !/^(?:[a-z0-9-]+\.)?law\.go\.kr$/i.test(new URL(url).hostname)) return '';
+  return `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">${esc(label)}</a>`;
+}
+function v152Attachments(root) {
+  return v152List(root.첨부파일).map((r) => `<div class="jlm-file-actions">${v152FileLink(r?.첨부파일링크,r?.첨부파일명 || '공식 첨부파일 열기')}</div>`).join('');
+}
+function v152AppendixMatches(row, spec) {
+  if (!spec.appendixNo) return false;
+  return v152EqualId(row.별표번호,spec.appendixNo) && Number(row.별표가지번호 || 0) === Number(spec.appendixBranch || 0) &&
+    (!spec.appendixType || v14AppendixTypeCode(row.별표구분 || '') === Number(spec.appendixType));
+}
+function v152RenderBody(doc) {
+  let body = v152List(doc.body).map((row) => `<article class="jlm-article">${v152Clause(row)}</article>`).join('');
+  if (!body.trim()) body = '<p>이 원문의 본문은 첨부파일로 제공될 수 있습니다. 아래 공식 첨부파일을 확인해 주세요.</p>';
+  for (const [label,value] of [['제정·개정이유',doc.root.제개정이유?.제개정이유내용],['개정문',doc.root.개정문?.개정문내용]]) {
+    if (v152Text(value)) body += `<details><summary>${label}</summary>${v152Paragraphs(value)}</details>`;
+  }
+  return body + v152Attachments(doc.root);
+}
+function v152RenderAppendices(doc) {
+  const rows = doc.appendices;
+  let html = '<p class="jlm-note">표의 열·병합 구조는 공식 PDF 또는 원본 파일에서 확인하세요. 아래 텍스트는 API 제공값이며, 제공되지 않은 내용을 임의로 보완하지 않습니다.</p>';
+  if (!rows.length) return html + '<p>이 버전의 API 응답에 별표·서식 목록이 없습니다.</p>' + v152Attachments(doc.root);
+  if (doc.spec.appendixNo && !rows.some((r) => v152AppendixMatches(r,doc.spec))) html += '<p class="jlm-warning">선택한 번호의 별표를 이 버전에서 찾지 못했습니다. 다른 별표로 대체하지 않고 전체 목록을 표시합니다.</p>';
+  return html + rows.map((r,index) => {
+    const selected = v152AppendixMatches(r,doc.spec);
+    const number = Number(r.별표번호 || 0), branch = Number(r.별표가지번호 || 0);
+    const title = `${r.별표구분 || '별표'} ${number || ''}${branch ? '의'+branch : ''} ${r.별표제목 || ''}`;
+    const links = v152FileLink(r.별표서식PDF파일링크,'공식 PDF 열기') + v152FileLink(r.별표서식파일링크,'공식 원본 파일 열기') +
+      v152FileLink(r.별표서식이미지파일링크,'공식 이미지 열기');
+    return `<article class="jlm-article ${selected?'jlm-selected':''}" ${selected?'data-jlm-selected="true"':''}><h3>${esc(title)}</h3><div class="jlm-file-actions">${links}</div><details ${selected?'open':''}><summary>API 제공 텍스트</summary>${v152Paragraphs(r.별표내용) || '<p>텍스트가 제공되지 않습니다. 공식 파일을 열어 확인해 주세요.</p>'}</details></article>`;
+  }).join('');
+}
+
+function v152EnsureReader() {
+  let dialog = $('#jlm-reader');
+  if (dialog) return dialog;
+  const style = document.createElement('style');
+  style.textContent = '#jlm-reader{width:min(100vw,840px);height:94vh;height:94dvh;max-width:100vw;max-height:100dvh;margin:auto;border:0;border-radius:18px;padding:0;color:var(--ink);background:#fff}#jlm-reader[open]{display:flex;flex-direction:column}#jlm-reader *{min-width:0}#jlm-reader header{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);flex-shrink:0}#jlm-reader header>div{flex:1}#jlm-reader h2{font-size:19px;line-height:1.4;margin:0;overflow-wrap:anywhere}#jlm-reader h3{font-size:18px;line-height:1.5}#jlm-reader .jlm-note{font-size:12px;line-height:1.6;color:var(--muted);margin:5px 0;overflow-wrap:anywhere}#jlm-reader button{min-height:42px;border-radius:10px;padding:9px 12px;color:var(--blue);background:#eef5fa}#jlm-reader [data-jlm-close]{flex:0 0 auto;font-size:17px}#jlm-reader nav{display:flex;gap:5px;flex-wrap:wrap;padding:9px 12px;border-bottom:1px solid var(--line);flex-shrink:0}#jlm-reader nav button[aria-pressed=true]{background:var(--blue);color:white}#jlm-reader-main{overflow:auto;overscroll-behavior:contain;flex:1;padding:16px 18px calc(24px + env(safe-area-inset-bottom));font-size:var(--jlm-font,17px);line-height:1.85;overflow-wrap:anywhere}#jlm-reader .jlm-text{white-space:pre-wrap;margin:0 0 12px}#jlm-reader .jlm-level-1{padding-left:8px}#jlm-reader .jlm-level-2{padding-left:16px}#jlm-reader .jlm-level-3{padding-left:24px}#jlm-reader .jlm-article{margin-bottom:18px;padding:14px 0;border-bottom:1px solid var(--line)}#jlm-reader details{margin:12px 0}#jlm-reader summary{cursor:pointer;font-weight:700;min-height:36px}#jlm-reader .jlm-file-actions{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}#jlm-reader .jlm-file-actions a{font-size:14px;padding:9px 11px;border-radius:10px;background:#eef5fa;color:var(--blue);text-decoration:none;max-width:100%;overflow-wrap:anywhere}#jlm-reader .jlm-warning{border-left:4px solid #b54708;padding:12px;background:#fff8eb;font-size:14px;line-height:1.65}#jlm-reader .jlm-selected{border:2px solid var(--blue);border-radius:12px;padding:12px}#jlm-reader-status{font-size:14px}#jlm-reader [data-jlm-retry]{margin-top:12px}@media(max-width:600px){#jlm-reader{height:100vh;height:100dvh;border-radius:0}#jlm-reader header{padding-top:calc(12px + env(safe-area-inset-top))}}';
+  document.head.appendChild(style);
+  dialog = document.createElement('dialog'); dialog.id = 'jlm-reader'; dialog.setAttribute('aria-labelledby','jlm-reader-title');
+  dialog.innerHTML = '<header><div><h2 id="jlm-reader-title">모바일 원문</h2><p class="jlm-note">국가법령정보센터 API 원문 · 정원이앤씨 모바일 열람창</p><p id="jlm-reader-meta" class="jlm-note"></p></div><button type="button" data-jlm-close autofocus aria-label="원문 열람창 닫기">닫기</button></header><nav aria-label="원문 보기"><button data-jlm-tab="body">본문</button><button data-jlm-tab="supplements">부칙</button><button data-jlm-tab="appendices">별표·서식</button><button data-jlm-font="-1" aria-label="원문 글자 축소">가−</button><button data-jlm-font="1" aria-label="원문 글자 확대">가＋</button></nav><div id="jlm-reader-main"><div id="jlm-reader-status" role="status"></div><div id="jlm-reader-content"></div></div>';
+  document.body.appendChild(dialog);
+  dialog.addEventListener('close',() => { v152Generation += 1; v152Document = null; });
+  dialog.addEventListener('click',(e) => {
+    if (e.target.closest('[data-jlm-close]')) return dialog.close();
+    const tab = e.target.closest('[data-jlm-tab]');
+    if (tab) return v152ShowTab(tab.dataset.jlmTab);
+    const font = e.target.closest('[data-jlm-font]');
+    if (font) {v152FontSize = Math.max(14,Math.min(24,v152FontSize+Number(font.dataset.jlmFont))); dialog.style.setProperty('--jlm-font',v152FontSize+'px');}
+    if (e.target.closest('[data-jlm-retry]') && v152SelectedSpec) v152OpenReader(v152SelectedSpec);
+  });
+  return dialog;
+}
+
+function v152ShowTab(tab) {
+  if (!v152Document) return;
+  const doc = v152Document;
+  $('#jlm-reader').querySelectorAll('[data-jlm-tab]').forEach((b) => b.setAttribute('aria-pressed',String(b.dataset.jlmTab === tab)));
+  const content = $('#jlm-reader-content');
+  if (tab === 'appendices') content.innerHTML = v152RenderAppendices(doc);
+  else if (tab === 'supplements') {
+    const units = doc.root.부칙?.부칙단위 ?? doc.root.부칙;
+    content.innerHTML = v152List(units).map((r) => `<article class="jlm-article">${v152Paragraphs(typeof r === 'string' ? r : r?.부칙내용)}</article>`).join('') || '<p>이 버전의 API 응답에 부칙 텍스트가 없습니다.</p>';
+  } else content.innerHTML = v152RenderBody(doc);
+  $('#jlm-reader-main').scrollTop = 0;
+  const selected = content.querySelector('[data-jlm-selected]');
+  if (selected) selected.scrollIntoView({block:'start'});
+}
+
+async function v152OpenReader(inputSpec) {
+  const dialog = v152EnsureReader(), generation = ++v152Generation;
+  v152Document = null; v152SelectedSpec = {...inputSpec};
+  $('#jlm-reader-title').textContent = inputSpec.name || '모바일 원문';
+  $('#jlm-reader-meta').textContent = '';
+  $('#jlm-reader-content').replaceChildren();
+  $('#jlm-reader-status').textContent = '공식 원문을 불러오는 중입니다…';
+  if (!dialog.open) dialog.showModal();
+  try {
+    const spec = await v152ResolveSpec(inputSpec);
+    const raw = await fetchText(v152BodyUrl(spec),25000);
+    let payload;
+    try { payload = JSON.parse(raw.replace(/^\uFEFF/,'')); }
+    catch (_) { throw new Error('원문 JSON 대신 다른 응답이 반환되었습니다. OC·본문 API 이용권한 또는 공식 서비스 상태를 확인해 주세요.'); }
+    const doc = v152DecodeDocument(payload,spec);
+    if (generation !== v152Generation || !dialog.open) return;
+    v152Document = doc; v152SelectedSpec = spec;
+    $('#jlm-reader-title').textContent = doc.name;
+    $('#jlm-reader-meta').textContent = `${spec.kind} · 공포/발령 ${normalizeDate(doc.promulgationDate) || '-'} · API 시행일 ${normalizeDate(doc.enforcementDate) || '-'} · ${first(doc.meta,'공포번호','발령번호') || ''}호`;
+    const status = $('#jlm-reader-status'); status.replaceChildren();
+    if (spec.enforcementDate && spec.enforcementDate !== doc.enforcementDate) {
+      const note = document.createElement('p'); note.className = 'jlm-warning';
+      note.textContent = `목록의 시행일(${normalizeDate(spec.enforcementDate)})과 공포일 기준 본문 API의 시행일(${normalizeDate(doc.enforcementDate) || '미제공'})이 다릅니다. 일부 조항의 단계 시행 여부는 부칙과 공식 원문을 함께 확인하세요. 이 화면을 선택 시행일의 통합 현행본문으로 단정하지 마세요.`;
+      status.appendChild(note);
+    }
+    v152ShowTab(spec.view === 'appendices' ? 'appendices' : 'body');
+  } catch (error) {
+    if (generation !== v152Generation || !dialog.open) return;
+    $('#jlm-reader-status').innerHTML = `<p class="jlm-warning">${esc(error.message || '원문을 불러오지 못했습니다.')}</p><p>빈 화면이나 다른 법령으로 자동 이동하지 않았습니다.</p><button type="button" data-jlm-retry>다시 연결</button>`;
+  }
+}
+
+function openUrl(value) {
+  let spec;
+  try { spec = v152SpecFromUrl(value); }
+  catch (_) { return toast('원문 주소 형식을 확인할 수 없습니다.'); }
+  if (spec) { void v152OpenReader(spec); return; }
+  const url = v151ExternalUrl(value);
+  if (!url) return toast('원문 주소를 확인할 수 없습니다.');
+  const a = document.createElement('a');
+  a.href=url; a.target='_blank'; a.rel='noopener noreferrer'; a.referrerPolicy='no-referrer'; a.hidden=true;
+  try {document.body.appendChild(a); a.click();} finally {a.remove();}
+}
+
+const v152PriorAppendixDialog = openAppendices;
+openAppendices = async function(eventKey,title) {
+  await v152PriorAppendixDialog(eventKey,title);
+  const subtitle = $('#appendix-dialog-subtitle');
+  if (subtitle) subtitle.textContent = `${title} · 앱 내 모바일 원문`;
+  const card = $('#appendix-list .card');
+  if (card) {
+    const heading = card.querySelector('b'), paragraph = card.querySelector('p');
+    if (heading) heading.textContent = '모바일 원문에서 별표·서식 확인';
+    if (paragraph) paragraph.textContent = '개정 전·후의 해당 법령 본문 API를 각각 조회합니다. 별표가 제공되면 PDF 또는 원본 파일을 열 수 있습니다.';
+  }
+};
+
+function v14InstallUi() {
+  const managed = $('#page-managed .page-title p');
+  if (managed) managed.textContent = '공식 원문을 앱 내 모바일 열람창으로 엽니다. · 모바일 원문 v1.5.2';
+  const changes = $('#page-changes .page-title p');
+  if (changes) changes.textContent = '선택한 공포 이력의 본문·부칙·별표를 모바일에서 확인합니다.';
+  const settings = $('#page-settings .page-title p');
+  if (settings) settings.textContent = '모바일 원문 v1.5.2 · 기존 API OC와 저장 자료 유지';
+}
