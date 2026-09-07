@@ -1,16 +1,9 @@
 'use strict';
 (async () => {
-  const parts = [
-    'app-core-1.txt',
-    'app-core-2.txt',
-    'app-core-3.txt',
-    'app-core-4.txt',
-    'app-core-5.txt',
-    'app-core-6.txt',
-    'app-core-7.txt'
-  ];
+  const version = '1.5.1';
+  const parts = Array.from({length:8}, (_, index) => `app-core-${index + 1}.txt`);
   try {
-    const responses = await Promise.all(parts.map((name) => fetch(`./${name}?v=1.5.0`, {cache:'no-store'})));
+    const responses = await Promise.all(parts.map((name) => fetch(`./${name}?v=${version}`, {cache:'no-store'})));
     for (const response of responses) {
       if (!response.ok) throw new Error(`앱 구성 파일 오류 HTTP ${response.status}`);
     }
@@ -18,6 +11,16 @@
     const source = combined.replace(/^\s*boot\(\);\s*$/gm, '');
     (0, eval)(`${source}\nboot();`);
   } catch (error) {
-    document.body.innerHTML = `<div style="font-family:sans-serif;padding:24px"><h1>앱 시작 실패</h1><p>${String(error.message || error)}</p><button onclick="location.reload()">다시 시도</button></div>`;
+    const panel = document.createElement('div');
+    panel.style.cssText = 'font-family:sans-serif;padding:24px';
+    const title = document.createElement('h1');
+    title.textContent = '앱 시작 실패';
+    const detail = document.createElement('p');
+    detail.textContent = String(error.message || error);
+    const retry = document.createElement('button');
+    retry.textContent = '다시 시도';
+    retry.onclick = () => location.reload();
+    panel.append(title, detail, retry);
+    document.body.replaceChildren(panel);
   }
 })();

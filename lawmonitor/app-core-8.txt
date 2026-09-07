@@ -1,0 +1,179 @@
+
+/* v1.5.1 — non-destructive mobile link repair. No DB or credential migration.
+ * Law API contract: open.law.go.kr/LSO/openApi/guideResult.do?htmlName=mobLsInfoGuide
+ * Administrative rule: ...?htmlName=mobAdmrulInfoGuide
+ * window.open(..., 'noopener') may return null on success; never navigate the app as fallback.
+ */
+function v151NormalizeUrl(value, base = 'https://www.law.go.kr/') {
+  let text = String(value ?? '').trim().replace(/&amp;/gi, '&');
+  if (!text || /[\u0000-\u001f\u007f\\]/.test(text)) return '';
+  if (/^(?:www\.)?(?:law|lawmaking)\.go\.kr(?:[/?#]|$)/i.test(text)) text = `https://${text}`;
+  if (!/^(?:https?:\/\/|\/)/i.test(text) && !/^(?:LSW|DRF)\//i.test(text)) return '';
+  try {
+    const url = new URL(text, base);
+    const official = /^(?:[a-z0-9-]+\.)*(?:law|lawmaking)\.go\.kr$/i.test(url.hostname);
+    if (url.username || url.password) return '';
+    if (url.protocol === 'http:' && official && !url.port) url.protocol = 'https:';
+    if (url.protocol !== 'https:') return '';
+    return url.href;
+  } catch (_) { return ''; }
+}
+
+function v151Number(value) {
+  const text = String(value ?? '').trim();
+  return /^\d+$/.test(text) ? text : '';
+}
+
+function v151Param(url, ...names) {
+  if (!url) return '';
+  for (const name of names) {
+    for (const [key, value] of url.searchParams) {
+      if (key.toLowerCase() === name.toLowerCase() && value.trim()) return value.trim();
+    }
+  }
+  return '';
+}
+
+function v151LawSource(item) {
+  const value = v151NormalizeUrl(item?.officialUrl || item?.originalUrl || '');
+  if (!value) return null;
+  const url = new URL(value);
+  return /^(?:www\.)?law\.go\.kr$/i.test(url.hostname) ? url : null;
+}
+
+function v151LawIdentity(item = {}) {
+  const source = v151LawSource(item);
+  const admin = item.kind === '행정규칙';
+  const sourceAdmin = v151Param(source, 'target') === 'admrul' || /admRul/i.test(source?.pathname || '') || !!v151Param(source, 'admRulSeq');
+  const matching = !source || admin === sourceAdmin;
+  return {
+    source,
+    name:cleanText(item.name || (matching ? v151Param(source, 'LM') : '')),
+    lawId:admin ? '' : v151Number(item.lawId || item.mobileId || (matching ? v151Param(source, 'ID', 'lsId') : '')),
+    lawMst:admin ? '' : v151Number(item.lawMst || item.mobileMst || item.mst || (matching ? v151Param(source, 'MST', 'lsiSeq') : '')),
+    adminId:admin ? v151Number(item.adminId || (matching ? v151Param(source, 'ID', 'admRulSeq') : '')) : '',
+  };
+}
+
+function v151PublicLawUrl(item = {}) {
+  const id = v151LawIdentity(item);
+  if (item.kind === '행정규칙' && id.adminId) {
+    return apiUrl('https://www.law.go.kr/LSW/admRulInfoP.do', {admRulSeq:id.adminId});
+  }
+  if (item.kind !== '행정규칙' && id.lawMst) {
+    return apiUrl('https://www.law.go.kr/LSW/lsInfoP.do', {lsiSeq:id.lawMst});
+  }
+  if (id.source && !/\/DRF\//i.test(id.source.pathname)) return id.source.href;
+  // A date-only historical link cannot identify a revision reliably. Never silently show current law.
+  if (item.eventKey || item.promulgationDate) return '';
+  if (!id.name) return '';
+  const kind = item.kind === '행정규칙' ? '행정규칙' : '법령';
+  return `https://www.law.go.kr/${encodeURIComponent(kind)}/${encodeURIComponent(id.name)}`;
+}
+
+function v151AppendixNumbers(appendix = {}) {
+  const raw = cleanText(appendix.appendixNo || '');
+  const match = raw.match(/^(?:별표|별지|서식)?\s*(\d+)(?:\s*의\s*(\d+))?$/) ||
+    cleanText(appendix.title || '').match(/^(?:\[\s*)?(?:별표|별지(?:\s*제)?|서식)\s*(\d+)(?:\s*의\s*(\d+))?/);
+  return {
+    number:v151Number(match?.[1] || raw),
+    branch:v151Number(appendix.appendixBranch || match?.[2] || ''),
+  };
+}
+
+function v14MobileLawUrl(item = {}, options = {}) {
+  const admin = item.kind === '행정규칙';
+  const id = v151LawIdentity(item);
+  const oc = cleanText(state.secrets?.lawOc || '');
+  if (!oc) return v151PublicLawUrl(item);
+  const params = {OC:oc, target:admin ? 'admrul' : 'law', type:'HTML', mobileYn:'Y'};
+  if (admin && id.adminId) params.ID = id.adminId;
+  else if (!admin && id.lawMst) params.MST = id.lawMst;
+  else if (!admin && id.lawId) params.ID = id.lawId;
+  else if (id.name) params.LM = id.name;
+  else return v151PublicLawUrl(item);
+  // LD means law promulgation date, not appendix revision or enforcement date.
+  if (!admin && !id.lawMst) {
+    const date = String(item.promulgationDate || options.date || '').replace(/[-.\s]/g, '');
+    if (/^\d{8}$/.test(date)) params.LD = date;
+  }
+  // The mobile administrative-rule endpoint has no BD/BN parameters.
+  // Keep the exact rule version instead of searching today's admbyl list by name.
+  if (!admin && (options.allAppendices || options.appendix)) {
+    params.BD = 'ON';
+    if (options.appendix) {
+      params.BT = v14AppendixTypeCode(options.appendix.appendixKind || options.appendix.title);
+      const numbers = v151AppendixNumbers(options.appendix);
+      if (numbers.number) params.BN = String(Number(numbers.number));
+      if (numbers.branch) params.BG = String(Number(numbers.branch));
+    }
+  }
+  return apiUrl('https://www.law.go.kr/DRF/lawService.do', params);
+}
+
+function officialLawUrl(kind, name, supplied = '') {
+  const normalized = v151NormalizeUrl(supplied);
+  if (normalized && /^(?:www\.)?law\.go\.kr$/i.test(new URL(normalized).hostname)) return normalized;
+  return v14MobileLawUrl({kind, name});
+}
+
+function v14AppendixUrl(change = {}, appendix = {}, date) {
+  // A current appendix's parent MST must not replace the selected historical change MST.
+  const sameDate = !!appendix.revisionDate && appendix.revisionDate === change.promulgationDate;
+  const identity = v151LawIdentity(change);
+  return v14MobileLawUrl({
+    ...change,
+    lawId:identity.lawId || (sameDate ? appendix.lawId : '') || '',
+    lawMst:identity.lawMst || (sameDate ? appendix.lawMst : '') || '',
+    adminId:identity.adminId || (sameDate ? appendix.adminId : '') || '',
+  }, {date:change.promulgationDate || date, appendix, allAppendices:true});
+}
+
+function v151ExternalUrl(value) {
+  const normalized = v151NormalizeUrl(value);
+  if (!normalized) return '';
+  const url = new URL(normalized);
+  // Repair legacy notice links without exposing OC in a public detail link.
+  if (/^(?:www\.)?lawmaking\.go\.kr$/i.test(url.hostname)) {
+    const notice = url.pathname.match(/^\/rest\/ogLmPp\/(\d+)\/[^/]+\/[^/]+\.html$/i);
+    if (notice) return `https://opinion.lawmaking.go.kr/gcom/ogLmPp/${notice[1]}`;
+  }
+  if (/^(?:www\.)?law\.go\.kr$/i.test(url.hostname) && /\/DRF\/lawService\.do$/i.test(url.pathname)) {
+    const target = v151Param(url, 'target').toLowerCase();
+    if (target === 'law' || target === 'admrul') {
+      const oc = cleanText(state.secrets?.lawOc || '');
+      if (!oc) return v151PublicLawUrl({kind:target === 'admrul' ? '행정규칙' : '법령', name:v151Param(url,'LM'), officialUrl:url.href, promulgationDate:v151Param(url,'LD')});
+      for (const key of [...url.searchParams.keys()]) {
+        if (/^(?:oc|type|mobileyn)$/i.test(key)) url.searchParams.delete(key);
+      }
+      url.searchParams.set('OC', oc);
+      url.searchParams.set('type', 'HTML');
+      url.searchParams.set('mobileYn', 'Y');
+    }
+  }
+  return url.href;
+}
+
+function openUrl(value) {
+  const url = v151ExternalUrl(value);
+  if (!url) return toast('원문 주소를 확인할 수 없습니다. API 설정과 동기화 상태를 확인해 주세요.');
+  const link = document.createElement('a');
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.referrerPolicy = 'no-referrer';
+  link.hidden = true;
+  try {
+    document.body.appendChild(link);
+    link.click();
+  } catch (_) {
+    toast('브라우저로 연결하지 못했습니다. 휴대폰의 기본 브라우저 설정을 확인해 주세요.');
+  } finally { link.remove(); }
+}
+
+function v14InstallUi() {
+  const managed = $('#page-managed .page-title p');
+  if (managed) managed.textContent = '법령·행정규칙 전문을 새 창으로 엽니다. · 링크 수정 v1.5.1';
+  const changes = $('#page-changes .page-title p');
+  if (changes) changes.textContent = '법령 별표는 개정 전·후로, 행정규칙 별표는 해당 버전 원문에서 확인합니다.';
+}
