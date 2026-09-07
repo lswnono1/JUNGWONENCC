@@ -1,0 +1,69 @@
+name: Mobile Browser Probe
+on:
+  push:
+    branches: [fix/mobile-routing-v152]
+    paths: [.github/workflows/mobile-browser-probe.yml]
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Install browser driver
+        run: npm install --prefix /tmp/jlm-browser --no-save --ignore-scripts playwright@1.55.0
+      - name: Inspect direct mobile documents
+        run: |
+          mkdir -p probe
+          python3 - <<'PY'
+          import concurrent.futures, pathlib, re, subprocess
+          pages={'mobile_index':'https://m.law.go.kr/MOB/index.jsp','admin':'https://www.law.go.kr/DRF/lawService.do?OC=test&target=admrul&ID=62505&type=HTML&mobileYn=Y','mobile_public':'https://www.law.go.kr/LSW/lsInfoR.do?lsiSeq=91689&chrClsCd=010202&urlMode=lsInfoP&mobile=Y&hybridYn=Y'}
+          def probe(pair):
+            label,url=pair
+            r=subprocess.run(['curl','-4','-L','-sS','--connect-timeout','8','--max-time','20',url],capture_output=True,text=True)
+            pathlib.Path('probe',label+'.html').write_text(r.stdout)
+            lines=[x.strip() for x in r.stdout.splitlines() if re.search(r'<title|viewport|location|iframe|<script|<form|mobile|mob[A-Z]|lsInfo|admRul|input|href|url:|인증|권한',x,re.I)]
+            return label+'\n'+r.stderr+'\n'+'\n'.join(lines)[:18000]
+          for result in concurrent.futures.ThreadPoolExecutor(3).map(probe,pages.items()): print('\n=== HTML ===\n'+result)
+          PY
+      - name: Test rendered pages
+        env:
+          NODE_PATH: /tmp/jlm-browser/node_modules
+        run: |
+          node <<'JS'
+          const {chromium,devices}=require('playwright');
+          const fs=require('fs');
+          (async()=>{
+            const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--disable-dev-shm-usage']});
+            const context=await browser.newContext({...devices['Pixel 7']});
+            const pages={
+              law:'https://www.law.go.kr/DRF/lawService.do?OC=test&target=law&ID=1747&type=HTML&mobileYn=Y',
+              appendix:'https://www.law.go.kr/DRF/lawService.do?OC=test&target=law&ID=1747&type=HTML&mobileYn=Y&BD=ON&BT=1&BN=1',
+              admin:'https://www.law.go.kr/DRF/lawService.do?OC=test&target=admrul&ID=62505&type=HTML&mobileYn=Y',
+              mobile_public:'https://www.law.go.kr/LSW/lsInfoR.do?lsiSeq=91689&chrClsCd=010202&urlMode=lsInfoP&mobile=Y&hybridYn=Y',
+              mobile_index:'https://m.law.go.kr/MOB/index.jsp'
+            };
+            const results=[];
+            for(const [name,url] of Object.entries(pages)){
+              const page=await context.newPage(); const errors=[];
+              page.on('pageerror',e=>errors.push(e.message));
+              page.on('requestfailed',r=>errors.push(r.url()+' '+r.failure()?.errorText));
+              let error=''; let status=null;
+              try{
+                const r=await page.goto(url,{waitUntil:'domcontentloaded',timeout:20000}); status=r?.status();
+                await page.waitForFunction(()=>document.body.innerText.trim().length>50,null,{timeout:12000}).catch(()=>{});
+                await page.screenshot({path:'probe/'+name+'.png'});
+                fs.writeFileSync('probe/'+name+'-rendered.html',await page.content());
+              }catch(e){error=e.message;}
+              const result={name,status,final:page.url(),title:await page.title().catch(()=>''),text:await page.locator('body').innerText({timeout:1500}).catch(()=>''),viewport:await page.locator('meta[name=viewport]').getAttribute('content',{timeout:1000}).catch(()=>''),links:await page.locator('a').evaluateAll(xs=>xs.slice(0,25).map(a=>({text:a.textContent,href:a.getAttribute('href'),onclick:a.getAttribute('onclick')}))).catch(()=>[]),errors,error};
+              result.text=result.text.slice(0,800); results.push(result); console.log(JSON.stringify(result)); await page.close();
+            }
+            fs.writeFileSync('probe/results.json',JSON.stringify(results,null,2)); await browser.close();
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-browser-probe
+          path: probe/
+          retention-days: 3
