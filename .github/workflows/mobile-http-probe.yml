@@ -1,0 +1,32 @@
+name: Inspect Mobile HTTP Redirects
+on:
+  push:
+    branches: [fix/mobile-routing-v152]
+    paths: [.github/workflows/mobile-http-probe.yml]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Read public sample HTML with IPv4
+        run: |
+          mkdir -p probe
+          python3 - <<'PY'
+          import concurrent.futures, pathlib, re, subprocess
+          query='/DRF/lawService.do?OC=test&target=law&ID=1747&type=HTML&mobileYn=Y'
+          pages={'https_www':'https://www.law.go.kr'+query, 'http_www':'http://www.law.go.kr'+query, 'https_bare':'https://law.go.kr'+query, 'http_bare':'http://law.go.kr'+query, 'mobile_http':'http://m.law.go.kr/', 'guide':'https://open.law.go.kr/LSO/openApi/guideResult.do?htmlName=mobLsInfoGuide'}
+          def run(pair):
+            label,url=pair
+            p=subprocess.run(['curl','-4','-L','-sS','--connect-timeout','8','--max-time','18','-A','Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 Chrome/140.0.0.0 Mobile Safari/537.36','-D','probe/'+label+'.headers','-o','probe/'+label+'.html','-w','%{http_code} %{url_effective}',url],capture_output=True,text=True)
+            f=pathlib.Path('probe',label+'.html'); body=f.read_text(errors='replace') if f.exists() else ''
+            lines=[x.strip() for x in body.splitlines() if re.search(r'<title|viewport|location|iframe|<script|<form|mobile|mob[A-Z]|lsInfo|admRul|input|인증|권한',x,re.I)]
+            return label+'\n'+p.stdout+'\n'+p.stderr+'\n'+('\n'.join(lines) if len(body)>12000 else body)[:14000]
+          for result in concurrent.futures.ThreadPoolExecutor(6).map(run,pages.items()): print('\n=== RESULT ===\n'+result)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mobile-http-probe
+          path: probe/
+          retention-days: 3
