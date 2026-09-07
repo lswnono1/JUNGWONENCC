@@ -1,0 +1,43 @@
+name: Probe Mobile Routes
+on:
+  push:
+    branches: [fix/mobile-routing-v152]
+    paths: [.github/workflows/mobile-route-probe.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect official mobile HTML with Android user agent
+        run: |
+          mkdir -p probe
+          python3 - <<'PY'
+          import concurrent.futures, json, pathlib, re, urllib.request
+          pages = {
+              'home':'https://m.law.go.kr/',
+              'law_mobile_api':'https://www.law.go.kr/DRF/lawService.do?OC=test&target=law&ID=1747&type=HTML&mobileYn=Y',
+              'admin_mobile_api':'https://www.law.go.kr/DRF/lawService.do?OC=test&target=admrul&ID=62505&type=HTML&mobileYn=Y',
+              'law_public':'https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=91689',
+          }
+          ua = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36'
+          def probe(pair):
+              label,url = pair
+              try:
+                  req = urllib.request.Request(url, headers={'User-Agent':ua})
+                  with urllib.request.urlopen(req, timeout=25) as r:
+                      body=r.read().decode('utf-8','replace'); status=r.status; final=r.url
+                  pathlib.Path('probe',label+'.html').write_text(body,encoding='utf-8')
+                  lines=[x.strip() for x in body.splitlines() if re.search(r'(?:<title|viewport|location|iframe|<script.*src|<form|mobile|mob[A-Z]|lsInfo|admRul|login|인증|권한)',x,re.I)]
+                  return '\n'.join([label, str(status), final, 'bytes='+str(len(body))]+lines[:90])[:14000]
+              except Exception as e: return label+': '+repr(e)
+          for result in concurrent.futures.ThreadPoolExecutor(4).map(probe,pages.items()):
+              print('\n=== RESULT ===\n'+result)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-mobile-html
+          path: probe/
+          retention-days: 3
