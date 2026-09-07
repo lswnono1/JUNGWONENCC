@@ -1,0 +1,74 @@
+[
+  {
+    "query": "건축법",
+    "target": "eflaw",
+    "host": "www.law.go.kr",
+    "filtered": false,
+    "error": "TimeoutError: signal timed out",
+    "ms": 18005
+  },
+  {
+    "query": "건축법",
+    "target": "eflaw",
+    "host": "law.go.kr",
+    "filtered": true,
+    "error": "TimeoutError: signal timed out",
+    "ms": 18000
+  },
+  {
+    "query": "건축법",
+    "target": "licbyl",
+    "host": "www.law.go.kr",
+    "filtered": false,
+    "error": "TimeoutError: signal timed out",
+    "ms": 18000
+  },
+  {
+    "query": "건축법 시행령",
+    "target": "eflaw",
+    "host": "www.law.go.kr",
+    "filtered": false,
+    "error": "TimeoutError: signal timed out",
+    "ms": 18000
+  },
+  {
+    "query": "건축법 시행령",
+    "target": "eflaw",
+    "host": "law.go.kr",
+    "filtered": true,
+    "error": "TimeoutError: signal timed out",
+    "ms": 18000
+  },
+  {
+    "query": "건축법 시행령",
+    "target": "licbyl",
+    "host": "www.law.go.kr",
+    "filtered": false,
+    "error": "TimeoutError: signal timed out",
+    "ms": 18000
+  },
+  {
+    "query": "건축물의 피난ㆍ방화구조 등의 기준에 관한 규칙",
+    "target": "eflaw",
+    "host": "www.law.go.kr",
+    "filtered": false,
+    "error": "TimeoutError: signal timed out",
+    "ms": 18000
+  },
+  {
+    "query": "건축물의 피난ㆍ방화구조 등의 기준에 관한 규칙",
+    "target": "eflaw",
+    "host": "law.go.kr",
+    "filtered": true,
+    "error": "TimeoutError: signal timed out",
+    "ms": 18000
+  },
+  {
+    "query": "건축물의 피난ㆍ방화구조 등의 기준에 관한 규칙",
+    "target": "licbyl",
+    "host": "www.law.go.kr",
+    "filtered": false,
+    "error": "TimeoutError: signal timed out",
+    "ms": 18000
+  }
+]
