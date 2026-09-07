@@ -1,13 +1,14 @@
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('node:assert/strict');
 const {chromium,devices}=require('playwright');
-const source=Array.from({length:9},(_,i)=>fs.readFileSync(path.join('lawmonitor',`app-core-${i+1}.txt`),'utf8')).join('\n').replace(/^\s*boot\(\);\s*$/gm,'');
+const source=Array.from({length:10},(_,i)=>fs.readFileSync(path.join('lawmonitor',`app-core-${i+1}.txt`),'utf8')).join('\n').replace(/^\s*boot\(\);\s*$/gm,'');
 fs.mkdirSync('test-output',{recursive:true});
 (async()=>{
  const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--disable-dev-shm-usage']});
  try {
   const context=await browser.newContext({...devices['Pixel 7'],serviceWorkers:'block'});
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.route('**/app-v*.js',r=>r.fulfill({contentType:'application/javascript',body:''}));
   await page.route('**/app.js*',r=>r.fulfill({contentType:'application/javascript',body:''}));
   await page.goto('http://127.0.0.1:8080/lawmonitor/',{waitUntil:'domcontentloaded'});
   await page.evaluate(text=>{(0,eval)(text+'\nwindow.jlmTest={state,openUrl,v14MobileLawUrl,v152OpenReader,v152DecodeDocument,v152Clause};');},source);
@@ -62,7 +63,7 @@ fs.mkdirSync('test-output',{recursive:true});
   const fresh=await context.newPage();
   await fresh.goto('http://127.0.0.1:8080/lawmonitor/',{waitUntil:'domcontentloaded'});
   await fresh.waitForSelector('#setup-view:not(.hidden)',{timeout:15000});
-  assert.match(await fresh.locator('#page-managed .page-title p').innerText(),/v1\.5\.2/);
+  assert.match(await fresh.locator('#page-managed .page-title p').innerText(),/v1\.5\.3/);
   results.push({name:'actual-loader-boot',passed:true});
   fs.writeFileSync('test-output/results.json',JSON.stringify({results,errors},null,2));
   assert.deepEqual(errors,[]);console.log('MOBILE_READER_BROWSER_PASS');
