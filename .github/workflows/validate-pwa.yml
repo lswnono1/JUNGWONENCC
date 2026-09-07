@@ -38,12 +38,9 @@ jobs:
       - name: Test nonempty data preservation and legacy error handling
         env:
           CHROME_BIN: /usr/bin/google-chrome
+          JLM_TEST_BASE: https://lswnono1.github.io/JUNGWONENCC/lawmonitor/
         run: |
           set -euo pipefail
-          python3 -m http.server 8080 >/tmp/http.log 2>&1 &
-          pid=$!
-          trap 'kill $pid' EXIT
-          sleep 1
           python3 -u tests/mobile-recovery-browser.py | tee test-output/recovery-ui.txt
           python3 -c "import json; r=json.load(open('test-output/recovery-results.json')); assert r['passed'] is True and len(r['cases'])==6"
       - name: Test live official bodies
