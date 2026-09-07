@@ -1,12 +1,10 @@
 const CACHE_PREFIX = 'jungwon-lawmonitor-pwa-';
-const CACHE_NAME = `${CACHE_PREFIX}v1.5.1`;
+const CACHE_NAME = `${CACHE_PREFIX}v1.5.2`;
 const APP_SHELL = [
   './', './index.html', './styles.css', './app.js',
-  // Existing index.html references 1.4.0. Keep that entry URL available offline.
-  './app.js?v=1.4.0', './app.js?v=1.5.0', './app.js?v=1.5.1',
+  './app.js?v=1.4.0', './app.js?v=1.5.0', './app.js?v=1.5.1', './app.js?v=1.5.2',
   './manifest.webmanifest', './icon.svg', './maskable.svg',
-  ...Array.from({length:8}, (_, index) => `./app-core-${index + 1}.txt?v=1.5.1`),
-  // core-7 retains this feed URL; preserve the existing notice relay contract.
+  ...Array.from({length:9}, (_, index) => `./app-core-${index + 1}.txt?v=1.5.2`),
   './data/notices.json?v=1.5.0'
 ];
 self.addEventListener('install', (event) => {

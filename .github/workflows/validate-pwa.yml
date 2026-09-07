@@ -2,6 +2,7 @@ name: Validate PWA
 on:
   push:
     branches: [main]
+    paths: ['lawmonitor/**', 'tests/**', '.github/workflows/validate-pwa.yml']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -9,37 +10,64 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v5
         with:
           node-version: '24'
-      - name: Validate files and JavaScript
+      - name: Validate syntax and actual combined overrides
         run: |
-          test -f lawmonitor/index.html
-          test -f lawmonitor/manifest.webmanifest
-          test -f lawmonitor/data/notices.json
+          mkdir -p test-output
           node --check lawmonitor/app.js
-          cat lawmonitor/app-core-{1..8}.txt > /tmp/app-core.js
+          cat lawmonitor/app-core-{1..9}.txt > /tmp/app-core.js
           node --check /tmp/app-core.js
           node --check lawmonitor/sw.js
           node -e "JSON.parse(require('fs').readFileSync('lawmonitor/manifest.webmanifest','utf8'))"
-          node -e "JSON.parse(require('fs').readFileSync('lawmonitor/data/notices.json','utf8'))"
-      - name: Mobile link regression tests
-        run: node --test tests/mobile-links.test.cjs
-      - name: Test static serving
+          node --test tests/mobile-links.test.cjs | tee test-output/unit-tests.txt
+      - name: Install mobile test driver and Korean display fonts
+        run: |
+          npm install --prefix /tmp/jlm-browser --no-save --ignore-scripts playwright@1.55.0
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+      - name: Test live official bodies in mobile Chromium
+        env:
+          NODE_PATH: /tmp/jlm-browser/node_modules
         run: |
           python3 -m http.server 8080 >/tmp/http.log 2>&1 &
           pid=$!
           trap 'kill $pid' EXIT
-          sleep 2
-          for file in index.html manifest.webmanifest app-core-7.txt app-core-8.txt data/notices.json; do
-            curl --max-time 10 --fail --silent --show-error "http://127.0.0.1:8080/lawmonitor/$file" >/dev/null
-          done
-      - name: Inspect official mobile API endpoints
-        continue-on-error: true
+          sleep 1
+          node tests/mobile-reader-browser.cjs | tee test-output/browser-tests.txt
+      - name: Verify deployed application files match this commit
+        if: github.ref == 'refs/heads/main'
         run: |
-          curl --connect-timeout 8 --max-time 15 -sS -D /tmp/law.headers -o /tmp/law.body 'https://www.law.go.kr/DRF/lawService.do?OC=test&target=law&ID=1747&type=HTML&mobileYn=Y' || true
-          cat /tmp/law.headers 2>/dev/null || true
-          curl --connect-timeout 8 --max-time 15 -sS -D /tmp/admin.headers -o /tmp/admin.body 'https://www.law.go.kr/DRF/lawService.do?OC=test&target=admrul&ID=62505&type=HTML&mobileYn=Y' || true
-          cat /tmp/admin.headers 2>/dev/null || true
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, subprocess, time
+          base='https://lswnono1.github.io/JUNGWONENCC/lawmonitor/'
+          results=[]
+          for name in ('app.js','app-core-9.txt','sw.js','index.html'):
+              expected=pathlib.Path('lawmonitor',name).read_bytes()
+              for attempt in range(8):
+                  url=base+name+'?verify='+os.environ['GITHUB_SHA']+'&attempt='+str(attempt)
+                  response=subprocess.run(['curl','-4','--fail','--silent','--show-error','--connect-timeout','6','--max-time','15',url],capture_output=True)
+                  if response.returncode==0 and response.stdout==expected:
+                      results.append({'file':name,'match':True,'sha256':hashlib.sha256(expected).hexdigest()})
+                      break
+                  time.sleep(5)
+              else:
+                  raise RuntimeError('Deployed content mismatch: '+name)
+          output={'commit':os.environ['GITHUB_SHA'],'base':base,'results':results}
+          pathlib.Path('test-output/deployment-verification.json').write_text(json.dumps(output,indent=2))
+          print(json.dumps(output,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-reader-validation
+          path: |
+            test-output/
+            lawmonitor/
+            tests/
+            MOBILE_READER_v1_5_2.md
+          retention-days: 7
