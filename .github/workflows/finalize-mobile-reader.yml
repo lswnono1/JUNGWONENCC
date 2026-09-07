@@ -1,0 +1,66 @@
+name: Finalize Mobile Reader
+on:
+  push:
+    branches: [fix/mobile-routing-v152]
+    paths: [.github/workflows/finalize-mobile-reader.yml]
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: fix/mobile-routing-v152
+      - name: Apply bounded reader hardening
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('lawmonitor/app-core-9.txt')
+          s=p.read_text()
+          patches=[
+            ("pd !== spec.promulgationDate", "pd !== v152Date(spec.promulgationDate)"),
+            ("  for (const key of ['항','호','목','세목'])", "  for (const key of ['조문단위','조문','항단위','호단위','목단위']) if (value[key] != null) html += v152Clause(value[key],level);\n  for (const key of ['항','호','목','세목'])"),
+            ("  let body = v152List(doc.body).map((row) => `<article class=\"jlm-article\">${v152Clause(row)}</article>`).join('');", "  let body = v152List(doc.body).map((row) => v152Clause(row)).filter((html) => html.trim()).map((html) => `<article class=\"jlm-article\">${html}</article>`).join('');"),
+          ]
+          for old,new in patches:
+            assert s.count(old)==1,repr(old)
+            s=s.replace(old,new)
+          p.write_text(s)
+          p=Path('lawmonitor/index.html');s=p.read_text();assert s.count('./app.js?v=1.4.0')==1;s=s.replace('./app.js?v=1.4.0','./app.js?v=1.5.2');p.write_text(s)
+          # Versioned entry point, script and worker now agree; legacy worker aliases remain for existing installs.
+          PY
+      - name: Syntax and unit tests
+        run: |
+          cat lawmonitor/app-core-{1..9}.txt > /tmp/jlm-app.js
+          node --check /tmp/jlm-app.js
+          node --check lawmonitor/app.js
+          node --check lawmonitor/sw.js
+          node --test tests/mobile-links.test.cjs
+      - name: Live mobile browser verification
+        env:
+          NODE_PATH: /tmp/jlm-browser/node_modules
+        run: |
+          npm install --prefix /tmp/jlm-browser --no-save --ignore-scripts playwright@1.55.0
+          python3 -m http.server 8080 >/tmp/http.log 2>&1 &
+          pid=$!
+          trap 'kill $pid' EXIT
+          sleep 1
+          node tests/mobile-reader-browser.cjs
+      - name: Save only verified source changes to repair branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add lawmonitor/app-core-9.txt lawmonitor/index.html
+          git commit -m 'fix: verified mobile reader date handling and aligned entry version'
+          git push origin HEAD:fix/mobile-routing-v152
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finalized-mobile-reader
+          path: |
+            test-output/
+            lawmonitor/
+            tests/
+          retention-days: 7
