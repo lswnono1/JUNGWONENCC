@@ -1,0 +1,102 @@
+
+/* v1.5.4: bounded network retries, exact catalogue identities and truthful stage diagnostics.
+ * Requests remain HTTPS to law.go.kr; no public proxy, credential substitution or storage clearing.
+ */
+const V154_VERSION = '1.5.4';
+window.JLM_BUILD=Object.freeze({version:V154_VERSION,mode:'in-app-json',bundled:true});
+const v154Requests=[];
+const v154PreviousFetch=fetchText;
+function v154Error(code,message) {const e=new Error(`${code}: ${message}`); e.code=code; return e;}
+function v154Record(u,attempt,code,started) {
+  v154Requests.push({at:new Date().toISOString(),host:u.hostname,endpoint:u.pathname.split('/').pop(),target:u.searchParams.get('target')||'',attempt,code,ms:Date.now()-started});
+  if(v154Requests.length>40)v154Requests.shift();
+}
+fetchText=async function(value,timeoutMs=30000) {
+  const original=new URL(value,window.location.href);
+  if(!/^(?:www\.)?law\.go\.kr$/i.test(original.hostname)||!/^\/DRF\/(?:lawSearch|lawService)\.do$/i.test(original.pathname)) return v154PreviousFetch(value,timeoutMs);
+  if(original.protocol!=='https:')throw v154Error('HTTPS_REQUIRED','안전하지 않은 API 요청은 보내지 않았습니다.');
+  if(!navigator.onLine)throw v154Error('NET_OFFLINE','휴대폰이 오프라인으로 표시됩니다. 인터넷 연결 후 재조회해 주세요.');
+  if(original.searchParams.get('type')==='JSON')original.searchParams.delete('mobileYn');
+  const perAttempt=Math.min(30000,Math.max(8000,Number(timeoutMs)||30000));
+  let last;
+  for(let attempt=1;attempt<=2;attempt++) {
+    const u=new URL(original),controller=new AbortController(),started=Date.now();
+    // Retry only transport/temporary server failures on the two official host aliases.
+    // Authentication and rate-limit responses are never retried against a different host.
+    if(attempt===2)u.hostname=u.hostname==='www.law.go.kr'?'law.go.kr':'www.law.go.kr';
+    const timer=setTimeout(()=>controller.abort(),perAttempt);
+    try {
+      const r=await fetch(u.href,{method:'GET',mode:'cors',credentials:'omit',cache:'no-store',signal:controller.signal});
+      if(!r.ok) {
+        const e=v154Error(`HTTP_${r.status}`,r.status===401||r.status===403?'공식 API의 인증·이용권한 확인이 필요합니다.':r.status===429?'공식 API의 요청 제한 응답입니다. 잠시 후 재조회해 주세요.':`공식 API가 오류 응답(${r.status})을 반환했습니다.`);
+        e.retryable=[408,502,503,504].includes(r.status);throw e;
+      }
+      const raw=await r.text();
+      if(!raw.trim())throw v154Error('API_EMPTY','공식 API 응답이 비어 있습니다. 정상 조회로 처리하지 않았습니다.');
+      if(original.searchParams.get('type')==='JSON' && /^\s*</.test(raw)) {
+        if(/기본정보\s*조회\s*실패/.test(raw))throw v154Error('JLM-153-BASIC','공식 API가 해당 식별번호의 기본정보를 찾지 못했습니다.');
+        throw v154Error('API_FORMAT','JSON 자료 대신 다른 응답이 도착했습니다. API 권한 또는 공식 서비스 상태를 확인해 주세요.');
+      }
+      v154Record(u,attempt,'OK',started);return raw;
+    } catch(e) {
+      if(e?.name==='AbortError')last=v154Error('NET_TIMEOUT','공식 API 응답 대기시간이 초과되었습니다.');
+      else if(e instanceof TypeError)last=v154Error('NET_FETCH','공식 API 응답을 받지 못했습니다. 통신·서버·브라우저 차단 중 어느 원인인지는 이 응답만으로 확정할 수 없습니다.');
+      else last=e;
+      v154Record(u,attempt,last.code||'REQUEST_ERROR',started);
+      if(attempt===2 || !(['NET_TIMEOUT','NET_FETCH'].includes(last.code)||last.retryable))throw last;
+    } finally {clearTimeout(timer);}
+    await new Promise(resolve=>setTimeout(resolve,700));
+  }
+  throw last;
+};
+function v154SameName(a,b) {return normalizeName(a)===normalizeName(b);}
+function v154SearchResult(payload,requiredKeys) {
+  const root=Object.values(payload||{}).find(v=>v&&typeof v==='object'&&!Array.isArray(v)&&v.totalCnt!=null);
+  if(!root || !/^\d+$/.test(String(root.totalCnt)))throw v154Error('API_SEARCH_FORMAT','공식 목록 응답을 확인하지 못했습니다. 빈 목록으로 처리하지 않았습니다.');
+  return {rows:candidateRecords(payload,requiredKeys),total:Number(root.totalCnt)};
+}
+async function v154LawIdentity(item) {
+  if(item.kind==='행정규칙')return null;
+  const oc=state.secrets?.lawOc;if(!oc)throw v154Error('API_OC','국가법령정보 API OC가 없습니다.');
+  // Older builds accepted prefix matches and could save an enforcement-decree ID under the Act.
+  // Verify by the exact title instead of trusting that legacy ID.
+  const payload=parsePayload(await fetchText(apiUrl(LAW_URL,{OC:oc,target:'law',type:'JSON',query:item.name,search:1,display:100,page:1,sort:'lasc'})));
+  const {rows,total}=v154SearchResult(payload,['법령명한글','법령명']);
+  const exact=rows.filter(r=>v154SameName(recordName(r),item.name));
+  const ids=new Set(exact.map(r=>v151Number(first(r,'법령ID'))).filter(Boolean));
+  if(ids.size!==1)throw v154Error('LAW_IDENTITY',`정확히 일치하는 법령 ID를 하나로 확인하지 못했습니다${total>100?'(검색 결과 100건 초과)':''}. 다른 법령으로 연결하지 않았습니다.`);
+  return [...ids][0];
+}
+const v154PreviousDecode=v152DecodeDocument;
+v152DecodeDocument=function(payload,spec) {
+  const doc=v154PreviousDecode(payload,spec);
+  if(spec.name&&!v154SameName(doc.name,spec.name))throw v154Error('LAW_NAME_MISMATCH','선택한 법령명과 응답의 법령명이 다릅니다. 다른 법령의 본문을 표시하지 않았습니다.');
+  return doc;
+};
+const v154PreviousInstall=v14InstallUi;
+v14InstallUi=function() {
+  v154PreviousInstall();
+  const label='모바일 v1.5.4 · 조회 단계별 확인';
+  for(const selector of ['#page-managed .page-title p','#page-settings .page-title p','[data-jlm-build]']) {
+    document.querySelectorAll(selector).forEach(el=>el.textContent=label);
+  }
+  const card=$('#jlm-recovery-card');if(card) {
+    card.querySelector('p').textContent='v1.5.4 통합 실행본입니다. 관리대상과 저장된 이력·API 설정은 유지됩니다.';
+    const button=card.querySelector('button');button.onclick=()=>window.location.assign(new URL('./recover-v1.5.4.html',window.location.href).href);
+    // Replace the previous version's bound recovery button, not the saved settings.
+    const next=button.cloneNode(true);button.replaceWith(next);next.addEventListener('click',()=>window.location.assign(new URL('./recover-v1.5.4.html',window.location.href).href));
+  }
+  if(!$('#jlm-v154-retry')) {
+    const bar=document.createElement('div');bar.className='card compact';bar.id='jlm-v154-retry';
+    const p=document.createElement('p');p.textContent='목록의 상태는 마지막 동기화 결과입니다. 개정이력·별표 조회 결과를 구분하며, 원문 열람은 별도로 동작합니다.';
+    const b=document.createElement('button');b.type='button';b.textContent='실패 항목만 다시 조회';b.addEventListener('click',()=>syncNow({failedOnly:true}));
+    bar.append(p,b);$('#managed-list')?.before(bar);
+  }
+  if(!$('#jlm-network-detail')) {
+    const panel=document.createElement('details');panel.id='jlm-network-detail';panel.className='card';
+    const title=document.createElement('summary');title.textContent='이번 실행의 연결 진단 (OC 제외)';
+    const out=document.createElement('pre');out.style.cssText='white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:12px';
+    panel.append(title,out);panel.addEventListener('toggle',()=>{if(panel.open)out.textContent=v154Requests.length?v154Requests.map(x=>`${x.at} | ${x.target} | ${x.host} | ${x.attempt}차 | ${x.code} | ${x.ms}ms`).join('\n'):'이번 실행에서 기록된 API 요청이 없습니다.';});
+    $('#page-settings')?.appendChild(panel);
+  }
+};
