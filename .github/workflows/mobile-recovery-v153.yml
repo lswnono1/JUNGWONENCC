@@ -1,0 +1,65 @@
+name: Verify mobile recovery v153
+on:
+  push:
+    branches: [fix/mobile-recovery-v153]
+    paths: [lawmonitor/app-core-10.txt, scripts/build-mobile-release.cjs, tests/mobile-recovery-browser.py, .github/workflows/mobile-recovery-v153.yml]
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: fix/mobile-recovery-v153
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Build and check immutable runtime
+        run: |
+          node scripts/build-mobile-release.cjs
+          node --check lawmonitor/app-v1.5.3.js
+          node --check lawmonitor/app.js
+          node --check lawmonitor/sw.js
+          mkdir -p test-output
+          node --test tests/mobile-links.test.cjs | tee test-output/unit-tests-v153.txt
+      - name: Install test drivers
+        run: |
+          npm install --prefix /tmp/jlm-browser --no-save --ignore-scripts playwright@1.55.0
+          python3 -m pip install playwright==1.55.0
+      - name: Test old links, error pages, exact identity recovery and data preservation
+        env:
+          CHROME_BIN: /usr/bin/google-chrome
+        run: |
+          python3 -m http.server 8080 >/tmp/jlm-http.log 2>&1 &
+          pid=$!
+          trap 'kill $pid' EXIT
+          sleep 1
+          python3 tests/mobile-recovery-browser.py | tee test-output/recovery-ui.txt
+      - name: Test live official mobile reader
+        env:
+          NODE_PATH: /tmp/jlm-browser/node_modules
+        run: |
+          python3 -m http.server 8080 >/tmp/jlm-http.log 2>&1 &
+          pid=$!
+          trap 'kill $pid' EXIT
+          sleep 1
+          node tests/mobile-reader-browser.cjs | tee test-output/live-reader-v153.txt
+      - name: Save verified generated runtime on repair branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add lawmonitor/app-v1.5.3.js lawmonitor/app.js lawmonitor/sw.js lawmonitor/index.html lawmonitor/recover-v1.5.3.html lawmonitor/release.json tests/mobile-links.test.cjs tests/mobile-reader-browser.cjs
+          git diff --cached --quiet || git commit -m 'build: verified immutable mobile recovery runtime v1.5.3'
+          git push origin HEAD:fix/mobile-recovery-v153
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-recovery-v153-validation
+          path: |
+            test-output/
+            lawmonitor/
+            tests/
+            scripts/build-mobile-release.cjs
+          retention-days: 7
