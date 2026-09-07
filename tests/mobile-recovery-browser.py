@@ -32,15 +32,24 @@ with sync_playwright() as p:
     page.click('[data-page=settings]');page.uncheck('#setting-auto-sync');page.click('#settings-form button[type=submit]');page.wait_for_timeout(300)
     def snapshot():
         return page.evaluate("""async()=>{const db=await new Promise((ok,bad)=>{const r=indexedDB.open('JungwonLawMonitorPWA');r.onsuccess=()=>ok(r.result);r.onerror=()=>bad(r.error)});const out={};for(const name of ['managed','changes','notices','meta']){out[name]=await new Promise((ok,bad)=>{const r=db.transaction(name).objectStore(name).getAll();r.onsuccess=()=>ok(r.result);r.onerror=()=>bad(r.error)});}db.close();return out;}""")
+    page.evaluate('''async()=>{
+      const db=await new Promise((ok,bad)=>{const r=indexedDB.open('JungwonLawMonitorPWA');r.onsuccess=()=>ok(r.result);r.onerror=()=>bad(r.error)});
+      const fixtures={managed:{id:'fixture-managed',kind:'법령',name:'보존 시험 법령',enabled:false},changes:{eventKey:'fixture-history',name:'보존 시험 법령',kind:'법령',promulgationDate:'2025-01-01',appendices:[]},notices:{noticeKey:'fixture-notice',title:'보존 시험 공고',status:'종료'}};
+      const tx=db.transaction(Object.keys(fixtures),'readwrite');
+      for(const [name,value] of Object.entries(fixtures))tx.objectStore(name).put(value);
+      await new Promise((ok,bad)=>{tx.oncomplete=ok;tx.onerror=()=>bad(tx.error)});db.close();
+    }''')
     before=snapshot()
+    assert all(before[s] for s in ['managed','changes','notices','meta'])
     page.goto(BASE+'recover-v1.5.3.html?fresh=1')
     page.wait_for_selector('#app-view:not(.hidden)')
     after=snapshot()
     assert before['managed']==after['managed'] and before['changes']==after['changes'] and before['notices']==after['notices']
     assert before['meta']==after['meta'],'setup and credentials must not change'
-    results.append('Recovery entry preserved managed, history, notices and credential metadata')
+    results.append('Recovery entry preserved nonempty managed, history, notices and credential metadata')
+    print('RECOVERY_DB_PRESERVED',flush=True)
     def open_link(url, anchor=False):
-        page.evaluate("""({url,anchor})=>{document.querySelector('#fixture-open')?.remove();const b=document.createElement(anchor?'a':'button');b.id='fixture-open';b.textContent='시험 원문';if(anchor)b.href=url;else b.dataset.open=url;document.body.appendChild(b);}""",{'url':url,'anchor':anchor})
+        page.evaluate("""({url,anchor})=>{document.querySelector('#fixture-open')?.remove();const b=document.createElement(anchor?'a':'button');b.id='fixture-open';b.textContent='시험 원문';b.style.cssText='position:fixed;top:100px;left:24px;z-index:9999;display:block;padding:16px;background:white;color:black';if(anchor)b.href=url;else b.dataset.open=url;document.body.appendChild(b);}""",{'url':url,'anchor':anchor})
         page.click('#fixture-open');page.wait_for_selector('#jlm-reader[open]')
     def close():
         page.click('[data-jlm-close]');page.wait_for_timeout(80)

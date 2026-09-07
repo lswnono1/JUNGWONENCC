@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+defaults:
+  run:
+    shell: bash
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -18,6 +21,7 @@ jobs:
           node-version: '24'
       - name: Verify immutable bundle integrity and regression tests
         run: |
+          set -euo pipefail
           mkdir -p test-output
           node --check lawmonitor/app-v1.5.3.js
           node --check lawmonitor/app.js
@@ -26,24 +30,38 @@ jobs:
           node --test tests/mobile-links.test.cjs | tee test-output/unit-tests.txt
       - name: Install mobile test drivers and Korean fonts
         run: |
+          set -euo pipefail
           npm install --prefix /tmp/jlm-browser --no-save --ignore-scripts playwright@1.55.0
           python3 -m pip install playwright==1.55.0
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends fonts-noto-cjk
-      - name: Test recovery UI and live official bodies
+      - name: Test nonempty data preservation and legacy error handling
         env:
-          NODE_PATH: /tmp/jlm-browser/node_modules
           CHROME_BIN: /usr/bin/google-chrome
         run: |
+          set -euo pipefail
           python3 -m http.server 8080 >/tmp/http.log 2>&1 &
           pid=$!
           trap 'kill $pid' EXIT
           sleep 1
-          python3 tests/mobile-recovery-browser.py | tee test-output/recovery-ui.txt
+          python3 -u tests/mobile-recovery-browser.py | tee test-output/recovery-ui.txt
+          python3 -c "import json; r=json.load(open('test-output/recovery-results.json')); assert r['passed'] is True and len(r['cases'])==6"
+      - name: Test live official bodies
+        env:
+          NODE_PATH: /tmp/jlm-browser/node_modules
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8080 >/tmp/http-live.log 2>&1 &
+          pid=$!
+          trap 'kill $pid' EXIT
+          sleep 1
           node tests/mobile-reader-browser.cjs | tee test-output/browser-tests.txt
+          grep -q 'MOBILE_READER_BROWSER_PASS' test-output/browser-tests.txt
+          test ! -f test-output/failure.txt
       - name: Verify deployed recovery entry and runtime
         if: github.ref == 'refs/heads/main'
         run: |
+          set -euo pipefail
           python3 - <<'PY'
           import hashlib, json, os, pathlib, subprocess, time
           base='https://lswnono1.github.io/JUNGWONENCC/lawmonitor/'

@@ -16,7 +16,13 @@ fs.mkdirSync('test-output',{recursive:true});
   const results=[];
   async function check(name,spec,expected){
    const before=context.pages().length;
-   await page.evaluate(s=>window.jlmTest.v152OpenReader(s),spec);
+   for(let attempt=1;attempt<=2;attempt++) {
+    await page.evaluate(s=>window.jlmTest.v152OpenReader(s),spec);
+    const retryStatus=await page.locator('#jlm-reader-status').innerText();
+    const retryContent=await page.locator('#jlm-reader-content').innerText();
+    if(retryContent.length>80 || !/시간.*초과|연결|Failed to fetch|NetworkError/i.test(retryStatus) || attempt===2) break;
+    console.log('NETWORK_RETRY',JSON.stringify({name,attempt,status:retryStatus}));
+   }
    const title=await page.locator('#jlm-reader-title').innerText();
    const status=await page.locator('#jlm-reader-status').innerText();
    const content=await page.locator('#jlm-reader-content').innerText();
@@ -41,7 +47,11 @@ fs.mkdirSync('test-output',{recursive:true});
    return page.evaluate(async({kind,query,needle})=>{
     const u=new URL('https://www.law.go.kr/DRF/lawSearch.do');
     Object.entries({OC:'test',target:kind==='법령'?'law':'admrul',type:'JSON',query,display:100,page:1}).forEach(([k,v])=>u.searchParams.set(k,v));
-    const response=await fetch(u,{signal:AbortSignal.timeout(20000)});const payload=await response.json();
+    let payload;
+    for(let attempt=1;attempt<=2;attempt++) {
+      try{const response=await fetch(u,{signal:AbortSignal.timeout(20000)});if(!response.ok)throw Error('Search HTTP '+response.status);payload=await response.json();break;}
+      catch(error){console.log('SEARCH_NETWORK_RETRY',query,attempt,error.message);if(attempt===2)throw error;}
+    }
     const all=[];function walk(v){if(Array.isArray(v))v.forEach(walk);else if(v&&typeof v==='object'){all.push(v);Object.values(v).forEach(walk)}}walk(payload);
     const r=all.find(x=>String(x.법령명한글||x.법령명||x.행정규칙명||'').includes(needle));
     if(!r)throw new Error('No matching official search row: '+query);
@@ -51,7 +61,7 @@ fs.mkdirSync('test-output',{recursive:true});
   await check('fire-law',await search('법령','소방시설 설치 및 관리에 관한 법률 시행령','시행령'),'소방시설');
   await check('fire-admin',await search('행정규칙','옥내소화전설비','NFPC'),'옥내소화전');
   await page.evaluate(()=>window.jlmTest.openUrl('http://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=62505'));
-  await page.waitForFunction(()=>document.querySelector('#jlm-reader-content').innerText.length>80,{timeout:30000});
+  await page.waitForFunction(()=>document.querySelector('#jlm-reader-content').innerText.length>80,null,{timeout:30000});
   assert.equal(context.pages().length,1,'legacy PC link must not open desktop page');
   await page.locator('[data-jlm-close]').click();
   await page.evaluate(()=>{window.jlmTest.state.secrets={lawOc:''};});
