@@ -1,0 +1,74 @@
+name: Verify reported building laws v154
+on:
+  push:
+    branches: [fix/mobile-network-v154]
+    paths: [.github/workflows/verify-building-v154.yml]
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install mobile test driver
+        run: npm install --prefix /tmp/jlm-browser --no-save --ignore-scripts playwright@1.55.0
+      - name: Exercise exact history and appendix stages for screenshot laws
+        env:
+          NODE_PATH: /tmp/jlm-browser/node_modules
+        run: |
+          set -euo pipefail
+          mkdir -p test-output
+          python3 -m http.server 8080 >/tmp/http.log 2>&1 &
+          pid=$!
+          trap 'kill $pid' EXIT
+          sleep 1
+          node <<'JS'
+          const fs=require('fs'),{chromium,devices}=require('playwright');
+          const source=Array.from({length:11},(_,i)=>fs.readFileSync(`lawmonitor/app-core-${i+1}.txt`,'utf8')).join('\n').replace(/^\s*boot\(\);\s*$/gm,'');
+          (async()=>{
+            const b=await chromium.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox']});
+            const rows=[];
+            try {
+              const ctx=await b.newContext({...devices['Pixel 7'],serviceWorkers:'block'}),p=await ctx.newPage();
+              await p.route('**/app-v*.js',r=>r.fulfill({contentType:'application/javascript',body:''}));
+              await p.goto('http://127.0.0.1:8080/lawmonitor/',{waitUntil:'domcontentloaded'});
+              await p.evaluate(text=>(0,eval)(text+'\nwindow.jlm={state,fetchRevisions,fetchAppendices,v152OpenReader};'),source);
+              await p.evaluate(()=>window.jlm.state.secrets={lawOc:'test'});
+              for(const name of ['건축법','건축법 시행령']) {
+                const result=await p.evaluate(async name=>{
+                  const item={kind:'법령',name,id:'live-fixture'},result={name,history:false,appendices:false,body:false};
+                  let history;
+                  try {
+                    history=await window.jlm.fetchRevisions(item);
+                    if(!history.length||history.some(x=>x.name.replace(/\s/g,'')!==name.replace(/\s/g,'')))throw Error('EXACT_NAME_FAILURE');
+                    result.history=true;result.revisions=history.length;result.lawId=history[0].lawId;result.mst=history[0].lawMst;
+                    result.promulgation=history[0].promulgationDate;result.enforcement=history[0].enforcementDate;
+                  }catch(e){result.historyError=e.message;return result;}
+                  try {const a=await window.jlm.fetchAppendices({...item,...history[0]});result.appendices=true;result.appendixCount=a.length;}catch(e){result.appendixError=e.message;}
+                  try {
+                    await window.jlm.v152OpenReader(history[0]);
+                    result.bodyCharacters=document.querySelector('#jlm-reader-content').innerText.length;
+                    result.body=result.bodyCharacters>80;
+                    result.readerStatus=document.querySelector('#jlm-reader-status').innerText;
+                    document.querySelector('[data-jlm-close]').click();
+                  }catch(e){result.bodyError=e.message;}
+                  return result;
+                },name);
+                rows.push(result);console.log(JSON.stringify(result));
+              }
+            } finally {await b.close();}
+            const report={passed:rows.length===2&&rows.every(x=>x.history&&x.appendices&&x.body),mode:'live official public sample OC; isolated mobile browser',userDeviceTested:false,rows};
+            fs.writeFileSync('test-output/building-v154.json',JSON.stringify(report,null,2));
+            if(!report.passed)process.exitCode=1;
+          })().catch(e=>{console.error(e);fs.writeFileSync('test-output/building-failure.txt',e.stack);process.exitCode=1});
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: building-v154-live-evidence
+          path: test-output/
+          retention-days: 7
