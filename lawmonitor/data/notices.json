@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-07T04:44:19.123885+00:00",
+  "generatedAt": "2026-09-07T12:35:49.666099+00:00",
   "range": {
     "from": "2026-03-07",
     "to": "2027-03-07"
@@ -18124,7 +18124,7 @@
       "startDate": "",
       "endDate": "2026-10-19",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330616",
       "announceType": "TYPE5",
       "fileName": "(법령안) 정신건강증진 및 정신질환자 복지서비스 지원에 관한 법률 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11045026/SZILC525YDRRV7P8SRTD",
@@ -19093,7 +19093,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000321922",
       "announceType": "TYPE5",
       "fileName": "(법령안) 선박의 입항 및 출항 등에 관한 법률 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11040274/U3H7XY6PWV9TYI6ZTDIY",
