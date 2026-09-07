@@ -1,0 +1,124 @@
+
+/* v1.5.3: cache-independent entry, guarded legacy routes and redacted diagnostics.
+ * No IndexedDB schema changes, credential migration, database/cache clearing.
+ */
+const V153_VERSION = '1.5.3';
+window.JLM_BUILD = Object.freeze({version:V153_VERSION, mode:'in-app-json', bundled:true});
+
+const v153PriorFetchText = fetchText;
+fetchText = async function(url, timeout) {
+  const raw = await v153PriorFetchText(url, timeout);
+  const u = new URL(url, window.location.href);
+  if (/^(?:www\.)?law\.go\.kr$/i.test(u.hostname) && /\/DRF\/lawService\.do$/i.test(u.pathname) &&
+      u.searchParams.get('type') === 'JSON' && /^\s*</.test(raw) && /기본정보\s*조회\s*실패/.test(raw)) {
+    throw new Error('JLM-153-BASIC: 공식 API가 해당 식별번호의 기본정보를 찾지 못했습니다. 외부 오류 화면은 실행하지 않았습니다.');
+  }
+  return raw;
+};
+
+function v153Name(value) { return cleanText(value || '').replace(/\s/g,''); }
+async function v153SameRevision(spec) {
+  // Recover only an exact named, dated revision. Never silently fall back to current law.
+  const date = v152Date(spec.promulgationDate);
+  if (!spec.name || !/^\d{8}$/.test(date)) return null;
+  const oc = cleanText(state.secrets?.lawOc || '');
+  if (!oc) return null;
+  const admin = spec.kind === '행정규칙', found = new Map();
+  for (let page=1; page<=3; page+=1) {
+    const payload = parsePayload(await fetchText(apiUrl(LAW_URL, {
+      OC:oc,target:admin?'admrul':'law',type:'JSON',query:spec.name,search:1,nw:'1,2,3',display:100,page
+    }),20000));
+    const rows = candidateRecords(payload,['법령명한글','법령명','행정규칙명']);
+    for (const r of rows) {
+      if (v153Name(recordName(r)) !== v153Name(spec.name) || v152Date(first(r,'공포일자','발령일자')) !== date) continue;
+      const lawId = v151Number(first(r,'법령ID'));
+      if (!admin && spec.lawId && !v152EqualId(spec.lawId,lawId)) continue;
+      const seq = v151Number(first(r,admin?'행정규칙일련번호':'법령일련번호','MST'));
+      if (seq) found.set(seq,{...spec,lawMst:admin?'':seq,lawId:admin?'':lawId,adminId:admin?seq:'',promulgationDate:date});
+    }
+    if (rows.length < 100) break;
+    if (page === 3) return null; // Incomplete enumeration is not an unambiguous match.
+  }
+  if (found.size !== 1) return null;
+  const next = [...found.values()][0];
+  if (v152EqualId(admin?next.adminId:next.lawMst,admin?spec.adminId:spec.lawMst)) return null;
+  return next;
+}
+
+const v153PriorOpenReader = v152OpenReader;
+v152OpenReader = async function(spec) {
+  const started=v152Generation+1;
+  await v153PriorOpenReader(spec);
+  if (started !== v152Generation) return;
+  const dialog = $('#jlm-reader');
+  if (!dialog?.open) return;
+  let generation = v152Generation;
+  let status = $('#jlm-reader-status');
+  if (!v152Document && /JLM-153-BASIC/.test(status.textContent)) {
+    try {
+      const repaired = await v153SameRevision(spec);
+      if (generation !== v152Generation || !dialog.open) return;
+      if (repaired) {
+        generation=v152Generation+1;
+        await v153PriorOpenReader(repaired);
+        if (generation !== v152Generation || !dialog.open) return;
+        if (v152Document) {
+          const note=document.createElement('p'); note.className='jlm-note';
+          note.textContent='같은 법령명·공포일의 이력 번호를 다시 확인했습니다. 저장 자료는 변경하지 않았습니다.';
+          $('#jlm-reader-status').appendChild(note);
+        }
+      }
+    } catch (_) { /* Preserve the initial error; do not substitute a different law. */ }
+  }
+  if (generation !== v152Generation || !dialog.open) return;
+  status = $('#jlm-reader-status');
+  const old = dialog.querySelector('[data-jlm-diagnostic]'); if (old) old.remove();
+  if (!v152Document) {
+    const detail=document.createElement('details'); detail.dataset.jlmDiagnostic='1'; detail.open=true;
+    const title=document.createElement('summary'); title.textContent='연결 진단 정보 (인증값 제외)';
+    const text=document.createElement('p'); text.className='jlm-note';
+    const s=v152SelectedSpec || spec;
+    text.textContent=`실행 v${V153_VERSION} / 앱 내부 열람 / ${s.kind || '-'} / ${s.name || '법령명 미확인'} / MST ${s.lawMst || '-'} / ID ${s.adminId || s.lawId || '-'} / 공포일 ${s.promulgationDate || '-'} / 시행일 ${s.enforcementDate || '-'}`;
+    detail.append(title,text);status.appendChild(detail);
+  }
+};
+
+async function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  try {
+    const registration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
+    void registration.update().catch(()=>{});
+  } catch (_) { /* The network app remains usable even when offline caching is unavailable. */ }
+}
+
+function v153RecoveryUrl() { return new URL('./recover-v1.5.3.html',window.location.href).href; }
+function v14InstallUi() {
+  const label='모바일 원문 v1.5.3 · 앱 내부 열람';
+  const managed=$('#page-managed .page-title p'); if(managed) managed.textContent=label;
+  const changes=$('#page-changes .page-title p'); if(changes) changes.textContent='선택한 공포 이력의 본문·부칙·별표를 앱 안에서 확인합니다.';
+  const settings=$('#page-settings .page-title p'); if(settings) settings.textContent=label+' · 저장 자료 유지';
+  for (const gate of ['#login-view .gate-card','#setup-view .gate-card']) {
+    const box=$(gate); if(box && !box.querySelector('[data-jlm-build]')) {
+      const p=document.createElement('p');p.dataset.jlmBuild='1';p.className='muted';p.textContent=label;box.appendChild(p);
+    }
+  }
+  if (!$('#jlm-recovery-card')) {
+    const card=document.createElement('div');card.id='jlm-recovery-card';card.className='card';
+    const title=document.createElement('h3');title.textContent='실행 버전 및 연결 복구';
+    const p=document.createElement('p');p.textContent='v1.5.3 통합 실행본입니다. 복구는 실행 화면만 다시 열며 관리대상·개정이력·API 설정을 삭제하지 않습니다.';
+    const button=document.createElement('button');button.type='button';button.textContent='데이터 유지하고 최신 화면 열기';
+    button.addEventListener('click',()=>window.location.assign(v153RecoveryUrl()));card.append(title,p,button);
+    $('#page-settings')?.appendChild(card);
+  }
+  if (!document.documentElement.dataset.jlmGuard) {
+    document.documentElement.dataset.jlmGuard='1';
+    document.addEventListener('click',(event)=>{
+      const element=event.target?.closest?.('[data-open],a[href]');
+      if (!element || element.hasAttribute('data-jlm-external')) return;
+      const value=element.dataset.open || element.getAttribute('href');
+      let spec;try{spec=v152SpecFromUrl(value);}catch(_){return;}
+      if (!spec) return; // Files, notice pages and unrelated links are not rewritten.
+      event.preventDefault();event.stopImmediatePropagation();void v152OpenReader(spec);
+    },true);
+  }
+}

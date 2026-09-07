@@ -2,7 +2,7 @@ name: Validate PWA
 on:
   push:
     branches: [main]
-    paths: ['lawmonitor/**', 'tests/**', '.github/workflows/validate-pwa.yml']
+    paths: ['lawmonitor/**', 'tests/**', 'scripts/**', '.github/workflows/validate-pwa.yml']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -16,37 +16,39 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '24'
-      - name: Validate syntax and actual combined overrides
+      - name: Verify immutable bundle integrity and regression tests
         run: |
           mkdir -p test-output
+          node --check lawmonitor/app-v1.5.3.js
           node --check lawmonitor/app.js
-          cat lawmonitor/app-core-{1..9}.txt > /tmp/app-core.js
-          node --check /tmp/app-core.js
           node --check lawmonitor/sw.js
-          node -e "JSON.parse(require('fs').readFileSync('lawmonitor/manifest.webmanifest','utf8'))"
+          node -e "const fs=require('fs'),crypto=require('crypto'),r=JSON.parse(fs.readFileSync('lawmonitor/release.json'));if(crypto.createHash('sha256').update(fs.readFileSync('lawmonitor/'+r.bundle)).digest('hex')!==r.sha256)throw Error('Bundle integrity failure')"
           node --test tests/mobile-links.test.cjs | tee test-output/unit-tests.txt
-      - name: Install mobile test driver and Korean display fonts
+      - name: Install mobile test drivers and Korean fonts
         run: |
           npm install --prefix /tmp/jlm-browser --no-save --ignore-scripts playwright@1.55.0
+          python3 -m pip install playwright==1.55.0
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends fonts-noto-cjk
-      - name: Test live official bodies in mobile Chromium
+      - name: Test recovery UI and live official bodies
         env:
           NODE_PATH: /tmp/jlm-browser/node_modules
+          CHROME_BIN: /usr/bin/google-chrome
         run: |
           python3 -m http.server 8080 >/tmp/http.log 2>&1 &
           pid=$!
           trap 'kill $pid' EXIT
           sleep 1
+          python3 tests/mobile-recovery-browser.py | tee test-output/recovery-ui.txt
           node tests/mobile-reader-browser.cjs | tee test-output/browser-tests.txt
-      - name: Verify deployed application files match this commit
+      - name: Verify deployed recovery entry and runtime
         if: github.ref == 'refs/heads/main'
         run: |
           python3 - <<'PY'
           import hashlib, json, os, pathlib, subprocess, time
           base='https://lswnono1.github.io/JUNGWONENCC/lawmonitor/'
           results=[]
-          for name in ('app.js','app-core-9.txt','sw.js','index.html'):
+          for name in ('app.js','app-v1.5.3.js','app-core-10.txt','sw.js','index.html','recover-v1.5.3.html','release.json'):
               expected=pathlib.Path('lawmonitor',name).read_bytes()
               for attempt in range(8):
                   url=base+name+'?verify='+os.environ['GITHUB_SHA']+'&attempt='+str(attempt)
@@ -64,10 +66,11 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: mobile-reader-validation
+          name: mobile-recovery-v153-validation
           path: |
             test-output/
             lawmonitor/
             tests/
-            MOBILE_READER_v1_5_2.md
+            scripts/
+            MOBILE_RECOVERY_v1_5_3.md
           retention-days: 7
