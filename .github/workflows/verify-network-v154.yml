@@ -1,0 +1,103 @@
+name: Verify mobile network v154
+on:
+  push:
+    branches: [fix/mobile-network-v154]
+    paths: [.github/workflows/verify-network-v154.yml]
+permissions:
+  contents: write
+defaults:
+  run:
+    shell: bash
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Apply bounded patches and build reviewed release
+        run: |
+          set -euo pipefail
+          python3 scripts/patch-network-v154.py
+          node scripts/build-mobile-release.cjs
+          node --check lawmonitor/app-v1.5.4.js
+          node --check lawmonitor/sw.js
+          mkdir -p test-output
+          node --test tests/mobile-links.test.cjs tests/mobile-network.test.cjs | tee test-output/unit-v154.txt
+      - name: Install browser and Korean display support
+        run: |
+          set -euo pipefail
+          python3 -m pip install playwright==1.55.0
+          npm install --prefix /tmp/jlm-browser --no-save --ignore-scripts playwright@1.55.0
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+      - name: Extend isolated fixture test to both sync stages and retries
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('tests/mobile-recovery-browser.py');s=p.read_text()
+          s=s.replace("mode={'ambiguous':False}","mode={'ambiguous':False,'appendixFail':False}")
+          old="        if 'lawSearch.do' in u.path:"
+          new="        if q.get('target')==['licbyl']:\n            if mode['appendixFail']: route.abort('failed')\n            else: route.fulfill(headers={'access-control-allow-origin':'*'},json={'LawAppendixSearch':{'totalCnt':'0'}})\n            return\n"+old
+          assert s.count(old)==1;s=s.replace(old,new)
+          old="    browser.close()"
+          new=r'''    mode['ambiguous']=False;mode['appendixFail']=True
+              page.evaluate("""async()=>{const db=await new Promise(ok=>{const r=indexedDB.open('JungwonLawMonitorPWA');r.onsuccess=()=>ok(r.result)});const tx=db.transaction('managed','readwrite');tx.objectStore('managed').put({id:'active-fixture',name:'테스트 법령',kind:'법령',enabled:true,checkStatus:'법령 실패: fixture',lastRevisionDate:'2024-01-01'});await new Promise(ok=>tx.oncomplete=ok);db.close()}""")
+              page.click('[data-page=managed]')
+              page.click('#jlm-v154-retry button')
+              page.wait_for_function("document.querySelector('#managed-list').innerText.includes('개정이력 정상 · 별표 실패')",timeout=30000)
+              assert 'NET_FETCH' in page.inner_text('#managed-list')
+              page.screenshot(path='test-output/v154-stage-error.png')
+              mode['appendixFail']=False
+              page.click('#jlm-v154-retry button')
+              page.wait_for_function("document.querySelector('#managed-list').innerText.includes('개정이력 정상 · 별표 정상')",timeout=30000)
+              page.screenshot(path='test-output/v154-sync-success.png')
+              results.append('Actual mobile sync preserves successful history on appendix failure and failed-only retry recovers it')
+              browser.close()'''
+          new='\n'.join(line[10:] if line.startswith('          ') else line for line in new.splitlines())
+          assert s.count(old)==1;s=s.replace(old,new);p.write_text(s)
+          PY
+      - name: Require successful mobile UI and nonempty DB preservation
+        env:
+          CHROME_BIN: /usr/bin/google-chrome
+        run: |
+          set -euo pipefail
+          python3 -u tests/mobile-recovery-browser.py | tee test-output/ui-v154.txt
+          python3 -c "import json;r=json.load(open('test-output/recovery-results.json'));assert r['passed'] is True and len(r['cases'])==7"
+      - name: Record live API verification separately from mocked tests
+        env:
+          NODE_PATH: /tmp/jlm-browser/node_modules
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8080 >/tmp/http.log 2>&1 &
+          pid=$!
+          trap 'kill $pid' EXIT
+          sleep 1
+          if timeout 180 node tests/mobile-reader-browser.cjs >test-output/live-v154.txt 2>&1; then
+            echo '{"passed":true,"mode":"live-public-sample-OC","userDeviceTested":false}' >test-output/live-status.json
+          else
+            echo '{"passed":false,"mode":"live-public-sample-OC","userDeviceTested":false,"detail":"See live-v154.txt. External API connectivity is not certified."}' >test-output/live-status.json
+          fi
+          cat test-output/live-status.json
+      - name: Save tested changes to repair branch only
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add lawmonitor scripts/build-mobile-release.cjs tests/mobile-links.test.cjs tests/mobile-reader-browser.cjs tests/mobile-recovery-browser.py
+          git commit -m 'build: v1.5.4 with isolated regression evidence; live outcome recorded separately'
+          git push origin HEAD:fix/mobile-network-v154
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-network-v154-evidence
+          path: |
+            lawmonitor/
+            tests/
+            scripts/
+            diagnostics/
+            test-output/
+          retention-days: 7
