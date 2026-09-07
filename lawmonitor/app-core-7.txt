@@ -65,16 +65,17 @@ async function testOfficialApis() {
   setBusy(button,false);
 }
 
-async function syncNow() {
+async function syncNow(options = {}) {
   if (state.syncing) return toast('이미 동기화 중입니다.');
   if (!navigator.onLine) return toast('인터넷 연결을 확인하세요.');
   if (!state.secrets?.lawOc) return toast('설정에서 API OC를 입력하세요.');
   state.syncing = true;
-  const items = (await managedRows()).filter((row) => row.enabled);
-  if (!items.length) { state.syncing = false; return toast('활성 관리대상이 없습니다.'); }
+  const items = (await managedRows()).filter((row) => row.enabled && (!options.failedOnly || /실패|미확인|부분|중계/.test(row.checkStatus || '미확인')));
+  if (!items.length) { state.syncing = false; return toast(options.failedOnly ? '재조회할 실패 항목이 없습니다.' : '활성 관리대상이 없습니다.'); }
 
   let lawFailures = 0;
   let noticeFailures = 0;
+  let appendixFailures = 0;
   let newChanges = 0;
   let newNotices = 0;
   let relayError = '';
@@ -87,6 +88,9 @@ async function syncNow() {
       const item = items[index];
       const base = index / items.length * 100;
       let lawStatus = '정상';
+      let appendixStatus = '미확인';
+      let appendixOk = false;
+      let revisionsOk = false;
       let noticeStatus = relayError ? '입법예고 중계 미설정' : '정상';
       let revisions = [];
 
@@ -107,7 +111,18 @@ async function syncNow() {
           }
         }
 
-        const appendices = await fetchAppendices(item);
+        revisionsOk = true;
+      } catch (error) {
+        lawFailures += 1;
+        lawStatus = `개정이력 실패: ${cleanText(error.message).slice(0,180)}`;
+        await addLog('개정이력 실패',`${item.name}: ${error.message}`);
+      }
+
+      if (revisionsOk) try {
+        renderSync(true,`${item.name} 별표 확인`,base + 5);
+        const appendices = await fetchAppendices({...item,...revisions[0]});
+        appendixStatus = '정상';
+        appendixOk = true;
         if (appendices.length && revisions.length) {
           const byDate = new Map();
           revisions.forEach((row) => {
@@ -115,7 +130,8 @@ async function syncNow() {
             if (!byDate.has(key)) byDate.set(key,row.eventKey);
           });
           for (const appendix of appendices) {
-            const eventKey = byDate.get(appendix.revisionDate) || revisions[0].eventKey;
+            const eventKey = byDate.get(appendix.revisionDate);
+            if (!eventKey) continue; // No inferred attachment of an undated appendix to another revision.
             const change = await dbGet('changes',eventKey);
             if (!change) continue;
             const map = new Map((change.appendices || []).map((entry) => [entry.appendixKey,entry]));
@@ -124,9 +140,9 @@ async function syncNow() {
           }
         }
       } catch (error) {
-        lawFailures += 1;
-        lawStatus = `법령 실패: ${cleanText(error.message).slice(0,80)}`;
-        await addLog('법령 실패',`${item.name}: ${error.message}`);
+        appendixFailures += 1;
+        appendixStatus = `별표 실패: ${cleanText(error.message).slice(0,180)}`;
+        await addLog('별표 실패',`${item.name}: ${error.message}`);
       }
 
       renderSync(true,`${item.name} 입법예고 확인`,base + 8);
@@ -150,10 +166,8 @@ async function syncNow() {
         }
       }
 
-      const latest = revisions[0] || {};
-      const checkStatus = lawStatus === '정상'
-        ? (noticeStatus === '정상' ? '정상' : `법령 정상 · ${noticeStatus}`)
-        : lawStatus;
+      const latest = revisionsOk ? revisions[0] || {} : {};
+      const checkStatus = [lawStatus === '정상' ? '개정이력 정상' : lawStatus, appendixStatus === '정상' ? '별표 정상' : appendixStatus === '미확인' ? '별표 미확인' : appendixStatus, noticeStatus === '정상' ? '' : noticeStatus].filter(Boolean).join(' · ');
       await dbPut('managed',{
         ...item,
         lawId:latest.lawId || item.lawId || '',
@@ -166,7 +180,9 @@ async function syncNow() {
         lastRevisionDate:latest.promulgationDate || item.lastRevisionDate || '',
         lastEnforcementDate:latest.enforcementDate || item.lastEnforcementDate || '',
         lastCheckedAt:new Date().toISOString(),
-        lastNoticeCheckedAt:relayError ? item.lastNoticeCheckedAt || '' : new Date().toISOString(),
+        lastRevisionSuccessAt:revisionsOk ? new Date().toISOString() : item.lastRevisionSuccessAt || '',
+        lastAppendixSuccessAt:appendixOk ? new Date().toISOString() : item.lastAppendixSuccessAt || '',
+        lastNoticeCheckedAt:noticeStatus === '정상' ? new Date().toISOString() : item.lastNoticeCheckedAt || '',
         checkStatus,
         updatedAt:new Date().toISOString(),
       });
@@ -176,8 +192,8 @@ async function syncNow() {
     const now = new Date().toISOString();
     await setMeta('lastSync',now);
     if (relayError) await addLog('입법예고 중계',relayError);
-    await addLog(lawFailures || noticeFailures || relayError ? '부분완료':'완료',`관리대상 ${items.length}건 · 신규 개정 ${newChanges}건 · 신규 입법예고 ${newNotices}건 · 법령 실패 ${lawFailures}건 · 입법예고 실패 ${noticeFailures}건`);
-    toast(relayError ? '법령 동기화 완료 · 입법예고 중계 설정 필요' : `동기화 완료 · 신규 개정 ${newChanges}건 · 신규 입법예고 ${newNotices}건`,4200);
+    await addLog(lawFailures || appendixFailures || noticeFailures || relayError ? '부분완료':'완료',`관리대상 ${items.length}건 · 신규 개정 ${newChanges}건 · 신규 입법예고 ${newNotices}건 · 개정이력 실패 ${lawFailures}건 · 별표 실패 ${appendixFailures}건 · 입법예고 실패 ${noticeFailures}건`);
+    toast(lawFailures || appendixFailures || noticeFailures || relayError ? `부분 완료 · 이력 실패 ${lawFailures}건 · 별표 실패 ${appendixFailures}건 · 예고 ${relayError ? '미확인' : noticeFailures+'건 실패'}` : `동기화 완료 · 신규 개정 ${newChanges}건 · 신규 입법예고 ${newNotices}건`,5000);
   } finally {
     state.syncing = false;
     renderSync(false,'',0);

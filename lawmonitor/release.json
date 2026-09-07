@@ -1,6 +1,6 @@
 {
-  "version": "1.5.3",
-  "bundle": "app-v1.5.3.js",
-  "sha256": "4511857517fe1ab566735da0138d48703d7f3e4892e37150ea6f90f439b7e5d9",
+  "version": "1.5.4",
+  "bundle": "app-v1.5.4.js",
+  "sha256": "9c4a8969baba71a69f0b8d5d2fbfd771bc0d57456eae4a89441aaa246f66d40b",
   "mode": "in-app-json"
 }

@@ -2,7 +2,7 @@
 /* v1.5.3: cache-independent entry, guarded legacy routes and redacted diagnostics.
  * No IndexedDB schema changes, credential migration, database/cache clearing.
  */
-const V153_VERSION = '1.5.3';
+const V153_VERSION = '1.5.4';
 window.JLM_BUILD = Object.freeze({version:V153_VERSION, mode:'in-app-json', bundled:true});
 
 const v153PriorFetchText = fetchText;

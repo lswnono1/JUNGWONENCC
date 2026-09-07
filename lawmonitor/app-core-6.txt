@@ -128,45 +128,40 @@ async function searchCatalog(query, kind = '전체') {
 }
 
 async function fetchRevisions(item) {
-  const oc = state.secrets?.lawOc;
-  if (!oc) throw new Error('국가법령정보 API OC가 없습니다.');
-  const target = item.kind === '행정규칙' ? 'admrul' : 'eflaw';
-  const rows = [];
-  const seen = new Set();
-
-  for (let page = 1; page <= 50; page += 1) {
-    const params = {OC:oc,target,type:'JSON',query:item.name,display:100,page,sort:'ddes'};
-    if (item.kind !== '행정규칙') { params.search = 1; params.nw = '1,2,3'; }
-    const payload = parsePayload(await fetchText(apiUrl(LAW_URL, params)));
-    const records = candidateRecords(payload, ['법령명','행정규칙명','법령ID','법령일련번호','공포일자','발령일자']);
-    let added = 0;
-
-    for (const record of records) {
-      const candidate = recordName(record);
-      if (matchScore(item.name,candidate) < 78) continue;
-      const lawId = first(record,'법령ID','법령아이디') || item.lawId || '';
-      const lawMst = first(record,'법령일련번호','MST') || item.lawMst || '';
-      const adminId = first(record,'행정규칙일련번호','행정규칙ID') || item.adminId || '';
-      const sourceId = item.kind === '행정규칙' ? (adminId || item.sourceId || '') : (lawId || lawMst || item.sourceId || '');
-      const promulgationDate = normalizeDate(first(record,'공포일자','발령일자','개정일자','promulgationDate'));
-      const enforcementDate = normalizeDate(first(record,'시행일자','효력일자','enforcementDate'));
-      const revisionType = first(record,'제개정구분명','제개정구분','개정구분','revisionType') || '구분미상';
-      const name = candidate || item.name;
-      const eventKey = [item.kind,lawMst || sourceId || name,promulgationDate || '날짜미상',revisionType].join(':');
-      if (seen.has(eventKey)) continue;
-      seen.add(eventKey); added += 1;
-      const row = {
-        eventKey,managedId:item.id,kind:item.kind,name,sourceId,lawId,lawMst,adminId,
-        revisionType,promulgationDate,enforcementDate,
-        ministry:first(record,'소관부처명','소관부처','부처명','ministry'),appendices:[]
-      };
-      row.officialUrl = v14MobileLawUrl(row,{date:promulgationDate});
-      rows.push(row);
+  const oc=state.secrets?.lawOc;
+  if(!oc)throw v154Error('API_OC','국가법령정보 API OC가 없습니다.');
+  const admin=item.kind==='행정규칙', target=admin?'admrul':'eflaw';
+  const lawIdentity=await v154LawIdentity(item),rows=[],seen=new Set();
+  let scanned=0;
+  for(let page=1;page<=50;page++) {
+    const params={OC:oc,target,type:'JSON',query:item.name,display:100,page,sort:'ddes',search:1};
+    if(!admin){params.nw='1,2,3';params.LID=lawIdentity;}
+    const result=v154SearchResult(parsePayload(await fetchText(apiUrl(LAW_URL,params))),['법령명한글','법령명','행정규칙명']);
+    const records=result.rows;scanned+=records.length;
+    let added=0;
+    for(const record of records) {
+      const name=recordName(record);
+      if(!v154SameName(item.name,name))continue;
+      const lawId=admin?'':v151Number(first(record,'법령ID'));
+      if(!admin&&!v152EqualId(lawId,lawIdentity))continue;
+      const lawMst=admin?'':v151Number(first(record,'법령일련번호','MST'));
+      const adminId=admin?v151Number(first(record,'행정규칙일련번호')):'';
+      if(!(admin?adminId:lawMst))continue;
+      const sourceId=admin?adminId:lawId;
+      const promulgationDate=normalizeDate(first(record,'공포일자','발령일자'));
+      const enforcementDate=normalizeDate(first(record,'시행일자','효력일자'));
+      const revisionType=first(record,'제개정구분명','제개정구분','개정구분')||'구분미상';
+      const eventKey=[item.kind,lawMst||sourceId||name,promulgationDate||'날짜미상',revisionType].join(':');
+      if(seen.has(eventKey))continue;
+      seen.add(eventKey);added++;
+      const row={eventKey,managedId:item.id,kind:item.kind,name,sourceId,lawId,lawMst,adminId,revisionType,promulgationDate,enforcementDate,ministry:first(record,'소관부처명','소관부처','부처명'),appendices:[]};
+      row.officialUrl=v14MobileLawUrl(row,{date:promulgationDate});rows.push(row);
     }
-    if ((page > 1 && added === 0) || records.length < 100) break;
+    if(scanned>=result.total)break;
+    if(!records.length || (page>1&&!added&& !admin) || page===50)throw v154Error('HISTORY_INCOMPLETE','개정이력 전체 페이지를 확인하지 못했습니다. 기존 이력은 유지했습니다.');
   }
-
-  rows.sort((a,b) => (b.promulgationDate || '').localeCompare(a.promulgationDate || '') || (b.enforcementDate || '').localeCompare(a.enforcementDate || ''));
+  if(!rows.length)throw v154Error('HISTORY_NO_MATCH','선택한 법령과 정확히 일치하는 개정이력을 찾지 못했습니다.');
+  rows.sort((a,b)=>(b.promulgationDate||'').localeCompare(a.promulgationDate||'')||(b.enforcementDate||'').localeCompare(a.enforcementDate||''));
   return rows;
 }
 
@@ -181,7 +176,9 @@ async function fetchAppendices(item) {
     const payload = parsePayload(await fetchText(apiUrl(LAW_URL, {
       OC:oc,target,type:'JSON',mobileYn:'Y',search:2,query:item.name,display:100,page,sort:'lasc'
     })));
-    const records = candidateRecords(payload,['별표명','별표서식명','별표일련번호','별표서식일련번호']);
+    const result = v154SearchResult(payload,['별표명','별표서식명','별표일련번호','별표서식일련번호']);
+    const records = result.rows;
+    if (!records.length && result.total > 0) throw v154Error('APPENDIX_FORMAT','별표 목록의 형식을 확인하지 못했습니다.');
     let added = 0;
 
     for (const record of records) {
