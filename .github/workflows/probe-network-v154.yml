@@ -1,0 +1,69 @@
+name: Probe mobile network v154
+on:
+  push:
+    branches: [fix/mobile-network-v154]
+    paths: [.github/workflows/probe-network-v154.yml]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install browser test driver
+        run: npm install --prefix /tmp/jlm-browser --no-save --ignore-scripts playwright@1.55.0
+      - name: Probe exact mobile sync requests without user credentials
+        env:
+          NODE_PATH: /tmp/jlm-browser/node_modules
+        run: |
+          set -euo pipefail
+          mkdir -p diagnostics
+          node <<'JS'
+          const fs=require('fs'),{chromium,devices}=require('playwright');
+          (async()=>{
+            const b=await chromium.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox']});
+            try {
+              const c=await b.newContext({...devices['Pixel 7'],serviceWorkers:'block'});
+              const p=await c.newPage();
+              await p.goto('https://lswnono1.github.io/JUNGWONENCC/lawmonitor/',{waitUntil:'domcontentloaded'});
+              const results=[];
+              for(const query of ['건축법','건축법 시행령','건축물의 피난ㆍ방화구조 등의 기준에 관한 규칙']) {
+                let lid='';
+                for(const [target,host,filtered] of [['eflaw','www.law.go.kr',false],['eflaw','law.go.kr',true],['licbyl','www.law.go.kr',false]]) {
+                  const u=new URL('https://'+host+'/DRF/lawSearch.do');
+                  const params={OC:'test',target,type:'JSON',query,display:100,page:1,sort:target==='eflaw'?'ddes':'lasc',search:target==='eflaw'?1:2};
+                  if(target==='eflaw')params.nw='1,2,3';else params.mobileYn='Y';
+                  if(filtered&&lid)params.LID=lid;
+                  for(const [k,v] of Object.entries(params))u.searchParams.set(k,v);
+                  const r=await p.evaluate(async url=>{
+                    const started=performance.now();
+                    try {
+                      const response=await fetch(url,{cache:'no-store',credentials:'omit',signal:AbortSignal.timeout(18000)});
+                      const raw=await response.text();let j=null;try{j=JSON.parse(raw)}catch(_){}
+                      const roots=j?Object.keys(j):[];let root=j?.LawSearch||j?.lawSearch||j?.LicBylSearch||Object.values(j||{})[0];
+                      const rows=root?.law||root?.licbyl||root?.byl||[];
+                      return {status:response.status,ms:Math.round(performance.now()-started),bytes:raw.length,roots,total:root?.totalCnt,records:Array.isArray(rows)?rows.length:rows?1:0,sample:(Array.isArray(rows)?rows:[rows]).filter(Boolean).slice(0,3).map(x=>({name:x.법령명한글||x.법령명,lawId:x.법령ID,mst:x.법령일련번호})),error:j?'':raw.slice(0,250)};
+                    }catch(e){return{error:e.name+': '+e.message,ms:Math.round(performance.now()-started)}}
+                  },u.href);
+                  if(target==='eflaw'&&r.sample)lid=r.sample.find(x=>x.name===query)?.lawId||lid;
+                  results.push({query,target,host,filtered,...r});
+                  await p.waitForTimeout(350);
+                }
+              }
+              fs.writeFileSync('diagnostics/network-v154.json',JSON.stringify(results,null,2));
+              console.log(JSON.stringify(results,null,2));
+            } finally {await b.close()}
+          })().catch(e=>{console.error(e);process.exitCode=1});
+          JS
+      - name: Save probe evidence only on repair branch
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add diagnostics/network-v154.json
+          git commit -m 'test: record isolated browser network evidence (public sample OC only)'
+          git push origin HEAD:fix/mobile-network-v154
