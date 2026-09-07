@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-07T12:35:49.666099+00:00",
+  "generatedAt": "2026-09-07T21:32:25.826459+00:00",
   "range": {
     "from": "2026-03-07",
     "to": "2027-03-07"
@@ -500,6 +500,23 @@
       "fileName": "행정권한의 위임 및 위탁에 관한 규정 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10796410/Q3J6E4RM5GJMWTF9YF2A",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86738"
+    },
+    {
+      "noticeKey": "notice:87876:날짜미상",
+      "sequence": "87876",
+      "title": "핵추진잠수함의 획득ㆍ운영 및 안전관리 등에 관한 특별법 제정안 입법예고",
+      "lawClass": "법률",
+      "ministry": "국방부",
+      "noticeNo": "2026-4205",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 핵추진잠수함의 획득ㆍ운영 및 안전관리 등에 관한 특별법 제정(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10953772/5SHK0WLD1EWLV7UT69QZ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87876"
     },
     {
       "noticeKey": "notice:86730:날짜미상",
@@ -1979,6 +1996,23 @@
       "fileName": "(법령안) 출입국관리법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10860386/A8ML1ULKV470E9L1DDD3",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87224"
+    },
+    {
+      "noticeKey": "notice:88182:날짜미상",
+      "sequence": "88182",
+      "title": "출입국관리법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "법무부",
+      "noticeNo": "2026-320",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 출입국관리법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11001642/ZW56PZKJZKW08YDIHY76",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88182"
     },
     {
       "noticeKey": "notice:85974:날짜미상",
@@ -3834,6 +3868,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85930"
     },
     {
+      "noticeKey": "notice:87828:날짜미상",
+      "sequence": "87828",
+      "title": "제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-942",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329216",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10951974/H1Y14GRLHUQW37S7MLOI",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87828"
+    },
+    {
       "noticeKey": "notice:87116:날짜미상",
       "sequence": "87116",
       "title": "제주4·3사건 진상규명 및 희생자 명예회복에 관한 특별법 시행령 일부개정령안 입법예고",
@@ -4376,6 +4427,23 @@
       "fileName": "(법령안) 전세사기피해자 지원 및 주거안정에 관한 특별법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10863176/4QQKMPINQSW2YBVIJKHU",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87234"
+    },
+    {
+      "noticeKey": "notice:87836:날짜미상",
+      "sequence": "87836",
+      "title": "전북특별자치도 설치 및 글로벌생명경제도시 조성을 위한 특별법 시행령 일부개정령안 입법예고",
+      "lawClass": "법률",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-935",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329174",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 전북특별자치도 설치 및 글로벌생명경제도시 조성을 위한 특별법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10952000/GDZ9PO7UB67C5DVJ5QKU",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87836"
     },
     {
       "noticeKey": "notice:86668:날짜미상",
@@ -7710,6 +7778,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86526"
     },
     {
+      "noticeKey": "notice:87834:날짜미상",
+      "sequence": "87834",
+      "title": "세종특별자치시지원위원회 등의 설치·운영 등에 관한 규정 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-943",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329186",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 세종특별자치시지원위원회 등의 설치·운영 등에 관한 규정 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10952022/O7NP7D4PASD97IK72C6Z",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87834"
+    },
+    {
       "noticeKey": "notice:87470:날짜미상",
       "sequence": "87470",
       "title": "성평등가족부 직제 시행규칙 일부개정령안 입법예고",
@@ -8167,6 +8252,23 @@
       "fileName": "(법령안) 상수원관리규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10807346/KAH5DAAM5Z57334BMMJ6",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86860"
+    },
+    {
+      "noticeKey": "notice:87820:날짜미상",
+      "sequence": "87820",
+      "title": "상수원관리규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "기후에너지환경부",
+      "noticeNo": "2026-726",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 상수원관리규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10943212/OKF2JPVUGNGX548VMMK3",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87820"
     },
     {
       "noticeKey": "notice:87938:날짜미상",
@@ -8645,6 +8747,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87332"
     },
     {
+      "noticeKey": "notice:87824:날짜미상",
+      "sequence": "87824",
+      "title": "산림자원의 조성 및 관리에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "산림청",
+      "noticeNo": "2026-339",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 산림자원의 조성 및 관리에 관한 법률 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10945530/QFW4ZW742GAB1MHSL6QD",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87824"
+    },
+    {
       "noticeKey": "notice:87306:날짜미상",
       "sequence": "87306",
       "title": "산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
@@ -8660,6 +8779,23 @@
       "fileName": "(법령안) 산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10871092/U2V4SMCTLG1G5ECF70WO",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87306"
+    },
+    {
+      "noticeKey": "notice:87792:날짜미상",
+      "sequence": "87792",
+      "title": "산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "산림청",
+      "noticeNo": "2026-340",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10945508/H2K2W2BE28AE3FT0V5TU",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87792"
     },
     {
       "noticeKey": "notice:87408:날짜미상",
@@ -14697,6 +14833,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87112"
     },
     {
+      "noticeKey": "notice:87826:날짜미상",
+      "sequence": "87826",
+      "title": "교과용 도서에 관한 규정 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "교육부",
+      "noticeNo": "2026-301",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 교과용 도서에 관한 규정 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10943354/SCZT3MCR88MVMZMV81PT",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87826"
+    },
+    {
       "noticeKey": "notice:85922:날짜미상",
       "sequence": "85922",
       "title": "관세청과 그 소속기관 직제 일부개정령안 입법예고",
@@ -16635,6 +16788,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86246"
     },
     {
+      "noticeKey": "notice:88136:날짜미상",
+      "sequence": "88136",
+      "title": "건축물관리법 시행령 일부개정령안 재입법예고",
+      "lawClass": "대통령령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-1066",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 건축물관리법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10991792/C7URYG2AD5GQV8I45I41",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88136"
+    },
+    {
       "noticeKey": "notice:86326:날짜미상",
       "sequence": "86326",
       "title": "건축물관리법 시행령 일부개정령안 입법예고",
@@ -16992,6 +17162,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86664"
     },
     {
+      "noticeKey": "notice:87830:날짜미상",
+      "sequence": "87830",
+      "title": "강원특별자치도 설치 및 미래산업글로벌도시 조성을 위한 특별법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-934",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329132",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 강원특별자치도 설치 및 미래산업글로벌도시 조성을 위한 특별법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10951896/L0EIJAA8QDKZ2LT9XLSP",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87830"
+    },
+    {
       "noticeKey": "notice:85858:날짜미상",
       "sequence": "85858",
       "title": "감염병의 예방 및 관리에 관한 법률 시행령 개정령안 입법예고",
@@ -17298,23 +17485,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88098"
     },
     {
-      "noticeKey": "notice:87876:날짜미상",
-      "sequence": "87876",
-      "title": "[진행]핵추진잠수함의 획득ㆍ운영 및 안전관리 등에 관한 특별법 제정안 입법예고",
-      "lawClass": "법률",
-      "ministry": "국방부",
-      "noticeNo": "2026-4205",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 핵추진잠수함의 획득ㆍ운영 및 안전관리 등에 관한 특별법 제정(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10953772/5SHK0WLD1EWLV7UT69QZ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87876"
-    },
-    {
       "noticeKey": "notice:88176:날짜미상",
       "sequence": "88176",
       "title": "[진행]해운법 시행규칙 일부개정령안 입법예고",
@@ -17551,23 +17721,6 @@
       "fileName": "(법령안) 토양환경보전법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10958760/IEWUESV45DDPR3OYPIDV",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87862"
-    },
-    {
-      "noticeKey": "notice:88182:날짜미상",
-      "sequence": "88182",
-      "title": "[진행]출입국관리법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "법무부",
-      "noticeNo": "2026-320",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 출입국관리법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11001642/ZW56PZKJZKW08YDIHY76",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88182"
     },
     {
       "noticeKey": "notice:88080:날짜미상",
@@ -18097,23 +18250,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88022"
     },
     {
-      "noticeKey": "notice:87828:날짜미상",
-      "sequence": "87828",
-      "title": "[진행]제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-942",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329216",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10951974/H1Y14GRLHUQW37S7MLOI",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87828"
-    },
-    {
       "noticeKey": "notice:88348:날짜미상",
       "sequence": "88348",
       "title": "[진행]정신건강증진 및 정신질환자 복지서비스 지원에 관한 법률 시행령 일부개정령안 입법예고",
@@ -18146,23 +18282,6 @@
       "fileName": "(법령안) 정부 표창 규정 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11035756/B443XXZD9S4L7ORJE30I",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88364"
-    },
-    {
-      "noticeKey": "notice:87836:날짜미상",
-      "sequence": "87836",
-      "title": "[진행]전북특별자치도 설치 및 글로벌생명경제도시 조성을 위한 특별법 시행령 일부개정령안 입법예고",
-      "lawClass": "법률",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-935",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329174",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 전북특별자치도 설치 및 글로벌생명경제도시 조성을 위한 특별법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10952000/GDZ9PO7UB67C5DVJ5QKU",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87836"
     },
     {
       "noticeKey": "notice:88298:날짜미상",
@@ -19032,23 +19151,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88010"
     },
     {
-      "noticeKey": "notice:87834:날짜미상",
-      "sequence": "87834",
-      "title": "[진행]세종특별자치시지원위원회 등의 설치·운영 등에 관한 규정 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-943",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329186",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 세종특별자치시지원위원회 등의 설치·운영 등에 관한 규정 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10952022/O7NP7D4PASD97IK72C6Z",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87834"
-    },
-    {
       "noticeKey": "notice:88340:날짜미상",
       "sequence": "88340",
       "title": "[진행]성평등가족부 직제 일부개정령안 입법예고",
@@ -19117,23 +19219,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88362"
     },
     {
-      "noticeKey": "notice:87820:날짜미상",
-      "sequence": "87820",
-      "title": "[진행]상수원관리규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-726",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 상수원관리규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10943212/OKF2JPVUGNGX548VMMK3",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87820"
-    },
-    {
       "noticeKey": "notice:88016:날짜미상",
       "sequence": "88016",
       "title": "[진행]상속세 및 증여세법 시행령 일부개정령안 입법예고",
@@ -19200,40 +19285,6 @@
       "fileName": "(법령안) 산림재난방지법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11040592/YWUAE1NU7EB9EF9MMAT2",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88388"
-    },
-    {
-      "noticeKey": "notice:87824:날짜미상",
-      "sequence": "87824",
-      "title": "[진행]산림자원의 조성 및 관리에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "산림청",
-      "noticeNo": "2026-339",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 산림자원의 조성 및 관리에 관한 법률 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10945530/QFW4ZW742GAB1MHSL6QD",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87824"
-    },
-    {
-      "noticeKey": "notice:87792:날짜미상",
-      "sequence": "87792",
-      "title": "[진행]산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "산림청",
-      "noticeNo": "2026-340",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 산림자원의 조성 및 관리에 관한 법률 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10945508/H2K2W2BE28AE3FT0V5TU",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87792"
     },
     {
       "noticeKey": "notice:88248:날짜미상",
@@ -20188,23 +20239,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87878"
     },
     {
-      "noticeKey": "notice:87826:날짜미상",
-      "sequence": "87826",
-      "title": "[진행]교과용 도서에 관한 규정 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "교육부",
-      "noticeNo": "2026-301",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 교과용 도서에 관한 규정 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10943354/SCZT3MCR88MVMZMV81PT",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87826"
-    },
-    {
       "noticeKey": "notice:88236:날짜미상",
       "sequence": "88236",
       "title": "[진행]관광진흥법 시행령 일부개정령안 입법예고",
@@ -20443,23 +20477,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87892"
     },
     {
-      "noticeKey": "notice:88136:날짜미상",
-      "sequence": "88136",
-      "title": "[진행]건축물관리법 시행령 일부개정령안 재입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-1066",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 건축물관리법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10991792/C7URYG2AD5GQV8I45I41",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88136"
-    },
-    {
       "noticeKey": "notice:88028:날짜미상",
       "sequence": "88028",
       "title": "[진행]건설기계관리법 시행규칙 일부개정령안 입법예고",
@@ -20492,23 +20509,6 @@
       "fileName": "(법령안) 개발제한구역의 지정 및 관리에 관한 특별조치법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11032178/3H20L5LGIAXBSP0R0T47",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88358"
-    },
-    {
-      "noticeKey": "notice:87830:날짜미상",
-      "sequence": "87830",
-      "title": "[진행]강원특별자치도 설치 및 미래산업글로벌도시 조성을 위한 특별법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-934",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329132",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 강원특별자치도 설치 및 미래산업글로벌도시 조성을 위한 특별법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10951896/L0EIJAA8QDKZ2LT9XLSP",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87830"
     },
     {
       "noticeKey": "notice:87886:날짜미상",
