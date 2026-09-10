@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-10T11:22:22.587226+00:00",
+  "generatedAt": "2026-09-10T16:26:15.998154+00:00",
   "range": {
     "from": "2026-03-10",
     "to": "2027-03-10"
@@ -704,6 +704,23 @@
       "fileName": "(법령안) 해양수산부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10973350/DOPC3ACDGLE0N7WNS3SP",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87990"
+    },
+    {
+      "noticeKey": "notice:88360:날짜미상",
+      "sequence": "88360",
+      "title": "해양수산부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "해양수산부",
+      "noticeNo": "2026-1292",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 해양수산부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11034590/W7TCRA7UWES1N8WFY739",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88360"
     },
     {
       "noticeKey": "notice:87982:날짜미상",
@@ -3645,6 +3662,23 @@
       "fileName": "(법령안) 종합부동산세법 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10965190/R5CC3NEX2EJ5EY48EAH5",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87936"
+    },
+    {
+      "noticeKey": "notice:88014:날짜미상",
+      "sequence": "88014",
+      "title": "종합부동산세법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-224",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 종합부동산세법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10976220/6X0DUHX7KY3GF25NHFPT",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88014"
     },
     {
       "noticeKey": "notice:87946:날짜미상",
@@ -7914,6 +7948,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86300"
     },
     {
+      "noticeKey": "notice:88010:날짜미상",
+      "sequence": "88010",
+      "title": "소득세법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-222",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 소득세법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974926/B0I0N6AFWXWFZB85RGPL",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88010"
+    },
+    {
       "noticeKey": "notice:85924:날짜미상",
       "sequence": "85924",
       "title": "소득세법 시행규칙 일부개정령안 재입법예고",
@@ -8473,6 +8524,23 @@
       "fileName": "(법령안) 상속세 및 증여세법 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10964986/YQYMRWSZW1UAAQI7Y014",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87938"
+    },
+    {
+      "noticeKey": "notice:88016:날짜미상",
+      "sequence": "88016",
+      "title": "상속세 및 증여세법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-225",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329610",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 상속세 및 증여세법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974956/BXX0I1TSW5NH7O3UF7IU",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88016"
     },
     {
       "noticeKey": "notice:86866:날짜미상",
@@ -9782,6 +9850,23 @@
       "fileName": "(법령안) 법인세법 일부개정법률(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10963718/7W7QVONCBGK51E69TWV2",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87940"
+    },
+    {
+      "noticeKey": "notice:88012:날짜미상",
+      "sequence": "88012",
+      "title": "법인세법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-223",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 법인세법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974920/JWS7AI2CICOPPZ3JYCIW",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88012"
     },
     {
       "noticeKey": "notice:86522:날짜미상",
@@ -17859,23 +17944,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88220"
     },
     {
-      "noticeKey": "notice:88360:날짜미상",
-      "sequence": "88360",
-      "title": "[진행]해양수산부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "해양수산부",
-      "noticeNo": "2026-1292",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 해양수산부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11034590/W7TCRA7UWES1N8WFY739",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88360"
-    },
-    {
       "noticeKey": "notice:88144:날짜미상",
       "sequence": "88144",
       "title": "[진행]해양생태계의 보전 및 관리에 관한 법률 일부개정법률안 입법예고",
@@ -18571,23 +18639,6 @@
       "fileName": "(법령안) 주택법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10989672/Y96RMZ6UG7C9H39J86MF",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88126"
-    },
-    {
-      "noticeKey": "notice:88014:날짜미상",
-      "sequence": "88014",
-      "title": "[진행]종합부동산세법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-224",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 종합부동산세법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10976220/6X0DUHX7KY3GF25NHFPT",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88014"
     },
     {
       "noticeKey": "notice:88482:날짜미상",
@@ -19542,23 +19593,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88496"
     },
     {
-      "noticeKey": "notice:88010:날짜미상",
-      "sequence": "88010",
-      "title": "[진행]소득세법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-222",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 소득세법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974926/B0I0N6AFWXWFZB85RGPL",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88010"
-    },
-    {
       "noticeKey": "notice:88334:날짜미상",
       "sequence": "88334",
       "title": "[진행]성평등가족부 직제 시행규칙 일부개정령안 입법예고",
@@ -19608,23 +19642,6 @@
       "fileName": "(법령안) 상훈법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11035806/4JLKQFF88215HNREK0VZ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88362"
-    },
-    {
-      "noticeKey": "notice:88016:날짜미상",
-      "sequence": "88016",
-      "title": "[진행]상속세 및 증여세법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-225",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329610",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 상속세 및 증여세법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974956/BXX0I1TSW5NH7O3UF7IU",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88016"
     },
     {
       "noticeKey": "notice:88094:날짜미상",
@@ -19812,23 +19829,6 @@
       "fileName": "(법령안) 법정공고 방식 다양화를 위한 39개 법령의 일부개정에 관한 대통령령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10973272/A4R3HTJKDK2JAORNHOOL",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87984"
-    },
-    {
-      "noticeKey": "notice:88012:날짜미상",
-      "sequence": "88012",
-      "title": "[진행]법인세법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-223",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 법인세법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974920/JWS7AI2CICOPPZ3JYCIW",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88012"
     },
     {
       "noticeKey": "notice:88184:날짜미상",
