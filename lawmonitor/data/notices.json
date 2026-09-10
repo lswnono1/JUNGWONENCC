@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-10T04:45:08.630337+00:00",
+  "generatedAt": "2026-09-10T11:22:22.587226+00:00",
   "range": {
     "from": "2026-03-10",
     "to": "2027-03-10"
@@ -7006,7 +7006,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000328780",
       "announceType": "TYPE5",
       "fileName": "(법령안) 실내공기질 관리법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10954754/PPH7M6GI90IGSYW554P4",
@@ -13262,7 +13262,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330770",
       "announceType": "TYPE5",
       "fileName": "(법령안) 국토교통부와 그 소속기관 직제 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11038666/FKNGPXQZJOTRL45RXYU3",
@@ -19025,7 +19025,7 @@
       "startDate": "",
       "endDate": "2026-10-19",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330658",
       "announceType": "TYPE5",
       "fileName": "(법령안) 유해·위험작업의 취업 제한에 관한 규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11049060/VD4F1G8JHI8TCLASMTBR",
@@ -19727,6 +19727,23 @@
       "fileName": "(법령안) 사회복지사업법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11028404/XL05JIDANYVQJBGB2VDM",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88268"
+    },
+    {
+      "noticeKey": "notice:88524:날짜미상",
+      "sequence": "88524",
+      "title": "[진행]사건심의위원회 구성 및 운영에 관한 규정안 제정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "법무부",
+      "noticeNo": "2026-345",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 사건심의위원회 구성 및 운영에 관한 규정안 제정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11056946/OD3S76MLHU0WK9FW4935",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88524"
     },
     {
       "noticeKey": "notice:88218:날짜미상",
@@ -20606,7 +20623,7 @@
       "startDate": "",
       "endDate": "2026-10-22",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330054",
       "announceType": "TYPE5",
       "fileName": "(법령안) 국립사범대학 졸업자 중 교원미임용자 임용 등에 관한 특별법 시행령 폐지령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11052164/27YETI8DR3BV6F9ZQ8GM",
