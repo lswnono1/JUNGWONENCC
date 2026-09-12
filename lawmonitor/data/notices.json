@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-12T10:49:18.236226+00:00",
+  "generatedAt": "2026-09-12T15:33:32.926297+00:00",
   "range": {
     "from": "2026-03-12",
     "to": "2027-03-12"
@@ -1775,6 +1775,23 @@
       "fileName": "(법령안) 통상환경변화 대응 및 지원 등에 관한 법률 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10860444/F3GFD829IX9EZ9OO3636",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87218"
+    },
+    {
+      "noticeKey": "notice:87862:날짜미상",
+      "sequence": "87862",
+      "title": "토양환경보전법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "기후에너지환경부",
+      "noticeNo": "2026-749",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 토양환경보전법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10958760/IEWUESV45DDPR3OYPIDV",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87862"
     },
     {
       "noticeKey": "notice:86640:날짜미상",
@@ -17857,23 +17874,6 @@
       "fileName": "(법령안) 통일교육 지원법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11053000/4SIZBJD1BYZGBGE5QSSX",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88498"
-    },
-    {
-      "noticeKey": "notice:87862:날짜미상",
-      "sequence": "87862",
-      "title": "[진행]토양환경보전법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-749",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 토양환경보전법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10958760/IEWUESV45DDPR3OYPIDV",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87862"
     },
     {
       "noticeKey": "notice:88080:날짜미상",
