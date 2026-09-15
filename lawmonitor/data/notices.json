@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-15T04:56:53.833960+00:00",
+  "generatedAt": "2026-09-15T17:01:23.974100+00:00",
   "range": {
     "from": "2026-03-15",
     "to": "2027-03-15"
@@ -3392,6 +3392,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87244"
     },
     {
+      "noticeKey": "notice:88352:날짜미상",
+      "sequence": "88352",
+      "title": "중대범죄수사청 사건사무규칙 제정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-1127",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330520",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 중대범죄수사청 사건사무규칙 제정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11040566/SMN1J2VSLJMC0SR4YUU4",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88352"
+    },
+    {
       "noticeKey": "notice:87962:날짜미상",
       "sequence": "87962",
       "title": "중국산 탄소강 및 그 밖의 합금강 열간압연 후판에 대한 덤핑방지관세 부과에 관한 규칙 일부개정령안 입법예고",
@@ -5449,6 +5466,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86822"
     },
     {
+      "noticeKey": "notice:87972:날짜미상",
+      "sequence": "87972",
+      "title": "의약품 부작용 피해구제에 관한 규정 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
+      "ministry": "식품의약품안전처",
+      "noticeNo": "2026-379",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329948",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 의약품 부작용 피해구제에 관한 규정 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970636/LN85TE6SNRUTETAGBRIH",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87972"
+    },
+    {
       "noticeKey": "notice:86330:날짜미상",
       "sequence": "86330",
       "title": "의약품 등의 안전에 관한 규칙 일부개정령안 입법예고",
@@ -7404,6 +7438,40 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86478"
     },
     {
+      "noticeKey": "notice:87906:날짜미상",
+      "sequence": "87906",
+      "title": "수의사법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-428",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 수의사법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970724/N6A91YFETGKZ500M5HSK",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87906"
+    },
+    {
+      "noticeKey": "notice:87908:날짜미상",
+      "sequence": "87908",
+      "title": "수의사법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-427",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 수의사법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970638/330Z7M5GNH97DMRX16R7",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87908"
+    },
+    {
       "noticeKey": "notice:87080:날짜미상",
       "sequence": "87080",
       "title": "수소경제 육성 및 수소 안전관리에 관한 법률 시행령 일부개정령안 입법예고",
@@ -9170,6 +9238,23 @@
       "fileName": "(법령안) 사료관리법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10688326/PV2JPUCNSURJCYXZM0L2",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86084"
+    },
+    {
+      "noticeKey": "notice:88524:날짜미상",
+      "sequence": "88524",
+      "title": "사건심의위원회 구성 및 운영에 관한 규정안 제정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "법무부",
+      "noticeNo": "2026-345",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330094",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 사건심의위원회 구성 및 운영에 관한 규정안 제정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11056946/OD3S76MLHU0WK9FW4935",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88524"
     },
     {
       "noticeKey": "notice:86136:날짜미상",
@@ -11841,6 +11926,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87898"
     },
     {
+      "noticeKey": "notice:88400:날짜미상",
+      "sequence": "88400",
+      "title": "농지법 시행규칙 일부개정령안 재입법예고",
+      "lawClass": "부령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-475",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 농지법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11046730/K6OBSIQORZD6G68BJL3X",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88400"
+    },
+    {
       "noticeKey": "notice:87146:날짜미상",
       "sequence": "87146",
       "title": "농지법 시행규칙 일부개정령안 입법예고",
@@ -13371,6 +13473,40 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86962"
     },
     {
+      "noticeKey": "notice:87976:날짜미상",
+      "sequence": "87976",
+      "title": "국제물류진흥지역 지정 및 육성에 관한 특별법 시행령 제정안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-1020",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국제물류진흥지역 지정 및 육성에 관한 특별법 시행령 제정(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10971186/YDYH1X6IGB0D526R4P5R",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87976"
+    },
+    {
+      "noticeKey": "notice:87912:날짜미상",
+      "sequence": "87912",
+      "title": "국제물류진흥지역 지정 및 육성에 관한 특별법 시행규칙 제정안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-1021",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국제물류진흥지역 지정 및 육성에 관한 특별법 시행규칙 제정(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970892/UTNLGQCDGLN26WHMSX56",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87912"
+    },
+    {
       "noticeKey": "notice:87472:날짜미상",
       "sequence": "87472",
       "title": "국제문화행사지원에 관한 법 시행령 제정안 입법예고",
@@ -14321,6 +14457,23 @@
       "fileName": "(법령안) 국가유산수리 등에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10898784/EB36LUSW8J7XDEE5XS58",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87500"
+    },
+    {
+      "noticeKey": "notice:87904:날짜미상",
+      "sequence": "87904",
+      "title": "국가유산수리 등에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국가유산청",
+      "noticeNo": "2026-463",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328118",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국가유산수리 등에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970664/A46R0FWMZ4PQF8TX8Q7S",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87904"
     },
     {
       "noticeKey": "notice:86188:날짜미상",
@@ -18454,23 +18607,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88424"
     },
     {
-      "noticeKey": "notice:88352:날짜미상",
-      "sequence": "88352",
-      "title": "[진행]중대범죄수사청 사건사무규칙 제정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-1127",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330520",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 중대범죄수사청 사건사무규칙 제정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11040566/SMN1J2VSLJMC0SR4YUU4",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88352"
-    },
-    {
       "noticeKey": "notice:88270:날짜미상",
       "sequence": "88270",
       "title": "[진행]중국산 아크릴산 부틸에 대한 덤핑방지관세 부과에 관한 규칙 제정안 입법예고",
@@ -18894,23 +19030,6 @@
       "fileName": "(법령안) 의약품 부작용 피해구제에 관한 규정 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11004884/A47LR5WQ5WDPEXB6MVQT",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88206"
-    },
-    {
-      "noticeKey": "notice:87972:날짜미상",
-      "sequence": "87972",
-      "title": "[진행]의약품 부작용 피해구제에 관한 규정 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "식품의약품안전처",
-      "noticeNo": "2026-379",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329948",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 의약품 부작용 피해구제에 관한 규정 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970636/LN85TE6SNRUTETAGBRIH",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87972"
     },
     {
       "noticeKey": "notice:88204:날짜미상",
@@ -19338,40 +19457,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88368"
     },
     {
-      "noticeKey": "notice:87906:날짜미상",
-      "sequence": "87906",
-      "title": "[진행]수의사법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-428",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 수의사법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970724/N6A91YFETGKZ500M5HSK",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87906"
-    },
-    {
-      "noticeKey": "notice:87908:날짜미상",
-      "sequence": "87908",
-      "title": "[진행]수의사법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-427",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 수의사법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970638/330Z7M5GNH97DMRX16R7",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87908"
-    },
-    {
       "noticeKey": "notice:88224:날짜미상",
       "sequence": "88224",
       "title": "[진행]수산업협동조합법 시행령 일부개정령안 재입법예고",
@@ -19693,23 +19778,6 @@
       "fileName": "(법령안) 사면법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11066904/QJHS0TYJTW2H9ITX7EB5",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88540"
-    },
-    {
-      "noticeKey": "notice:88524:날짜미상",
-      "sequence": "88524",
-      "title": "[진행]사건심의위원회 구성 및 운영에 관한 규정안 제정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "법무부",
-      "noticeNo": "2026-345",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330094",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 사건심의위원회 구성 및 운영에 관한 규정안 제정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11056946/OD3S76MLHU0WK9FW4935",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88524"
     },
     {
       "noticeKey": "notice:88616:날짜미상",
@@ -20358,23 +20426,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88454"
     },
     {
-      "noticeKey": "notice:88400:날짜미상",
-      "sequence": "88400",
-      "title": "[진행]농지법 시행규칙 일부개정령안 재입법예고",
-      "lawClass": "부령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-475",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 농지법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11046730/K6OBSIQORZD6G68BJL3X",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88400"
-    },
-    {
       "noticeKey": "notice:88450:날짜미상",
       "sequence": "88450",
       "title": "[진행]농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 재입법예고",
@@ -20647,23 +20698,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88338"
     },
     {
-      "noticeKey": "notice:87976:날짜미상",
-      "sequence": "87976",
-      "title": "[진행]국제물류진흥지역 지정 및 육성에 관한 특별법 시행령 제정안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-1020",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국제물류진흥지역 지정 및 육성에 관한 특별법 시행령 제정(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10971186/YDYH1X6IGB0D526R4P5R",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87976"
-    },
-    {
       "noticeKey": "notice:88146:날짜미상",
       "sequence": "88146",
       "title": "[진행]국제물류진흥지역 지정 및 육성에 관한 특별법 시행령 제정령안 입법예고",
@@ -20698,23 +20732,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88168"
     },
     {
-      "noticeKey": "notice:87912:날짜미상",
-      "sequence": "87912",
-      "title": "[진행]국제물류진흥지역 지정 및 육성에 관한 특별법 시행규칙 제정안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-1021",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국제물류진흥지역 지정 및 육성에 관한 특별법 시행규칙 제정(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970892/UTNLGQCDGLN26WHMSX56",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87912"
-    },
-    {
       "noticeKey": "notice:88272:날짜미상",
       "sequence": "88272",
       "title": "[진행]국민체육진흥법 시행령 일부개정령안 입법예고",
@@ -20747,23 +20764,6 @@
       "fileName": "(법령안) 국립사범대학 졸업자 중 교원미임용자 임용 등에 관한 특별법 시행령 폐지령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11052164/27YETI8DR3BV6F9ZQ8GM",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88484"
-    },
-    {
-      "noticeKey": "notice:87904:날짜미상",
-      "sequence": "87904",
-      "title": "[진행]국가유산수리 등에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국가유산청",
-      "noticeNo": "2026-463",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328118",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국가유산수리 등에 관한 법률 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10970664/A46R0FWMZ4PQF8TX8Q7S",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87904"
     },
     {
       "noticeKey": "notice:88302:날짜미상",
