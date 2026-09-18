@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-18T11:17:53.048799+00:00",
+  "generatedAt": "2026-09-18T16:25:42.687415+00:00",
   "range": {
     "from": "2026-03-18",
     "to": "2027-03-18"
@@ -4820,6 +4820,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88284"
     },
     {
+      "noticeKey": "notice:88402:날짜미상",
+      "sequence": "88402",
+      "title": "재산형 등에 관한 군검찰 집행사무규칙 입법예고",
+      "lawClass": "부령",
+      "ministry": "국방부",
+      "noticeNo": "2026-403",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 재산형 등에 관한 군검찰 집행사무규칙 입법예고(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045240/7TJ1JN90LAJAKX1VVL1I",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88402"
+    },
+    {
       "noticeKey": "notice:86854:날짜미상",
       "sequence": "86854",
       "title": "장학금 규정 전부개정령안 입법예고",
@@ -5923,6 +5940,23 @@
       "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10928232/OLWZHCPEHJ4SJ395YVVA",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87726"
+    },
+    {
+      "noticeKey": "notice:87902:날짜미상",
+      "sequence": "87902",
+      "title": "원자력안전 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
+      "ministry": "원자력안전위원회",
+      "noticeNo": "2026-76",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 원자력안전 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10971804/ZRTAAQFDQJTBOZC6ADSE",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87902"
     },
     {
       "noticeKey": "notice:87918:날짜미상",
@@ -8201,6 +8235,23 @@
       "fileName": "(법령안) 선박의 입항 및 출항 등에 관한 법률 일부개정법률(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10886402/3P1OTPJ1A3FGM2T48148",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87436"
+    },
+    {
+      "noticeKey": "notice:88392:날짜미상",
+      "sequence": "88392",
+      "title": "선박의 입항 및 출항 등에 관한 법률 일부개정법률안 재입법예고",
+      "lawClass": "법률",
+      "ministry": "해양수산부",
+      "noticeNo": "2026-1304",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000321922",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 선박의 입항 및 출항 등에 관한 법률 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11040274/U3H7XY6PWV9TYI6ZTDIY",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88392"
     },
     {
       "noticeKey": "notice:87664:날짜미상",
@@ -12878,6 +12929,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88004"
     },
     {
+      "noticeKey": "notice:88412:날짜미상",
+      "sequence": "88412",
+      "title": "기상청과 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "기상청",
+      "noticeNo": "2026-118",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330386",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 기상청과 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11055086/B827SP7XMPHKAS0IY260",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88412"
+    },
+    {
       "noticeKey": "notice:86274:날짜미상",
       "sequence": "86274",
       "title": "기상법 시행령 일부개정령안 입법예고",
@@ -13252,6 +13320,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87178"
     },
     {
+      "noticeKey": "notice:88438:날짜미상",
+      "sequence": "88438",
+      "title": "군사법경찰 수사규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국방부",
+      "noticeNo": "2026-402",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 군사법경찰 수사규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045278/2WCDAKOMNLI7UT3GSKOU",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88438"
+    },
+    {
       "noticeKey": "notice:87666:날짜미상",
       "sequence": "87666",
       "title": "군사기지 및 군사시설 보호법 시행령 일부개정령안 입법예고",
@@ -13352,6 +13437,40 @@
       "fileName": "군급식기본법 시행규칙안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10703824/B6XMJB1AOQRZ5N3B01UR",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86292"
+    },
+    {
+      "noticeKey": "notice:88404:날짜미상",
+      "sequence": "88404",
+      "title": "군검찰 압수물 사무규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국방부",
+      "noticeNo": "2026-401",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 군검찰 압수물 사무규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045226/BL3VDBVK86SH4CENR22G",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88404"
+    },
+    {
+      "noticeKey": "notice:88440:날짜미상",
+      "sequence": "88440",
+      "title": "군검찰 사건사무규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국방부",
+      "noticeNo": "2026-400",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 군검찰 사건사무규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045216/NK4WIOF8O796CP58QQJB",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88440"
     },
     {
       "noticeKey": "notice:86598:날짜미상",
@@ -13488,6 +13607,23 @@
       "fileName": "(법령안) 국토교통부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10987500/YXF9JQKNPS189XYGRVG7",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88106"
+    },
+    {
+      "noticeKey": "notice:88512:날짜미상",
+      "sequence": "88512",
+      "title": "국토교통부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-1171",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국토교통부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11057112/AN2ILEI78BPZN4L7Y80J",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88512"
     },
     {
       "noticeKey": "notice:87944:날짜미상",
@@ -15749,6 +15885,23 @@
       "fileName": "(법령안) 공연법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10762940/Z0CCZP99JHCDEKSWF7R4",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86678"
+    },
+    {
+      "noticeKey": "notice:88594:날짜미상",
+      "sequence": "88594",
+      "title": "공소청법 및 중대범죄수사청 조직 및 운영에 관한 법률의 제정과 형사소송법 개정에 따른 관계 법령의 정비를 위한 126개 법령의 일부개정에 관한 대통령령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "국무조정실",
+      "noticeNo": "2026-189",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 공소청법 및 중대범죄수사청 조직 및 운영에 관한 법률의 제정과 형사소송법 개정에 따른 관계 법령의 정비를 위한 126개 법령의 일부개정에 관한 대통령령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11059886/O895C2J48BDS6OM2DOWR",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88594"
     },
     {
       "noticeKey": "notice:88434:날짜미상",
@@ -18981,23 +19134,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88282"
     },
     {
-      "noticeKey": "notice:88402:날짜미상",
-      "sequence": "88402",
-      "title": "[진행]재산형 등에 관한 군검찰 집행사무규칙 입법예고",
-      "lawClass": "부령",
-      "ministry": "국방부",
-      "noticeNo": "2026-403",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 재산형 등에 관한 군검찰 집행사무규칙 입법예고(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045240/7TJ1JN90LAJAKX1VVL1I",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88402"
-    },
-    {
       "noticeKey": "notice:88548:날짜미상",
       "sequence": "88548",
       "title": "[진행]재산형 등에 관한 검찰 집행사무규칙 일부개정령안 입법예고",
@@ -19370,23 +19506,6 @@
       "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11079804/9TU0TGWXHTY4HS10IOAO",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88682"
-    },
-    {
-      "noticeKey": "notice:87902:날짜미상",
-      "sequence": "87902",
-      "title": "[진행]원자력안전 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "원자력안전위원회",
-      "noticeNo": "2026-76",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 원자력안전 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10971804/ZRTAAQFDQJTBOZC6ADSE",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87902"
     },
     {
       "noticeKey": "notice:88506:날짜미상",
@@ -19880,23 +19999,6 @@
       "fileName": "(법령안) 성폭력범죄자의 성충동 약물치료에 관한 법률 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11058352/MK307ZG2PLPN0UQO075N",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88558"
-    },
-    {
-      "noticeKey": "notice:88392:날짜미상",
-      "sequence": "88392",
-      "title": "[진행]선박의 입항 및 출항 등에 관한 법률 일부개정법률안 재입법예고",
-      "lawClass": "법률",
-      "ministry": "해양수산부",
-      "noticeNo": "2026-1304",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000321922",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 선박의 입항 및 출항 등에 관한 법률 일부개정법률(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11040274/U3H7XY6PWV9TYI6ZTDIY",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88392"
     },
     {
       "noticeKey": "notice:88532:날짜미상",
@@ -20953,23 +21055,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88662"
     },
     {
-      "noticeKey": "notice:88412:날짜미상",
-      "sequence": "88412",
-      "title": "[진행]기상청과 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기상청",
-      "noticeNo": "2026-118",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330386",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 기상청과 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11055086/B827SP7XMPHKAS0IY260",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88412"
-    },
-    {
       "noticeKey": "notice:88152:날짜미상",
       "sequence": "88152",
       "title": "[진행]근로기준법 시행령 일부개정령안 입법예고",
@@ -21019,74 +21104,6 @@
       "fileName": "(법령안) 군인연금법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11024046/GV6ZMU9R0TNUX3KA8LEP",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88312"
-    },
-    {
-      "noticeKey": "notice:88438:날짜미상",
-      "sequence": "88438",
-      "title": "[진행]군사법경찰 수사규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국방부",
-      "noticeNo": "2026-402",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 군사법경찰 수사규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045278/2WCDAKOMNLI7UT3GSKOU",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88438"
-    },
-    {
-      "noticeKey": "notice:88404:날짜미상",
-      "sequence": "88404",
-      "title": "[진행]군검찰 압수물 사무규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국방부",
-      "noticeNo": "2026-401",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 군검찰 압수물 사무규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045226/BL3VDBVK86SH4CENR22G",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88404"
-    },
-    {
-      "noticeKey": "notice:88440:날짜미상",
-      "sequence": "88440",
-      "title": "[진행]군검찰 사건사무규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국방부",
-      "noticeNo": "2026-400",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 군검찰 사건사무규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045216/NK4WIOF8O796CP58QQJB",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88440"
-    },
-    {
-      "noticeKey": "notice:88512:날짜미상",
-      "sequence": "88512",
-      "title": "[진행]국토교통부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-1171",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국토교통부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11057112/AN2ILEI78BPZN4L7Y80J",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88512"
     },
     {
       "noticeKey": "notice:88336:날짜미상",
@@ -21597,23 +21614,6 @@
       "fileName": "(법령안) 공소청법 및 중대범죄수사청 조직 및 운영에 관한 법률의 제정에 따른 법령 정비를 위한 2개 법령의 일부개정에 관한 보건복지부령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11050492/J9403T2QH44SUR8PL3J1",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88474"
-    },
-    {
-      "noticeKey": "notice:88594:날짜미상",
-      "sequence": "88594",
-      "title": "[진행]공소청법 및 중대범죄수사청 조직 및 운영에 관한 법률의 제정과 형사소송법 개정에 따른 관계 법령의 정비를 위한 126개 법령의 일부개정에 관한 대통령령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국무조정실",
-      "noticeNo": "2026-189",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 공소청법 및 중대범죄수사청 조직 및 운영에 관한 법률의 제정과 형사소송법 개정에 따른 관계 법령의 정비를 위한 126개 법령의 일부개정에 관한 대통령령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11059886/O895C2J48BDS6OM2DOWR",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88594"
     },
     {
       "noticeKey": "notice:88632:날짜미상",
