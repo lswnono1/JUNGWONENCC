@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-20T04:56:20.055382+00:00",
+  "generatedAt": "2026-09-20T20:50:47.111423+00:00",
   "range": {
     "from": "2026-03-20",
     "to": "2027-03-20"
@@ -2081,6 +2081,23 @@
       "fileName": "(법령안) 초·중등교육법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10928066/9JECWP65GK8C35Z7ZYCS",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87746"
+    },
+    {
+      "noticeKey": "notice:88006:날짜미상",
+      "sequence": "88006",
+      "title": "청소년지도자의 처우 및 지위 향상에 관한 법률 시행령 제정안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "성평등가족부",
+      "noticeNo": "2026-136",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328964",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 청소년지도자의 처우 및 지위 향상에 관한 법률 시행령 제정(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974034/J6DQALEZE1720G8MHZGQ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88006"
     },
     {
       "noticeKey": "notice:86304:날짜미상",
@@ -18146,23 +18163,6 @@
       "fileName": "(법령안) 체육인 복지법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11063560/QZ4XPEFFNP2HMHXXW9ZD",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88570"
-    },
-    {
-      "noticeKey": "notice:88006:날짜미상",
-      "sequence": "88006",
-      "title": "[진행]청소년지도자의 처우 및 지위 향상에 관한 법률 시행령 제정안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "성평등가족부",
-      "noticeNo": "2026-136",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328964",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 청소년지도자의 처우 및 지위 향상에 관한 법률 시행령 제정(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974034/J6DQALEZE1720G8MHZGQ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88006"
     },
     {
       "noticeKey": "notice:88122:날짜미상",
