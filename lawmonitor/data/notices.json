@@ -1,12 +1,12 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-19T20:42:29.453581+00:00",
+  "generatedAt": "2026-09-20T04:56:20.055382+00:00",
   "range": {
-    "from": "2026-03-19",
-    "to": "2027-03-19"
+    "from": "2026-03-20",
+    "to": "2027-03-20"
   },
-  "requestCount": 34,
+  "requestCount": 33,
   "records": [
     {
       "noticeKey": "notice:87656:날짜미상",
@@ -6775,23 +6775,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87760"
     },
     {
-      "noticeKey": "notice:86058:날짜미상",
-      "sequence": "86058",
-      "title": "야생생물 보호 및 관리에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-283",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325142",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 야생생물 보호 및 관리에 관한 법률 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10676848/PZ2PQLD50X1DABMTK2QI",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86058"
-    },
-    {
       "noticeKey": "notice:86864:날짜미상",
       "sequence": "86864",
       "title": "안보침해 범죄 및 활동 등에 관한 대응업무규정 일부개정령안 재입법예고",
@@ -8235,23 +8218,6 @@
       "fileName": "(법령안) 선박에서의 오염방지에 관한 규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10693920/L10UIW3DRJUE88MSYJ3F",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86106"
-    },
-    {
-      "noticeKey": "notice:86056:날짜미상",
-      "sequence": "86056",
-      "title": "선박안전법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "해양수산부",
-      "noticeNo": "2026-614",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000324952",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 선박안전법 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10677008/I3E5GJ39VZ7JJXIXPLR6",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86056"
     },
     {
       "noticeKey": "notice:87490:날짜미상",
@@ -11314,23 +11280,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86308"
     },
     {
-      "noticeKey": "notice:86054:날짜미상",
-      "sequence": "86054",
-      "title": "도로의 구조 시설 기준에 관한 규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-357",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000324514",
-      "announceType": "TYPE5",
-      "fileName": "도로의 구조ㆍ시설 기준에 관한 규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10672240/VYHFQ6RUUOZJYNJ2U2J6",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86054"
-    },
-    {
       "noticeKey": "notice:87730:날짜미상",
       "sequence": "87730",
       "title": "도로법 시행규칙 일부개정령안 입법예고",
@@ -11892,23 +11841,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86834"
     },
     {
-      "noticeKey": "notice:86742:날짜미상",
-      "sequence": "86742",
-      "title": "농지법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-313",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326610",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 농지법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10797900/84L8JFWOQ17JK5OUF0CY",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86742"
-    },
-    {
       "noticeKey": "notice:86808:날짜미상",
       "sequence": "86808",
       "title": "농지법 시행령 일부개정령안 입법예고",
@@ -11924,6 +11856,23 @@
       "fileName": "(법령안) 농지법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10796348/K2K82YVSCGFOB21XLD7P",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86808"
+    },
+    {
+      "noticeKey": "notice:86742:날짜미상",
+      "sequence": "86742",
+      "title": "농지법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-313",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000326610",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 농지법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10797900/84L8JFWOQ17JK5OUF0CY",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86742"
     },
     {
       "noticeKey": "notice:87898:날짜미상",
@@ -14646,23 +14595,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86438"
     },
     {
-      "noticeKey": "notice:86820:날짜미상",
-      "sequence": "86820",
-      "title": "국가연구개발혁신법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "과학기술정보통신부",
-      "noticeNo": "2026-619",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국가연구개발혁신법 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10797840/G132SGPFTZV8GQDYVBQT",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86820"
-    },
-    {
       "noticeKey": "notice:86800:날짜미상",
       "sequence": "86800",
       "title": "국가연구개발혁신법 시행령 일부개정령안 입법예고",
@@ -14680,21 +14612,21 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86800"
     },
     {
-      "noticeKey": "notice:86766:날짜미상",
-      "sequence": "86766",
-      "title": "국가연구개발혁신법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
+      "noticeKey": "notice:86820:날짜미상",
+      "sequence": "86820",
+      "title": "국가연구개발혁신법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
       "ministry": "과학기술정보통신부",
-      "noticeNo": "2026-594",
+      "noticeNo": "2026-619",
       "announcedDate": "",
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "2000000327020",
+      "mappingLbicId": "0",
       "announceType": "TYPE5",
-      "fileName": "국가연구개발혁신법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10777256/J9EPPI54LRSCSL7DSPMD",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86766"
+      "fileName": "(법령안) 국가연구개발혁신법 시행령 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10797840/G132SGPFTZV8GQDYVBQT",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86820"
     },
     {
       "noticeKey": "notice:86802:날짜미상",
@@ -14712,6 +14644,23 @@
       "fileName": "(법령안) 국가연구개발혁신법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10796244/04DKYYAIQIURHLG2H7ER",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86802"
+    },
+    {
+      "noticeKey": "notice:86766:날짜미상",
+      "sequence": "86766",
+      "title": "국가연구개발혁신법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "과학기술정보통신부",
+      "noticeNo": "2026-594",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000327020",
+      "announceType": "TYPE5",
+      "fileName": "국가연구개발혁신법 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10777256/J9EPPI54LRSCSL7DSPMD",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86766"
     },
     {
       "noticeKey": "notice:86064:날짜미상",
@@ -21531,6 +21480,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88500"
     },
     {
+      "noticeKey": "notice:88208:날짜미상",
+      "sequence": "88208",
+      "title": "[진행]고등교육법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "교육부",
+      "noticeNo": "2026-329",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330348",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 고등교육법 시행령 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11001132/0ZPP8OF5NNFE3VXIY5PI",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88208"
+    },
+    {
       "noticeKey": "notice:88578:날짜미상",
       "sequence": "88578",
       "title": "[진행]고등교육법 시행령 일부개정령안 입법예고",
@@ -21563,23 +21529,6 @@
       "fileName": "(법령안) 고등교육법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11045868/SNVN016M1S9IXF3KN6SV",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88442"
-    },
-    {
-      "noticeKey": "notice:88208:날짜미상",
-      "sequence": "88208",
-      "title": "[진행]고등교육법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "교육부",
-      "noticeNo": "2026-329",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330348",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 고등교육법 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11001132/0ZPP8OF5NNFE3VXIY5PI",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88208"
     },
     {
       "noticeKey": "notice:88444:날짜미상",
