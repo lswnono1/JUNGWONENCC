@@ -1,12 +1,12 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-23T04:47:37.385418+00:00",
+  "generatedAt": "2026-09-23T11:39:54.723810+00:00",
   "range": {
     "from": "2026-03-23",
     "to": "2027-03-23"
   },
-  "requestCount": 33,
+  "requestCount": 34,
   "records": [
     {
       "noticeKey": "notice:87656:날짜미상",
@@ -19860,8 +19860,8 @@
       "status": "진행 중",
       "mappingLbicId": "0",
       "announceType": "TYPE5",
-      "fileName": "(법령안) 재생에너지 개발ㆍ이용ㆍ보급 촉진법 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11096520/WV7QWNXLIQBHAWNALB8A",
+      "fileName": "(법령안) 재생에너지 개발ㆍ이용ㆍ보급 촉진법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11099168/UNUNTZUSJVLR1PIIKHKV",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88734"
     },
     {
@@ -20732,6 +20732,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88416"
     },
     {
+      "noticeKey": "notice:88828:날짜미상",
+      "sequence": "88828",
+      "title": "[진행]섬발전촉진법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-1188",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "2026-10-21",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 섬발전촉진법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11099080/9JHKUNWHQPS54B6EEFJB",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88828"
+    },
+    {
       "noticeKey": "notice:88826:날짜미상",
       "sequence": "88826",
       "title": "[진행]생명안전기본법 시행령 제정안 입법예고",
@@ -20963,7 +20980,7 @@
       "startDate": "",
       "endDate": "2026-10-26",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000331418",
       "announceType": "TYPE5",
       "fileName": "(법령안) 부산 해양수도 이전기관 지원에 관한 특별법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11073906/9JRJ0FATEXPB6DFC7C2X",
