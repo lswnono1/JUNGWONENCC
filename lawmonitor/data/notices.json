@@ -1,10 +1,10 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-23T21:31:59.798073+00:00",
+  "generatedAt": "2026-09-24T04:53:50.008209+00:00",
   "range": {
-    "from": "2026-03-23",
-    "to": "2027-03-23"
+    "from": "2026-03-24",
+    "to": "2027-03-24"
   },
   "requestCount": 34,
   "records": [
@@ -1044,23 +1044,6 @@
       "fileName": "(법령안) 항공사업법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10881154/0IGJLM8MUH7GOIX8D4N1",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87382"
-    },
-    {
-      "noticeKey": "notice:86074:날짜미상",
-      "sequence": "86074",
-      "title": "항공기등록규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-354",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325478",
-      "announceType": "TYPE5",
-      "fileName": "항공기등록규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10679562/CGBO86F4GZ3NSA40CKQ9",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86074"
     },
     {
       "noticeKey": "notice:86176:날짜미상",
@@ -4956,23 +4939,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86248"
     },
     {
-      "noticeKey": "notice:85946:날짜미상",
-      "sequence": "85946",
-      "title": "전기안전관리법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-248",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325262",
-      "announceType": "TYPE5",
-      "fileName": "전기안전관리법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10702752/WU49YTSQV5FBWLWPPZVI",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/85946"
-    },
-    {
       "noticeKey": "notice:86194:날짜미상",
       "sequence": "86194",
       "title": "전기산업발전기본법 시행령 일부개정령안 입법예고",
@@ -5585,40 +5551,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86680"
     },
     {
-      "noticeKey": "notice:86066:날짜미상",
-      "sequence": "86066",
-      "title": "자동차등록규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-369",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325382",
-      "announceType": "TYPE5",
-      "fileName": "자동차등록규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10675412/FFZ3G3PH1VYDPRZ9I0S8",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86066"
-    },
-    {
-      "noticeKey": "notice:86070:날짜미상",
-      "sequence": "86070",
-      "title": "자동차관리법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-367",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325378",
-      "announceType": "TYPE5",
-      "fileName": "자동차관리법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10674900/G80SVW7F5OIHXAJIB01M",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86070"
-    },
-    {
       "noticeKey": "notice:86682:날짜미상",
       "sequence": "86682",
       "title": "자동차관리법 시행령 일부개정령안 입법예고",
@@ -5634,23 +5566,6 @@
       "fileName": "자동차관리법 시행령 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10758852/JYBQRLCVEYLJ7VF5DZZF",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86682"
-    },
-    {
-      "noticeKey": "notice:86068:날짜미상",
-      "sequence": "86068",
-      "title": "자동차관리법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-368",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325354",
-      "announceType": "TYPE5",
-      "fileName": "자동차관리법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10675124/4W581LCXD5IBPTI1DGT8",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86068"
     },
     {
       "noticeKey": "notice:87094:날짜미상",
@@ -6892,23 +6807,6 @@
       "fileName": "여객자동차 운수사업법 시행령 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10712796/0UA42KV0V6LZWORFQCMF",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86290"
-    },
-    {
-      "noticeKey": "notice:86010:날짜미상",
-      "sequence": "86010",
-      "title": "여객자동차 운수사업법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-366",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325274",
-      "announceType": "TYPE5",
-      "fileName": "여객자동차 운수사업법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10666916/SDSQ2WW36QAJSOQ1K26M",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86010"
     },
     {
       "noticeKey": "notice:86816:날짜미상",
@@ -12402,23 +12300,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87450"
     },
     {
-      "noticeKey": "notice:86072:날짜미상",
-      "sequence": "86072",
-      "title": "대도시권 광역교통 관리에 관한 특별법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-366",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325260",
-      "announceType": "TYPE5",
-      "fileName": "대도시권 광역교통 관리에 관한 특별법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10666770/RJMZJUZGACQCOXWJA1VP",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86072"
-    },
-    {
       "noticeKey": "notice:88070:날짜미상",
       "sequence": "88070",
       "title": "대도시권 광역교통 관리에 관한 특별법 시행령 일부개정령안 입법예고",
@@ -13694,23 +13575,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88412"
     },
     {
-      "noticeKey": "notice:86274:날짜미상",
-      "sequence": "86274",
-      "title": "기상법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "기상청",
-      "noticeNo": "2026-47",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326042",
-      "announceType": "TYPE5",
-      "fileName": "기상법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10712128/8BLQDKSNMUHNLHA9NN2P",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86274"
-    },
-    {
       "noticeKey": "notice:86500:날짜미상",
       "sequence": "86500",
       "title": "기상법 시행령 일부개정령안 입법예고",
@@ -13726,6 +13590,23 @@
       "fileName": "기상법 시행령 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10749536/S1Z0V0GIMUL1A7DDIRSP",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86500"
+    },
+    {
+      "noticeKey": "notice:86274:날짜미상",
+      "sequence": "86274",
+      "title": "기상법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "기상청",
+      "noticeNo": "2026-47",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000326042",
+      "announceType": "TYPE5",
+      "fileName": "기상법 시행령 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10712128/8BLQDKSNMUHNLHA9NN2P",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86274"
     },
     {
       "noticeKey": "notice:87916:날짜미상",
@@ -15513,23 +15394,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86766"
     },
     {
-      "noticeKey": "notice:86064:날짜미상",
-      "sequence": "86064",
-      "title": "국가보훈위원회 규정 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국가보훈부",
-      "noticeNo": "2026-72",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325144",
-      "announceType": "TYPE5",
-      "fileName": "국가보훈위원회 규정 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10660084/P131CVVXWJVNIWN8KK6J",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86064"
-    },
-    {
       "noticeKey": "notice:87004:날짜미상",
       "sequence": "87004",
       "title": "국가보훈부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -16327,23 +16191,6 @@
       "fileName": "(법령안) 과학기술정보통신부 소관 비상대비에 관한 법률 시행규칙 일부개정(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10777924/10H096J6FOUV1C0HF2QL",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86724"
-    },
-    {
-      "noticeKey": "notice:86008:날짜미상",
-      "sequence": "86008",
-      "title": "과학기술기본법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "과학기술정보통신부",
-      "noticeNo": "2026-336",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325258",
-      "announceType": "TYPE5",
-      "fileName": "과학기술기본법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10742076/L580VNFB93B99MSZ7MHN",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86008"
     },
     {
       "noticeKey": "notice:86370:날짜미상",
@@ -22160,23 +22007,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88624"
     },
     {
-      "noticeKey": "notice:88030:날짜미상",
-      "sequence": "88030",
-      "title": "[진행]관광진흥법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "문화체육관광부",
-      "noticeNo": "2026-320",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329752",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 관광진흥법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10991766/5R1BPJTZL3GBLOAX3Y1Y",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88030"
-    },
-    {
       "noticeKey": "notice:88236:날짜미상",
       "sequence": "88236",
       "title": "[진행]관광진흥법 시행령 일부개정령안 입법예고",
@@ -22192,6 +22022,23 @@
       "fileName": "(법령안) 관광진흥법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11013474/XBNY96FZZ13I0Z5UUX2O",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88236"
+    },
+    {
+      "noticeKey": "notice:88030:날짜미상",
+      "sequence": "88030",
+      "title": "[진행]관광진흥법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "문화체육관광부",
+      "noticeNo": "2026-320",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329752",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 관광진흥법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10991766/5R1BPJTZL3GBLOAX3Y1Y",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88030"
     },
     {
       "noticeKey": "notice:88032:날짜미상",
