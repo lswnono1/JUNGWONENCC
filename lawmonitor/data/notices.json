@@ -1,10 +1,10 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-09-24T21:33:15.951276+00:00",
+  "generatedAt": "2026-09-25T04:59:44.565252+00:00",
   "range": {
-    "from": "2026-03-24",
-    "to": "2027-03-24"
+    "from": "2026-03-25",
+    "to": "2027-03-25"
   },
   "requestCount": 34,
   "records": [
@@ -196,40 +196,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86858"
     },
     {
-      "noticeKey": "notice:86024:날짜미상",
-      "sequence": "86024",
-      "title": "화물자동차 운수사업법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-377",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325264",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 화물자동차 운수사업법 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10683442/5738YRI9F1W3ZVA0A4AH",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86024"
-    },
-    {
-      "noticeKey": "notice:86022:날짜미상",
-      "sequence": "86022",
-      "title": "화물자동차 운수사업법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-378",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325266",
-      "announceType": "TYPE5",
-      "fileName": "화물자동차 운수사업법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10666406/YQXM0XJIA3WJ7FSSNXIQ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86022"
-    },
-    {
       "noticeKey": "notice:86762:날짜미상",
       "sequence": "86762",
       "title": "호스피스·완화의료 및 임종과정에 있는 환자의 연명의료결정에 관한 법률 시행령 일부개정령안 입법예고",
@@ -330,23 +296,6 @@
       "fileName": "(법령안) 협동조합기본법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10691624/XX6O2A0WDEIY0O0IT7PV",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86144"
-    },
-    {
-      "noticeKey": "notice:86026:날짜미상",
-      "sequence": "86026",
-      "title": "혈액관리법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "보건복지부",
-      "noticeNo": "2026-233",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 혈액관리법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10683394/JSHWBKW511VEGRA6VEPD",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86026"
     },
     {
       "noticeKey": "notice:88378:날짜미상",
@@ -1061,23 +1010,6 @@
       "fileName": "합성생물학 육성법 시행규칙안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10692664/495736T0ZUAGYPS8MGG8",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86176"
-    },
-    {
-      "noticeKey": "notice:86012:날짜미상",
-      "sequence": "86012",
-      "title": "할부거래에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "공정거래위원회",
-      "noticeNo": "2026-62",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 할부거래에 관한 법률 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10683388/084RF74X4IIKAZHRQTXT",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86012"
     },
     {
       "noticeKey": "notice:86338:날짜미상",
@@ -3766,23 +3698,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86784"
     },
     {
-      "noticeKey": "notice:86020:날짜미상",
-      "sequence": "86020",
-      "title": "주택법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-380",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 주택법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10683432/R6PPQRIZSLE374BA19WP",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86020"
-    },
-    {
       "noticeKey": "notice:87794:날짜미상",
       "sequence": "87794",
       "title": "주택법 시행령 일부개정령안 입법예고",
@@ -3815,23 +3730,6 @@
       "fileName": "(법령안) 주택법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10877006/034WIB5KXQ7OK1TQ3REZ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87318"
-    },
-    {
-      "noticeKey": "notice:86018:날짜미상",
-      "sequence": "86018",
-      "title": "주택법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-381",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 주택법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10683362/RMH61U2GIG3LA0G6F3FO",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86018"
     },
     {
       "noticeKey": "notice:88126:날짜미상",
@@ -8356,23 +8254,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87942"
     },
     {
-      "noticeKey": "notice:86300:날짜미상",
-      "sequence": "86300",
-      "title": "소득세법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "재정경제부",
-      "noticeNo": "2026-126",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325958",
-      "announceType": "TYPE5",
-      "fileName": "소득세법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10706204/NS0SVGDB0FZJDNATSUW4",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86300"
-    },
-    {
       "noticeKey": "notice:86534:날짜미상",
       "sequence": "86534",
       "title": "소득세법 시행령 일부개정령안 입법예고",
@@ -8388,6 +8269,23 @@
       "fileName": "소득세법 시행령 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10745018/02KAG676RTP9VDU4YJNT",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86534"
+    },
+    {
+      "noticeKey": "notice:86300:날짜미상",
+      "sequence": "86300",
+      "title": "소득세법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "재정경제부",
+      "noticeNo": "2026-126",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000325958",
+      "announceType": "TYPE5",
+      "fileName": "소득세법 시행령 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10706204/NS0SVGDB0FZJDNATSUW4",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86300"
     },
     {
       "noticeKey": "notice:88010:날짜미상",
@@ -10974,23 +10872,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87358"
     },
     {
-      "noticeKey": "notice:86014:날짜미상",
-      "sequence": "86014",
-      "title": "방문판매 등에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "공정거래위원회",
-      "noticeNo": "2026-60",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 방문판매 등에 관한 법률 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10683476/7XFUSWZ3BKW7DH0VI8ET",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86014"
-    },
-    {
       "noticeKey": "notice:87952:날짜미상",
       "sequence": "87952",
       "title": "방문판매 등에 관한 법률 시행령 일부개정령안 입법예고",
@@ -11771,23 +11652,6 @@
       "fileName": "동물 진단용 방사선발생장치의 안전관리에 관한 규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10643284/B8FROWBIQW48U8BY83OW",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86214"
-    },
-    {
-      "noticeKey": "notice:86016:날짜미상",
-      "sequence": "86016",
-      "title": "독점규제 및 공정거래에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "공정거래위원회",
-      "noticeNo": "2026-56",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 독점규제 및 공정거래에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10684634/MA9213AC1F543QUQ8BEJ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86016"
     },
     {
       "noticeKey": "notice:87806:날짜미상",
@@ -12980,40 +12844,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88464"
     },
     {
-      "noticeKey": "notice:86824:날짜미상",
-      "sequence": "86824",
-      "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-308",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000324748",
-      "announceType": "TYPE5",
-      "fileName": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10728814/EIHFU22U2YPSKJUGNM4O",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86824"
-    },
-    {
-      "noticeKey": "notice:86846:날짜미상",
-      "sequence": "86846",
-      "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "해양수산부",
-      "noticeNo": "2026-966",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329846",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10804066/ZCDZR16Z3BU9A52CMPFZ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86846"
-    },
-    {
       "noticeKey": "notice:87296:날짜미상",
       "sequence": "87296",
       "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
@@ -13046,6 +12876,40 @@
       "fileName": "(법령안) 농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10872316/CCBXFB7W8LKKN9SAP2I2",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87354"
+    },
+    {
+      "noticeKey": "notice:86824:날짜미상",
+      "sequence": "86824",
+      "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-308",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000324748",
+      "announceType": "TYPE5",
+      "fileName": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10728814/EIHFU22U2YPSKJUGNM4O",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86824"
+    },
+    {
+      "noticeKey": "notice:86846:날짜미상",
+      "sequence": "86846",
+      "title": "농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "해양수산부",
+      "noticeNo": "2026-966",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329846",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 농수산물 유통 및 가격안정에 관한 법률 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10804066/ZCDZR16Z3BU9A52CMPFZ",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86846"
     },
     {
       "noticeKey": "notice:86652:날짜미상",
@@ -17823,23 +17687,6 @@
       "fileName": "(법령안) 검찰 압수물사무 규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11067868/KZ2ZW9OONUCRTQ6Y1CU6",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88606"
-    },
-    {
-      "noticeKey": "notice:86028:날짜미상",
-      "sequence": "86028",
-      "title": "검역법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "질병관리청",
-      "noticeNo": "2026-126",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325162",
-      "announceType": "TYPE5",
-      "fileName": "검역법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10667362/TBCH43IIWB59EM4C8RG2",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86028"
     },
     {
       "noticeKey": "notice:88394:날짜미상",
