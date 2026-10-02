@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-02T05:40:01.318963+00:00",
+  "generatedAt": "2026-10-02T12:37:49.780742+00:00",
   "range": {
     "from": "2026-04-02",
     "to": "2027-04-02"
@@ -21614,6 +21614,23 @@
       "fileName": "(법령안) 공공재정 부정청구 금지 및 부정이익 환수 등에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11119590/EZ4ZTGEBCGGK3RO8A7AK",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88870"
+    },
+    {
+      "noticeKey": "notice:88872:날짜미상",
+      "sequence": "88872",
+      "title": "[진행]공공데이터의 제공 및 이용활성화에 관한 법률 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-1264",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000331582",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 공공데이터의 제공 및 이용활성화에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11124368/CIBQJ59MY129D98C4X5S",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88872"
     },
     {
       "noticeKey": "notice:88794:날짜미상",
