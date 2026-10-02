@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-02T12:37:49.780742+00:00",
+  "generatedAt": "2026-10-02T22:16:22.986958+00:00",
   "range": {
     "from": "2026-04-02",
     "to": "2027-04-02"
@@ -2557,6 +2557,23 @@
       "fileName": "지역상권 상생 및 활성화에 관한 법률 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10774588/1U3EW9TS8QUN4GJXSTDY",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86492"
+    },
+    {
+      "noticeKey": "notice:88374:날짜미상",
+      "sequence": "88374",
+      "title": "지역농산물 이용촉진 등 농산물 직거래 활성화에 관한 법률 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-462",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328186",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 지역농산물 이용촉진 등 농산물 직거래 활성화에 관한 법률 시행령 일부개정령(안)_수정(9.15).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11070974/N98O2J7LLM33S7BQC8R0",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88374"
     },
     {
       "noticeKey": "notice:87046:날짜미상",
@@ -18794,23 +18811,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88406"
     },
     {
-      "noticeKey": "notice:88374:날짜미상",
-      "sequence": "88374",
-      "title": "[진행]지역농산물 이용촉진 등 농산물 직거래 활성화에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-462",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328186",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 지역농산물 이용촉진 등 농산물 직거래 활성화에 관한 법률 시행령 일부개정령(안)_수정(9.15).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11070974/N98O2J7LLM33S7BQC8R0",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88374"
-    },
-    {
       "noticeKey": "notice:88372:날짜미상",
       "sequence": "88372",
       "title": "[진행]지역농산물 이용촉진 등 농산물 직거래 활성화에 관한 법률 시행규칙 일부개정령안 입법예고",
@@ -20708,7 +20708,7 @@
       "startDate": "",
       "endDate": "2026-10-19",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330184",
       "announceType": "TYPE5",
       "fileName": "(법령안) 대중문화예술산업발전법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11115564/6QUBVI01HYNX12ROIJXU",
