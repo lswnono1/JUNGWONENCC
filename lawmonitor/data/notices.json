@@ -1,12 +1,12 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-02T22:16:22.986958+00:00",
+  "generatedAt": "2026-10-03T05:21:06.533233+00:00",
   "range": {
-    "from": "2026-04-02",
-    "to": "2027-04-02"
+    "from": "2026-04-03",
+    "to": "2027-04-03"
   },
-  "requestCount": 33,
+  "requestCount": 32,
   "records": [
     {
       "noticeKey": "notice:88174:날짜미상",
@@ -4599,23 +4599,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87232"
     },
     {
-      "noticeKey": "notice:86240:날짜미상",
-      "sequence": "86240",
-      "title": "전기통신금융사기 피해 방지 및 피해금 환급에 관한 특별법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "금융위원회",
-      "noticeNo": "2026-241",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325930",
-      "announceType": "TYPE5",
-      "fileName": "전기통신금융사기 피해 방지 및 피해금 환급에 관한 특별법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10704024/1WVJ7YFUHF2PGB3V4KEG",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86240"
-    },
-    {
       "noticeKey": "notice:87708:날짜미상",
       "sequence": "87708",
       "title": "전기통신금융사기 피해 방지 및 피해금 환급에 관한 특별법 시행령 일부개정령안 입법예고",
@@ -5585,23 +5568,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87330"
     },
     {
-      "noticeKey": "notice:88044:날짜미상",
-      "sequence": "88044",
-      "title": "인사혁신처와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "인사혁신처",
-      "noticeNo": "2026-428",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329236",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 인사혁신처와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10973566/ZPLH8HNLR3X7YRZSLUU9",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88044"
-    },
-    {
       "noticeKey": "notice:88366:날짜미상",
       "sequence": "88366",
       "title": "인사혁신처와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -5617,6 +5583,23 @@
       "fileName": "(법령안) 인사혁신처와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11038548/3G7Z0E9YIQVY01HQ8URD",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88366"
+    },
+    {
+      "noticeKey": "notice:88044:날짜미상",
+      "sequence": "88044",
+      "title": "인사혁신처와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
+      "ministry": "인사혁신처",
+      "noticeNo": "2026-428",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329236",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 인사혁신처와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10973566/ZPLH8HNLR3X7YRZSLUU9",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88044"
     },
     {
       "noticeKey": "notice:88582:날짜미상",
@@ -8356,23 +8339,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87470"
     },
     {
-      "noticeKey": "notice:87992:날짜미상",
-      "sequence": "87992",
-      "title": "성평등가족부 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "성평등가족부",
-      "noticeNo": "2026-134",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329764",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 성평등가족부 직제 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10973458/2XMO8ADUYM06NOG8540R",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87992"
-    },
-    {
       "noticeKey": "notice:88334:날짜미상",
       "sequence": "88334",
       "title": "성평등가족부 직제 시행규칙 일부개정령안 입법예고",
@@ -8388,6 +8354,23 @@
       "fileName": "(법령안) 성평등가족부 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11039112/KZCYS503O4Q70TKMDGYL",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88334"
+    },
+    {
+      "noticeKey": "notice:87992:날짜미상",
+      "sequence": "87992",
+      "title": "성평등가족부 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "성평등가족부",
+      "noticeNo": "2026-134",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329764",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 성평등가족부 직제 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10973458/2XMO8ADUYM06NOG8540R",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87992"
     },
     {
       "noticeKey": "notice:87216:날짜미상",
@@ -8558,23 +8541,6 @@
       "fileName": "석면안전관리법 시행규칙 일부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10803806/NWF5FHOC7PNWQXYSDKGY",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86838"
-    },
-    {
-      "noticeKey": "notice:86238:날짜미상",
-      "sequence": "86238",
-      "title": "생활화학제품 및 살생물제의 안전관리에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-342",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000325798",
-      "announceType": "TYPE5",
-      "fileName": "생활화학제품 및 살생물제의 안전관리에 관한 법률 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10696492/H0GW516PIERHZAQBTT8L",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86238"
     },
     {
       "noticeKey": "notice:87050:날짜미상",
@@ -16754,23 +16720,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86516"
     },
     {
-      "noticeKey": "notice:86242:날짜미상",
-      "sequence": "86242",
-      "title": "고등교육법 시행령 일부개정령안 재입법예고",
-      "lawClass": "대통령령",
-      "ministry": "교육부",
-      "noticeNo": "2026-142",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 고등교육법 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10702732/A6P3TPH4Y1IP285YCXPP",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86242"
-    },
-    {
       "noticeKey": "notice:86282:날짜미상",
       "sequence": "86282",
       "title": "고등교육법 시행령 일부개정령안 입법예고",
@@ -16854,23 +16803,6 @@
       "fileName": "(법령안) 계엄사령부직제 개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10870962/OE5KY0K4UN7K2CYZ0VFB",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87298"
-    },
-    {
-      "noticeKey": "notice:86244:날짜미상",
-      "sequence": "86244",
-      "title": "계엄법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국방부",
-      "noticeNo": "2026-138",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 계엄법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10702762/ELILIFXNPH0BGFAIF1FS",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86244"
     },
     {
       "noticeKey": "notice:86842:날짜미상",
