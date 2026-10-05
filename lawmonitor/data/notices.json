@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-05T05:43:40.977599+00:00",
+  "generatedAt": "2026-10-05T14:42:57.285526+00:00",
   "range": {
     "from": "2026-04-05",
     "to": "2027-04-05"
@@ -19654,7 +19654,7 @@
       "startDate": "",
       "endDate": "2026-11-10",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330644",
       "announceType": "TYPE5",
       "fileName": "(법령안) 산업안전보건법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11113866/1LKYPCY134YA26ULMFBV",
