@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-08T06:07:42.941314+00:00",
+  "generatedAt": "2026-10-08T23:22:45.276002+00:00",
   "range": {
     "from": "2026-04-08",
     "to": "2027-04-08"
@@ -8866,6 +8866,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87448"
     },
     {
+      "noticeKey": "notice:88896:날짜미상",
+      "sequence": "88896",
+      "title": "산업통상부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "산업통상부",
+      "noticeNo": "2026-611",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 산업통상부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11113804/5TP0TUFPBVJAFIB32HAB",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88896"
+    },
+    {
       "noticeKey": "notice:87054:날짜미상",
       "sequence": "87054",
       "title": "산업재해보상보험법 시행령 일부개정령안 재입법예고",
@@ -9833,6 +9850,23 @@
       "fileName": "(법령안) 보건복지부와 그 소속기관 직제 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10871392/EOFZL68V62393ESJ4X5V",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87292"
+    },
+    {
+      "noticeKey": "notice:88868:날짜미상",
+      "sequence": "88868",
+      "title": "보건복지부와 그 소속기관 직제 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-1238",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 보건복지부와 그 소속기관 직제 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11118144/9K6ZT2VZ45LAIT4PBTRV",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88868"
     },
     {
       "noticeKey": "notice:87426:날짜미상",
@@ -19797,23 +19831,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88818"
     },
     {
-      "noticeKey": "notice:88896:날짜미상",
-      "sequence": "88896",
-      "title": "[진행]산업통상부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "산업통상부",
-      "noticeNo": "2026-611",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 산업통상부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11113804/5TP0TUFPBVJAFIB32HAB",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88896"
-    },
-    {
       "noticeKey": "notice:88898:날짜미상",
       "sequence": "88898",
       "title": "[진행]산업안전보건법 시행령 일부개정령안 입법예고",
@@ -20067,23 +20084,6 @@
       "fileName": "(법령안) 보훈보상대상자 지원에 관한 법률 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11114600/4Z1YSAYKJXT9BMBBPL2C",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88908"
-    },
-    {
-      "noticeKey": "notice:88868:날짜미상",
-      "sequence": "88868",
-      "title": "[진행]보건복지부와 그 소속기관 직제 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-1238",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 보건복지부와 그 소속기관 직제 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11118144/9K6ZT2VZ45LAIT4PBTRV",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88868"
     },
     {
       "noticeKey": "notice:88932:날짜미상",
