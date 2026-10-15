@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-15T11:31:50.456358+00:00",
+  "generatedAt": "2026-10-15T17:03:14.478455+00:00",
   "range": {
     "from": "2026-04-15",
     "to": "2027-04-15"
@@ -7096,6 +7096,23 @@
       "fileName": "(법령안) 영농형 태양광 발전사업의 활성화 및 지원에 관한 법률 시행규칙 제정(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11075912/KM03WTNOWEEYORJ6PPT4",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88646"
+    },
+    {
+      "noticeKey": "notice:88376:날짜미상",
+      "sequence": "88376",
+      "title": "연안사고 예방에 관한 법률 시행령 일부개정법률안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "해양경찰청",
+      "noticeNo": "2026-114",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "2026-10-15",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 연안사고 예방에 관한 법률 시행령 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11038620/M6X70LJEHX8LCZAW2AXY",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88376"
     },
     {
       "noticeKey": "notice:88254:날짜미상",
@@ -19948,23 +19965,6 @@
       "fileName": "(법령안) 예비군법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11080836/6U9KBQU65SSZMZ32VH5L",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88664"
-    },
-    {
-      "noticeKey": "notice:88376:날짜미상",
-      "sequence": "88376",
-      "title": "[진행]연안사고 예방에 관한 법률 시행령 일부개정법률안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "해양경찰청",
-      "noticeNo": "2026-114",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "2026-10-15",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 연안사고 예방에 관한 법률 시행령 일부개정법률(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11038620/M6X70LJEHX8LCZAW2AXY",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88376"
     },
     {
       "noticeKey": "notice:88384:날짜미상",
