@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-22T11:55:59.648608+00:00",
+  "generatedAt": "2026-10-22T17:12:38.176300+00:00",
   "range": {
     "from": "2026-04-22",
     "to": "2027-04-22"
@@ -16006,6 +16006,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87350"
     },
     {
+      "noticeKey": "notice:88484:날짜미상",
+      "sequence": "88484",
+      "title": "국립사범대학 졸업자 중 교원미임용자 임용 등에 관한 특별법 시행령 폐지령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "교육부",
+      "noticeNo": "2026-351",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "2026-10-22",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330054",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국립사범대학 졸업자 중 교원미임용자 임용 등에 관한 특별법 시행령 폐지령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11052164/27YETI8DR3BV6F9ZQ8GM",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88484"
+    },
+    {
       "noticeKey": "notice:87304:날짜미상",
       "sequence": "87304",
       "title": "국군방첩사령부령 폐지령안 입법예고",
@@ -21087,23 +21104,6 @@
       "fileName": "(법령안) 국민 평생 직업능력 개발법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11111218/Z90KFJKTV9QH8E66WOQJ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88890"
-    },
-    {
-      "noticeKey": "notice:88484:날짜미상",
-      "sequence": "88484",
-      "title": "[진행]국립사범대학 졸업자 중 교원미임용자 임용 등에 관한 특별법 시행령 폐지령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "교육부",
-      "noticeNo": "2026-351",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "2026-10-22",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330054",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국립사범대학 졸업자 중 교원미임용자 임용 등에 관한 특별법 시행령 폐지령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11052164/27YETI8DR3BV6F9ZQ8GM",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88484"
     },
     {
       "noticeKey": "notice:88628:날짜미상",
