@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-22T04:49:59.687468+00:00",
+  "generatedAt": "2026-10-22T11:55:59.648608+00:00",
   "range": {
     "from": "2026-04-22",
     "to": "2027-04-22"
@@ -903,7 +903,7 @@
       "startDate": "2026-10-15",
       "endDate": "2026-10-19",
       "status": "종료",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000331850",
       "announceType": "TYPE5",
       "fileName": "(법령안) 자살예방 및 생명존중문화 조성을 위한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11150694/32XB9VSAK124BPDYB3IO",
@@ -6598,7 +6598,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000331850",
       "announceType": "TYPE5",
       "fileName": "(법령안) 자살예방 및 생명존중 문화조성에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11015644/U0N5KCEMJMI2E9QP8CZ7",
