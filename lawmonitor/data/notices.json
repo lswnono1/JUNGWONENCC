@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-23T04:52:33.305858+00:00",
+  "generatedAt": "2026-10-23T11:41:37.739647+00:00",
   "range": {
     "from": "2026-04-23",
     "to": "2027-04-23"
@@ -140,8 +140,8 @@
       "status": "진행 중",
       "mappingLbicId": "0",
       "announceType": "TYPE5",
-      "fileName": "",
-      "fileUrl": "https://www.lawmaking.go.kr",
+      "fileName": "(법령안) 어린이놀이시설 안전관리법 시행령 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11173546/CSLPQAZK03EGLYJ54174",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89160"
     },
     {
@@ -157,8 +157,8 @@
       "status": "진행 중",
       "mappingLbicId": "0",
       "announceType": "TYPE5",
-      "fileName": "",
-      "fileUrl": "https://www.lawmaking.go.kr",
+      "fileName": "(법령안) 어린이놀이시설 안전관리법 시행규칙 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11173620/RBUHS34Q798ARL9OSXHQ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89150"
     },
     {
@@ -189,7 +189,7 @@
       "startDate": "2026-10-23",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000332276",
       "announceType": "TYPE5",
       "fileName": "(법령안) 노후계획도시 정비 및 지원에 관한 특별법 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11170740/WUTSUL2R7Q96PW81GM18",
