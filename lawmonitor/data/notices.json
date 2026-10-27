@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-27T05:07:56.863241+00:00",
+  "generatedAt": "2026-10-27T12:15:22.227414+00:00",
   "range": {
     "from": "2026-04-27",
     "to": "2027-04-27"
@@ -495,7 +495,7 @@
       "startDate": "2026-10-23",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330394",
       "announceType": "TYPE5",
       "fileName": "(법령안) 우정사업 운영에 관한 특례법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11171306/AO8FZZOZ52IOBANTHA4N",
@@ -21745,7 +21745,7 @@
       "startDate": "",
       "endDate": "2026-10-27",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330972",
       "announceType": "TYPE5",
       "fileName": "(법령안) 감염병의 예방 및 관리에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11074818/JN48WXI17VNP29IN3PVW",
