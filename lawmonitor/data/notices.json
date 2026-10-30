@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-30T05:51:55.366265+00:00",
+  "generatedAt": "2026-10-30T12:58:27.505323+00:00",
   "range": {
     "from": "2026-04-30",
     "to": "2027-04-30"
@@ -126,6 +126,40 @@
       "fileName": "(법령안) 장애인복지법 시행령 일부개정령(안)#2.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11187208/7ZBWCMGC26TQGX6WSD0D",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89260"
+    },
+    {
+      "noticeKey": "notice:89248:2026-10-30",
+      "sequence": "89248",
+      "title": "[진행]아동수당법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "보건복지부",
+      "noticeNo": "2026-815",
+      "announcedDate": "2026-10-30",
+      "startDate": "2026-10-30",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 아동수당법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11186388/GIEUIGT2ODJ0DJDHICNB",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89248"
+    },
+    {
+      "noticeKey": "notice:89226:2026-10-30",
+      "sequence": "89226",
+      "title": "[진행]아동수당법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "보건복지부",
+      "noticeNo": "2026-816",
+      "announcedDate": "2026-10-30",
+      "startDate": "2026-10-30",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 아동수당법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11186544/9VECC079V4VX5CY7784M",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89226"
     },
     {
       "noticeKey": "notice:89256:2026-10-30",
@@ -1141,7 +1175,7 @@
       "startDate": "2026-10-22",
       "endDate": "2026-10-29",
       "status": "종료",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000332438",
       "announceType": "TYPE5",
       "fileName": "(법령안) 국가보훈부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11165922/SJ5TDIAZE95ZORX5NZ9F",
@@ -1311,7 +1345,7 @@
       "startDate": "2026-10-21",
       "endDate": "2026-10-28",
       "status": "종료",
-      "mappingLbicId": "2000000331704",
+      "mappingLbicId": "2000000332400",
       "announceType": "TYPE5",
       "fileName": "(법령안) 인사혁신처와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11162048/8J889GZAQDIOTYI5OW35",
