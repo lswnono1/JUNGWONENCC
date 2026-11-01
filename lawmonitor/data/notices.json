@@ -1,10 +1,10 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-10-31T12:33:58.256675+00:00",
+  "generatedAt": "2026-11-01T06:08:28.653971+00:00",
   "range": {
-    "from": "2026-04-30",
-    "to": "2027-04-30"
+    "from": "2026-05-01",
+    "to": "2027-05-01"
   },
   "requestCount": 34,
   "records": [
@@ -3749,23 +3749,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86814"
     },
     {
-      "noticeKey": "notice:86544:날짜미상",
-      "sequence": "86544",
-      "title": "하도급거래 공정화에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "공정거래위원회",
-      "noticeNo": "2026-98",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326640",
-      "announceType": "TYPE5",
-      "fileName": "하도급거래 공정화에 관한 법률 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10753436/KZY9X1W6RTY00Z16RJ9S",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86544"
-    },
-    {
       "noticeKey": "notice:87568:날짜미상",
       "sequence": "87568",
       "title": "폐기물처리시설 설치촉진 및 주변지역지원 등에 관한 법률 시행령 일부개정령안 입법예고",
@@ -3951,40 +3934,6 @@
       "fileName": "(법령안) 특허심판원 국선대리인의 선임 및 운영에 관한 규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10797930/0VUSYY7F8HPGXZA9D5ML",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86818"
-    },
-    {
-      "noticeKey": "notice:86612:날짜미상",
-      "sequence": "86612",
-      "title": "특허법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "지식재산처",
-      "noticeNo": "2026-136",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 특허법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10757016/RUF8WXEJYRYWB2YIJPYS",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86612"
-    },
-    {
-      "noticeKey": "notice:86604:날짜미상",
-      "sequence": "86604",
-      "title": "특허법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "지식재산처",
-      "noticeNo": "2026-140",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 특허법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10756966/OSQK72TMM19T4XB74012",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86604"
     },
     {
       "noticeKey": "notice:86638:날짜미상",
@@ -4990,23 +4939,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87046"
     },
     {
-      "noticeKey": "notice:87020:날짜미상",
-      "sequence": "87020",
-      "title": "지식재산처와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "지식재산처",
-      "noticeNo": "2026-168",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000327958",
-      "announceType": "TYPE5",
-      "fileName": "지식재산처와 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10837868/0PM1RDN7C4S1MWKRHW24",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87020"
-    },
-    {
       "noticeKey": "notice:87334:날짜미상",
       "sequence": "87334",
       "title": "지식재산처와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -5022,6 +4954,23 @@
       "fileName": "(법령안) 지식재산처와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10880752/ZM65HD0B7KLR6MZOSA8G",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87334"
+    },
+    {
+      "noticeKey": "notice:87020:날짜미상",
+      "sequence": "87020",
+      "title": "지식재산처와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
+      "ministry": "지식재산처",
+      "noticeNo": "2026-168",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000327958",
+      "announceType": "TYPE5",
+      "fileName": "지식재산처와 그 소속기관 직제 시행규칙 일부개정령안.hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10837868/0PM1RDN7C4S1MWKRHW24",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87020"
     },
     {
       "noticeKey": "notice:88128:날짜미상",
@@ -5160,23 +5109,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86906"
     },
     {
-      "noticeKey": "notice:86548:날짜미상",
-      "sequence": "86548",
-      "title": "지방자치단체를 당사자로 하는 계약에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-594",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 지방자치단체를 당사자로 하는 계약에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10757036/PSHFJIKQK4SS8O8R6HQL",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86548"
-    },
-    {
       "noticeKey": "notice:87130:날짜미상",
       "sequence": "87130",
       "title": "지방자치단체를 당사자로 하는 계약에 관한 법률 시행령 일부개정령안 입법예고",
@@ -5192,23 +5124,6 @@
       "fileName": "(법령안) 지방자치단체를 당사자로 하는 계약에 관한 법률 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10837434/WZ8ZU0NKMOEREWGVZUKK",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87130"
-    },
-    {
-      "noticeKey": "notice:86550:날짜미상",
-      "sequence": "86550",
-      "title": "지방자치단체를 당사자로 하는 계약에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-593",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 지방자치단체를 당사자로 하는 계약에 관한 법률 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10757050/2AJXNJ5ZQXF8WBM22BXJ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86550"
     },
     {
       "noticeKey": "notice:87044:날짜미상",
@@ -6076,23 +5991,6 @@
       "fileName": "(법령안) 주택도시기금법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11075234/J9OBSPZ1KUZ54QES1I6K",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88676"
-    },
-    {
-      "noticeKey": "notice:86552:날짜미상",
-      "sequence": "86552",
-      "title": "주택공급에 관한 규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-579",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000327102",
-      "announceType": "TYPE5",
-      "fileName": "주택공급에 관한 규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10781324/SRYXWAIZJXSSGM7OWHIW",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86552"
     },
     {
       "noticeKey": "notice:86736:날짜미상",
@@ -9597,40 +9495,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87866"
     },
     {
-      "noticeKey": "notice:86610:날짜미상",
-      "sequence": "86610",
-      "title": "실용신안법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "지식재산처",
-      "noticeNo": "2026-137",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 실용신안법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10757002/LCDLDMTNO4PVHI8FAXQJ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86610"
-    },
-    {
-      "noticeKey": "notice:86602:날짜미상",
-      "sequence": "86602",
-      "title": "실용신안법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "지식재산처",
-      "noticeNo": "2026-141",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 실용신안법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10756942/54WD3AXHFHRM6JEL28KF",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86602"
-    },
-    {
       "noticeKey": "notice:87846:날짜미상",
       "sequence": "87846",
       "title": "실내공기질 관리법 시행령 일부개정령안 입법예고",
@@ -11057,23 +10921,6 @@
       "fileName": "(법령안) 상훈법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11035806/4JLKQFF88215HNREK0VZ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88362"
-    },
-    {
-      "noticeKey": "notice:86608:날짜미상",
-      "sequence": "86608",
-      "title": "상표법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "지식재산처",
-      "noticeNo": "2026-138",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 상표법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10756990/BZEKGBDM14NVDRWK7A63",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86608"
     },
     {
       "noticeKey": "notice:86860:날짜미상",
@@ -13116,23 +12963,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87634"
     },
     {
-      "noticeKey": "notice:87636:날짜미상",
-      "sequence": "87636",
-      "title": "민간임대주택에 관한 특별법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-936",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 민간임대주택에 관한 특별법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10911106/CQ6M07TDVWJ3ZPJF868B",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87636"
-    },
-    {
       "noticeKey": "notice:87388:날짜미상",
       "sequence": "87388",
       "title": "민간임대주택에 관한 특별법 시행규칙 일부개정령안 입법예고",
@@ -13150,38 +12980,21 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87388"
     },
     {
-      "noticeKey": "notice:86620:날짜미상",
-      "sequence": "86620",
-      "title": "미술진흥법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "문화체육관광부",
-      "noticeNo": "2026-162",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000327856",
-      "announceType": "TYPE5",
-      "fileName": "미술진흥법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10827372/TGF6ZTXKS957QJ6YVZDH",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86620"
-    },
-    {
-      "noticeKey": "notice:86618:날짜미상",
-      "sequence": "86618",
-      "title": "미술진흥법 시행규칙 제정령안 입법예고",
+      "noticeKey": "notice:87636:날짜미상",
+      "sequence": "87636",
+      "title": "민간임대주택에 관한 특별법 시행규칙 일부개정령안 입법예고",
       "lawClass": "부령",
-      "ministry": "문화체육관광부",
-      "noticeNo": "2026-163",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-936",
       "announcedDate": "",
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "2000000327862",
+      "mappingLbicId": "0",
       "announceType": "TYPE5",
-      "fileName": "미술진흥법 시행규칙안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10827490/FEMY32RIG7XPXCGVUUJN",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86618"
+      "fileName": "(법령안) 민간임대주택에 관한 특별법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10911106/CQ6M07TDVWJ3ZPJF868B",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87636"
     },
     {
       "noticeKey": "notice:88238:날짜미상",
@@ -13388,6 +13201,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87978"
     },
     {
+      "noticeKey": "notice:87396:날짜미상",
+      "sequence": "87396",
+      "title": "문화체육관광부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "문화체육관광부",
+      "noticeNo": "2026-255",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000328776",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 문화체육관광부와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10880584/FMP4C55IXMJPADRKPJMU",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87396"
+    },
+    {
       "noticeKey": "notice:87014:날짜미상",
       "sequence": "87014",
       "title": "문화체육관광부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -13420,23 +13250,6 @@
       "fileName": "(법령안) 문화체육관광부와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10883018/PPZE8XE3R7QMA7SH9TCH",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87416"
-    },
-    {
-      "noticeKey": "notice:87396:날짜미상",
-      "sequence": "87396",
-      "title": "문화체육관광부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "문화체육관광부",
-      "noticeNo": "2026-255",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000328776",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 문화체육관광부와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10880584/FMP4C55IXMJPADRKPJMU",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87396"
     },
     {
       "noticeKey": "notice:88072:날짜미상",
@@ -13675,40 +13488,6 @@
       "fileName": "(법령안) 마약류 관리에 관한 법률 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10834462/UO2PZULRYLMDVPIX5ATH",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87064"
-    },
-    {
-      "noticeKey": "notice:86606:날짜미상",
-      "sequence": "86606",
-      "title": "디자인보호법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "지식재산처",
-      "noticeNo": "2026-139",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 디자인보호법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10756982/HMFB09VBNQWNQ77RNGNB",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86606"
-    },
-    {
-      "noticeKey": "notice:86600:날짜미상",
-      "sequence": "86600",
-      "title": "디자인보호법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "지식재산처",
-      "noticeNo": "2026-142",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 디자인보호법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10756816/I5C2S04E5IDA9LS5629L",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86600"
     },
     {
       "noticeKey": "notice:87816:날짜미상",
@@ -14170,23 +13949,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87030"
     },
     {
-      "noticeKey": "notice:86614:날짜미상",
-      "sequence": "86614",
-      "title": "대한민국재향군인회법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국가보훈부",
-      "noticeNo": "2026-127",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 대한민국재향군인회법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10756908/DX03MXIHQ9ZFADCCJ6IH",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86614"
-    },
-    {
       "noticeKey": "notice:88296:날짜미상",
       "sequence": "88296",
       "title": "대통령기록물 관리에 관한 법률 시행령 일부개정령안 입법예고",
@@ -14323,40 +14085,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88070"
     },
     {
-      "noticeKey": "notice:86594:날짜미상",
-      "sequence": "86594",
-      "title": "대기환경보전법시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-405",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000327094",
-      "announceType": "TYPE5",
-      "fileName": "대기환경보전법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10781448/Z8S8JMTFGP0DTNCJX6DI",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86594"
-    },
-    {
-      "noticeKey": "notice:86596:날짜미상",
-      "sequence": "86596",
-      "title": "대기환경보전법시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-405",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326642",
-      "announceType": "TYPE5",
-      "fileName": "대기환경보전법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10753608/VN5U4P9C7WKCHA9ZEPC8",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86596"
-    },
-    {
       "noticeKey": "notice:87888:날짜미상",
       "sequence": "87888",
       "title": "대기환경보전법 시행령 일부개정령안 입법예고",
@@ -14457,23 +14185,6 @@
       "fileName": "(법령안) 대기환경보전법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10914654/BPIH17K9QDHL1TCW31NJ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87702"
-    },
-    {
-      "noticeKey": "notice:86546:날짜미상",
-      "sequence": "86546",
-      "title": "대규모유통업에서의 거래 공정화에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "공정거래위원회",
-      "noticeNo": "2026-90",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 대규모유통업에서의 거래 공정화에 관한 법률 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10756898/A31K9XGOB0Y9HFF3ER6C",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86546"
     },
     {
       "noticeKey": "notice:88308:날짜미상",
@@ -15987,23 +15698,6 @@
       "fileName": "(법령안) 군검찰 사건사무규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11045216/NK4WIOF8O796CP58QQJB",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88440"
-    },
-    {
-      "noticeKey": "notice:86598:날짜미상",
-      "sequence": "86598",
-      "title": "군 장려금 지급규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국방부",
-      "noticeNo": "2026-190",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 군 장려금 지급규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10757600/SYTQHQSWEII01ZSGH9ZX",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86598"
     },
     {
       "noticeKey": "notice:87320:날짜미상",
@@ -20305,23 +19999,6 @@
       "fileName": "가습기살균제 피해구제를 위한 특별법 시행규칙 전부개정령안.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10810160/IMS7TWU9L0RY89D5NTG8",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86984"
-    },
-    {
-      "noticeKey": "notice:86616:날짜미상",
-      "sequence": "86616",
-      "title": "가맹사업거래의 공정화에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "공정거래위원회",
-      "noticeNo": "2026-100",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326754",
-      "announceType": "TYPE5",
-      "fileName": "가맹사업거래의 공정화에 관한 법률 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10757688/U0TXKNRQ0KJYT3CHCM1L",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86616"
     },
     {
       "noticeKey": "notice:87926:날짜미상",
