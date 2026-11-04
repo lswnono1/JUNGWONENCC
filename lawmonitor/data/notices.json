@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-11-04T06:25:56.508237+00:00",
+  "generatedAt": "2026-11-04T19:47:02.420298+00:00",
   "range": {
     "from": "2026-05-04",
     "to": "2027-05-04"
@@ -24,6 +24,23 @@
       "fileName": "(법령안) 통일부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11186166/JJCOZN90R83EGRGPGMJJ",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89264"
+    },
+    {
+      "noticeKey": "notice:89230:2026-10-30",
+      "sequence": "89230",
+      "title": "국방부와 그 소속기관 직제 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-1315",
+      "announcedDate": "2026-10-30",
+      "startDate": "2026-10-30",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국방부와 그 소속기관 직제 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11185970/SAVG8YBPBI8SNYMOGSX7",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89230"
     },
     {
       "noticeKey": "notice:89224:2026-10-30",
@@ -213,23 +230,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89266"
     },
     {
-      "noticeKey": "notice:89230:2026-10-30",
-      "sequence": "89230",
-      "title": "[진행]국방부와 그 소속기관 직제 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-1315",
-      "announcedDate": "2026-10-30",
-      "startDate": "2026-10-30",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국방부와 그 소속기관 직제 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11185970/SAVG8YBPBI8SNYMOGSX7",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89230"
-    },
-    {
       "noticeKey": "notice:89258:2026-10-30",
       "sequence": "89258",
       "title": "[진행]국민기초생활 보장법 시행령 일부개정령안 입법예고",
@@ -274,7 +274,7 @@
       "startDate": "2026-10-29",
       "endDate": "2026-11-13",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000332274",
       "announceType": "TYPE5",
       "fileName": "(법령안) 항공안전법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11184046/GE6L66DXCT89GF0LYA02",
@@ -296,6 +296,23 @@
       "fileName": "(법령안) 공항시설법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11184624/BT8C25SIRIO6WNUEG9UP",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89222"
+    },
+    {
+      "noticeKey": "notice:89234:2026-10-28",
+      "sequence": "89234",
+      "title": "가축전염병 예방법 일부개정법률안 재입법예고",
+      "lawClass": "법률",
+      "ministry": "농림축산식품부",
+      "noticeNo": "2026-553",
+      "announcedDate": "2026-10-28",
+      "startDate": "2026-10-28",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "0",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 가축전염병 예방법 일부개정법률(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11182276/4SFH0R94ONSQJUVAHPDH",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89234"
     },
     {
       "noticeKey": "notice:89238:2026-10-28",
@@ -415,23 +432,6 @@
       "fileName": "(법령안) 건축법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11183876/9T53IL70JJ3DQ9JLJWIE",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89242"
-    },
-    {
-      "noticeKey": "notice:89234:2026-10-28",
-      "sequence": "89234",
-      "title": "[진행]가축전염병 예방법 일부개정법률안 재입법예고",
-      "lawClass": "법률",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-553",
-      "announcedDate": "2026-10-28",
-      "startDate": "2026-10-28",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 가축전염병 예방법 일부개정법률(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11182276/4SFH0R94ONSQJUVAHPDH",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89234"
     },
     {
       "noticeKey": "notice:89216:2026-10-27",
@@ -580,7 +580,7 @@
       "startDate": "2026-10-26",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000332212",
       "announceType": "TYPE5",
       "fileName": "(법령안) 항공안전법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11172290/2J0QMEKWNX62JOQXFPV4",
@@ -11783,7 +11783,7 @@
       "startDate": "",
       "endDate": "2026-10-12",
       "status": "종료",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000330344",
       "announceType": "TYPE5",
       "fileName": "(법령안) 사회적기업 육성법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11075938/X7OM50MRHXWL9561Y2Y1",
@@ -21065,7 +21065,7 @@
       "startDate": "",
       "endDate": "",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000332498",
       "announceType": "TYPE5",
       "fileName": "(법령안) 정부청사관리규정 일부개정령(안)#2.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11198074/0CZ53HKJKDTRUW9P2V23",
