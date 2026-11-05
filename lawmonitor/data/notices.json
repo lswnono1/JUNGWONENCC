@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-11-05T06:49:37.858221+00:00",
+  "generatedAt": "2026-11-05T19:59:01.572616+00:00",
   "range": {
     "from": "2026-05-05",
     "to": "2027-05-05"
@@ -427,7 +427,7 @@
       "startDate": "2026-10-28",
       "endDate": "2026-12-11",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000332094",
       "announceType": "TYPE5",
       "fileName": "(법령안) 건축법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11183876/9T53IL70JJ3DQ9JLJWIE",
@@ -21016,8 +21016,8 @@
       "status": "진행 중",
       "mappingLbicId": "2000000332606",
       "announceType": "TYPE5",
-      "fileName": "(법령안) 지방행정제재ㆍ부과금의 징수 등에 관한 법률 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11202530/Z5A0GVOKKV3VGBSXCWCQ",
+      "fileName": "(법령안) 지방행정제재ㆍ부과금의 징수 등에 관한 법률 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11207420/K335VB72JY7X2OI9ZGTL",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89312"
     },
     {
