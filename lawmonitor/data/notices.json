@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-11-06T06:49:57.136753+00:00",
+  "generatedAt": "2026-11-06T19:27:10.254704+00:00",
   "range": {
     "from": "2026-05-06",
     "to": "2027-05-06"
@@ -2440,6 +2440,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88960"
     },
     {
+      "noticeKey": "notice:88952:2026-10-12",
+      "sequence": "88952",
+      "title": "공항시설법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "국토교통부",
+      "noticeNo": "2026-1281",
+      "announcedDate": "2026-10-12",
+      "startDate": "2026-10-12",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000332340",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 공항시설법 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11136764/LDM84169X5Z1MG2EAFXX",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88952"
+    },
+    {
       "noticeKey": "notice:88950:2026-10-12",
       "sequence": "88950",
       "title": "고위공직자범죄수사처 검사복무평정규칙안 입법예고",
@@ -2523,23 +2540,6 @@
       "fileName": "(법령안) 국가연구개발혁신법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11141096/37JH5TMYLTOP1KWHTHL9",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88998"
-    },
-    {
-      "noticeKey": "notice:88952:2026-10-12",
-      "sequence": "88952",
-      "title": "[진행]공항시설법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-1281",
-      "announcedDate": "2026-10-12",
-      "startDate": "2026-10-12",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000332340",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 공항시설법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11136764/LDM84169X5Z1MG2EAFXX",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88952"
     },
     {
       "noticeKey": "notice:88964:2026-10-12",
@@ -21014,7 +21014,7 @@
       "startDate": "",
       "endDate": "2026-12-16",
       "status": "진행 중",
-      "mappingLbicId": "0",
+      "mappingLbicId": "2000000332670",
       "announceType": "TYPE5",
       "fileName": "(법령안) 철도산업발전기본법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11205380/5VTJBORKZZ17KD2O9K9R",
