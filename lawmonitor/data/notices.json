@@ -1,12 +1,12 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-11-06T19:27:10.254704+00:00",
+  "generatedAt": "2026-11-07T06:00:51.631257+00:00",
   "range": {
-    "from": "2026-05-06",
-    "to": "2027-05-06"
+    "from": "2026-05-07",
+    "to": "2027-05-07"
   },
-  "requestCount": 34,
+  "requestCount": 33,
   "records": [
     {
       "noticeKey": "notice:89264:2026-10-30",
@@ -3222,23 +3222,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87140"
     },
     {
-      "noticeKey": "notice:88360:날짜미상",
-      "sequence": "88360",
-      "title": "해양수산부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "해양수산부",
-      "noticeNo": "2026-1292",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330944",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 해양수산부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11034590/W7TCRA7UWES1N8WFY739",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88360"
-    },
-    {
       "noticeKey": "notice:87990:날짜미상",
       "sequence": "87990",
       "title": "해양수산부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -3254,6 +3237,23 @@
       "fileName": "(법령안) 해양수산부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10973350/DOPC3ACDGLE0N7WNS3SP",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87990"
+    },
+    {
+      "noticeKey": "notice:88360:날짜미상",
+      "sequence": "88360",
+      "title": "해양수산부와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "해양수산부",
+      "noticeNo": "2026-1292",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330944",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 해양수산부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11034590/W7TCRA7UWES1N8WFY739",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88360"
     },
     {
       "noticeKey": "notice:88144:날짜미상",
@@ -3477,23 +3477,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88130"
     },
     {
-      "noticeKey": "notice:86582:날짜미상",
-      "sequence": "86582",
-      "title": "항공안전법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-631",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326676",
-      "announceType": "TYPE5",
-      "fileName": "항공안전법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10757112/IFLVMWFBQ3LWL189AMH8",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86582"
-    },
-    {
       "noticeKey": "notice:88644:날짜미상",
       "sequence": "88644",
       "title": "항공안전법 시행령 일부개정령안 입법예고",
@@ -3526,23 +3509,6 @@
       "fileName": "(법령안) 항공안전법 시행령 일부개정령(안)#2.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11070458/ARIR0E3EG5ECJJH3308R",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88598"
-    },
-    {
-      "noticeKey": "notice:86580:날짜미상",
-      "sequence": "86580",
-      "title": "항공안전법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-632",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326720",
-      "announceType": "TYPE5",
-      "fileName": "항공안전법 시행규칙 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10757330/BTAU5J6QRKU78NJYZEK6",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86580"
     },
     {
       "noticeKey": "notice:87384:날짜미상",
@@ -3968,23 +3934,6 @@
       "fileName": "(법령안) 특허심판원 국선대리인의 선임 및 운영에 관한 규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10797930/0VUSYY7F8HPGXZA9D5ML",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86818"
-    },
-    {
-      "noticeKey": "notice:86638:날짜미상",
-      "sequence": "86638",
-      "title": "특수임무유공자 예우 및 단체설립에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국가보훈부",
-      "noticeNo": "2026-142",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 특수임무유공자 예우 및 단체설립에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764388/L9ZWHRGFW4ASG6OXVIYH",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86638"
     },
     {
       "noticeKey": "notice:88816:날짜미상",
@@ -6452,23 +6401,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88686"
     },
     {
-      "noticeKey": "notice:86636:날짜미상",
-      "sequence": "86636",
-      "title": "제대군인지원에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국가보훈부",
-      "noticeNo": "2026-143",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 제대군인지원에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764386/EOKKAG64UAFLEG31X3RT",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86636"
-    },
-    {
       "noticeKey": "notice:87018:날짜미상",
       "sequence": "87018",
       "title": "제대군인지원에 관한 법률 시행령 일부개정령안 입법예고",
@@ -7982,23 +7914,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87642"
     },
     {
-      "noticeKey": "notice:86578:날짜미상",
-      "sequence": "86578",
-      "title": "인신매매등방지 및 피해자보호 등에 관한 법률 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "성평등가족부",
-      "noticeNo": "2026-77",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 인신매매등방지 및 피해자보호 등에 관한 법률 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10762908/N1Y22QMI580GJIZO8ZXQ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86578"
-    },
-    {
       "noticeKey": "notice:88346:날짜미상",
       "sequence": "88346",
       "title": "인사혁신처와 그 소속기관 직제 일부개정령안 입법예고",
@@ -8033,23 +7948,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87330"
     },
     {
-      "noticeKey": "notice:88366:날짜미상",
-      "sequence": "88366",
-      "title": "인사혁신처와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "인사혁신처",
-      "noticeNo": "2026-470",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000330334",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 인사혁신처와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11038548/3G7Z0E9YIQVY01HQ8URD",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88366"
-    },
-    {
       "noticeKey": "notice:88044:날짜미상",
       "sequence": "88044",
       "title": "인사혁신처와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
@@ -8065,6 +7963,23 @@
       "fileName": "(법령안) 인사혁신처와 그 소속기관 직제 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10973566/ZPLH8HNLR3X7YRZSLUU9",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88044"
+    },
+    {
+      "noticeKey": "notice:88366:날짜미상",
+      "sequence": "88366",
+      "title": "인사혁신처와 그 소속기관 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
+      "ministry": "인사혁신처",
+      "noticeNo": "2026-470",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000330334",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 인사혁신처와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11038548/3G7Z0E9YIQVY01HQ8URD",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88366"
     },
     {
       "noticeKey": "notice:88582:날짜미상",
@@ -8560,6 +8475,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88132"
     },
     {
+      "noticeKey": "notice:88002:날짜미상",
+      "sequence": "88002",
+      "title": "원자력안전법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "원자력안전위원회",
+      "noticeNo": "2026-73",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329604",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 원자력안전법 시행령 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974606/8BLA704A1P1AVQ6S5BN7",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88002"
+    },
+    {
       "noticeKey": "notice:87800:날짜미상",
       "sequence": "87800",
       "title": "원자력안전법 시행령 일부개정령안 입법예고",
@@ -8594,23 +8526,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87648"
     },
     {
-      "noticeKey": "notice:88002:날짜미상",
-      "sequence": "88002",
-      "title": "원자력안전법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "원자력안전위원회",
-      "noticeNo": "2026-73",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329604",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 원자력안전법 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10974606/8BLA704A1P1AVQ6S5BN7",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88002"
-    },
-    {
       "noticeKey": "notice:88684:날짜미상",
       "sequence": "88684",
       "title": "원자력안전법 시행령 일부개정령안 입법예고",
@@ -8626,6 +8541,23 @@
       "fileName": "(법령안) 원자력안전법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11079752/PXZ8U801SFU0FB5TM7D2",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88684"
+    },
+    {
+      "noticeKey": "notice:88000:날짜미상",
+      "sequence": "88000",
+      "title": "원자력안전법 시행규칙 일부개정령안 입법예고",
+      "lawClass": "총리령",
+      "ministry": "원자력안전위원회",
+      "noticeNo": "2026-74",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329616",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).pdf",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10973626/ECZWNPX5W4P5L3N2DF55",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88000"
     },
     {
       "noticeKey": "notice:87798:날짜미상",
@@ -8660,23 +8592,6 @@
       "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10928232/OLWZHCPEHJ4SJ395YVVA",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87726"
-    },
-    {
-      "noticeKey": "notice:88000:날짜미상",
-      "sequence": "88000",
-      "title": "원자력안전법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "총리령",
-      "ministry": "원자력안전위원회",
-      "noticeNo": "2026-74",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329616",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 원자력안전법 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10973626/ECZWNPX5W4P5L3N2DF55",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88000"
     },
     {
       "noticeKey": "notice:88682:날짜미상",
@@ -9427,23 +9342,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88510"
     },
     {
-      "noticeKey": "notice:86588:날짜미상",
-      "sequence": "86588",
-      "title": "어린이 식생활안전관리 특별법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "식품의약품안전처",
-      "noticeNo": "2026-217",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326806",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 어린이 식생활안전관리 특별법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764278/MDG6FMFFBY1T7F7LJV51",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86588"
-    },
-    {
       "noticeKey": "notice:87380:날짜미상",
       "sequence": "87380",
       "title": "양육비 이행확보 및 지원에 관한 법률 시행령 일부개정령안 재입법예고",
@@ -9748,23 +9646,6 @@
       "fileName": "(법령안) 실내공기질 관리법 시행령 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10954754/PPH7M6GI90IGSYW554P4",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87846"
-    },
-    {
-      "noticeKey": "notice:86584:날짜미상",
-      "sequence": "86584",
-      "title": "실내공기질 관리법 시행규칙 일부개정령안 재입법예고",
-      "lawClass": "부령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-455",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 실내공기질 관리법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764282/G51ZNBWNO7UXV0BEUT4S",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86584"
     },
     {
       "noticeKey": "notice:87844:날짜미상",
@@ -10413,23 +10294,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87324"
     },
     {
-      "noticeKey": "notice:86586:날짜미상",
-      "sequence": "86586",
-      "title": "송·변전설비 주변지역의 보상 및 지원에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "기후에너지환경부",
-      "noticeNo": "2026-445",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326138",
-      "announceType": "TYPE5",
-      "fileName": "송ㆍ변전설비 주변지역의 보상 및 지원에 관한 법률 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10716668/HKOCX5IWM3CT8I7LC0A7",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86586"
-    },
-    {
       "noticeKey": "notice:87780:날짜미상",
       "sequence": "87780",
       "title": "소형모듈원자로 개발 촉진 및 지원에 관한 특별법 시행령 제정령안 입법예고",
@@ -10804,23 +10668,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87470"
     },
     {
-      "noticeKey": "notice:88334:날짜미상",
-      "sequence": "88334",
-      "title": "성평등가족부 직제 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "성평등가족부",
-      "noticeNo": "2026-150",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000331110",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 성평등가족부 직제 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11039112/KZCYS503O4Q70TKMDGYL",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88334"
-    },
-    {
       "noticeKey": "notice:87992:날짜미상",
       "sequence": "87992",
       "title": "성평등가족부 직제 시행규칙 일부개정령안 입법예고",
@@ -10836,6 +10683,23 @@
       "fileName": "(법령안) 성평등가족부 직제 시행규칙 일부개정령(안).pdf",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10973458/2XMO8ADUYM06NOG8540R",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87992"
+    },
+    {
+      "noticeKey": "notice:88334:날짜미상",
+      "sequence": "88334",
+      "title": "성평등가족부 직제 시행규칙 일부개정령안 입법예고",
+      "lawClass": "부령",
+      "ministry": "성평등가족부",
+      "noticeNo": "2026-150",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000331110",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 성평등가족부 직제 시행규칙 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11039112/KZCYS503O4Q70TKMDGYL",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88334"
     },
     {
       "noticeKey": "notice:87216:날짜미상",
@@ -12230,23 +12094,6 @@
       "fileName": "(법령안) 복권 및 복권기금법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10826970/T9DFY4Q7EY2UVPD0OOUL",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87006"
-    },
-    {
-      "noticeKey": "notice:86632:날짜미상",
-      "sequence": "86632",
-      "title": "보훈보상대상자 지원에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국가보훈부",
-      "noticeNo": "2026-139",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 보훈보상대상자 지원에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764462/8UIXHS4Y4P14Z7O7AMP3",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86632"
     },
     {
       "noticeKey": "notice:88752:날짜미상",
@@ -13930,23 +13777,6 @@
       "fileName": "(법령안) 독일, 프랑스, 노르웨이 및 스웨덴산 폴리염화비닐 페이스트 수지에 대한 덤핑방지관세 부과에 관한 규칙 제정(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10902310/RUGEF6TADYDMNFRS6J92",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87546"
-    },
-    {
-      "noticeKey": "notice:86674:날짜미상",
-      "sequence": "86674",
-      "title": "독립유공자예우에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국가보훈부",
-      "noticeNo": "2026-138",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 독립유공자예우에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764470/U1PH61CB3H37G9KXITT4",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86674"
     },
     {
       "noticeKey": "notice:88166:날짜미상",
@@ -16040,23 +15870,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86806"
     },
     {
-      "noticeKey": "notice:86634:날짜미상",
-      "sequence": "86634",
-      "title": "군무원인사법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국방부",
-      "noticeNo": "2026-174",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326268",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 군무원인사법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764484/SLFEJRHYXN4BU14DC0CN",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86634"
-    },
-    {
       "noticeKey": "notice:88404:날짜미상",
       "sequence": "88404",
       "title": "군검찰 압수물 사무규칙 일부개정령안 입법예고",
@@ -16669,23 +16482,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87270"
     },
     {
-      "noticeKey": "notice:87840:날짜미상",
-      "sequence": "87840",
-      "title": "국방부와 그 소속기관 직제 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "행정안전부",
-      "noticeNo": "2026-906",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000329160",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국방부와 그 소속기관 직제 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10952820/YDK73CX9AEUTSY0UFMJG",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87840"
-    },
-    {
       "noticeKey": "notice:87998:날짜미상",
       "sequence": "87998",
       "title": "국방부와 그 소속기관 직제 일부개정령안 입법예고",
@@ -16701,6 +16497,23 @@
       "fileName": "(법령안) 국방부와 그 소속기관 직제 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10974578/59NGCXK4OLUWONJ3DRLX",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87998"
+    },
+    {
+      "noticeKey": "notice:87840:날짜미상",
+      "sequence": "87840",
+      "title": "국방부와 그 소속기관 직제 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "행정안전부",
+      "noticeNo": "2026-906",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000329160",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 국방부와 그 소속기관 직제 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10952820/YDK73CX9AEUTSY0UFMJG",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87840"
     },
     {
       "noticeKey": "notice:87920:날짜미상",
@@ -17262,23 +17075,6 @@
       "fileName": "(법령안) 국가유공자 예우 및 지원에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11092764/IFO64DDMB98JQPL41U2T",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88834"
-    },
-    {
-      "noticeKey": "notice:86676:날짜미상",
-      "sequence": "86676",
-      "title": "국가유공자 등 예우 및 지원에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국가보훈부",
-      "noticeNo": "2026-137",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 국가유공자 등 예우 및 지원에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764476/XS6UXRMS9BFQ716UWQ46",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86676"
     },
     {
       "noticeKey": "notice:86820:날짜미상",
@@ -18420,23 +18216,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86880"
     },
     {
-      "noticeKey": "notice:86678:날짜미상",
-      "sequence": "86678",
-      "title": "공연법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "문화체육관광부",
-      "noticeNo": "2026-176",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 공연법 시행규칙 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10762940/Z0CCZP99JHCDEKSWF7R4",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86678"
-    },
-    {
       "noticeKey": "notice:88620:날짜미상",
       "sequence": "88620",
       "title": "공소청법및중대범죄수사청 조직 및 운영에 관한 법률의 제정에 따른 6개 법령의 일부개정에 관한 행정안전부령안 입법예고",
@@ -19251,23 +19030,6 @@
       "fileName": "(법령안) 고용노동부와 그 소속기관 직제 시행규칙 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10987334/WIK0CD9AK9VGEWC2R57P",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88092"
-    },
-    {
-      "noticeKey": "notice:86630:날짜미상",
-      "sequence": "86630",
-      "title": "고엽제후유의증 등 환자지원 및 단체설립에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국가보훈부",
-      "noticeNo": "2026-140",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 고엽제후유의증 등 환자지원 및 단체설립에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764454/T44ZDSQD11YRHABDL4HZ",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86630"
     },
     {
       "noticeKey": "notice:88208:날짜미상",
@@ -22651,23 +22413,6 @@
       "fileName": "(법령안) 119구조·구급에 관한 법률 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11205252/9CA05DMKUSEGWB3MWCXH",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/89378"
-    },
-    {
-      "noticeKey": "notice:86628:날짜미상",
-      "sequence": "86628",
-      "title": "5ㆍ18민주유공자예우 및 단체설립에 관한 법률 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국가보훈부",
-      "noticeNo": "2026-141",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 5ㆍ18민주유공자예우 및 단체설립에 관한 법률 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10764448/S11IY6XC8VHHZ8IDWHZE",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86628"
     },
     {
       "noticeKey": "notice:88814:날짜미상",
