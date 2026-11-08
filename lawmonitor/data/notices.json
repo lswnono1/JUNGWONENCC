@@ -1,10 +1,10 @@
 {
   "status": "ready",
   "source": "국민참여입법센터 공식 API",
-  "generatedAt": "2026-11-07T13:04:40.371880+00:00",
+  "generatedAt": "2026-11-08T06:04:31.480955+00:00",
   "range": {
-    "from": "2026-05-07",
-    "to": "2027-05-07"
+    "from": "2026-05-08",
+    "to": "2027-05-08"
   },
   "requestCount": 33,
   "records": [
@@ -7693,40 +7693,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88710"
     },
     {
-      "noticeKey": "notice:86680:날짜미상",
-      "sequence": "86680",
-      "title": "자동차등록령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-645",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326804",
-      "announceType": "TYPE5",
-      "fileName": "자동차등록령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10761784/YDY8IVBZDPLDRY75ZYIN",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86680"
-    },
-    {
-      "noticeKey": "notice:86682:날짜미상",
-      "sequence": "86682",
-      "title": "자동차관리법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "국토교통부",
-      "noticeNo": "2026-644",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000326794",
-      "announceType": "TYPE5",
-      "fileName": "자동차관리법 시행령 일부개정령안.hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10758852/JYBQRLCVEYLJ7VF5DZZF",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86682"
-    },
-    {
       "noticeKey": "notice:87094:날짜미상",
       "sequence": "87094",
       "title": "자동차관리법 시행규칙 일부개정령안 입법예고",
@@ -8339,23 +8305,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88458"
     },
     {
-      "noticeKey": "notice:87872:날짜미상",
-      "sequence": "87872",
-      "title": "유아교육법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "교육부",
-      "noticeNo": "2026-309",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "2000000332124",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 유아교육법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10957554/VY749W94LLR6MQUH1ZJ5",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87872"
-    },
-    {
       "noticeKey": "notice:87530:날짜미상",
       "sequence": "87530",
       "title": "유아교육법 시행령 일부개정령안 입법예고",
@@ -8371,6 +8320,23 @@
       "fileName": "(법령안) 유아교육법 시행령 일부개정령(안)#2.hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10896576/220ZP3JVYGUU3ILTJTFS",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87530"
+    },
+    {
+      "noticeKey": "notice:87872:날짜미상",
+      "sequence": "87872",
+      "title": "유아교육법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "교육부",
+      "noticeNo": "2026-309",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "",
+      "status": "진행 중",
+      "mappingLbicId": "2000000332124",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 유아교육법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/10957554/VY749W94LLR6MQUH1ZJ5",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87872"
     },
     {
       "noticeKey": "notice:86930:날짜미상",
@@ -9427,23 +9393,6 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87036"
     },
     {
-      "noticeKey": "notice:86686:날짜미상",
-      "sequence": "86686",
-      "title": "양곡관리법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-276",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 양곡관리법 시행령 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10765716/SQ4U0GWERBYR37QYLA2P",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86686"
-    },
-    {
       "noticeKey": "notice:87108:날짜미상",
       "sequence": "87108",
       "title": "양곡관리법 시행령 일부개정령안 입법예고",
@@ -9459,23 +9408,6 @@
       "fileName": "(법령안) 양곡관리법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/10846386/JQQKC2UX06PEEBMCGVO4",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/87108"
-    },
-    {
-      "noticeKey": "notice:86684:날짜미상",
-      "sequence": "86684",
-      "title": "양곡관리법 시행규칙 일부개정령안 입법예고",
-      "lawClass": "부령",
-      "ministry": "농림축산식품부",
-      "noticeNo": "2026-277",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "",
-      "status": "진행 중",
-      "mappingLbicId": "0",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 양곡관리법 시행규칙 일부개정령(안).pdf",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/10765732/F68VUWYFDA748VDHYW3K",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/86684"
     },
     {
       "noticeKey": "notice:87760:날짜미상",
@@ -19032,6 +18964,23 @@
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88092"
     },
     {
+      "noticeKey": "notice:88442:날짜미상",
+      "sequence": "88442",
+      "title": "고등교육법 시행령 일부개정령안 입법예고",
+      "lawClass": "대통령령",
+      "ministry": "교육부",
+      "noticeNo": "2026-348",
+      "announcedDate": "",
+      "startDate": "",
+      "endDate": "2026-10-19",
+      "status": "종료",
+      "mappingLbicId": "2000000330348",
+      "announceType": "TYPE5",
+      "fileName": "(법령안) 고등교육법 시행령 일부개정령(안).hwpx",
+      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045868/SNVN016M1S9IXF3KN6SV",
+      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88442"
+    },
+    {
       "noticeKey": "notice:88208:날짜미상",
       "sequence": "88208",
       "title": "고등교육법 시행령 일부개정령안 입법예고",
@@ -19081,23 +19030,6 @@
       "fileName": "(법령안) 고등교육법 시행령 일부개정령(안).hwpx",
       "fileUrl": "http://www.lawmaking.go.kr/file/download/11058132/WTZSI8RVDKL3UTB03IDU",
       "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88578"
-    },
-    {
-      "noticeKey": "notice:88442:날짜미상",
-      "sequence": "88442",
-      "title": "고등교육법 시행령 일부개정령안 입법예고",
-      "lawClass": "대통령령",
-      "ministry": "교육부",
-      "noticeNo": "2026-348",
-      "announcedDate": "",
-      "startDate": "",
-      "endDate": "2026-10-19",
-      "status": "종료",
-      "mappingLbicId": "2000000330348",
-      "announceType": "TYPE5",
-      "fileName": "(법령안) 고등교육법 시행령 일부개정령(안).hwpx",
-      "fileUrl": "http://www.lawmaking.go.kr/file/download/11045868/SNVN016M1S9IXF3KN6SV",
-      "officialUrl": "https://opinion.lawmaking.go.kr/gcom/ogLmPp/88442"
     },
     {
       "noticeKey": "notice:88444:날짜미상",
